@@ -10,6 +10,11 @@
 		303520621C88EB3500436351 /* MHAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 303520611C88EB3500436351 /* MHAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		303520BB1C88EDCC00436351 /* MHAppKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520BA1C88EDCC00436351 /* MHAppKitTests.swift */; };
 		303520BD1C88EDCC00436351 /* MHAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3035205E1C88EB3500436351 /* MHAppKit.framework */; };
+		303520F61C88EF2800436351 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F11C88EF2800436351 /* TextView.swift */; };
+		303520F71C88EF2800436351 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F21C88EF2800436351 /* TableViewCell.swift */; };
+		303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F31C88EF2800436351 /* BadgeLabel.swift */; };
+		303520F91C88EF2800436351 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F41C88EF2800436351 /* Label.swift */; };
+		303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F51C88EF2800436351 /* ExtendedHitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +36,11 @@
 		303520B81C88EDCC00436351 /* MHAppKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHAppKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		303520BA1C88EDCC00436351 /* MHAppKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHAppKitTests.swift; sourceTree = "<group>"; };
 		303520BC1C88EDCC00436351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		303520F11C88EF2800436351 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		303520F21C88EF2800436351 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		303520F31C88EF2800436351 /* BadgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
+		303520F41C88EF2800436351 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		303520F51C88EF2800436351 /* ExtendedHitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedHitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 		303520601C88EB3500436351 /* MHAppKit */ = {
 			isa = PBXGroup;
 			children = (
+				303520F01C88EF1700436351 /* Views */,
 				303520611C88EB3500436351 /* MHAppKit.h */,
 				303520631C88EB3500436351 /* Info.plist */,
 			);
@@ -88,6 +99,18 @@
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
+			sourceTree = "<group>";
+		};
+		303520F01C88EF1700436351 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				303520F41C88EF2800436351 /* Label.swift */,
+				303520F31C88EF2800436351 /* BadgeLabel.swift */,
+				303520F11C88EF2800436351 /* TextView.swift */,
+				303520F21C88EF2800436351 /* TableViewCell.swift */,
+				303520F51C88EF2800436351 /* ExtendedHitView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */,
+				303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */,
+				303520F61C88EF2800436351 /* TextView.swift in Sources */,
+				303520F91C88EF2800436351 /* Label.swift in Sources */,
+				303520F71C88EF2800436351 /* TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +340,7 @@
 		303520671C88EB3500436351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -322,12 +351,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		303520681C88EB3500436351 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
