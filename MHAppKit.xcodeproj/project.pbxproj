@@ -15,6 +15,19 @@
 		303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F31C88EF2800436351 /* BadgeLabel.swift */; };
 		303520F91C88EF2800436351 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F41C88EF2800436351 /* Label.swift */; };
 		303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520F51C88EF2800436351 /* ExtendedHitView.swift */; };
+		3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520FC1C88EF6A00436351 /* CollectionViewController.swift */; };
+		3035210C1C88EF6A00436351 /* DynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520FD1C88EF6A00436351 /* DynamicTableViewController.swift */; };
+		3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520FE1C88EF6A00436351 /* NavigationController.swift */; };
+		3035210E1C88EF6A00436351 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303520FF1C88EF6A00436351 /* PageViewController.swift */; };
+		3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521001C88EF6A00436351 /* PickerViewController.swift */; };
+		303521101C88EF6A00436351 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303521011C88EF6A00436351 /* PickerViewController.xib */; };
+		303521111C88EF6A00436351 /* StaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521021C88EF6A00436351 /* StaticTableViewController.swift */; };
+		303521121C88EF6A00436351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521031C88EF6A00436351 /* ViewController.swift */; };
+		303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521051C88EF6A00436351 /* BlockAnimator.swift */; };
+		303521141C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521061C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift */; };
+		303521151C88EF6A00436351 /* UIViewTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521071C88EF6A00436351 /* UIViewTransitionAnimator.swift */; };
+		303521161C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521091C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift */; };
+		303521171C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3035210A1C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +54,19 @@
 		303520F31C88EF2800436351 /* BadgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		303520F41C88EF2800436351 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		303520F51C88EF2800436351 /* ExtendedHitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedHitView.swift; sourceTree = "<group>"; };
+		303520FC1C88EF6A00436351 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		303520FD1C88EF6A00436351 /* DynamicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableViewController.swift; sourceTree = "<group>"; };
+		303520FE1C88EF6A00436351 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		303520FF1C88EF6A00436351 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		303521001C88EF6A00436351 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		303521011C88EF6A00436351 /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		303521021C88EF6A00436351 /* StaticTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticTableViewController.swift; sourceTree = "<group>"; };
+		303521031C88EF6A00436351 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		303521051C88EF6A00436351 /* BlockAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockAnimator.swift; sourceTree = "<group>"; };
+		303521061C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerPerspectiveAnimator.swift; sourceTree = "<group>"; };
+		303521071C88EF6A00436351 /* UIViewTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewTransitionAnimator.swift; sourceTree = "<group>"; };
+		303521091C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerReplaceAllSegue.swift; sourceTree = "<group>"; };
+		3035210A1C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerReplaceLastSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +111,10 @@
 		303520601C88EB3500436351 /* MHAppKit */ = {
 			isa = PBXGroup;
 			children = (
+				303521041C88EF6A00436351 /* Animators */,
+				303521081C88EF6A00436351 /* Segues */,
 				303520F01C88EF1700436351 /* Views */,
+				303520FB1C88EF6A00436351 /* ViewControllers */,
 				303520611C88EB3500436351 /* MHAppKit.h */,
 				303520631C88EB3500436351 /* Info.plist */,
 			);
@@ -111,6 +140,40 @@
 				303520F51C88EF2800436351 /* ExtendedHitView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		303520FB1C88EF6A00436351 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				303520FE1C88EF6A00436351 /* NavigationController.swift */,
+				303521031C88EF6A00436351 /* ViewController.swift */,
+				303521021C88EF6A00436351 /* StaticTableViewController.swift */,
+				303520FD1C88EF6A00436351 /* DynamicTableViewController.swift */,
+				303520FC1C88EF6A00436351 /* CollectionViewController.swift */,
+				303520FF1C88EF6A00436351 /* PageViewController.swift */,
+				303521001C88EF6A00436351 /* PickerViewController.swift */,
+				303521011C88EF6A00436351 /* PickerViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		303521041C88EF6A00436351 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				303521051C88EF6A00436351 /* BlockAnimator.swift */,
+				303521071C88EF6A00436351 /* UIViewTransitionAnimator.swift */,
+				303521061C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		303521081C88EF6A00436351 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				303521091C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift */,
+				3035210A1C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift */,
+			);
+			path = Segues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303521101C88EF6A00436351 /* PickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,9 +285,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */,
+				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
+				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
+				303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */,
 				303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */,
 				303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */,
+				303521161C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift in Sources */,
 				303520F61C88EF2800436351 /* TextView.swift in Sources */,
+				303521151C88EF6A00436351 /* UIViewTransitionAnimator.swift in Sources */,
+				303521121C88EF6A00436351 /* ViewController.swift in Sources */,
+				3035210C1C88EF6A00436351 /* DynamicTableViewController.swift in Sources */,
+				303521141C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift in Sources */,
+				303521171C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift in Sources */,
+				303521111C88EF6A00436351 /* StaticTableViewController.swift in Sources */,
+				3035210E1C88EF6A00436351 /* PageViewController.swift in Sources */,
 				303520F91C88EF2800436351 /* Label.swift in Sources */,
 				303520F71C88EF2800436351 /* TableViewCell.swift in Sources */,
 			);
