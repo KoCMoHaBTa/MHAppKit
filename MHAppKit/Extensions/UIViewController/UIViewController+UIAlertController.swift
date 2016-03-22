@@ -37,29 +37,25 @@ public extension UIViewController {
         self.showAlertView(title, message: message, actions: [action])
     }
     
-    func showAlertView(title: String?, message: String?, actionTitle: String? = NSLocalizedString("Close", comment: ""), actionHandler: ((action: UIAlertAction) -> Void)?) {
+    func showAlertView(title: String?, message: String?, actionTitle: String? = NSLocalizedString("Close", comment: ""), handler: ((action: UIAlertAction) -> Void)?) {
 
-        self.showAlertView(title, message: message, action: UIAlertAction(title: actionTitle, style: .Default, handler: actionHandler))
-    }
-
-    func showAlertView(title: String?, message: String?, positiveActionTitle: String, positiveActionHandler: ((action: UIAlertAction) -> Void)?, negativeActionTitle: String, negativeActionHandler: ((action: UIAlertAction) -> Void)?) {
-        
-        self.showAlertView(title, message: message, actions: [
-            UIAlertAction(title: positiveActionTitle, style: .Default, handler: positiveActionHandler),
-            UIAlertAction(title: negativeActionTitle, style: .Cancel, handler: negativeActionHandler)
-            ])
+        self.showAlertView(title, message: message, action: UIAlertAction(title: actionTitle, style: .Default, handler: handler))
     }
     
-    func showAlertView(title: String?, message: String?, positiveActionTitle: String = NSLocalizedString("OK", comment: ""), negativeActionTitle: String = NSLocalizedString("Cancel", comment: ""), actionHandler: (action: UIAlertAction, positive: Bool) -> Void) {
+    func showAlertView(title: String?, message: String?, positiveActionTitle: String = NSLocalizedString("OK", comment: ""), negativeActionTitle: String = NSLocalizedString("Cancel", comment: ""), handler: (action: UIAlertAction, positive: Bool) -> Void) {
         
-        self.showAlertView(title, message: message, positiveActionTitle: positiveActionTitle, positiveActionHandler: { (action) -> Void in
+        self.showAlertView(title, message: message, actions: [
             
-            actionHandler(action: action, positive: true)
-            
-        }, negativeActionTitle: negativeActionTitle) { (action) -> Void in
-            
-            actionHandler(action: action, positive: false)
-        }
+            UIAlertAction(title: positiveActionTitle, style: .Default, handler: { (action) -> Void in
+                
+                handler(action: action, positive: true)
+                
+            }),
+            UIAlertAction(title: negativeActionTitle, style: .Cancel, handler: { (action) -> Void in
+                
+                handler(action: action, positive: false)
+            })
+            ])
     }
 
     //MARK: - Action Sheet
