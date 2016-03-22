@@ -21,7 +21,7 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
             let refreshControl = UIRefreshControl()
             self.collectionView?.addSubview(refreshControl)
             self.collectionView?.alwaysBounceVertical = true
-            refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+            refreshControl.addTarget(self, action: #selector(CollectionViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
             self.refreshControl = refreshControl
         }
     }

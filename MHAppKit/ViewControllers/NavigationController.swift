@@ -46,7 +46,7 @@ public class NavigationController: UINavigationController {
         
         if let popInteractiveGestureRecognizer = self.popInteractiveGestureRecognizer {
         
-            popInteractiveGestureRecognizer.addTarget(self, action: "handleInteractivePopGestureRecognizer:")
+            popInteractiveGestureRecognizer.addTarget(self, action: #selector(NavigationController.handleInteractivePopGestureRecognizer(_:)))
             popInteractiveGestureRecognizer.delegate = self
             self.view.addGestureRecognizer(popInteractiveGestureRecognizer)
         }
@@ -148,7 +148,7 @@ extension NavigationController: UINavigationControllerDelegate {
         
         let respond = super.respondsToSelector(aSelector)
         
-        if aSelector == "navigationController:animationControllerForOperation:fromViewController:toViewController:" && respond && self.popAnimator == nil {
+        if aSelector == #selector(UINavigationControllerDelegate.navigationController(_:animationControllerForOperation:fromViewController:toViewController:)) && respond && self.popAnimator == nil {
             
             return false
         }

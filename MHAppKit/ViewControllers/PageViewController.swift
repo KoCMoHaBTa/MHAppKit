@@ -34,7 +34,7 @@ public class PageViewController: UIPageViewController, UIPageViewControllerDataS
             return nil
         }
         
-        index--
+        index -= 1
         return self.viewControllerAtIndex(index)
     }
     
@@ -47,7 +47,7 @@ public class PageViewController: UIPageViewController, UIPageViewControllerDataS
             return nil
         }
         
-        index++
+        index += 1
         
         if index == self.numberOfViewControllers()
         {

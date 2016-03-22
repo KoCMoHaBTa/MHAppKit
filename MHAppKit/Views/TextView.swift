@@ -290,7 +290,7 @@ import UIKit
     
     private func setupNotifications() {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("receivedTextDidChangeNotification:"), name: UITextViewTextDidChangeNotification, object: self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TextView.receivedTextDidChangeNotification(_:)), name: UITextViewTextDidChangeNotification, object: self)
     }
     
     public func receivedTextDidChangeNotification(noitification: NSNotification) {

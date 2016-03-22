@@ -28,7 +28,7 @@ public class DynamicTableViewController: StaticTableViewController {
         {
             if let accessoryView = cell.accessoryView as? UIControl {
                 
-                accessoryView.addTarget(self, action: Selector("accessoryViewTouchAction:event:"), forControlEvents: UIControlEvents.TouchUpInside)
+                accessoryView.addTarget(self, action: #selector(StaticTableViewController.accessoryViewTouchAction(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
             }
         }
         
