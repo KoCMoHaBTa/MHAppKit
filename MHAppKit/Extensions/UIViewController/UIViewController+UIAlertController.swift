@@ -10,15 +10,8 @@ import Foundation
 import UIKit
 
 public extension UIViewController {
-    
-    func showAlert(title: String?, message: String?, action: String = NSLocalizedString("Close", comment: ""), handler: ((action: UIAlertAction?) -> Void)? = nil) {
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: action, style: UIAlertActionStyle.Default, handler: handler))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func showAlertController(title: String?, message: String?, preferredStyle: UIAlertControllerStyle, actions: [UIAlertAction]) {
+
+    func showAlertController(title: String?, message: String?, preferredStyle: UIAlertControllerStyle, actions: [UIAlertAction], configurator: ((alertController: UIAlertController) -> Void)?) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         
@@ -27,31 +20,75 @@ public extension UIViewController {
             alertController.addAction(action)
         }
         
+        configurator?(alertController: alertController)
+        
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func showAlertViewController(title: String?, message: String?, actions: [UIAlertAction]) {
+    //MARK: - Alert View
+    
+    func showAlertView(title: String?, message: String?, actions: [UIAlertAction], configurator: ((alertController: UIAlertController) -> Void)? = nil) {
         
-        self.showAlertController(title, message: message, preferredStyle: UIAlertControllerStyle.Alert, actions: actions)
+        self.showAlertController(title, message: message, preferredStyle: .Alert, actions: actions, configurator: nil)
     }
     
-    func showActionSheetController(title: String?, message: String?, actions: [UIAlertAction]) {
+    func showAlertView(title: String?, message: String?, action: UIAlertAction) {
         
-        self.showAlertController(title, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet, actions: actions)
+        self.showAlertView(title, message: message, actions: [action])
     }
     
-    func showActionAlertViewController(title: String?, message: String?, negativeAction: String, positiveAction: String, handler: ((positive: Bool) -> Void)?) {
+    func showAlertView(title: String?, message: String?, actionTitle: String? = NSLocalizedString("Close", comment: ""), actionHandler: ((action: UIAlertAction) -> Void)? = nil) {
         
-        let negativeAction = UIAlertAction(title: negativeAction, style: UIAlertActionStyle.Default) { (action) -> Void in
+        self.showAlertView(title, message: message, action: UIAlertAction(title: actionTitle, style: .Default, handler: actionHandler))
+    }
+
+    func showAlertView(title: String?, message: String?, positiveActionTitle: String, positiveActionHandler: ((action: UIAlertAction) -> Void)?, negativeActionTitle: String, negativeActionHandler: ((action: UIAlertAction) -> Void)?) {
+        
+        self.showAlertView(title, message: message, actions: [
+            UIAlertAction(title: positiveActionTitle, style: .Default, handler: positiveActionHandler),
+            UIAlertAction(title: negativeActionTitle, style: .Cancel, handler: negativeActionHandler)
+            ])
+    }
+
+    //MARK: - Action Sheet
+    
+    func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], configurator: ((alertController: UIAlertController) -> Void)? = nil) {
+        
+        self.showAlertController(title, message: message, preferredStyle: .ActionSheet, actions: actions, configurator: configurator)
+    }
+    
+    func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
+     
+        self.showActionSheet(title, message: message, actions: actions) { (alertController) -> Void in
             
-            handler?(positive: false)
+            alertController.popoverPresentationController?.delegate = popoverPresentationControllerDelegate
         }
+    }
+    
+    func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], sourceRect: CGRect, sourceView: UIView?, configurator: ((alertController: UIAlertController) -> Void)? = nil) {
         
-        let positiveAction = UIAlertAction(title: positiveAction, style: UIAlertActionStyle.Default) { (action) -> Void in
+        self.showActionSheet(title, message: message, actions: actions) { (alertController) -> Void in
             
-            handler?(positive: true)
+            alertController.popoverPresentationController?.sourceRect = sourceRect
+            alertController.popoverPresentationController?.sourceView = sourceView
+            
+            configurator?(alertController: alertController)
         }
+    }
+    
+    func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], sourceRect: CGRect, sourceView: UIView?, popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
         
-        self.showAlertViewController(title, message: message, actions: [negativeAction, positiveAction])
+        self.showActionSheet(title, message: message, actions: actions, sourceRect: sourceRect, sourceView: sourceView) { (alertController) -> Void in
+            
+            alertController.popoverPresentationController?.delegate = popoverPresentationControllerDelegate
+        }
+    }
+
+    func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], barButtonItem: UIBarButtonItem) {
+        
+        self.showActionSheet(title, message: message, actions: actions) { (alertController) -> Void in
+            
+            alertController.popoverPresentationController?.barButtonItem = barButtonItem
+        }
     }
 }
