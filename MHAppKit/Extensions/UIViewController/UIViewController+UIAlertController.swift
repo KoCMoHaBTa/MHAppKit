@@ -37,8 +37,8 @@ public extension UIViewController {
         self.showAlertView(title, message: message, actions: [action])
     }
     
-    func showAlertView(title: String?, message: String?, actionTitle: String? = NSLocalizedString("Close", comment: ""), actionHandler: ((action: UIAlertAction) -> Void)? = nil) {
-        
+    func showAlertView(title: String?, message: String?, actionTitle: String? = NSLocalizedString("Close", comment: ""), actionHandler: ((action: UIAlertAction) -> Void)?) {
+
         self.showAlertView(title, message: message, action: UIAlertAction(title: actionTitle, style: .Default, handler: actionHandler))
     }
 
