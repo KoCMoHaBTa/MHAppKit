@@ -49,6 +49,18 @@ public extension UIViewController {
             UIAlertAction(title: negativeActionTitle, style: .Cancel, handler: negativeActionHandler)
             ])
     }
+    
+    func showAlertView(title: String?, message: String?, positiveActionTitle: String = NSLocalizedString("OK", comment: ""), negativeActionTitle: String = NSLocalizedString("Cancel", comment: ""), actionHandler: (action: UIAlertAction, positive: Bool) -> Void) {
+        
+        self.showAlertView(title, message: message, positiveActionTitle: positiveActionTitle, positiveActionHandler: { (action) -> Void in
+            
+            actionHandler(action: action, positive: true)
+            
+        }, negativeActionTitle: negativeActionTitle) { (action) -> Void in
+            
+            actionHandler(action: action, positive: false)
+        }
+    }
 
     //MARK: - Action Sheet
     
