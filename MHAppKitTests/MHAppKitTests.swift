@@ -33,4 +33,14 @@ class MHAppKitTests: XCTestCase {
         }
     }
     
+    func testNSTimer() {
+        
+        self.performExpectation("NSTimer test", timeout: 2.1) { (expectation) in
+            
+            NSTimer.scheduledTimerWithTimeInterval(2, repeats: false) { (timer) in
+                
+                expectation.fulfill()
+            }
+        }
+    }
 }
