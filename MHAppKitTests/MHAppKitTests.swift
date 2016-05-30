@@ -43,4 +43,49 @@ class MHAppKitTests: XCTestCase {
             }
         }
     }
+    
+    func testUIControl() {
+
+        self.performExpectation { (expectation) in
+            
+            let control = UIControl()
+            
+            control.addAction() { (sender, event) in
+                
+                expectation.fulfill()
+            }
+            
+            XCTAssertEqual(control.actions(.TouchUpInside).count, 1)
+            
+            control.sendActionsForControlEvents(.AllEvents)
+        }
+        
+        self.performExpectation { (expectation) in
+            
+            expectation.addConditions([String(UIControlEvents.EditingChanged.rawValue), String(UIControlEvents.TouchDragExit.rawValue)])
+            
+            let control = UIControl()
+            
+            control.addAction(.EditingChanged, action: { (sender, event) in
+                
+                expectation.fulfillCondition(String(UIControlEvents.EditingChanged.rawValue))
+            })
+            
+            control.addAction(.TouchDragExit, action: { (sender, event) in
+                
+                expectation.fulfillCondition(String(UIControlEvents.TouchDragExit.rawValue))
+            })
+            
+            control.addAction(.EditingDidEndOnExit, action: {_,_ in })
+            control.removeActions(.EditingDidEndOnExit)
+            
+            XCTAssertEqual(control.actions(.EditingChanged).count, 1)
+            XCTAssertEqual(control.actions(.TouchDragExit).count, 1)
+            XCTAssertEqual(control.actions(.EditingDidEndOnExit).count, 0)
+            
+            control.sendActionsForControlEvents(.AllEvents)
+        }
+    }
 }
+
+
