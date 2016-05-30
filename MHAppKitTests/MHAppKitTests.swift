@@ -44,7 +44,7 @@ class MHAppKitTests: XCTestCase {
         }
     }
     
-    func testUIControl() {
+    func testUIControlAction() {
 
         self.performExpectation { (expectation) in
             
@@ -84,6 +84,31 @@ class MHAppKitTests: XCTestCase {
             XCTAssertEqual(control.actions(.EditingDidEndOnExit).count, 0)
             
             control.sendActionsForControlEvents(.AllEvents)
+        }
+    }
+    
+    func testUIBarButtonItemAction() {
+        
+        self.performExpectation { (expectation) in
+            
+            let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, action: { (sender) in
+                
+                expectation.fulfill()
+            })
+            
+            UIApplication.sharedApplication().sendAction(item.action, to: item.target, from: item, forEvent: nil)
+        }
+        
+        self.performExpectation { (expectation) in
+            
+            let item = UIBarButtonItem()
+            
+            item.actionHandler = { (sender) in
+                
+                expectation.fulfill()
+            }
+            
+            UIApplication.sharedApplication().sendAction(item.action, to: item.target, from: item, forEvent: nil)
         }
     }
 }
