@@ -11,7 +11,7 @@ import UIKit
 
 extension UIControl {
     
-    public typealias Action = (sender: UIControl, event: UIEvent) -> Void
+    public typealias Action = (sender: UIControl) -> Void
     
     public func addAction(events: UIControlEvents = [.TouchUpInside], action: Action) {
         
@@ -67,7 +67,7 @@ extension UIControl {
         
         deinit {
             
-            self.control?.removeTarget(self, action: #selector(handleAction(_:event:)), forControlEvents: self.events)
+            self.control?.removeTarget(self, action: #selector(handleAction(_:)), forControlEvents: self.events)
         }
         
         init(control: UIControl, events: UIControlEvents, action: Action) {
@@ -76,12 +76,12 @@ extension UIControl {
             self.events = events
             self.action = action
             
-            control.addTarget(self, action: #selector(handleAction(_:event:)), forControlEvents: events)
+            control.addTarget(self, action: #selector(handleAction(_:)), forControlEvents: events)
         }
         
-        dynamic func handleAction(sender: UIControl, event: UIEvent) {
+        dynamic func handleAction(sender: UIControl) {
             
-            self.action(sender: sender, event: event)
+            self.action(sender: sender)
         }
     }
 }

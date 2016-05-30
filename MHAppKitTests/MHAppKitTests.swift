@@ -50,7 +50,7 @@ class MHAppKitTests: XCTestCase {
             
             let control = UIControl()
             
-            control.addAction() { (sender, event) in
+            control.addAction() { (sender) in
                 
                 expectation.fulfill()
             }
@@ -66,17 +66,17 @@ class MHAppKitTests: XCTestCase {
             
             let control = UIControl()
             
-            control.addAction(.EditingChanged, action: { (sender, event) in
+            control.addAction(.EditingChanged, action: { (sender) in
                 
                 expectation.fulfillCondition(String(UIControlEvents.EditingChanged.rawValue))
             })
             
-            control.addAction(.TouchDragExit, action: { (sender, event) in
+            control.addAction(.TouchDragExit, action: { (sender) in
                 
                 expectation.fulfillCondition(String(UIControlEvents.TouchDragExit.rawValue))
             })
             
-            control.addAction(.EditingDidEndOnExit, action: {_,_ in })
+            control.addAction(.EditingDidEndOnExit, action: {_ in })
             control.removeActions(.EditingDidEndOnExit)
             
             XCTAssertEqual(control.actions(.EditingChanged).count, 1)
