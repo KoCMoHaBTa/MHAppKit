@@ -39,6 +39,7 @@
 		303521301C88F00D00436351 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521271C88F00D00436351 /* UILabel.swift */; };
 		9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */; };
 		9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */; };
+		99B0FCFF1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */; };
 		99CDAC9F1CFC30750090960D /* UIControl+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAC9E1CFC30750090960D /* UIControl+Action.swift */; };
 		99CDAD4E1CFC68070090960D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD4D1CFC68070090960D /* AppDelegate.swift */; };
 		99CDAD501CFC68070090960D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD4F1CFC68070090960D /* ViewController.swift */; };
@@ -107,6 +108,7 @@
 		303521271C88F00D00436351 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Closures.swift"; sourceTree = "<group>"; };
 		9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
+		99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MFMailComposeViewController+CompletionHandler.swift"; sourceTree = "<group>"; };
 		99CDAC9E1CFC30750090960D /* UIControl+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Action.swift"; sourceTree = "<group>"; };
 		99CDAD4B1CFC68070090960D /* MHAppKitTestsHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHAppKitTestsHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CDAD4D1CFC68070090960D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		303521181C88EFEB00436351 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				99B0FCFD1CFDC64C0028E56A /* MessageUI */,
 				303521191C88F00D00436351 /* UIViewController */,
 				3035211E1C88F00D00436351 /* UINavigationController */,
 				303521201C88F00D00436351 /* UIWindow */,
@@ -317,6 +320,14 @@
 				9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */,
 			);
 			path = NSTimer;
+			sourceTree = "<group>";
+		};
+		99B0FCFD1CFDC64C0028E56A /* MessageUI */ = {
+			isa = PBXGroup;
+			children = (
+				99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */,
+			);
+			path = MessageUI;
 			sourceTree = "<group>";
 		};
 		99CDAC9D1CFC30400090960D /* UIControl */ = {
@@ -505,6 +516,7 @@
 				99CDAD681CFC7C710090960D /* UIButton.swift in Sources */,
 				99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */,
 				9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */,
+				99B0FCFF1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
 				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
 				303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */,
 				303521281C88F00D00436351 /* UIViewController+Container.swift in Sources */,
