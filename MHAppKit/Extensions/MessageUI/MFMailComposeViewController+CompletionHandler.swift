@@ -9,7 +9,7 @@
 import Foundation
 import MessageUI
 
-extension MFMailComposeViewController: MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
+extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
     
     public typealias CompletionHandler = (controller: MFMailComposeViewController, result: MFMailComposeResult, error: NSError?) -> Void
     
@@ -24,7 +24,7 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate, UINa
         
         set {
             
-            self.delegate = self
+            self.mailComposeDelegate = self
             
             objc_setAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey, CompletionHandlerWrapper(newValue), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
