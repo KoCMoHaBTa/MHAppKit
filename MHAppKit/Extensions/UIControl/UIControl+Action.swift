@@ -38,14 +38,7 @@ extension UIControl {
         
         get {
             
-            guard
-            let result = objc_getAssociatedObject(self, &UIControl.actionHandlersKey) as? [ActionHandler]
-            else {
-            
-                self.actionHandlers = []
-                return self.actionHandlers
-            }
-            
+            let result = objc_getAssociatedObject(self, &UIControl.actionHandlersKey) as? [ActionHandler] ?? []
             return result
         }
         
