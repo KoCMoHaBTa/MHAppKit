@@ -19,14 +19,21 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
         
         get {
             
-            return (objc_getAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey) as? CompletionHandlerWrapper)?.handler
+            let obj = objc_getAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey)
+            let wrapper = obj as? CompletionHandlerWrapper
+            let handler = wrapper?.handler
+            
+            return handler
         }
         
         set {
             
             self.mailComposeDelegate = self
             
-            objc_setAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey, CompletionHandlerWrapper(newValue), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            let handler = newValue
+            let wrapper = CompletionHandlerWrapper(handler: handler)
+            
+            objc_setAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey, wrapper, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -40,11 +47,9 @@ extension MFMailComposeViewController {
     
     private class CompletionHandlerWrapper {
         
-        let handler: MFMailComposeViewController.CompletionHandler
+        let handler: MFMailComposeViewController.CompletionHandler?
         
-        init?(_ handler: MFMailComposeViewController.CompletionHandler?) {
-            
-            guard let handler = handler else { return nil }
+        init(handler: MFMailComposeViewController.CompletionHandler?) {
             
             self.handler = handler
         }
