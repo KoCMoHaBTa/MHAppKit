@@ -35,9 +35,10 @@
 		3035212C1C88F00D00436351 /* UINavigationController+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3035211F1C88F00D00436351 /* UINavigationController+Background.swift */; };
 		3035212D1C88F00D00436351 /* UIWindow+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521211C88F00D00436351 /* UIWindow+Background.swift */; };
 		3035212E1C88F00D00436351 /* NSError+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521231C88F00D00436351 /* NSError+Presentation.swift */; };
-		3035212F1C88F00D00436351 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521251C88F00D00436351 /* UIColor.swift */; };
 		303521301C88F00D00436351 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521271C88F00D00436351 /* UILabel.swift */; };
 		99402A541D09609600412ED5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A531D09609600412ED5 /* UIImage.swift */; };
+		99402A681D0AE99300412ED5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A671D0AE99300412ED5 /* UIColor.swift */; };
+		99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A691D0AEA5700412ED5 /* UIColorTests.swift */; };
 		9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */; };
 		9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */; };
 		99B0FCFF1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */; };
@@ -105,9 +106,10 @@
 		3035211F1C88F00D00436351 /* UINavigationController+Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Background.swift"; sourceTree = "<group>"; };
 		303521211C88F00D00436351 /* UIWindow+Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Background.swift"; sourceTree = "<group>"; };
 		303521231C88F00D00436351 /* NSError+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Presentation.swift"; sourceTree = "<group>"; };
-		303521251C88F00D00436351 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		303521271C88F00D00436351 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		99402A531D09609600412ED5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		99402A671D0AE99300412ED5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		99402A691D0AEA5700412ED5 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
 		9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Closures.swift"; sourceTree = "<group>"; };
 		9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MFMailComposeViewController+CompletionHandler.swift"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */,
 				303520BA1C88EDCC00436351 /* MHAppKitTests.swift */,
+				99402A691D0AEA5700412ED5 /* UIColorTests.swift */,
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
@@ -304,7 +307,7 @@
 		303521241C88F00D00436351 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				303521251C88F00D00436351 /* UIColor.swift */,
+				99402A671D0AE99300412ED5 /* UIColor.swift */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				303521141C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift in Sources */,
 				303521171C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift in Sources */,
 				99CDAC9F1CFC30750090960D /* UIControl+Action.swift in Sources */,
+				99402A681D0AE99300412ED5 /* UIColor.swift in Sources */,
 				303521301C88F00D00436351 /* UILabel.swift in Sources */,
 				3035212B1C88F00D00436351 /* UIViewController.swift in Sources */,
 				303521291C88F00D00436351 /* UIViewController+Lookup.swift in Sources */,
@@ -549,7 +553,6 @@
 				3035210E1C88EF6A00436351 /* PageViewController.swift in Sources */,
 				99E247CF1CE749FD006726BA /* DynamicSizeTableFooterView.swift in Sources */,
 				3035212A1C88F00D00436351 /* UIViewController+UIAlertController.swift in Sources */,
-				3035212F1C88F00D00436351 /* UIColor.swift in Sources */,
 				3035212D1C88F00D00436351 /* UIWindow+Background.swift in Sources */,
 				99CDAD6A1CFC7C810090960D /* UIBarButtonItem+Action.swift in Sources */,
 				3035212C1C88F00D00436351 /* UINavigationController+Background.swift in Sources */,
@@ -565,6 +568,7 @@
 			files = (
 				9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */,
 				303520BB1C88EDCC00436351 /* MHAppKitTests.swift in Sources */,
+				99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
