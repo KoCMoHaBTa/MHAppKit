@@ -12,7 +12,7 @@ import UIKit
 extension UIColor {
     
     ///The maximum RGB value - 24bit unsinged integer
-    public static let RGBMaxValue: UInt32 = 16777215
+    private static let RGBMaxValue: UInt32 = 16777215
     
     /**
      
