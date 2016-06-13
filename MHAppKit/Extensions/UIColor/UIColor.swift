@@ -70,7 +70,14 @@ extension UIColor {
     
     public convenience init?(HEX: String, alpha: CGFloat = 1) {
         
+        var HEX = HEX
         var RGB: UInt32 = 0
+        
+        //remove hash tag from HEX string
+        if HEX.characters.first == "#" {
+            
+            HEX.removeAtIndex(HEX.startIndex)
+        }
         
         guard NSScanner(string: HEX).scanHexInt(&RGB) else {
             

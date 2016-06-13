@@ -38,6 +38,10 @@ class UIColorTests: XCTestCase {
         
         //lower case HEX string
         XCTAssertEqual(UIColor(R: 200, G: 199, B: 204), UIColor(HEX: "c8c7cc"))
+        
+        //test hash tagged hex strings
+        XCTAssertEqual(UIColor(red: 0, green: 0, blue: 1, alpha: 0), UIColor(HEX: "#0000FF", alpha: 0))
+        XCTAssertEqual(UIColor(R: 200, G: 199, B: 204), UIColor(HEX: "#c8c7cc"))
     }
     
     func testHEX() {
