@@ -39,6 +39,7 @@
 		99402A541D09609600412ED5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A531D09609600412ED5 /* UIImage.swift */; };
 		99402A681D0AE99300412ED5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A671D0AE99300412ED5 /* UIColor.swift */; };
 		99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A691D0AEA5700412ED5 /* UIColorTests.swift */; };
+		994EDE3A1D2A5536000CD281 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 994EDE391D2A5536000CD281 /* .travis.yml */; };
 		9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */; };
 		9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */; };
 		99B0FCFF1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */; };
@@ -110,6 +111,7 @@
 		99402A531D09609600412ED5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		99402A671D0AE99300412ED5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		99402A691D0AEA5700412ED5 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
+		994EDE391D2A5536000CD281 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Closures.swift"; sourceTree = "<group>"; };
 		9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MFMailComposeViewController+CompletionHandler.swift"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		303520541C88EB3500436351 = {
 			isa = PBXGroup;
 			children = (
+				994EDE391D2A5536000CD281 /* .travis.yml */,
 				303520A91C88ED4C00436351 /* README.md */,
 				303520A81C88ED4C00436351 /* LICENSE.md */,
 				303520601C88EB3500436351 /* MHAppKit */,
@@ -496,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				994EDE3A1D2A5536000CD281 /* .travis.yml in Resources */,
 				303521101C88EF6A00436351 /* PickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
