@@ -1,4 +1,4 @@
 language: objective-c
 
 script:
-- xcodebuild test -scheme MHAppKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- xctool test -scheme MHAppKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
