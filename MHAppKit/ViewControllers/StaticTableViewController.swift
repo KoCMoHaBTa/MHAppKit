@@ -8,50 +8,50 @@
 
 import UIKit
 
-public class StaticTableViewController: UITableViewController, UINavigationControllerPreferencesProvider {
+open class StaticTableViewController: UITableViewController, UINavigationControllerPreferencesProvider {
     
-    public var prefersStatusBarHiddenValue: Bool?
+    open var prefersStatusBarHiddenValue: Bool?
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
     }
     
-    public override func prefersStatusBarHidden() -> Bool {
+    open override var prefersStatusBarHidden : Bool {
         
-        return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden()
+        return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden
     }
     
     //MARK: - UINavigationControllerPreferencesProvider
     
-    @IBInspectable public var providesNavigationControllerPreferencesIB: Bool = false
-    @IBInspectable public var prefersNavigationBarHiddenIB: Bool = false
+    @IBInspectable open var providesNavigationControllerPreferencesIB: Bool = false
+    @IBInspectable open var prefersNavigationBarHiddenIB: Bool = false
     
-    public func providesNavigationControllerPreferences() -> Bool {
+    open func providesNavigationControllerPreferences() -> Bool {
         
         return self.providesNavigationControllerPreferencesIB
     }
     
-    public func prefersNavigationBarHidden() -> Bool {
+    open func prefersNavigationBarHidden() -> Bool {
         
         return self.prefersNavigationBarHiddenIB
     }
     
     //MARK: - Accessory Action
     
-    @IBAction public func accessoryViewTouchAction(sender: AnyObject?, event: AnyObject?) {
+    @IBAction open func accessoryViewTouchAction(_ sender: AnyObject?, event: AnyObject?) {
         
         if let event = event as? UIEvent {
             
-            if let touches = event.allTouches() {
+            if let touches = event.allTouches {
                 
                 if let touch = touches.first {
                     
-                    let currentTouchPosition = touch.locationInView(self.tableView)
+                    let currentTouchPosition = touch.location(in: self.tableView)
                     
-                    if let indexPath = self.tableView.indexPathForRowAtPoint(currentTouchPosition) {
+                    if let indexPath = self.tableView.indexPathForRow(at: currentTouchPosition) {
                         
-                        self.tableView(self.tableView, accessoryButtonTappedForRowWithIndexPath: indexPath)
+                        self.tableView(self.tableView, accessoryButtonTappedForRowWith: indexPath)
                     }
                 }
             }
@@ -62,14 +62,14 @@ public class StaticTableViewController: UITableViewController, UINavigationContr
     
     private var animationCompletionBlock: (() -> ())?
     
-    public func scrollToRowAtIndexPath(indexPath: NSIndexPath, atScrollPosition scrollPosition: UITableViewScrollPosition, animationCompletionBlock: (() -> ())?) {
+    open func scrollToRowAtIndexPath(_ indexPath: IndexPath, atScrollPosition scrollPosition: UITableViewScrollPosition, animationCompletionBlock: (() -> ())?) {
         
-        let rect = tableView.rectForRowAtIndexPath(indexPath)
+        let rect = tableView.rectForRow(at: indexPath)
         if (rect.origin.y != self.tableView.contentOffset.y + self.tableView.contentInset.top) {
             
             // scrollToRowAtIndexPath will animate and callback scrollViewDidEndScrollingAnimation
             self.animationCompletionBlock = animationCompletionBlock
-            self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: scrollPosition, animated: true)
+            self.tableView.scrollToRow(at: indexPath, at: scrollPosition, animated: true)
             
         } else {
             
@@ -80,7 +80,7 @@ public class StaticTableViewController: UITableViewController, UINavigationContr
     
     //MARK: - UIScrollViewDelegate
     
-    public override func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    open override func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         
         self.animationCompletionBlock?()
         self.animationCompletionBlock = nil
@@ -89,40 +89,40 @@ public class StaticTableViewController: UITableViewController, UINavigationContr
 
 //MARK: - UIRefreshControl
 
-public extension StaticTableViewController {
+extension StaticTableViewController {
     
-    func shouldRefresh() -> Bool {
+    open func shouldRefresh() -> Bool {
         
         return true
     }
     
-    func beginRefresh() {
+    open func beginRefresh() {
         
         self.refreshControl?.beginRefreshing()
     }
     
-    func endRefresh() {
+    open func endRefresh() {
         
         self.refreshControl?.endRefreshing()
     }
     
     //programatic refresh - shouldRefresh -> tableView content inset (animated) -> refreshControlAction
-    func performRefresh() {
+    open func performRefresh() {
         
         self.performRefresh(true)
     }
     
-    func performRefresh(animated: Bool) {
+    open func performRefresh(_ animated: Bool) {
         
         if self.shouldRefresh() {
             
             let h = self.refreshControl?.frame.size.height ?? 0
             self.tableView.setContentOffset(CGPoint(x: 0, y: -h * 2), animated: animated)
-            self.refreshControl?.sendActionsForControlEvents(UIControlEvents.ValueChanged)
+            self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
         }
     }
     
-    @IBAction func refreshControlAction(sender: AnyObject?) {
+    @IBAction open func refreshControlAction(_ sender: AnyObject?) {
         
         self.beginRefresh()
         
@@ -132,9 +132,9 @@ public extension StaticTableViewController {
         }
     }
     
-    func refreshControlActionWithCompletionBlock(completionBlock: () -> ()) {
+    open func refreshControlActionWithCompletionBlock(_ completionBlock: @escaping () -> ()) {
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
             
             completionBlock()
         }

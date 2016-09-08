@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class UINavigationControllerReplaceLastSegue: UIStoryboardSegue {
+open class UINavigationControllerReplaceLastSegue: UIStoryboardSegue {
    
-    public override func perform() {
+    open override func perform() {
         
-        let source = self.sourceViewController
-        let destination = self.destinationViewController
+        let source = self.source
+        let destination = self.destination
         
         if let navigation = source.navigationController {
             

@@ -36,6 +36,9 @@
 		3035212D1C88F00D00436351 /* UIWindow+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521211C88F00D00436351 /* UIWindow+Background.swift */; };
 		3035212E1C88F00D00436351 /* NSError+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521231C88F00D00436351 /* NSError+Presentation.swift */; };
 		303521301C88F00D00436351 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303521271C88F00D00436351 /* UILabel.swift */; };
+		9912AA8D1D81E60D00DE25FC /* MHAppKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912AA8C1D81E60D00DE25FC /* MHAppKitUITests.swift */; };
+		9912AA971D81EB0500DE25FC /* MHAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3035205E1C88EB3500436351 /* MHAppKit.framework */; };
+		9912AA981D81EB0500DE25FC /* MHAppKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3035205E1C88EB3500436351 /* MHAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99402A541D09609600412ED5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A531D09609600412ED5 /* UIImage.swift */; };
 		99402A681D0AE99300412ED5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A671D0AE99300412ED5 /* UIColor.swift */; };
 		99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A691D0AEA5700412ED5 /* UIColorTests.swift */; };
@@ -63,6 +66,20 @@
 			remoteGlobalIDString = 3035205D1C88EB3500436351;
 			remoteInfo = MHAppKit;
 		};
+		9912AA8F1D81E60D00DE25FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 303520551C88EB3500436351 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99CDAD4A1CFC68070090960D;
+			remoteInfo = MHAppKitTestsHost;
+		};
+		9912AA941D81E97900DE25FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 303520551C88EB3500436351 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3035205D1C88EB3500436351;
+			remoteInfo = MHAppKit;
+		};
 		99CDAD5D1CFC68180090960D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 303520551C88EB3500436351 /* Project object */;
@@ -71,6 +88,20 @@
 			remoteInfo = MHAppKitTestsHost;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9912AA991D81EB0500DE25FC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9912AA981D81EB0500DE25FC /* MHAppKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3035205E1C88EB3500436351 /* MHAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +138,9 @@
 		303521211C88F00D00436351 /* UIWindow+Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Background.swift"; sourceTree = "<group>"; };
 		303521231C88F00D00436351 /* NSError+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Presentation.swift"; sourceTree = "<group>"; };
 		303521271C88F00D00436351 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		9912AA8A1D81E60D00DE25FC /* MHAppKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHAppKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9912AA8C1D81E60D00DE25FC /* MHAppKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHAppKitUITests.swift; sourceTree = "<group>"; };
+		9912AA8E1D81E60D00DE25FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99402A531D09609600412ED5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		99402A671D0AE99300412ED5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		99402A691D0AEA5700412ED5 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
@@ -145,10 +179,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9912AA871D81E60D00DE25FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99CDAD481CFC68070090960D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9912AA971D81EB0500DE25FC /* MHAppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +206,7 @@
 				303520601C88EB3500436351 /* MHAppKit */,
 				303520B91C88EDCC00436351 /* MHAppKitTests */,
 				99CDAD4C1CFC68070090960D /* MHAppKitTestsHost */,
+				9912AA8B1D81E60D00DE25FC /* MHAppKitUITests */,
 				3035205F1C88EB3500436351 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -174,6 +217,7 @@
 				3035205E1C88EB3500436351 /* MHAppKit.framework */,
 				303520B81C88EDCC00436351 /* MHAppKitTests.xctest */,
 				99CDAD4B1CFC68070090960D /* MHAppKitTestsHost.app */,
+				9912AA8A1D81E60D00DE25FC /* MHAppKitUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,6 +366,15 @@
 			path = UILabel;
 			sourceTree = "<group>";
 		};
+		9912AA8B1D81E60D00DE25FC /* MHAppKitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9912AA8C1D81E60D00DE25FC /* MHAppKitUITests.swift */,
+				9912AA8E1D81E60D00DE25FC /* Info.plist */,
+			);
+			path = MHAppKitUITests;
+			sourceTree = "<group>";
+		};
 		99402A521D09607400412ED5 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +487,24 @@
 			productReference = 303520B81C88EDCC00436351 /* MHAppKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9912AA891D81E60D00DE25FC /* MHAppKitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9912AA931D81E60D00DE25FC /* Build configuration list for PBXNativeTarget "MHAppKitUITests" */;
+			buildPhases = (
+				9912AA861D81E60D00DE25FC /* Sources */,
+				9912AA871D81E60D00DE25FC /* Frameworks */,
+				9912AA881D81E60D00DE25FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9912AA901D81E60D00DE25FC /* PBXTargetDependency */,
+			);
+			name = MHAppKitUITests;
+			productName = MHAppKitUITests;
+			productReference = 9912AA8A1D81E60D00DE25FC /* MHAppKitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		99CDAD4A1CFC68070090960D /* MHAppKitTestsHost */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99CDAD5C1CFC68070090960D /* Build configuration list for PBXNativeTarget "MHAppKitTestsHost" */;
@@ -441,10 +512,12 @@
 				99CDAD471CFC68070090960D /* Sources */,
 				99CDAD481CFC68070090960D /* Frameworks */,
 				99CDAD491CFC68070090960D /* Resources */,
+				9912AA991D81EB0500DE25FC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9912AA951D81E97900DE25FC /* PBXTargetDependency */,
 			);
 			name = MHAppKitTestsHost;
 			productName = MHAppKitTestsHost;
@@ -457,7 +530,7 @@
 		303520551C88EB3500436351 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Milen Halachev";
 				TargetAttributes = {
@@ -468,6 +541,11 @@
 					303520B71C88EDCC00436351 = {
 						CreatedOnToolsVersion = 7.2.1;
 						LastSwiftMigration = 0800;
+						TestTargetID = 99CDAD4A1CFC68070090960D;
+					};
+					9912AA891D81E60D00DE25FC = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 99CDAD4A1CFC68070090960D;
 					};
 					99CDAD4A1CFC68070090960D = {
@@ -492,6 +570,7 @@
 				3035205D1C88EB3500436351 /* MHAppKit */,
 				303520B71C88EDCC00436351 /* MHAppKitTests */,
 				99CDAD4A1CFC68070090960D /* MHAppKitTestsHost */,
+				9912AA891D81E60D00DE25FC /* MHAppKitUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -506,6 +585,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		303520B61C88EDCC00436351 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9912AA881D81E60D00DE25FC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -577,6 +663,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9912AA861D81E60D00DE25FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9912AA8D1D81E60D00DE25FC /* MHAppKitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99CDAD471CFC68070090960D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,6 +687,16 @@
 			isa = PBXTargetDependency;
 			target = 3035205D1C88EB3500436351 /* MHAppKit */;
 			targetProxy = 303520BE1C88EDCC00436351 /* PBXContainerItemProxy */;
+		};
+		9912AA901D81E60D00DE25FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99CDAD4A1CFC68070090960D /* MHAppKitTestsHost */;
+			targetProxy = 9912AA8F1D81E60D00DE25FC /* PBXContainerItemProxy */;
+		};
+		9912AA951D81E97900DE25FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3035205D1C88EB3500436351 /* MHAppKit */;
+			targetProxy = 9912AA941D81E97900DE25FC /* PBXContainerItemProxy */;
 		};
 		99CDAD5E1CFC68180090960D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -638,7 +742,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -686,7 +789,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -725,7 +827,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -743,7 +845,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -758,7 +860,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHAppKitTestsHost.app/MHAppKitTestsHost";
 			};
 			name = Debug;
@@ -773,14 +875,51 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHAppKitTestsHost.app/MHAppKitTestsHost";
+			};
+			name = Release;
+		};
+		9912AA911D81E60D00DE25FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = MHAppKitUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MHAppKitTestsHost;
+			};
+			name = Debug;
+		};
+		9912AA921D81E60D00DE25FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = MHAppKitUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MHAppKitTestsHost;
 			};
 			name = Release;
 		};
 		99CDAD5A1CFC68070090960D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = MHAppKitTestsHost/Info.plist;
@@ -788,13 +927,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		99CDAD5B1CFC68070090960D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = MHAppKitTestsHost/Info.plist;
@@ -802,7 +942,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -835,6 +975,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9912AA931D81E60D00DE25FC /* Build configuration list for PBXNativeTarget "MHAppKitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9912AA911D81E60D00DE25FC /* Debug */,
+				9912AA921D81E60D00DE25FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		99CDAD5C1CFC68070090960D /* Build configuration list for PBXNativeTarget "MHAppKitTestsHost" */ = {
 			isa = XCConfigurationList;

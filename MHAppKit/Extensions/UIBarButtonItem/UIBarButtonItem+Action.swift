@@ -12,8 +12,7 @@ import UIKit
 extension UIBarButtonItem {
     
     private static var actionHandlerKey = ""
-    
-    public var actionHandler: Action? {
+    open var actionHandler: Action? {
         
         get {
             
@@ -29,17 +28,17 @@ extension UIBarButtonItem {
         }
     }
     
-    dynamic func handleAction(sender: UIBarButtonItem) {
+    dynamic func handleAction(_ sender: UIBarButtonItem) {
         
-        self.actionHandler?(sender: sender)
+        self.actionHandler?(sender)
     }
 }
 
 extension UIBarButtonItem {
     
-    public typealias Action = (sender: UIBarButtonItem) -> Void
+    public typealias Action = (_ sender: UIBarButtonItem) -> Void
     
-    private class ActionWrapper {
+    fileprivate class ActionWrapper {
         
         var action: Action
         
@@ -54,28 +53,28 @@ extension UIBarButtonItem {
 
 extension UIBarButtonItem {
     
-    public convenience init(image: UIImage?, style: UIBarButtonItemStyle, action: Action) {
+    public convenience init(image: UIImage?, style: UIBarButtonItemStyle, action: @escaping Action) {
         
         self.init(image: image, style: style, target: nil, action: nil)
         
         self.actionHandler = action
     }
     
-    public convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, action: Action) {
+    public convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, action: @escaping Action) {
         
         self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: nil, action: nil)
         
         self.actionHandler = action
     }
     
-    public convenience init(title: String?, style: UIBarButtonItemStyle, action: Action) {
+    public convenience init(title: String?, style: UIBarButtonItemStyle, action: @escaping Action) {
      
         self.init(title: title, style: style, target: nil, action: nil)
         
         self.actionHandler = action
     }
     
-    public convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: Action) {
+    public convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, action: @escaping Action) {
         
         self.init(barButtonSystemItem: systemItem, target: nil, action: nil)
         

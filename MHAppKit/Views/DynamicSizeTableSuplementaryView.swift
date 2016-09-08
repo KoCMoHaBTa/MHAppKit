@@ -24,19 +24,19 @@ import UIKit
  
  */
 
-public class DynamicSizeTableSuplementaryView: UIView {
+open class DynamicSizeTableSuplementaryView: UIView {
     
-    @IBOutlet public weak var tableView: UITableView?
-    @IBOutlet public weak var contentView: UIView?
+    @IBOutlet open weak var tableView: UITableView?
+    @IBOutlet open weak var contentView: UIView?
     
     lazy var didLayoutContentViewHandler: (() -> Void)? = { [unowned self] () -> Void in
         
         print("Unhandled layout behaviour for \(self)")
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         
-        if !NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 8, minorVersion: 4, patchVersion: 0)) {
+        if !ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 8, minorVersion: 4, patchVersion: 0)) {
             
             super.layoutSubviews()
         }
@@ -52,13 +52,13 @@ public class DynamicSizeTableSuplementaryView: UIView {
             
         }
         
-        if NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 8, minorVersion: 4, patchVersion: 0)) {
+        if ProcessInfo().isOperatingSystemAtLeast(OperatingSystemVersion(majorVersion: 8, minorVersion: 4, patchVersion: 0)) {
             
             super.layoutSubviews()
         }
     }
     
-    public func didLayoutContentView() {
+    open func didLayoutContentView() {
         
         self.didLayoutContentViewHandler?()
     }

@@ -8,17 +8,17 @@
 
 import UIKit
 
-public class BlockAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+open class BlockAnimator: NSObject, UIViewControllerAnimatedTransitioning {
    
-    public private(set) var duration: NSTimeInterval = 0.25
-    public private(set) var animations: ((transitionContext: UIViewControllerContextTransitioning) -> Void)?
-    public private(set) var completionBlock: ((finished: Bool) -> Void)?
+    open private(set) var duration: TimeInterval = 0.25
+    open private(set) var animations: ((_ transitionContext: UIViewControllerContextTransitioning) -> Void)?
+    open private(set) var completionBlock: ((_ finished: Bool) -> Void)?
     
     public override init() {
         
     }
     
-    public init(duration: NSTimeInterval, animations: ((transitionContext: UIViewControllerContextTransitioning) -> Void)?, completionBlock: ((finished: Bool) -> Void)?) {
+    public init(duration: TimeInterval, animations: ((_ transitionContext: UIViewControllerContextTransitioning) -> Void)?, completionBlock: ((_ finished: Bool) -> Void)?) {
         
         self.duration = duration
         self.animations = animations
@@ -27,18 +27,18 @@ public class BlockAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     //MARK: - UIViewControllerAnimatedTransitioning
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         
         return self.duration
     }
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        self.animations?(transitionContext: transitionContext)
+        self.animations?(transitionContext)
     }
     
-    public func animationEnded(transitionCompleted: Bool) {
+    open func animationEnded(_ transitionCompleted: Bool) {
         
-        self.completionBlock?(finished: transitionCompleted)
+        self.completionBlock?(transitionCompleted)
     }
 }

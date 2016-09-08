@@ -76,10 +76,10 @@ extension UIColor {
         //remove hash tag from HEX string
         if HEX.characters.first == "#" {
             
-            HEX.removeAtIndex(HEX.startIndex)
+            HEX.remove(at: HEX.startIndex)
         }
         
-        guard NSScanner(string: HEX).scanHexInt(&RGB) else {
+        guard Scanner(string: HEX).scanHexInt32(&RGB) else {
             
             return nil
         }
@@ -93,10 +93,10 @@ extension UIColor {
     ///Represents a color space type
     public enum ColorSpace {
         
-        case Automatic
-        case RGB
-        case HSB
-        case White
+        case automatic
+        case rgb
+        case hsb
+        case white
     }
     
     /**
@@ -109,17 +109,17 @@ extension UIColor {
      
      */
     
-    public func components(colorSpace: ColorSpace = .Automatic) -> (components: [CGFloat], alpha: CGFloat)? {
+    public func components(of colorSpace: ColorSpace = .automatic) -> (components: [CGFloat], alpha: CGFloat)? {
         
         switch colorSpace {
             
-            case .Automatic:
+            case .automatic:
             
-                return self.components(.RGB)
-                    ?? self.components(.HSB)
-                    ?? self.components(.White)
+                return self.components(of: .rgb)
+                    ?? self.components(of: .hsb)
+                    ?? self.components(of: .white)
             
-            case .RGB:
+            case .rgb:
                 
                 var R: CGFloat = 0
                 var G: CGFloat = 0
@@ -133,7 +133,7 @@ extension UIColor {
             
                 return ([R, G, B], A)
             
-            case .HSB:
+            case .hsb:
             
                 var H: CGFloat = 0
                 var S: CGFloat = 0
@@ -147,7 +147,7 @@ extension UIColor {
                 
                 return ([H, S, B], A)
             
-            case .White:
+            case .white:
             
                 var W: CGFloat = 0
                 var A: CGFloat = 0
@@ -171,9 +171,9 @@ extension UIColor {
      
      */
     
-    public func components(colorSpace: ColorSpace = .Automatic) -> (components: [UInt8], alpha: CGFloat)? {
+    public func components(of colorSpace: ColorSpace = .automatic) -> (components: [UInt8], alpha: CGFloat)? {
         
-        guard let (c, alpha): ([CGFloat], CGFloat) = self.components(colorSpace) else {
+        guard let (c, alpha): ([CGFloat], CGFloat) = self.components(of: colorSpace) else {
             
             return nil
         }
@@ -196,9 +196,9 @@ extension UIColor {
      
      */
     
-    public func components(colorSpace: ColorSpace = .Automatic) -> (components: [String], alpha: CGFloat)? {
+    public func components(of colorSpace: ColorSpace = .automatic) -> (components: [String], alpha: CGFloat)? {
         
-        guard let (c, alpha): ([UInt8], CGFloat) = self.components(colorSpace) else {
+        guard let (c, alpha): ([UInt8], CGFloat) = self.components(of: colorSpace) else {
             
             return nil
         }
@@ -221,14 +221,14 @@ extension UIColor {
      
      */
     
-    public func HEX(colorSpace: ColorSpace = .Automatic) -> (HEX: String, alpha: CGFloat)? {
+    public func HEX(of colorSpace: ColorSpace = .automatic) -> (HEX: String, alpha: CGFloat)? {
         
-        guard let (components, alpha): ([String], CGFloat) = self.components(colorSpace) else {
+        guard let (components, alpha): ([String], CGFloat) = self.components(of: colorSpace) else {
             
             return nil
         }
 
-        let HEX = components.reduce("", combine: { (result, element) -> String in
+        let HEX = components.reduce("", { (result, element) -> String in
             
             var result = result
             

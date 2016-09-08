@@ -8,20 +8,20 @@
 
 import UIKit
 
-public class ExtendedHitView: UIView {
+open class ExtendedHitView: UIView {
     
-    @IBInspectable public var extendedHitLeft: CGFloat = 0.0
-    @IBInspectable public var extendedHitRight: CGFloat = 0.0
-    @IBInspectable public var extendedHitTop: CGFloat = 0.0
-    @IBInspectable public var extendedHitBottom: CGFloat = 0.0
+    @IBInspectable open var extendedHitLeft: CGFloat = 0.0
+    @IBInspectable open var extendedHitRight: CGFloat = 0.0
+    @IBInspectable open var extendedHitTop: CGFloat = 0.0
+    @IBInspectable open var extendedHitBottom: CGFloat = 0.0
     
-    public override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         
         let extendedHitInsets = self.extendedHitInsets()
         let relativeFrame = self.bounds
         let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, extendedHitInsets)
         
-        return CGRectContainsPoint(hitFrame, point);
+        return hitFrame.contains(point);
     }
     
     func extendedHitInsets() -> UIEdgeInsets {

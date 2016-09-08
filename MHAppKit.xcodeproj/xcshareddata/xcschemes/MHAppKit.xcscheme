@@ -38,6 +38,16 @@
                ReferencedContainer = "container:MHAppKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9912AA891D81E60D00DE25FC"
+               BuildableName = "MHAppKitUITests.xctest"
+               BlueprintName = "MHAppKitUITests"
+               ReferencedContainer = "container:MHAppKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

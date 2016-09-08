@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
     
-    typealias AddViewLayouter = (container: UIView, child: UIView, completion: () -> Void) -> Void
+    public typealias AddViewLayouter = (_ container: UIView, _ child: UIView, _ completion: () -> Void) -> Void
     
     @nonobjc private static let defaultAddViewLayouter: AddViewLayouter = { (container, child, completion) -> Void in
         
@@ -25,7 +25,7 @@ public extension UIViewController {
         completion()
     }
     
-    typealias RemoveViewLayouter = (container: UIView?, child: UIView, completion: () -> Void) -> Void
+    public typealias RemoveViewLayouter = (_ container: UIView?, _ child: UIView, _ completion: () -> Void) -> Void
     
     @nonobjc private static let defaultRemoveViewLayouter: RemoveViewLayouter = { (container, child, completion) -> Void in
         
@@ -35,27 +35,27 @@ public extension UIViewController {
         completion()
     }
     
-    func addChildViewController(controller: UIViewController, inView view: UIView, layouter: AddViewLayouter = UIViewController.defaultAddViewLayouter) {
+    open func addChildViewController(_ controller: UIViewController, inView view: UIView, layouter: AddViewLayouter = UIViewController.defaultAddViewLayouter) {
         
         self.addChildViewController(controller)
         
-        layouter(container: view, child: controller.view, completion: {
+        layouter(view, controller.view, {
             
-            controller.didMoveToParentViewController(self)
+            controller.didMove(toParentViewController: self)
         })
     }
     
-    func removeChildViewController(controller: UIViewController, layouter: RemoveViewLayouter = UIViewController.defaultRemoveViewLayouter) {
+    open func removeChildViewController(_ controller: UIViewController, layouter: RemoveViewLayouter = UIViewController.defaultRemoveViewLayouter) {
         
-        controller.willMoveToParentViewController(nil)
+        controller.willMove(toParentViewController: nil)
         
-        layouter(container: controller.view.superview, child: controller.view) { () -> Void in
+        layouter(controller.view.superview, controller.view) { () -> Void in
             
             controller.removeFromParentViewController()
         }
     }
     
-    convenience init(childViewController: UIViewController) {
+    public convenience init(childViewController: UIViewController) {
         
         self.init()
         

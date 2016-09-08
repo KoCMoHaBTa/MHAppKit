@@ -8,31 +8,31 @@
 
 import UIKit
 
-public class ViewController: UIViewController, UINavigationControllerPreferencesProvider {
+open class ViewController: UIViewController, UINavigationControllerPreferencesProvider {
     
-    public var prefersStatusBarHiddenValue: Bool?
+    open var prefersStatusBarHiddenValue: Bool?
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
     }
     
-    public override func prefersStatusBarHidden() -> Bool {
+    open override var prefersStatusBarHidden : Bool {
         
-        return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden()
+        return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden
     }
     
     //MARK: - UINavigationControllerPreferencesProvider
     
-    @IBInspectable public var providesNavigationControllerPreferencesIB: Bool = false
-    @IBInspectable public var prefersNavigationBarHiddenIB: Bool = false
+    @IBInspectable open var providesNavigationControllerPreferencesIB: Bool = false
+    @IBInspectable open var prefersNavigationBarHiddenIB: Bool = false
     
-    public func providesNavigationControllerPreferences() -> Bool {
+    open func providesNavigationControllerPreferences() -> Bool {
         
         return self.providesNavigationControllerPreferencesIB
     }
     
-    public func prefersNavigationBarHidden() -> Bool {
+    open func prefersNavigationBarHidden() -> Bool {
         
         return self.prefersNavigationBarHiddenIB
     }

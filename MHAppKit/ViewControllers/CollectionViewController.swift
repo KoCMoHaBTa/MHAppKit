@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+open class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    public var prefersStatusBarHiddenValue: Bool?
+    open var prefersStatusBarHiddenValue: Bool?
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -21,23 +21,23 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
             let refreshControl = UIRefreshControl()
             self.collectionView?.addSubview(refreshControl)
             self.collectionView?.alwaysBounceVertical = true
-            refreshControl.addTarget(self, action: #selector(CollectionViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+            refreshControl.addTarget(self, action: #selector(CollectionViewController.refreshControlAction(_:)), for: UIControlEvents.valueChanged)
             self.refreshControl = refreshControl
         }
     }
     
-    public override func viewDidAppear(animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
         self.collectionViewFlowLayout?.invalidateLayout()
     }
     
-    public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        super.viewWillTransition(to: size, with: coordinator)
         
-        coordinator.animateAlongsideTransition({ (ctx) -> Void in
+        coordinator.animate(alongsideTransition: { (ctx) -> Void in
             
             self.collectionViewFlowLayout?.invalidateLayout()
             
@@ -47,19 +47,19 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
         }
     }
     
-    public override func prefersStatusBarHidden() -> Bool {
+    open override var prefersStatusBarHidden : Bool {
         
-        return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden()
+        return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden
     }
     
-    public var collectionViewFlowLayout: UICollectionViewFlowLayout? {
+    open var collectionViewFlowLayout: UICollectionViewFlowLayout? {
         
         return self.collectionViewLayout as? UICollectionViewFlowLayout
     }
 
     // MARK: - UICollectionViewDataSource & UICollectionViewDelegate
 
-    public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cell = self.collectionView(collectionView, loadCellForItemAtIndexPath: indexPath)
         cell.contentView.frame = cell.bounds
@@ -71,45 +71,45 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
     
     //MARK: - Custom UICollectionViewDataSource & UICollectionViewDelegate
     
-    public func collectionView(collectionView: UICollectionView, loadCellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, loadCellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
         let cellID = "CellID"
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellID, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         
         return cell
     }
     
-    public func collectionView(collectionView: UICollectionView, configureCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, configureCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
         return cell
     }
     
     //square
-    public func numberOfItems() -> UInt {
+    open func numberOfItems() -> UInt {
         
         return 0
     }
     
-    public func numberOfRows() -> UInt {
+    open func numberOfRows() -> UInt {
         
         return 0
     }
     
-    public func numberOfColumns() -> UInt {
+    open func numberOfColumns() -> UInt {
         
         return 0
     }
     
     //Indicate wherever to make items with equal width and height. Called when only either numberOfRows or numberOfColumns is specified. Defaults to YES
-    public func shouldMakeSquareItems() -> Bool {
+    open func shouldMakeSquareItems() -> Bool {
         
         return true
     }
     
     //MARK: - UICollectionViewDelegateFlowLayout
     
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let containerSize = collectionView.bounds.size;
 //    containerSize = [self getRotatedViewSize:collectionView];
@@ -136,10 +136,10 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
                 var maxLength: CGFloat = 0
                 switch layout.scrollDirection
                 {
-                    case UICollectionViewScrollDirection.Horizontal:
+                    case UICollectionViewScrollDirection.horizontal:
                         maxLength = containerSize.height
                         
-                    case UICollectionViewScrollDirection.Vertical:
+                    case UICollectionViewScrollDirection.vertical:
                         maxLength = containerSize.width
                     
 //                    default:
@@ -149,7 +149,7 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
                 if (maxLength > 0)
                 {
                     let length = CalculateLength(numberOfItems, maxLength, padding)
-                    let size = CGSizeMake(length, length)
+                    let size = CGSize(width: length, height: length)
 //                NSLog(@"Size: %@; View: %@", NSStringFromCGSize(size), NSStringFromCGRect(collectionView.bounds));
                     return size
                 }
@@ -198,13 +198,13 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
             }
             
             
-            let size = CGSizeMake(width, height)
+            let size = CGSize(width: width, height: height)
 //        NSLog(@"Size: %@; View: %@", NSStringFromCGSize(size), NSStringFromCGRect(collectionView.bounds));
             return size
         }
         
         
-        let size = CGSizeMake(10, 10)
+        let size = CGSize(width: 10, height: 10)
 //    NSLog(@"Size: %@; View: %@", NSStringFromCGSize(size), NSStringFromCGRect(collectionView.bounds));
         return size
     }
@@ -212,34 +212,34 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
 
     //MARK: - UIRefreshControl
     
-    @IBOutlet public var refreshControl: UIRefreshControl?
+    @IBOutlet open var refreshControl: UIRefreshControl?
     
     //false by default
-    public func enableRefreshing() -> Bool {
+    open func enableRefreshing() -> Bool {
         
         return false
     }
     
     //used by performRefresh
-    public func shouldRefresh() -> Bool {
+    open func shouldRefresh() -> Bool {
         
         return false
     }
     
-    public func beginRefresh() {
+    open func beginRefresh() {
         
         self.refreshControl?.beginRefreshing()
 //        self.searchDisplayController?.searchBar.userInteractionEnabled = false
     }
     
-    public func endRefresh() {
+    open func endRefresh() {
         
         self.refreshControl?.endRefreshing()
 //        self.searchDisplayController?.searchBar.userInteractionEnabled = true
     }
 
     //calls beginRefresh -> refreshControlActionWithCompletionBlock -> endRefresh
-    @IBAction public func refreshControlAction(sender: AnyObject) {
+    @IBAction open func refreshControlAction(_ sender: AnyObject) {
         
         self.beginRefresh()
         
@@ -250,18 +250,18 @@ public class CollectionViewController: UICollectionViewController, UICollectionV
     }
     
     //its bets to override this method and perform refresh process in it. Call completion block when done.
-    public func refreshControlActionWithCompletionBlock(completionBlock: () -> Void) {
+    open func refreshControlActionWithCompletionBlock(_ completionBlock: @escaping () -> Void) {
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), completionBlock)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(1 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: completionBlock)
     }
     
     //programatic refresh - shouldRefresh -> content inset (animated) -> refreshControlAction
-    public func performRefresh(animated: Bool = true) {
+    open func performRefresh(_ animated: Bool = true) {
         
         if self.shouldRefresh() && self.refreshControl != nil {
             
             self.collectionView?.setContentOffset(CGPoint(x: 0, y: -self.refreshControl!.frame.size.height*2), animated: animated)
-            self.refreshControl?.sendActionsForControlEvents(UIControlEvents.ValueChanged)
+            self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
         }
     }
 }

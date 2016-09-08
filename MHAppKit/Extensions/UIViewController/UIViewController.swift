@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
     
     //MARK: - UINavigationItem Additions
     
-    @IBInspectable var removeBackTitle: Bool {
+    @IBInspectable open var removeBackTitle: Bool {
         
         get {
             
-            if let item = self.navigationItem.backBarButtonItem where item.title == " " && item.target === self && item.action == Selector() {
+            if let item = self.navigationItem.backBarButtonItem , item.title == " " && item.target === self && item.action == nil {
                 
                 return true
             }
@@ -29,15 +29,15 @@ public extension UIViewController {
             
             if newValue {
                 
-                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.Plain, target: self, action: Selector())
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.plain, target: self, action: nil)
             }
         }
     }
     
     //MARK: - Dismiss @IBAction
     
-    @IBAction func dismissModalViewControllerAnimatedAction(sender: AnyObject) {
+    @IBAction open func dismissModalViewControllerAnimatedAction(_ sender: Any) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

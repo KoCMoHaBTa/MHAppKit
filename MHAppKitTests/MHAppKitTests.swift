@@ -28,16 +28,16 @@ class MHAppKitTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
     
     func testNSTimer() {
         
-        self.performExpectation("NSTimer test", timeout: 2.1) { (expectation) in
+        self.performExpectation(description: "NSTimer test", timeout: 2.1) { (expectation) in
             
-            NSTimer.scheduledTimerWithTimeInterval(2, repeats: false, handler: { (timer) in
+            let _ = Timer.scheduledTimerWithTimeInterval(2, repeats: false, handler: { (timer) in
                 
                 expectation.fulfill()
             })
@@ -55,35 +55,35 @@ class MHAppKitTests: XCTestCase {
                 expectation.fulfill()
             }
             
-            XCTAssertEqual(control.actions(.TouchUpInside).count, 1)
+            XCTAssertEqual(control.actions(forEvents: .touchUpInside).count, 1)
             
-            control.sendActionsForControlEvents(.AllEvents)
+            control.sendActions(for: .allEvents)
         }
         
         self.performExpectation { (expectation) in
             
-            expectation.addConditions([String(UIControlEvents.EditingChanged.rawValue), String(UIControlEvents.TouchDragExit.rawValue)])
+            expectation.add(conditions: [String(UIControlEvents.editingChanged.rawValue), String(UIControlEvents.touchDragExit.rawValue)])
             
             let control = UIControl()
             
-            control.addAction(.EditingChanged, action: { (sender) in
+            control.addAction(forEvents: .editingChanged, action: { (sender) in
                 
-                expectation.fulfillCondition(String(UIControlEvents.EditingChanged.rawValue))
+                expectation.fulfill(condition: String(UIControlEvents.editingChanged.rawValue))
             })
             
-            control.addAction(.TouchDragExit, action: { (sender) in
+            control.addAction(forEvents: .touchDragExit, action: { (sender) in
                 
-                expectation.fulfillCondition(String(UIControlEvents.TouchDragExit.rawValue))
+                expectation.fulfill(condition: String(UIControlEvents.touchDragExit.rawValue))
             })
             
-            control.addAction(.EditingDidEndOnExit, action: {_ in })
-            control.removeActions(.EditingDidEndOnExit)
+            control.addAction(forEvents: .editingDidEndOnExit, action: {_ in })
+            control.removeActions(forEvents: .editingDidEndOnExit)
             
-            XCTAssertEqual(control.actions(.EditingChanged).count, 1)
-            XCTAssertEqual(control.actions(.TouchDragExit).count, 1)
-            XCTAssertEqual(control.actions(.EditingDidEndOnExit).count, 0)
+            XCTAssertEqual(control.actions(forEvents: .editingChanged).count, 1)
+            XCTAssertEqual(control.actions(forEvents: .touchDragExit).count, 1)
+            XCTAssertEqual(control.actions(forEvents: .editingDidEndOnExit).count, 0)
             
-            control.sendActionsForControlEvents(.AllEvents)
+            control.sendActions(for: .allEvents)
         }
     }
     
@@ -91,12 +91,12 @@ class MHAppKitTests: XCTestCase {
         
         self.performExpectation { (expectation) in
             
-            let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, action: { (sender) in
+            let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, action: { (sender) in
                 
                 expectation.fulfill()
             })
             
-            UIApplication.sharedApplication().sendAction(item.action, to: item.target, from: item, forEvent: nil)
+            UIApplication.shared.sendAction(item.action!, to: item.target, from: item, for: nil)
         }
         
         self.performExpectation { (expectation) in
@@ -108,7 +108,7 @@ class MHAppKitTests: XCTestCase {
                 expectation.fulfill()
             }
             
-            UIApplication.sharedApplication().sendAction(item.action, to: item.target, from: item, forEvent: nil)
+            UIApplication.shared.sendAction(item.action!, to: item.target, from: item, for: nil)
         }
     }
 }
