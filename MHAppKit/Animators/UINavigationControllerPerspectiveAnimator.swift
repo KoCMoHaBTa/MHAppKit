@@ -50,13 +50,13 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
         
         guard
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-        let containerView = transitionContext.containerView()
+        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
         else {
             
             return
         }
         
+        let containerView = transitionContext.containerView()
         let duration = self.transitionDuration(transitionContext)
         
         //put the showing view to initial state before animation - prepare for sliding
@@ -93,13 +93,13 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
         
         guard
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-        let containerView = transitionContext.containerView()
+        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
         else {
             
             return
         }
         
+        let containerView = transitionContext.containerView()
         let duration = self.transitionDuration(transitionContext)
         
         //put the showing view to initial state before animation - apply the perspective transform

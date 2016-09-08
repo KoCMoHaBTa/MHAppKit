@@ -24,12 +24,26 @@ extension NSTimer {
     
     public convenience init(timeInterval: NSTimeInterval, repeats: Bool, handler: Handler) {
         
-        self.init(timeInterval: timeInterval, target: NSTimer.self, selector: #selector(NSTimer.timerHandler(_:)), userInfo: HandlerWrapper(handler), repeats: repeats)
+        if #available(iOS 10.0, *) {
+            
+            self.init(timeInterval: timeInterval, repeats: repeats, block: handler)
+        }
+        else {
+            
+            self.init(timeInterval: timeInterval, target: NSTimer.self, selector: #selector(NSTimer.timerHandler(_:)), userInfo: HandlerWrapper(handler), repeats: repeats)
+        }
     }
     
     public class func scheduledTimerWithTimeInterval(timeInterval: NSTimeInterval, repeats: Bool, handler: Handler) -> NSTimer {
         
-        return self.scheduledTimerWithTimeInterval(timeInterval, target: NSTimer.self, selector: #selector(NSTimer.timerHandler(_:)), userInfo: HandlerWrapper(handler), repeats: repeats)
+        if #available(iOS 10.0, *) {
+            
+            return self.scheduledTimerWithTimeInterval(timeInterval, repeats: repeats, block: handler)
+        }
+        else {
+            
+            return self.scheduledTimerWithTimeInterval(timeInterval, target: NSTimer.self, selector: #selector(NSTimer.timerHandler(_:)), userInfo: HandlerWrapper(handler), repeats: repeats)
+        }
     }
     
     private dynamic class func timerHandler(timer: NSTimer) {

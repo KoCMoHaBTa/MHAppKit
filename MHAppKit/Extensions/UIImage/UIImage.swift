@@ -14,7 +14,11 @@ extension UIImage {
         
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
+        
+        guard let context = UIGraphicsGetCurrentContext() else {
+            
+            return nil
+        }
         
         CGContextSetFillColorWithColor(context, color.CGColor)
         CGContextFillRect(context, rect)
@@ -22,7 +26,7 @@ extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
                 
-        guard let cgImage = image.CGImage else {
+        guard let cgImage = image?.CGImage else {
             
            return nil
         }
