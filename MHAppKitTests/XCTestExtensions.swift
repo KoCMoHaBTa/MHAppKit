@@ -11,7 +11,7 @@ import XCTest
 
 extension XCTestCase {
     
-    public func performExpectation(description: String = "XCTestCase Default Expectation", timeout: TimeInterval = 10, handler: (_ expectation: XCTestExpectation) -> Void) {
+    public func performExpectation(description: String = "XCTestCase Default Expectation", timeout: TimeInterval = 2, handler: (_ expectation: XCTestExpectation) -> Void) {
         
         let expectation = self.expectation(description: description)
         handler(expectation)

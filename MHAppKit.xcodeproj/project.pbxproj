@@ -44,7 +44,8 @@
 		99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A691D0AEA5700412ED5 /* UIColorTests.swift */; };
 		9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */; };
 		9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */; };
-		99B0FCFF1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */; };
+		99B3FAD11D9ABD8A00D96199 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */; };
+		99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */; };
 		99CDAC9F1CFC30750090960D /* UIControl+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAC9E1CFC30750090960D /* UIControl+Action.swift */; };
 		99CDAD4E1CFC68070090960D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD4D1CFC68070090960D /* AppDelegate.swift */; };
 		99CDAD501CFC68070090960D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD4F1CFC68070090960D /* ViewController.swift */; };
@@ -145,6 +146,7 @@
 		99402A671D0AE99300412ED5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		99402A691D0AEA5700412ED5 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
 		994EDE391D2A5536000CD281 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		9961811A1D9ABC7400ED1072 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Closures.swift"; sourceTree = "<group>"; };
 		9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MFMailComposeViewController+CompletionHandler.swift"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				99CDAD4C1CFC68070090960D /* MHAppKitTestsHost */,
 				9912AA8B1D81E60D00DE25FC /* MHAppKitUITests */,
 				3035205F1C88EB3500436351 /* Products */,
+				996181191D9ABC7300ED1072 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -381,6 +384,14 @@
 				99402A531D09609600412ED5 /* UIImage.swift */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		996181191D9ABC7300ED1072 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9961811A1D9ABC7400ED1072 /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9989F8271CF71E8D00B4EDC5 /* NSTimer */ = {
@@ -622,12 +633,12 @@
 				99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */,
 				9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */,
 				99402A541D09609600412ED5 /* UIImage.swift in Sources */,
-				99B0FCFF1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
 				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
 				303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */,
 				303521281C88F00D00436351 /* UIViewController+Container.swift in Sources */,
 				303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */,
 				303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */,
+				99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
 				303521161C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift in Sources */,
 				303520F61C88EF2800436351 /* TextView.swift in Sources */,
 				303521151C88EF6A00436351 /* UIViewTransitionAnimator.swift in Sources */,
@@ -667,6 +678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B3FAD11D9ABD8A00D96199 /* XCTestExtensions.swift in Sources */,
 				9912AA8D1D81E60D00DE25FC /* MHAppKitUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -988,6 +1000,7 @@
 				9912AA921D81E60D00DE25FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		99CDAD5C1CFC68070090960D /* Build configuration list for PBXNativeTarget "MHAppKitTestsHost" */ = {
 			isa = XCConfigurationList;
