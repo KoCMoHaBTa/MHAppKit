@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class NavigationController: UINavigationController {
+open class NavigationController: UINavigationController {
 
-    public var popAnimator: UIViewControllerAnimatedTransitioning?
-    public var pushAnimator: UIViewControllerAnimatedTransitioning?
+    open var popAnimator: UIViewControllerAnimatedTransitioning?
+    open var pushAnimator: UIViewControllerAnimatedTransitioning?
     
-    public private(set) var popInteractionController: UIPercentDrivenInteractiveTransition?
-    public private(set) var popInteractiveGestureRecognizer: UIGestureRecognizer? = { () -> UIGestureRecognizer? in
+    open private(set) var popInteractionController: UIPercentDrivenInteractiveTransition?
+    open private(set) var popInteractiveGestureRecognizer: UIGestureRecognizer? = { () -> UIGestureRecognizer? in
        
         let popInteractiveGestureRecognizer = UIScreenEdgePanGestureRecognizer()
-        popInteractiveGestureRecognizer.edges = .Left
+        popInteractiveGestureRecognizer.edges = .left
         
         return popInteractiveGestureRecognizer
     }()
@@ -38,7 +38,7 @@ public class NavigationController: UINavigationController {
 
     */
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -52,34 +52,34 @@ public class NavigationController: UINavigationController {
         }
     }
     
-    public func handleInteractivePopGestureRecognizer(recongnizer: UIGestureRecognizer) {
+    open func handleInteractivePopGestureRecognizer(_ recongnizer: UIGestureRecognizer) {
         
         if self.popAnimator == nil {
             
             return
         }
         
-        var progress = recongnizer.locationInView(recongnizer.view).x / recongnizer.view!.bounds.size.width * 1
+        var progress = recongnizer.location(in: recongnizer.view).x / recongnizer.view!.bounds.size.width * 1
         progress = min(1, max(0, progress))
         
         switch recongnizer.state {
             
-            case .Began:
+            case .began:
                 self.popInteractionController = UIPercentDrivenInteractiveTransition()
-                self.popViewControllerAnimated(true)
+                self.popViewController(animated: true)
                 
-            case .Changed:
-                self.popInteractionController?.updateInteractiveTransition(progress)
+            case .changed:
+                self.popInteractionController?.update(progress)
                 
-            case .Ended, .Cancelled, .Failed:
+            case .ended, .cancelled, .failed:
                 
                 if progress > 0.5 {
                     
-                    self.popInteractionController?.finishInteractiveTransition()
+                    self.popInteractionController?.finish()
                 }
                 else {
                     
-                    self.popInteractionController?.cancelInteractiveTransition()
+                    self.popInteractionController?.cancel()
                 }
                 
                 self.popInteractionController = nil
@@ -95,7 +95,7 @@ public class NavigationController: UINavigationController {
 
 extension NavigationController: UINavigationControllerDelegate {
     
-    public func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         if let viewController = viewController as? UINavigationControllerPreferencesProvider {
             
@@ -110,16 +110,16 @@ extension NavigationController: UINavigationControllerDelegate {
         navigationController.setToolbarHidden(toolbarItemsCount < 1, animated: true)
     }
     
-    public func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         let animator = { [unowned self] (operation: UINavigationControllerOperation) -> UIViewControllerAnimatedTransitioning? in
             
             switch operation {
                 
-                case .Pop:
+                case .pop:
                     return self.popAnimator
                 
-                case .Push:
+                case .push:
                     return self.pushAnimator
                 
                 default:
@@ -128,13 +128,13 @@ extension NavigationController: UINavigationControllerDelegate {
             
         }(operation)
         
-        ?? fromVC.preferedNavigationAnimator(operation, toController: toVC)
-        ?? toVC.preferedNavigationAnimator(operation, fromController: fromVC)
+            ?? fromVC.preferedNavigationAnimator(for: operation, toController: toVC)
+            ?? toVC.preferedNavigationAnimator(for: operation, fromController: fromVC)
         
         return animator
     }
 
-    public func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
 
         if animationController === self.popAnimator {
             
@@ -144,11 +144,11 @@ extension NavigationController: UINavigationControllerDelegate {
         return nil
     }
     
-    public override func respondsToSelector(aSelector: Selector) -> Bool {
+    open override func responds(to aSelector: Selector) -> Bool {
         
-        let respond = super.respondsToSelector(aSelector)
+        let respond = super.responds(to: aSelector)
         
-        if aSelector == #selector(UINavigationControllerDelegate.navigationController(_:animationControllerForOperation:fromViewController:toViewController:)) && respond && self.popAnimator == nil {
+        if aSelector == #selector(UINavigationControllerDelegate.navigationController(_:animationControllerFor:from:to:)) && respond && self.popAnimator == nil {
             
             return false
         }
@@ -161,12 +161,12 @@ extension NavigationController: UINavigationControllerDelegate {
 
 extension NavigationController: UIGestureRecognizerDelegate {
     
-    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         
         if otherGestureRecognizer !== self.interactivePopGestureRecognizer {
             
-            otherGestureRecognizer.enabled = false
-            otherGestureRecognizer.enabled = true
+            otherGestureRecognizer.isEnabled = false
+            otherGestureRecognizer.isEnabled = true
             
             return true
         }
@@ -175,16 +175,16 @@ extension NavigationController: UIGestureRecognizerDelegate {
     }
 }
 
-public extension UIViewController {
+extension UIViewController {
     
     //used when presentor defines the transition to the presented controller
-    func preferedNavigationAnimator(operation: UINavigationControllerOperation, toController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func preferedNavigationAnimator(for operation: UINavigationControllerOperation, toController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return nil
     }
     
     //used when presented controller defines its own transition
-    func preferedNavigationAnimator(operation: UINavigationControllerOperation, fromController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func preferedNavigationAnimator(for operation: UINavigationControllerOperation, fromController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return nil
     }

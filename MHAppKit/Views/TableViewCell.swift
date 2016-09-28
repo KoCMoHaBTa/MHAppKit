@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-public class TableViewCell: UITableViewCell {
+open class TableViewCell: UITableViewCell {
     
     private var _customImageView: UIImageView?
-    @IBOutlet public override var imageView: UIImageView? {
+    @IBOutlet open override var imageView: UIImageView? {
         
         get {
             
@@ -26,7 +26,7 @@ public class TableViewCell: UITableViewCell {
     }
     
     private var _customTextLabel: UILabel?
-    @IBOutlet public override var textLabel: UILabel? {
+    @IBOutlet open override var textLabel: UILabel? {
         
         get {
             
@@ -40,7 +40,7 @@ public class TableViewCell: UITableViewCell {
     }
     
     private var _customDetailTextLabel: UILabel?
-    @IBOutlet public override var detailTextLabel: UILabel? {
+    @IBOutlet open override var detailTextLabel: UILabel? {
         
         get {
             
@@ -55,20 +55,20 @@ public class TableViewCell: UITableViewCell {
     
     //MARK: - Selection
     
-    @IBInspectable public var showCheckMarkUponSelection: Bool = false
-    @IBInspectable public var showImageUponSelection: Bool = false
-    @IBInspectable public var selectionImage: UIImage?
-    @IBInspectable public var unselectionImage: UIImage?
+    @IBInspectable open var showCheckMarkUponSelection: Bool = false
+    @IBInspectable open var showImageUponSelection: Bool = false
+    @IBInspectable open var selectionImage: UIImage?
+    @IBInspectable open var unselectionImage: UIImage?
     
-    @IBOutlet public var selectionImageView: UIImageView?
+    @IBOutlet open var selectionImageView: UIImageView?
     
-    public override func setSelected(selected: Bool, animated: Bool) {
+    open override func setSelected(_ selected: Bool, animated: Bool) {
         
         super.setSelected(selected, animated: animated)
         
         if self.showCheckMarkUponSelection {
             
-            self.accessoryType = selected ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None;
+            self.accessoryType = selected ? .checkmark : .none;
         }
         
         if self.showImageUponSelection {
@@ -81,51 +81,51 @@ public class TableViewCell: UITableViewCell {
     
     //MARK: - Background Nib Loading
     
-    @IBInspectable public var backgroundViewNibName: String?
-    @IBInspectable public var backgroundViewNibBundleIdentifier: String?
+    @IBInspectable open var backgroundViewNibName: String?
+    @IBInspectable open var backgroundViewNibBundleIdentifier: String?
     
-    public var backgroundViewNibBundle: NSBundle {
+    open var backgroundViewNibBundle: Bundle {
 
         if let nibBundleIdentifier = self.backgroundViewNibBundleIdentifier {
             
-            return NSBundle(identifier: nibBundleIdentifier)!
+            return Bundle(identifier: nibBundleIdentifier)!
         }
         
-        return NSBundle.mainBundle()
+        return Bundle.main
     }
     
-    @IBInspectable public var selectedBackgroundViewNibName: String?
-    @IBInspectable public var selectedBackgroundViewNibBundleIdentifier: String?
+    @IBInspectable open var selectedBackgroundViewNibName: String?
+    @IBInspectable open var selectedBackgroundViewNibBundleIdentifier: String?
     
-    public var selectedBackgroundViewNibBundle: NSBundle {
+    open var selectedBackgroundViewNibBundle: Bundle {
         
         if let nibBundleIdentifier = self.selectedBackgroundViewNibBundleIdentifier {
             
-            return NSBundle(identifier: nibBundleIdentifier)!
+            return Bundle(identifier: nibBundleIdentifier)!
         }
         
-        return NSBundle.mainBundle()
+        return Bundle.main
     }
     
     //MARK: - Other
     
     ///can be used to override the background color at runtime
-    @IBInspectable public var runtimeBackgroundColor: UIColor? = nil
+    @IBInspectable open var runtimeBackgroundColor: UIColor? = nil
     
     //MARK: - Setup
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         
         super.awakeFromNib()
         
         if let backgroundViewNibName = self.backgroundViewNibName {
             
-            NSBundle.mainBundle().loadNibNamed(backgroundViewNibName, owner: self, options: nil)
+            Bundle.main.loadNibNamed(backgroundViewNibName, owner: self, options: nil)
         }
         
         if let selectedBackgroundViewNibName = self.selectedBackgroundViewNibName {
             
-            NSBundle.mainBundle().loadNibNamed(selectedBackgroundViewNibName, owner: self, options: nil)
+            Bundle.main.loadNibNamed(selectedBackgroundViewNibName, owner: self, options: nil)
         }
         
         if let color = self.runtimeBackgroundColor {
@@ -134,7 +134,7 @@ public class TableViewCell: UITableViewCell {
         }
     }
     
-    public override func prepareForInterfaceBuilder() {
+    open override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
     }

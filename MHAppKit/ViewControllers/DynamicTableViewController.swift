@@ -8,18 +8,18 @@
 
 import UIKit
 
-public class DynamicTableViewController: StaticTableViewController {
+open class DynamicTableViewController: StaticTableViewController {
 
-    @IBInspectable public var automaticallyBindTableViewCellAccessoryControlToDelegate: Bool = false
+    @IBInspectable open var automaticallyBindTableViewCellAccessoryControlToDelegate: Bool = false
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
     }
     
     //MARK: - UITableViewDataSource & UITableViewDelegate
     
-    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = self.tableView(tableView, loadCellForRowAtIndexPath: indexPath)
         cell = self.tableView(tableView, configureCell: cell, forRowAtIndexPath: indexPath)
@@ -28,30 +28,30 @@ public class DynamicTableViewController: StaticTableViewController {
         {
             if let accessoryView = cell.accessoryView as? UIControl {
                 
-                accessoryView.addTarget(self, action: #selector(StaticTableViewController.accessoryViewTouchAction(_:event:)), forControlEvents: UIControlEvents.TouchUpInside)
+                accessoryView.addTarget(self, action: #selector(StaticTableViewController.accessoryViewTouchAction(_:event:)), for: UIControlEvents.touchUpInside)
             }
         }
         
         return cell
     }
     
-    public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //MARK: - Custom UITableViewDataSource & UITableViewDelegate
     
-    public func tableView(tableView: UITableView, loadCellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, loadCellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         
         let cellID = "CellID"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellID)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
         
         return cell!
     }
     
-    public func tableView(tableView: UITableView, configureCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, configureCell cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         
         return cell
     }

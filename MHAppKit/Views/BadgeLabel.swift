@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-public class BadgeLabel: UILabel {
+open class BadgeLabel: UILabel {
 
-    public var hideAtBadgeValueZero = true
-    public var animateBadgeValueChange = true
-    public var padding: CGFloat = 6
+    open var hideAtBadgeValueZero = true
+    open var animateBadgeValueChange = true
+    open var padding: CGFloat = 6
     
-    public var badgeValue: String? {
+    open var badgeValue: String? {
         
         didSet {
             
             self.text = self.badgeValue
             
-            self.hidden = self.badgeValue == nil || (self.hideAtBadgeValueZero && self.badgeValue == "0")
+            self.isHidden = self.badgeValue == nil || (self.hideAtBadgeValueZero && self.badgeValue == "0")
             
             if self.animateBadgeValueChange {
                 
@@ -44,16 +44,16 @@ public class BadgeLabel: UILabel {
         self.loadDefaultBadgeConfiguration()
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         
         super.layoutSubviews()
         
         self.layer.cornerRadius = self.bounds.height / 2
     }
     
-    public override func intrinsicContentSize() -> CGSize {
+    open override var intrinsicContentSize : CGSize {
         
-        let size = super.intrinsicContentSize()
+        let size = super.intrinsicContentSize
         
         let height = size.height + self.padding
         let width = max(size.width, size.height) + self.padding
@@ -61,17 +61,17 @@ public class BadgeLabel: UILabel {
         return CGSize(width: width, height: height)
     }
     
-    public func loadDefaultBadgeConfiguration() {
+    open func loadDefaultBadgeConfiguration() {
         
-        self.backgroundColor = UIColor.redColor()
-        self.textColor = UIColor.whiteColor()
-        self.font = UIFont.systemFontOfSize(12)
-        self.textAlignment = NSTextAlignment.Center
+        self.backgroundColor = .red
+        self.textColor = .white
+        self.font = .systemFont(ofSize: 12)
+        self.textAlignment = .center
         
         self.layer.masksToBounds = true
     }
     
-    public func performBadgeValueChangeAnimation() {
+    open func performBadgeValueChangeAnimation() {
         
         let animation = CABasicAnimation(keyPath: "transform.scale")
         animation.fromValue = 1.5
@@ -79,7 +79,7 @@ public class BadgeLabel: UILabel {
         animation.duration = 0.2
         animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.4, 1.3, 1, 1)
         
-        self.layer.addAnimation(animation, forKey: "bounce")
+        self.layer.add(animation, forKey: "bounce")
     }
 }
 

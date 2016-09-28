@@ -8,16 +8,16 @@
 
 import UIKit
 
-@IBDesignable public class TextView: UITextView {
+@IBDesignable open class TextView: UITextView {
     
-    @IBInspectable public var removePadding: Bool = false {
+    @IBInspectable open var removePadding: Bool = false {
         
         didSet {
             
             if self.removePadding {
                 
                 self.textContainer.lineFragmentPadding = 0
-                self.textContainerInset = UIEdgeInsetsZero
+                self.textContainerInset = .zero
             }
             else {
                 
@@ -27,7 +27,7 @@ import UIKit
         }
     }
     
-    @IBInspectable public var leftPadding: CGFloat = 0 {
+    @IBInspectable open var leftPadding: CGFloat = 0 {
         
         didSet {
             
@@ -37,12 +37,12 @@ import UIKit
     
     //MARK: - Auto Size
     
-    @IBInspectable public var autoSize: Bool = false
+    @IBInspectable open var autoSize: Bool = false
     
     //MARK: - Placeholder
 //    https://github.com/soffes/SAMTextView/blob/master/SAMTextView/SAMTextView.m
     
-    @IBInspectable public var placeholder: String? {
+    @IBInspectable open var placeholder: String? {
         
         get {
             
@@ -58,9 +58,9 @@ import UIKit
                     return
                 }
                 
-                var attributes: [String: AnyObject] = [:]
+                var attributes: [String: Any] = [:]
                 
-                if self.isFirstResponder() {
+                if self.isFirstResponder {
                     
                     for (k, v) in self.typingAttributes {
                         
@@ -72,7 +72,7 @@ import UIKit
                     attributes[NSFontAttributeName] = self.font
                     attributes[NSForegroundColorAttributeName] = UIColor(white: 0.702, alpha: 1.0)
                     
-                    if self.textAlignment != NSTextAlignment.Left {
+                    if self.textAlignment != .left {
                         
                         let paragraph = NSMutableParagraphStyle()
                         paragraph.alignment = self.textAlignment
@@ -86,7 +86,7 @@ import UIKit
     }
     
     private var _attributedPlaceholder: NSAttributedString?
-    public var attributedPlaceholder: NSAttributedString? {
+    open var attributedPlaceholder: NSAttributedString? {
         
         get {
             
@@ -104,7 +104,7 @@ import UIKit
                 
                 if let newValue = newValue {
                     
-                    if _attributedPlaceholder.isEqualToAttributedString(newValue) {
+                    if _attributedPlaceholder.isEqual(to: newValue) {
                         
                         return
                     }
@@ -116,7 +116,7 @@ import UIKit
         }
     }
     
-    public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+    open func placeholderRectForBounds(_ bounds: CGRect) -> CGRect {
         
         var rect = UIEdgeInsetsInsetRect(bounds, self.contentInset);
         
@@ -131,7 +131,7 @@ import UIKit
     
     //MARK: - UITextView
     
-    public override var text: String! {
+    open override var text: String! {
         
         didSet {
             
@@ -139,7 +139,7 @@ import UIKit
         }
     }
     
-    public override var font: UIFont? {
+    open override var font: UIFont? {
         
         didSet {
             
@@ -147,7 +147,7 @@ import UIKit
         }
     }
     
-    public override var textAlignment: NSTextAlignment {
+    open override var textAlignment: NSTextAlignment {
         
         get {
             
@@ -161,7 +161,7 @@ import UIKit
         }
     }
     
-    public override var attributedText: NSAttributedString! {
+    open override var attributedText: NSAttributedString! {
         
         didSet {
             
@@ -169,7 +169,7 @@ import UIKit
         }
     }
     
-    public override func insertText(text: String) {
+    open override func insertText(_ text: String) {
         
         super.insertText(text)
         self.setNeedsDisplay()
@@ -177,7 +177,7 @@ import UIKit
     
     //MARK: - UIScrollView
     
-    public override var contentInset: UIEdgeInsets {
+    open override var contentInset: UIEdgeInsets {
         
         get {
             
@@ -195,7 +195,7 @@ import UIKit
     
     deinit {
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UITextViewTextDidChangeNotification, object: self)
+        NotificationCenter.default.removeObserver(self, name: .UITextViewTextDidChange, object: self)
     }
     
     //MARK: - UIView
@@ -212,16 +212,16 @@ import UIKit
 //        self.setupNotifications()
 //    }
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         
         super.awakeFromNib()
         
         self.setupNotifications()
     }
     
-    public override func drawRect(rect: CGRect) {
+    open override func draw(_ rect: CGRect) {
         
-        super.drawRect(rect)
+        super.draw(rect)
         
         // Draw placeholder if necessary
         if let text = self.text {
@@ -231,19 +231,19 @@ import UIKit
                 if text.isEmpty {
                     
                     let placeholderRect = self.placeholderRectForBounds(self.bounds)
-                    attributedPlaceholder.drawInRect(placeholderRect)
+                    attributedPlaceholder.draw(in: placeholderRect)
                 }
             }
         }
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         
         super.layoutSubviews()
         
         if self.autoSize {
             
-            if !CGSizeEqualToSize(self.bounds.size, self.intrinsicContentSize()) {
+            if !self.bounds.size.equalTo(self.intrinsicContentSize) {
                 
                 self.invalidateIntrinsicContentSize()
             }
@@ -255,11 +255,11 @@ import UIKit
         }
     }
     
-    public override func intrinsicContentSize() -> CGSize {
+    open override var intrinsicContentSize: CGSize {
         
         if self.autoSize {
             
-            var intrinsicContentSize = self.layoutManager.usedRectForTextContainer(self.textContainer).size //self.contentSize
+            var intrinsicContentSize = self.layoutManager.usedRect(for: self.textContainer).size //self.contentSize
             
             
             /*
@@ -272,7 +272,7 @@ import UIKit
             
             if self.text == nil || self.text.isEmpty {
                 
-                return CGSizeZero
+                return .zero
             }
             
             intrinsicContentSize.height += self.textContainerInset.top
@@ -283,24 +283,24 @@ import UIKit
             return intrinsicContentSize
         }
         
-        return super.intrinsicContentSize()
+        return super.intrinsicContentSize
     }
     
     //MARK: - Notifications
     
     private func setupNotifications() {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TextView.receivedTextDidChangeNotification(_:)), name: UITextViewTextDidChangeNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(TextView.receivedTextDidChangeNotification(_:)), name: .UITextViewTextDidChange, object: self)
     }
     
-    public func receivedTextDidChangeNotification(noitification: NSNotification) {
+    open func receivedTextDidChangeNotification(_ noitification: Notification) {
         
         self.setNeedsDisplay()
     }
     
     //MARK: - Interface Builder
     
-    public override func prepareForInterfaceBuilder() {
+    open override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
         

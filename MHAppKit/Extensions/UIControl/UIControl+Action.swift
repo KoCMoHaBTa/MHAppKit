@@ -11,21 +11,21 @@ import UIKit
 
 extension UIControl {
     
-    public typealias Action = (sender: UIControl) -> Void
+    public typealias Action = (_ sender: UIControl) -> Void
     
-    public func addAction(events: UIControlEvents = [.TouchUpInside], action: Action) {
+    open func addAction(forEvents events: UIControlEvents = [.touchUpInside], action: @escaping Action) {
         
         //the action should be called for every event
         let handler = ActionHandler(control: self, events: events, action: action)
         self.actionHandlers.append(handler)
     }
     
-    public func actions(events: UIControlEvents) -> [Action] {
+    open func actions(forEvents events: UIControlEvents) -> [Action] {
         
         return self.actionHandlers.filter({ $0.events.contains(events) }).map({ $0.action })
     }
     
-    public func removeActions(events: UIControlEvents) {
+    open func removeActions(forEvents events: UIControlEvents) {
         
         self.actionHandlers = self.actionHandlers.filter({ !$0.events.contains(events) })
     }
@@ -34,7 +34,7 @@ extension UIControl {
 extension UIControl {
     
     private static var actionHandlersKey = ""
-    private var actionHandlers: [ActionHandler] {
+    fileprivate var actionHandlers: [ActionHandler] {
         
         get {
             
@@ -52,7 +52,7 @@ extension UIControl {
 
 extension UIControl {
     
-    private class ActionHandler {
+    fileprivate class ActionHandler {
         
         weak var control: UIControl?
         let events: UIControlEvents
@@ -60,21 +60,21 @@ extension UIControl {
         
         deinit {
             
-            self.control?.removeTarget(self, action: #selector(handleAction(_:)), forControlEvents: self.events)
+            self.control?.removeTarget(self, action: #selector(handleAction(_:)), for: self.events)
         }
         
-        init(control: UIControl, events: UIControlEvents, action: Action) {
+        init(control: UIControl, events: UIControlEvents, action: @escaping Action) {
             
             self.control = control
             self.events = events
             self.action = action
             
-            control.addTarget(self, action: #selector(handleAction(_:)), forControlEvents: events)
+            control.addTarget(self, action: #selector(handleAction(_:)), for: events)
         }
         
-        dynamic func handleAction(sender: UIControl) {
+        dynamic func handleAction(_ sender: UIControl) {
             
-            self.action(sender: sender)
+            self.action(sender)
         }
     }
 }

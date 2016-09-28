@@ -11,10 +11,9 @@ import MessageUI
 
 extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
     
-    public typealias CompletionHandler = (controller: MFMailComposeViewController, result: MFMailComposeResult, error: NSError?) -> Void
+    public typealias CompletionHandler = (_ controller: MFMailComposeViewController, _ result: MFMailComposeResult, _ error: NSError?) -> Void
     
     private static var completionHandlerKey = ""
-    
     public var completionHandler: CompletionHandler? {
         
         get {
@@ -37,15 +36,15 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
         }
     }
     
-    public func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
-        self.completionHandler?(controller: controller, result: result, error: error)
+        self.completionHandler?(controller, result, error as NSError?)
     }
 }
 
 extension MFMailComposeViewController {
     
-    private class CompletionHandlerWrapper {
+    fileprivate class CompletionHandlerWrapper {
         
         let handler: MFMailComposeViewController.CompletionHandler?
         

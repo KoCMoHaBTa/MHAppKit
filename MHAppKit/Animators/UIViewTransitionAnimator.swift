@@ -8,17 +8,17 @@
 
 import UIKit
 
-public class UIViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+open class UIViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
    
-    public private(set) var duration: NSTimeInterval = 0.25
-    public private(set) var options: UIViewAnimationOptions = UIViewAnimationOptions.TransitionNone
-    public private(set) var completionBlock: ((finished: Bool) -> Void)?
+    open private(set) var duration: TimeInterval = 0.25
+    open private(set) var options: UIViewAnimationOptions = UIViewAnimationOptions()
+    open private(set) var completionBlock: ((_ finished: Bool) -> Void)?
     
     public override init() {
         
     }
     
-    public init(duration: NSTimeInterval, options: UIViewAnimationOptions, completionBlock: ((finished: Bool) -> Void)?) {
+    public init(duration: TimeInterval, options: UIViewAnimationOptions, completionBlock: ((_ finished: Bool) -> Void)?) {
         
         self.duration = duration
         self.options = options
@@ -27,25 +27,25 @@ public class UIViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransit
     
     //MARK: - UIViewControllerAnimatedTransitioning
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         
         return self.duration
     }
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let duration = self.transitionDuration(transitionContext)
+        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
+        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        let duration = self.transitionDuration(using: transitionContext)
         
-        UIView.transitionFromView(fromViewController.view, toView: toViewController.view, duration: duration, options: self.options) { (finished) -> Void in
+        UIView.transition(from: fromViewController.view, to: toViewController.view, duration: duration, options: self.options) { (finished) -> Void in
             
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
     
-    public func animationEnded(transitionCompleted: Bool) {
+    open func animationEnded(_ transitionCompleted: Bool) {
         
-        self.completionBlock?(finished: transitionCompleted)
+        self.completionBlock?(transitionCompleted)
     }
 }

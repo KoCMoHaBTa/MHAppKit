@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-public extension UILabel {
+extension UILabel {
     
-    convenience init(text: String) {
+    public convenience init(text: String) {
         
         self.init()
         self.text = text

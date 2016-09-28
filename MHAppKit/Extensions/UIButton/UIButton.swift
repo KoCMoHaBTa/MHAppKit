@@ -15,7 +15,7 @@ extension UIButton {
         
         self.init()
         
-        self.setTitle(text, forState: .Normal)
+        self.setTitle(text, for: .normal)
     }
     
     public convenience init(text: String?, textAlignment: NSTextAlignment) {
@@ -29,6 +29,6 @@ extension UIButton {
         
         self.init()
         
-        self.setImage(image, forState: .Normal)
+        self.setImage(image, for: .normal)
     }
 }

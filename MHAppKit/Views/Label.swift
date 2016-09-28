@@ -8,37 +8,37 @@
 
 import UIKit
 
-@IBDesignable public class Label: UILabel {
+@IBDesignable open class Label: UILabel {
     
-    @IBInspectable public var insets: UIEdgeInsets = UIEdgeInsetsZero
+    @IBInspectable open var insets: UIEdgeInsets = .zero
     
-    @IBInspectable public var topInset: CGFloat {
+    @IBInspectable open var topInset: CGFloat {
         
         get { return self.insets.top }
         set { self.insets.top = newValue }
     }
     
-    @IBInspectable public var bottomInset: CGFloat {
+    @IBInspectable open var bottomInset: CGFloat {
         
         get { return self.insets.bottom }
         set { self.insets.bottom = newValue }
     }
     
-    @IBInspectable public var leftInset: CGFloat {
+    @IBInspectable open var leftInset: CGFloat {
         
         get { return self.insets.left }
         set { self.insets.left = newValue }
     }
     
-    @IBInspectable public var rightInset: CGFloat {
+    @IBInspectable open var rightInset: CGFloat {
         
         get { return self.insets.right }
         set { self.insets.right = newValue }
     }
     
-    public override func intrinsicContentSize() -> CGSize {
+    open override var intrinsicContentSize : CGSize {
         
-        var intrinsicContentSize = super.intrinsicContentSize()
+        var intrinsicContentSize = super.intrinsicContentSize
         
         if self.text != nil && self.text?.isEmpty == false {
             

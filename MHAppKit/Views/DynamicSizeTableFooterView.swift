@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-public class DynamicSizeTableFooterView: DynamicSizeTableSuplementaryView {
+open class DynamicSizeTableFooterView: DynamicSizeTableSuplementaryView {
     
-    public override func didLayoutContentView() {
+    open override func didLayoutContentView() {
         
         self.tableView?.tableFooterView = self
     }

@@ -53,26 +53,26 @@ extension Float: PickerViewControllerItem {
     }
 }
 
-public class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     public typealias Item = PickerViewControllerItem
     
-    public var items: [Item] = []
-    public var selectedItemIndex: Int = 0
+    open var items: [Item] = []
+    open var selectedItemIndex: Int = 0
     private static let backgroundViewTag = "PickerViewController.backgroundViewTag".hashValue
     
-    @IBOutlet public var pickerView: UIPickerView!
-    @IBOutlet public var cancelBarButton: UIBarButtonItem!
-    @IBOutlet public var titleBarButton: UIBarButtonItem!
-    @IBOutlet public var doneBarButton: UIBarButtonItem!
+    @IBOutlet open var pickerView: UIPickerView!
+    @IBOutlet open var cancelBarButton: UIBarButtonItem!
+    @IBOutlet open var titleBarButton: UIBarButtonItem!
+    @IBOutlet open var doneBarButton: UIBarButtonItem!
     
-    public var didSelectItem: ((controller: PickerViewController, item: PickerViewController.Item?, index: Int?) -> Void)?
+    open var didSelectItem: ((_ controller: PickerViewController, _ item: PickerViewController.Item?, _ index: Int?) -> Void)?
     
     //MARK: - Init
     
     public convenience init(items: [Item], selectedItemIndex: Int) {
 
-        self.init(nibName: "PickerViewController", bundle: NSBundle(forClass: PickerViewController.self))
+        self.init(nibName: "PickerViewController", bundle: Bundle(for: PickerViewController.self))
         
         self.items = items
         self.selectedItemIndex = selectedItemIndex
@@ -82,19 +82,19 @@ public class PickerViewController: UIViewController, UIPickerViewDataSource, UIP
         
         super.init(coder: aDecoder)
         
-        self.modalPresentationStyle = .OverCurrentContext
+        self.modalPresentationStyle = .overCurrentContext
     }
     
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        self.modalPresentationStyle = .OverCurrentContext
+        self.modalPresentationStyle = .overCurrentContext
     }
 
     //MARK: UIViewController
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -104,31 +104,31 @@ public class PickerViewController: UIViewController, UIPickerViewDataSource, UIP
         
         if let color = self.titleBarButton.tintColor {
             
-            self.titleBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: color], forState: UIControlState.Normal)
-            self.titleBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: color], forState: UIControlState.Disabled)
+            self.titleBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: color], for: .normal)
+            self.titleBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: color], for: .disabled)
         }
         
         self.pickerView.selectRow(self.selectedItemIndex, inComponent: 0, animated: false)
     }
     
-    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    open override var preferredStatusBarStyle : UIStatusBarStyle {
         
-        return .LightContent
+        return .lightContent
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        self.transitionCoordinator()?.animateAlongsideTransition({ (ctx) -> Void in
+        self.transitionCoordinator?.animate(alongsideTransition: { (ctx) -> Void in
             
-            let container = ctx.containerView()
+            let container = ctx.containerView
             
             let backgroundView = UIView(frame: container.bounds)
-            backgroundView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-            backgroundView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3)
-            backgroundView.tag = self.dynamicType.backgroundViewTag
-            container.insertSubview(backgroundView, atIndex: 0)
+            backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+            backgroundView.tag = type(of: self).backgroundViewTag
+            container.insertSubview(backgroundView, at: 0)
             
             backgroundView.alpha = 0
             backgroundView.alpha = 1
@@ -138,51 +138,51 @@ public class PickerViewController: UIViewController, UIPickerViewDataSource, UIP
         })
     }
     
-    public override func viewWillDisappear(animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
         
-        self.transitionCoordinator()?.animateAlongsideTransition({ (ctx) -> Void in
+        self.transitionCoordinator?.animate(alongsideTransition: { (ctx) -> Void in
             
-            let container = ctx.containerView()
-            let backgroundView = container.viewWithTag(self.dynamicType.backgroundViewTag)
+            let container = ctx.containerView
+            let backgroundView = container.viewWithTag(type(of: self).backgroundViewTag)
             backgroundView?.alpha = 0
             
         }, completion: { (ctx) -> Void in
             
-            let container = ctx.containerView()
-            let backgroundView = container.viewWithTag(self.dynamicType.backgroundViewTag)
+            let container = ctx.containerView
+            let backgroundView = container.viewWithTag(type(of: self).backgroundViewTag)
             backgroundView?.removeFromSuperview()
         })
     }
     
     //MARK: - Actions
     
-    @IBAction public func cancelAction(sender: AnyObject) {
+    @IBAction open func cancelAction(_ sender: AnyObject) {
         
-        self.didSelectItem?(controller: self, item: nil, index: nil)
+        self.didSelectItem?(self, nil, nil)
     }
     
-    @IBAction public func doneAction(sender: AnyObject) {
+    @IBAction open func doneAction(_ sender: AnyObject) {
         
-        let index = self.pickerView.selectedRowInComponent(0)
+        let index = self.pickerView.selectedRow(inComponent: 0)
         let item = self.items[index]
-        self.didSelectItem?(controller: self, item: item, index: index)
+        self.didSelectItem?(self, item, index)
     }
     
     //MARK: - UIPickerViewDataSource and UIPickerViewDelegate
     
-    public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    open func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
     }
     
-    public func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         return self.items.count
     }
     
-    public func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         let item = self.items[row]
         return item.title

@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    public let operation: UINavigationControllerOperation
-    public let duration: NSTimeInterval
+    open let operation: UINavigationControllerOperation
+    open let duration: TimeInterval
     
-    public init(operation: UINavigationControllerOperation, duration: NSTimeInterval = 0.35) {
+    public init(operation: UINavigationControllerOperation, duration: TimeInterval = 0.35) {
         
         self.operation = operation
         self.duration = duration
@@ -21,50 +21,50 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
     
     //MARK: - UIViewControllerAnimatedTransitioning
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         
         return self.duration
     }
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         switch self.operation {
             
-            case .Push:
-                self.animatePushTransition(transitionContext)
+            case .push:
+                self.animatePushTransition(using: transitionContext)
                 return
             
-            case .Pop:
-                self.animatePopTransition(transitionContext)
+            case .pop:
+                self.animatePopTransition(using: transitionContext)
                 return
             
             default:
-                self.animateDefaultTransition(transitionContext)
+                self.animateDefaultTransition(using: transitionContext)
                 return
         }
     }
     
     //MARK: - Custom Animations
     
-    public func animatePushTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animatePushTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-        let containerView = transitionContext.containerView()
+        let fromViewController = transitionContext.viewController(forKey: .from),
+        let toViewController = transitionContext.viewController(forKey: .to)
         else {
             
             return
         }
         
-        let duration = self.transitionDuration(transitionContext)
+        let containerView = transitionContext.containerView
+        let duration = self.transitionDuration(using: transitionContext)
         
         //put the showing view to initial state before animation - prepare for sliding
         containerView.addSubview(toViewController.view)
         toViewController.view.frame = containerView.bounds
         toViewController.view.frame.origin.x = containerView.bounds.size.width
         
-        UIView.animateWithDuration(duration, delay: 0, options: [], animations: { () -> Void in
+        UIView.animate(withDuration: duration, delay: 0, options: [], animations: { () -> Void in
             
             //apply perspective transform on the view that is going out
             self.applyTransform(self.perspectiveTransform(), view: fromViewController.view)
@@ -75,7 +75,7 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
             
         }) { (finished) -> Void in
             
-            let completed = finished && !transitionContext.transitionWasCancelled()
+            let completed = finished && !transitionContext.transitionWasCancelled
             
             if completed {
                 
@@ -89,18 +89,18 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
         }
     }
     
-    public func animatePopTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animatePopTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-        let containerView = transitionContext.containerView()
+        let fromViewController = transitionContext.viewController(forKey: .from),
+        let toViewController = transitionContext.viewController(forKey: .to)
         else {
             
             return
         }
         
-        let duration = self.transitionDuration(transitionContext)
+        let containerView = transitionContext.containerView
+        let duration = self.transitionDuration(using: transitionContext)
         
         //put the showing view to initial state before animation - apply the perspective transform
         containerView.addSubview(toViewController.view)
@@ -109,7 +109,7 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
         self.applyTransform(self.perspectiveTransform(), view: toViewController.view)
         toViewController.view.alpha = 0
         
-        UIView.animateWithDuration(duration, delay: 0, options: [], animations: { () -> Void in
+        UIView.animate(withDuration: duration, delay: 0, options: [], animations: { () -> Void in
             
             //apply the original transform of the view that is showing
             self.applyTransform(self.originalTransform(), view: toViewController.view)
@@ -121,7 +121,7 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
             
         }) { (finished) -> Void in
             
-            let completed = finished && !transitionContext.transitionWasCancelled()
+            let completed = finished && !transitionContext.transitionWasCancelled
             
             if completed {
                 
@@ -132,7 +132,7 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
         }
     }
     
-    public func animateDefaultTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateDefaultTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         //find out when this is called and implement it according to the needs
         
@@ -162,7 +162,7 @@ public class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControll
         return CATransform3DIdentity
     }
     
-    private func applyTransform(transform: CATransform3D, view: UIView) {
+    private func applyTransform(_ transform: CATransform3D, view: UIView) {
         
         view.layer.transform = transform
     }

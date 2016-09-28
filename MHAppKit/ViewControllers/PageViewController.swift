@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+open class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    @IBInspectable public var initialPageIndex: Int = 0
-    @IBInspectable public var endlessPaging: Bool = false
+    @IBInspectable open var initialPageIndex: Int = 0
+    @IBInspectable open var endlessPaging: Bool = false
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
 
@@ -25,7 +25,7 @@ public class PageViewController: UIPageViewController, UIPageViewControllerDataS
 
     //MARK: - UIPageViewControllerDataSource & UIPageViewControllerDelegate
     
-    public func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = self.indexOfViewController(viewController)
         
@@ -38,7 +38,7 @@ public class PageViewController: UIPageViewController, UIPageViewControllerDataS
         return self.viewControllerAtIndex(index)
     }
     
-    public func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    open func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = self.indexOfViewController(viewController)
         
@@ -59,26 +59,26 @@ public class PageViewController: UIPageViewController, UIPageViewControllerDataS
     
     //MARK: - Custom UIPageViewControllerDataSource & UIPageViewControllerDelegate
     
-    public func numberOfViewControllers() -> Int {
+    open func numberOfViewControllers() -> Int {
         
         return 0
     }
     
-    public func viewControllerAtIndex(index: Int) -> UIViewController? {
+    open func viewControllerAtIndex(_ index: Int) -> UIViewController? {
         
         return nil
     }
     
-    public func indexOfViewController(viewController: UIViewController) -> Int {
+    open func indexOfViewController(_ viewController: UIViewController) -> Int {
         
         return NSNotFound
     }
     
-    public func reloadData() {
+    open func reloadData() {
         
         if let initialController = self.viewControllerAtIndex(self.initialPageIndex) {
             
-            self.setViewControllers([initialController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            self.setViewControllers([initialController], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
         }
     }
 }

@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
     
-    func lookupVisibleViewController() -> UIViewController {
+    open func lookupVisibleViewController() -> UIViewController {
         
         if let presentedViewController = self.presentedViewController {
             

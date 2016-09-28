@@ -9,45 +9,45 @@
 import Foundation
 import UIKit
 
-public extension UINavigationController {
+extension UINavigationController {
     
     private static let backgroundViewTag = "UINavigationController.backgroundViewTag".hashValue
     private static let backgroundImageViewTag = "UINavigationController.backgroundImageViewTag".hashValue
     
-    var backgroundView: UIView {
-        
-        if let backgroundView = self.view.viewWithTag(self.dynamicType.backgroundViewTag) {
+    open var backgroundView: UIView {
+
+        if let backgroundView = self.view.viewWithTag(type(of: self).backgroundViewTag) {
             
             return backgroundView
         }
         
         let backgroundView = UIView()
-        backgroundView.tag = self.dynamicType.backgroundViewTag
+        backgroundView.tag = type(of: self).backgroundViewTag
         backgroundView.clipsToBounds = true
-        backgroundView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundView.frame = self.view.bounds
         
-        self.view.insertSubview(backgroundView, atIndex: 0)
+        self.view.insertSubview(backgroundView, at: 0)
         
         return backgroundView
     }
     
-    var backgroundImageView: UIImageView {
+    open var backgroundImageView: UIImageView {
         
-        if let backgroundImageView = self.backgroundView.viewWithTag(self.dynamicType.backgroundImageViewTag) as? UIImageView {
+        if let backgroundImageView = self.backgroundView.viewWithTag(type(of: self).backgroundImageViewTag) as? UIImageView {
             
             return backgroundImageView
         }
         
         let backgroundImageView = UIImageView()
-        backgroundImageView.tag = self.dynamicType.backgroundImageViewTag
-        backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        backgroundImageView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        backgroundImageView.tag = type(of: self).backgroundImageViewTag
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundImageView.frame = self.backgroundView.bounds
         
         let overlayView = UIView()
-        overlayView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-        overlayView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         overlayView.frame = self.backgroundView.bounds
         
         self.backgroundView.addSubview(backgroundImageView)

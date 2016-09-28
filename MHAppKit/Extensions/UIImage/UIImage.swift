@@ -12,21 +12,25 @@ extension UIImage {
     
     public convenience init?(color: UIColor) {
         
-        let rect = CGRectMake(0, 0, 1, 1)
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            
+            return nil
+        }
+        
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
                 
-        guard let cgImage = image.CGImage else {
+        guard let cgImage = image?.cgImage else {
             
            return nil
         }
         
-        self.init(CGImage: cgImage)
+        self.init(cgImage: cgImage)
     }
 }
