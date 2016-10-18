@@ -35,7 +35,7 @@ extension UIViewController {
 extension UIViewController {
     
     private static var segueCoordinatorKey = ""
-    public var segueCoordinator: SegueCoordinator {
+    open var segueCoordinator: SegueCoordinator {
         
         get {
             
