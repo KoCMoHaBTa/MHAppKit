@@ -39,6 +39,9 @@
 		9912AA8D1D81E60D00DE25FC /* MHAppKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912AA8C1D81E60D00DE25FC /* MHAppKitUITests.swift */; };
 		9912AA971D81EB0500DE25FC /* MHAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3035205E1C88EB3500436351 /* MHAppKit.framework */; };
 		9912AA981D81EB0500DE25FC /* MHAppKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3035205E1C88EB3500436351 /* MHAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		99364A2C1DB66BB400CD0864 /* SegueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */; };
+		99364A2E1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */; };
+		99364A301DB670A500CD0864 /* SegueCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */; };
 		99402A541D09609600412ED5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A531D09609600412ED5 /* UIImage.swift */; };
 		99402A681D0AE99300412ED5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A671D0AE99300412ED5 /* UIColor.swift */; };
 		99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A691D0AEA5700412ED5 /* UIColorTests.swift */; };
@@ -142,6 +145,9 @@
 		9912AA8A1D81E60D00DE25FC /* MHAppKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHAppKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9912AA8C1D81E60D00DE25FC /* MHAppKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHAppKitUITests.swift; sourceTree = "<group>"; };
 		9912AA8E1D81E60D00DE25FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueCoordinator.swift; sourceTree = "<group>"; };
+		99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SegueCoordinator.swift"; sourceTree = "<group>"; };
+		99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueCoordinatorTests.swift; sourceTree = "<group>"; };
 		99402A531D09609600412ED5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		99402A671D0AE99300412ED5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		99402A691D0AEA5700412ED5 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 				9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */,
 				303520BA1C88EDCC00436351 /* MHAppKitTests.swift */,
 				99402A691D0AEA5700412ED5 /* UIColorTests.swift */,
+				99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */,
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
@@ -295,6 +302,8 @@
 			children = (
 				303521091C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift */,
 				3035210A1C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift */,
+				99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */,
+				99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */,
 			);
 			path = Segues;
 			sourceTree = "<group>";
@@ -627,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */,
+				99364A2E1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift in Sources */,
 				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
 				99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */,
 				99CDAD681CFC7C710090960D /* UIButton.swift in Sources */,
@@ -636,6 +646,7 @@
 				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
 				303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */,
 				303521281C88F00D00436351 /* UIViewController+Container.swift in Sources */,
+				99364A2C1DB66BB400CD0864 /* SegueCoordinator.swift in Sources */,
 				303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */,
 				303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */,
 				99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
@@ -670,6 +681,7 @@
 			files = (
 				9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */,
 				303520BB1C88EDCC00436351 /* MHAppKitTests.swift in Sources */,
+				99364A301DB670A500CD0864 /* SegueCoordinatorTests.swift in Sources */,
 				99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
