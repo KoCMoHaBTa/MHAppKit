@@ -102,4 +102,52 @@ class SegueCoordinatorTests: XCTestCase {
             coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: UITableViewController()), sender: nil)
         }
     }
+    
+    let iterations = 1000
+    
+    func testPrepareHandlerPerformance() {
+        
+        let coordinator = SegueCoordinator()
+        
+        for i in 0...self.iterations {
+            
+            coordinator.addPrepareHandler({ (_, source, destination, _) in
+                
+                destination.title = "\(source.title) - \(i)"
+            })
+        }
+        
+        self.measure {
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: UIViewController()), sender: nil)
+        }
+    }
+    
+    func testContextHandlerPerformance() {
+        
+        let coordinator = SegueCoordinator()
+        
+        for i in 0...self.iterations {
+            
+            coordinator.addPrepareHandler({ (_, source, destination, _) in
+                
+                destination.title = "\(source.title) - \(i)"
+            })
+        }
+        
+        coordinator.addContextHandler { (source: UIPageViewController, destination: UITableViewController) in
+            
+            destination.toolbarItems = source.toolbarItems
+        }
+        
+        self.measure {
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UINavigationController(rootViewController: UIPageViewController()), destination: UIViewController()), sender: nil)
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: ViewController()), sender: nil)
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: ViewController()), sender: nil)
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: ViewController()), sender: nil)
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: UITableViewController()), sender: nil)
+        }
+    }
 }
