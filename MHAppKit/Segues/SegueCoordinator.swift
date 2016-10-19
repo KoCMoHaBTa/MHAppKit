@@ -42,6 +42,9 @@ open class SegueCoordinator {
     
     open func prepare(for segue: UIStoryboardSegue, sender: Sender?) {
         
+        //associate the coordinator with the destination
+        segue.destination.segueCoordinator = segue.source.segueCoordinator
+        
         //try to find an instance of SeguePrepareHandler based on any combination of criterias, like segue identifier, source, destination, sender
         self.prepareHandlers.forEach { (handler) in
             
