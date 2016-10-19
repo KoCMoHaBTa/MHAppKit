@@ -82,4 +82,24 @@ class SegueCoordinatorTests: XCTestCase {
             coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UINavigationController(rootViewController: ViewController()), destination: UINavigationController(rootViewController: ViewController())), sender: nil)
         }
     }
+    
+    func testContextHandler() {
+        
+        self.performExpectation { (expectation) in
+            
+            let coordinator = SegueCoordinator()
+            
+            coordinator.addContextHandler({ (source: UIPageViewController, destination: UITableViewController) in
+                
+                expectation.fulfill()
+            })
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UINavigationController(rootViewController: UIPageViewController()), destination: UIViewController()), sender: nil)
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: ViewController()), sender: nil)
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: ViewController()), sender: nil)
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: ViewController()), sender: nil)
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: UITableViewController()), sender: nil)
+        }
+    }
 }

@@ -109,6 +109,27 @@ open class SegueCoordinator {
         
         _addPrepareHandler(handler)
     }
+    
+    //MARK: - Context Handlers
+    
+    func addContextHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void)
+    where Source: AnyObject {
+                
+        weak var weakSource: Source? = nil
+        
+        self.addPrepareHandler { (_, source: Source, _, _) in
+         
+            weakSource = source
+        }
+        
+        self.addPrepareHandler { (_, _, destination: Destination, _) in
+            
+            if let source = weakSource {
+                
+                handler(source, destination)
+            }
+        }
+    }
 }
 
 
