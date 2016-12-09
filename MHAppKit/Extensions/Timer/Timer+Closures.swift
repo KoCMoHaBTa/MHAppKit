@@ -10,17 +10,7 @@ import Foundation
 
 extension Timer {
     
-    public typealias Handler = (_ timer: Timer) -> Void
-    
-    private class HandlerWrapper {
-        
-        let handler: Handler
-        
-        init(_ handler: @escaping Handler) {
-            
-            self.handler = handler
-        }
-    }
+    public typealias Handler = (Timer) -> Void
     
     public convenience init(timeInterval: TimeInterval, repeats: Bool, handler: @escaping Handler) {
         
@@ -30,11 +20,11 @@ extension Timer {
         }
         else {
             
-            self.init(timeInterval: timeInterval, target: Timer.self, selector: #selector(Timer.timerHandler(_:)), userInfo: HandlerWrapper(handler), repeats: repeats)
+            self.init(timeInterval: timeInterval, target: Timer.self, selector: #selector(Timer.timerHandler(_:)), userInfo: handler as Any, repeats: repeats)
         }
     }
     
-    public class func scheduledTimerWithTimeInterval(_ timeInterval: TimeInterval, repeats: Bool, handler: @escaping Handler) -> Timer {
+    public class func scheduledTimer(withTimeInterval timeInterval: TimeInterval, repeats: Bool, handler: @escaping Handler) -> Timer {
         
         if #available(iOS 10.0, *) {
             
@@ -42,12 +32,12 @@ extension Timer {
         }
         else {
             
-            return self.scheduledTimer(timeInterval: timeInterval, target: Timer.self, selector: #selector(Timer.timerHandler(_:)), userInfo: HandlerWrapper(handler), repeats: repeats)
+            return self.scheduledTimer(timeInterval: timeInterval, target: Timer.self, selector: #selector(Timer.timerHandler(_:)), userInfo: handler as Any, repeats: repeats)
         }
     }
     
     private dynamic class func timerHandler(_ timer: Timer) {
         
-        (timer.userInfo as? HandlerWrapper)?.handler(timer)
+        (timer.userInfo as? Handler)?(timer)
     }
 }

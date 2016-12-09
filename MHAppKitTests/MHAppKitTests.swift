@@ -56,7 +56,7 @@ class MHAppKitTests: XCTestCase {
         
         self.performExpectation(description: "NSTimer test", timeout: 2.1) { (expectation) in
             
-            let _ = Timer.scheduledTimerWithTimeInterval(2, repeats: false, handler: { (timer) in
+            let _ = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, handler: { (timer) in
                 
                 expectation.fulfill()
             })

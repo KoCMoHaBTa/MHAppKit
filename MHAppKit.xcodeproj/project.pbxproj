@@ -42,10 +42,10 @@
 		99364A2C1DB66BB400CD0864 /* SegueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */; };
 		99364A2E1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */; };
 		99364A301DB670A500CD0864 /* SegueCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */; };
+		99387BD71DFAB7BB008F5FDB /* Timer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */; };
 		99402A541D09609600412ED5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A531D09609600412ED5 /* UIImage.swift */; };
 		99402A681D0AE99300412ED5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A671D0AE99300412ED5 /* UIColor.swift */; };
 		99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A691D0AEA5700412ED5 /* UIColorTests.swift */; };
-		9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */; };
 		9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */; };
 		99B3FAD11D9ABD8A00D96199 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */; };
 		99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */; };
@@ -148,12 +148,12 @@
 		99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueCoordinator.swift; sourceTree = "<group>"; };
 		99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SegueCoordinator.swift"; sourceTree = "<group>"; };
 		99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueCoordinatorTests.swift; sourceTree = "<group>"; };
+		99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Closures.swift"; sourceTree = "<group>"; };
 		99402A531D09609600412ED5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		99402A671D0AE99300412ED5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		99402A691D0AEA5700412ED5 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
 		994EDE391D2A5536000CD281 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		9961811A1D9ABC7400ED1072 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Closures.swift"; sourceTree = "<group>"; };
 		9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MFMailComposeViewController+CompletionHandler.swift"; sourceTree = "<group>"; };
 		99CDAC9E1CFC30750090960D /* UIControl+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Action.swift"; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 				99CDAC9D1CFC30400090960D /* UIControl */,
 				99CDAD661CFC7C610090960D /* UIButton */,
 				99CDAD651CFC7C3B0090960D /* UIBarButtonItem */,
-				9989F8271CF71E8D00B4EDC5 /* NSTimer */,
+				99387BD51DFAB78F008F5FDB /* Timer */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +387,14 @@
 			path = MHAppKitUITests;
 			sourceTree = "<group>";
 		};
+		99387BD51DFAB78F008F5FDB /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		99402A521D09607400412ED5 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,14 +409,6 @@
 				9961811A1D9ABC7400ED1072 /* MessageUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9989F8271CF71E8D00B4EDC5 /* NSTimer */ = {
-			isa = PBXGroup;
-			children = (
-				9989F8281CF71EAF00B4EDC5 /* NSTimer+Closures.swift */,
-			);
-			path = NSTimer;
 			sourceTree = "<group>";
 		};
 		99B0FCFD1CFDC64C0028E56A /* MessageUI */ = {
@@ -641,7 +641,6 @@
 				99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */,
 				99CDAD681CFC7C710090960D /* UIButton.swift in Sources */,
 				99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */,
-				9989F8291CF71EAF00B4EDC5 /* NSTimer+Closures.swift in Sources */,
 				99402A541D09609600412ED5 /* UIImage.swift in Sources */,
 				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
 				303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */,
@@ -660,6 +659,7 @@
 				99CDAC9F1CFC30750090960D /* UIControl+Action.swift in Sources */,
 				99402A681D0AE99300412ED5 /* UIColor.swift in Sources */,
 				303521301C88F00D00436351 /* UILabel.swift in Sources */,
+				99387BD71DFAB7BB008F5FDB /* Timer+Closures.swift in Sources */,
 				3035212B1C88F00D00436351 /* UIViewController.swift in Sources */,
 				303521291C88F00D00436351 /* UIViewController+Lookup.swift in Sources */,
 				303521111C88EF6A00436351 /* StaticTableViewController.swift in Sources */,
