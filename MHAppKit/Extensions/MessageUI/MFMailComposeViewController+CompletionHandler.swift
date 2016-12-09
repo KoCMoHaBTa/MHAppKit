@@ -11,17 +11,15 @@ import MessageUI
 
 extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
     
-    public typealias CompletionHandler = (_ controller: MFMailComposeViewController, _ result: MFMailComposeResult, _ error: NSError?) -> Void
+    public typealias CompletionHandler = ( MFMailComposeViewController, MFMailComposeResult, Error?) -> Void
     
     private static var completionHandlerKey = ""
+    
     public var completionHandler: CompletionHandler? {
         
         get {
             
-            let obj = objc_getAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey)
-            let wrapper = obj as? CompletionHandlerWrapper
-            let handler = wrapper?.handler
-            
+            let handler = objc_getAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey) as? CompletionHandler
             return handler
         }
         
@@ -29,28 +27,12 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
             
             self.mailComposeDelegate = self
             
-            let handler = newValue
-            let wrapper = CompletionHandlerWrapper(handler: handler)
-            
-            objc_setAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey, wrapper, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey, newValue as Any, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
-        self.completionHandler?(controller, result, error as NSError?)
-    }
-}
-
-extension MFMailComposeViewController {
-    
-    fileprivate class CompletionHandlerWrapper {
-        
-        let handler: MFMailComposeViewController.CompletionHandler?
-        
-        init(handler: MFMailComposeViewController.CompletionHandler?) {
-            
-            self.handler = handler
-        }
+        self.completionHandler?(controller, result, error)
     }
 }
