@@ -1,5 +1,5 @@
 //
-//  NSTimer+Closures.swift
+//  Timer+Closures.swift
 //  MHAppKit
 //
 //  Created by Milen Halachev on 5/26/16.
