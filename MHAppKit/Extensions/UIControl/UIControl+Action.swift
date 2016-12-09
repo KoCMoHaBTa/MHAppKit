@@ -13,19 +13,19 @@ extension UIControl {
     
     public typealias Action = (_ sender: UIControl) -> Void
     
-    open func addAction(forEvents events: UIControlEvents = [.touchUpInside], action: @escaping Action) {
+    public func addAction(forEvents events: UIControlEvents = [.touchUpInside], action: @escaping Action) {
         
         //the action should be called for every event
         let handler = ActionHandler(control: self, events: events, action: action)
         self.actionHandlers.append(handler)
     }
     
-    open func actions(forEvents events: UIControlEvents) -> [Action] {
+    public func actions(forEvents events: UIControlEvents) -> [Action] {
         
         return self.actionHandlers.filter({ $0.events.contains(events) }).map({ $0.action })
     }
     
-    open func removeActions(forEvents events: UIControlEvents) {
+    public func removeActions(forEvents events: UIControlEvents) {
         
         self.actionHandlers = self.actionHandlers.filter({ !$0.events.contains(events) })
     }
