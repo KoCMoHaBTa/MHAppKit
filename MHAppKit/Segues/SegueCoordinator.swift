@@ -26,16 +26,19 @@ extension SegueCoordinator {
     }
 }
 
+open class SegueCoordinator {
+    
+    public typealias Identifier = String
+    public typealias Sender = Any
+    
+    ///The underlaying storage of all prepare handlers
+    fileprivate var prepareHandlers: [PrepareHandler] = []
+}
+
 extension SegueCoordinator {
     
     ///A default shared instance of SegueCoordinator
     public static let `default` = SegueCoordinator()
-}
-
-open class SegueCoordinator {
-    
-    ///The underlaying storage of all prepare handlers
-    fileprivate var prepareHandlers: [PrepareHandler] = []
 }
 
 //MARK: - Preparing Segues
@@ -43,7 +46,7 @@ open class SegueCoordinator {
 extension SegueCoordinator {
      
     ///Prepares a segue's source and destination based on all stored handlers. Also updates the destination `segueCoordinator` reference
-    open func prepare(for segue: UIStoryboardSegue, sender: Sender?) {
+    open func prepare(for segue: UIStoryboardSegue, sender: Sender? = nil) {
         
         //associate the coordinator with the destination
         segue.destination.segueCoordinator = segue.source.segueCoordinator
@@ -54,14 +57,20 @@ extension SegueCoordinator {
             handler.prepare(for: segue, sender: sender)
         }
     }
+    
+    ///Creates a segue based on the arguments and prepare for it
+    open func prepare(identifier: Identifier? = nil, source: UIViewController, destination: UIViewController, sender: Sender? = nil) {
+        
+        let segue = UIStoryboardSegue(identifier: identifier, source: source, destination: destination)
+        self.prepare(for: segue, sender: sender)
+    }
 }
 
 //MARK: - Adding Prepare Handlers
 
 extension SegueCoordinator {
     
-    public typealias Identifier = String
-    public typealias Sender = Any
+    
     
     private func _addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void) {
         
