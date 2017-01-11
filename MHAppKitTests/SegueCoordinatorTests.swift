@@ -30,6 +30,18 @@ class SegueCoordinatorTests: XCTestCase {
             
             let coordinator = SegueCoordinator()
             
+            coordinator.addPrepareHandler { (source, destination) in
+                
+                expectation.fulfill()
+            }
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: UIViewController()), sender: nil)
+        }
+        
+        self.performExpectation { (expectation) in
+            
+            let coordinator = SegueCoordinator()
+            
             coordinator.addPrepareHandler({ (id, source: UINavigationController, destination: UITableViewController, sender) in
                 
                 expectation.fulfill()
@@ -87,19 +99,107 @@ class SegueCoordinatorTests: XCTestCase {
         
         self.performExpectation { (expectation) in
             
-            let coordinator = SegueCoordinator()
+            let stack = [
+                
+                UIViewController(),
+                UINavigationController(rootViewController: UIPageViewController()),
+                UIViewController(),
+                ViewController(),
+                ViewController(),
+                UIViewController(),
+                ViewController(),
+                ViewController(),
+                ViewController(),
+                UITableViewController()
+            ]
             
+            let conditions = [
+            
+                "s=\(stack[1].childViewControllers[0]);d=\(stack[9])"
+            ]
+            
+            expectation.add(conditions: conditions)
+            
+            let coordinator = SegueCoordinator()
             coordinator.addContextHandler({ (source: UIPageViewController, destination: UITableViewController) in
                 
-                expectation.fulfill()
+                expectation.fulfill(condition: "s=\(source);d=\(destination)")
             })
+
+            stack.enumerated().forEach({ (offset: Int, element: UIViewController) in
+                
+                let destinationIndex = offset + 1
+                guard destinationIndex != stack.endIndex  else { return }
+                
+                let source = element
+                let destination = stack[destinationIndex]
+                let segue = UIStoryboardSegue(identifier: nil, source: source, destination: destination)
+                
+                coordinator.prepare(for: segue, sender: nil)
+            })
+        }
+        
+        self.performExpectation { (expectation) in
             
-            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UINavigationController(rootViewController: UIPageViewController()), destination: UIViewController()), sender: nil)
+            let stack = [
+                
+                UIViewController(),
+                UINavigationController(rootViewController: UIPageViewController()),
+                UITableViewController(),
+                UIViewController(),
+                UITableViewController(),
+                ViewController(),
+                ViewController(),
+                UIPageViewController(),
+                UITableViewController(),
+                UIViewController(),
+                ViewController(),
+                UITableViewController(),
+                ViewController(),
+                ViewController(),
+                UITableViewController()
+            ]
             
-            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: ViewController()), sender: nil)
-            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: ViewController()), sender: nil)
-            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: ViewController()), sender: nil)
-            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: UITableViewController()), sender: nil)
+            let conditions = [
+            
+                "s=\(stack[1].childViewControllers[0]);d=\(stack[2])",
+                "s=\(stack[1].childViewControllers[0]);d=\(stack[4])",
+                "s=\(stack[7]);d=\(stack[8])",
+                "s=\(stack[7]);d=\(stack[11])",
+                "s=\(stack[7]);d=\(stack[14])"
+            ]
+            
+            //make sure that the first source is not used any more when a second one is found
+            let exceptions = [
+                
+                "s=\(stack[1].childViewControllers[0]);d=\(stack[8])",
+                "s=\(stack[1].childViewControllers[0]);d=\(stack[11])",
+                "s=\(stack[1].childViewControllers[0]);d=\(stack[14])"
+            ]
+            
+            expectation.add(conditions: conditions)
+            
+            let coordinator = SegueCoordinator()
+            coordinator.addContextHandler({ (source: UIPageViewController, destination: UITableViewController) in
+                
+                let condition = "s=\(source);d=\(destination)"
+                expectation.fulfill(condition: condition)
+                
+                //make sure that the first source is not used any more when a second one is found
+                XCTAssertFalse(exceptions.contains(condition))
+            })
+
+            stack.enumerated().forEach({ (offset: Int, element: UIViewController) in
+                
+                let destinationIndex = offset + 1
+                guard destinationIndex != stack.endIndex  else { return }
+                
+                let source = element
+                let destination = stack[destinationIndex]
+                let segue = UIStoryboardSegue(identifier: nil, source: source, destination: destination)
+                
+                coordinator.prepare(for: segue, sender: nil)
+            })
         }
     }
     

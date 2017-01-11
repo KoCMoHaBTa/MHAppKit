@@ -28,18 +28,21 @@ extension SegueCoordinator {
 
 extension SegueCoordinator {
     
+    ///A default shared instance of SegueCoordinator
     public static let `default` = SegueCoordinator()
 }
 
 open class SegueCoordinator {
     
-    public typealias Identifier = String
-    public typealias Sender = Any
-    
-    private var prepareHandlers: [PrepareHandler] = []
-    
-    //MARK: - Preparing Segues
-    
+    ///The underlaying storage of all prepare handlers
+    fileprivate var prepareHandlers: [PrepareHandler] = []
+}
+
+//MARK: - Preparing Segues
+
+extension SegueCoordinator {
+     
+    ///Prepares a segue's source and destination based on all stored handlers. Also updates the destination `segueCoordinator` reference
     open func prepare(for segue: UIStoryboardSegue, sender: Sender?) {
         
         //associate the coordinator with the destination
@@ -51,8 +54,14 @@ open class SegueCoordinator {
             handler.prepare(for: segue, sender: sender)
         }
     }
+}
+
+//MARK: - Adding Prepare Handlers
+
+extension SegueCoordinator {
     
-    //MARK: - Adding Prepare Handlers
+    public typealias Identifier = String
+    public typealias Sender = Any
     
     private func _addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void) {
         
@@ -90,31 +99,82 @@ open class SegueCoordinator {
         self.prepareHandlers.append(seguePrepareHandler)
     }
     
+    ///Adds a prepare handler for Any Source and Any Destination
     public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void) {
         
         _addPrepareHandler(handler)
     }
     
+    ///Adds a prepare handler for UIViewController Source and UIViewController Destination
     public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void)
     where Source: UIViewController, Destination: UIViewController {
         
         _addPrepareHandler(handler)
     }
     
+    ///Adds a prepare handler for Any Source and UIViewController Destination
     public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void)
     where Destination: UIViewController {
         
         _addPrepareHandler(handler)
     }
     
+    ///Adds a prepare handler for UIViewController Source and Any Destination
     public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void)
     where Source: UIViewController {
         
         _addPrepareHandler(handler)
     }
+}
+
+extension SegueCoordinator {
     
-    //MARK: - Context Handlers
+    ///Adds a prepare handler for Any Source and Any Destination
+    public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void) {
+        
+        self.addPrepareHandler { (_, source: Source, destination: Destination, _) in
+            
+            handler(source, destination)
+        }
+    }
     
+    ///Adds a prepare handler for UIViewController Source and UIViewController Destination
+    public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void)
+    where Source: UIViewController, Destination: UIViewController {
+        
+        self.addPrepareHandler { (_, source: Source, destination: Destination, _) in
+            
+            handler(source, destination)
+        }
+    }
+    
+    ///Adds a prepare handler for Any Source and UIViewController Destination
+    public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void)
+    where Destination: UIViewController {
+        
+        self.addPrepareHandler { (_, source: Source, destination: Destination, _) in
+            
+            handler(source, destination)
+        }
+    }
+    
+    ///Adds a prepare handler for UIViewController Source and Any Destination
+    public func addPrepareHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void)
+    where Source: UIViewController {
+        
+        self.addPrepareHandler { (_, source: Source, destination: Destination, _) in
+            
+            handler(source, destination)
+        }
+    }
+}
+
+//MARK: - Context Handlers
+
+extension SegueCoordinator {
+ 
+    ///Adds a context handler to the receiver. A context handler is such handler that will be applied to any combination of relationship between source and destination. 
+    ///For example if you present 5 screens - a context handler can be used to resolve dependencies between the first and the last one.
     public func addContextHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void)
     where Source: AnyObject {
                 
@@ -134,6 +194,4 @@ open class SegueCoordinator {
         }
     }
 }
-
-
 
