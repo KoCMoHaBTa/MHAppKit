@@ -142,5 +142,5 @@ open class TableViewCell: UITableViewCell {
     //MARK: - Separator
     
     ///if you need a reference to your custom separator view :)
-    @IBOutlet weak var separatorView: UIView?
+    @IBOutlet open weak var separatorView: UIView?
 }
