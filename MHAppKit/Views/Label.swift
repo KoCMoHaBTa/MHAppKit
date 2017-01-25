@@ -50,4 +50,9 @@ import UIKit
         
         return intrinsicContentSize
     }
+    
+    open override func drawText(in rect: CGRect) {
+        
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.insets))
+    }
 }
