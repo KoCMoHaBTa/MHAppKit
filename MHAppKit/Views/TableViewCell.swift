@@ -138,4 +138,9 @@ open class TableViewCell: UITableViewCell {
         
         super.prepareForInterfaceBuilder()
     }
+    
+    //MARK: - Separator
+    
+    ///if you need a reference to your custom separator view :)
+    @IBOutlet weak var separatorView: UIView?
 }
