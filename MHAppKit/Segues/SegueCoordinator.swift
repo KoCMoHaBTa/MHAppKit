@@ -8,6 +8,15 @@
 
 import Foundation
 
+open class SegueCoordinator {
+    
+    public typealias Identifier = String
+    public typealias Sender = Any
+    
+    ///The underlaying storage of all prepare handlers
+    fileprivate var prepareHandlers: [PrepareHandler] = []
+}
+
 extension SegueCoordinator {
     
     fileprivate struct PrepareHandler {
@@ -24,15 +33,6 @@ extension SegueCoordinator {
             self.handler(segue, sender)
         }
     }
-}
-
-open class SegueCoordinator {
-    
-    public typealias Identifier = String
-    public typealias Sender = Any
-    
-    ///The underlaying storage of all prepare handlers
-    fileprivate var prepareHandlers: [PrepareHandler] = []
 }
 
 extension SegueCoordinator {
