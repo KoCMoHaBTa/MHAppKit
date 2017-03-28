@@ -10,47 +10,7 @@ import XCTest
 @testable import MHAppKit
 import MessageUI
 
-extension MHAppKitTests {
-    
-    class MFMailComposeViewController: MessageUI.MFMailComposeViewController {
-        
-        open override class func canSendMail() -> Bool {
-            
-            return true
-        }
-    }
-}
-
 class MHAppKitTests: XCTestCase {
-    
-    override func setUp() {
-        
-        super.setUp()
-        
-        let controller = MFMailComposeViewController()
-        print(controller)
-    }
-    
-    func testMFMailComposeViewControllerCompletionHandler() {
-        
-        self.performExpectation { (expectation) in
-            
-            let controller = MFMailComposeViewController()
-            print(controller)
-            controller.completionHandler = { (controller2, result, error) in
-                
-                XCTAssertEqual(controller, controller2)
-                XCTAssertEqual(result, .cancelled)
-                XCTAssertNil(error)
-                expectation.fulfill()
-            }
-            
-            controller.mailComposeDelegate?.mailComposeController?(controller, didFinishWith: .cancelled, error: nil)
-            
-            XCTAssertNotNil(controller.completionHandler)
-            XCTAssertNotNil(controller.mailComposeDelegate)
-        }
-    }
     
     func testNSTimer() {
         

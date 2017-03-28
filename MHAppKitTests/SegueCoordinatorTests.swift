@@ -213,7 +213,7 @@ class SegueCoordinatorTests: XCTestCase {
             
             coordinator.addPrepareHandler({ (_, source, destination, _) in
                 
-                destination.title = "\(source.title) - \(i)"
+                destination.title = "\(String(describing: source.title)) - \(i)"
             })
         }
         
@@ -231,7 +231,7 @@ class SegueCoordinatorTests: XCTestCase {
             
             coordinator.addPrepareHandler({ (_, source, destination, _) in
                 
-                destination.title = "\(source.title) - \(i)"
+                destination.title = "\(String(describing: source.title)) - \(i)"
             })
         }
         

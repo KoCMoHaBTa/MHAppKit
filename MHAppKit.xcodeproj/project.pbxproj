@@ -57,6 +57,8 @@
 		99CDAD581CFC68070090960D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99CDAD561CFC68070090960D /* LaunchScreen.storyboard */; };
 		99CDAD681CFC7C710090960D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD671CFC7C710090960D /* UIButton.swift */; };
 		99CDAD6A1CFC7C810090960D /* UIBarButtonItem+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD691CFC7C810090960D /* UIBarButtonItem+Action.swift */; };
+		99D76D051E8A47A70077CDDE /* UIViewController+SegueCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D76D031E8A47A70077CDDE /* UIViewController+SegueCoordinator.h */; };
+		99D76D061E8A47A70077CDDE /* UIViewController+SegueCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D76D041E8A47A70077CDDE /* UIViewController+SegueCoordinator.m */; };
 		99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */; };
 		99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */; };
 		99E247CF1CE749FD006726BA /* DynamicSizeTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */; };
@@ -166,6 +168,8 @@
 		99CDAD591CFC68070090960D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99CDAD671CFC7C710090960D /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		99CDAD691CFC7C810090960D /* UIBarButtonItem+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Action.swift"; sourceTree = "<group>"; };
+		99D76D031E8A47A70077CDDE /* UIViewController+SegueCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SegueCoordinator.h"; sourceTree = "<group>"; };
+		99D76D041E8A47A70077CDDE /* UIViewController+SegueCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SegueCoordinator.m"; sourceTree = "<group>"; };
 		99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableSuplementaryView.swift; sourceTree = "<group>"; };
 		99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableHeaderView.swift; sourceTree = "<group>"; };
 		99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableFooterView.swift; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				3035210A1C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift */,
 				99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */,
 				99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */,
+				99D76D031E8A47A70077CDDE /* UIViewController+SegueCoordinator.h */,
+				99D76D041E8A47A70077CDDE /* UIViewController+SegueCoordinator.m */,
 			);
 			path = Segues;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D76D051E8A47A70077CDDE /* UIViewController+SegueCoordinator.h in Headers */,
 				303520621C88EB3500436351 /* MHAppKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,11 +563,11 @@
 				TargetAttributes = {
 					3035205D1C88EB3500436351 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 					};
 					303520B71C88EDCC00436351 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 99CDAD4A1CFC68070090960D;
 					};
 					9912AA891D81E60D00DE25FC = {
@@ -570,7 +577,9 @@
 					};
 					99CDAD4A1CFC68070090960D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = JUQE3HH2DR;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -650,6 +659,7 @@
 				303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */,
 				99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
 				303521161C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift in Sources */,
+				99D76D061E8A47A70077CDDE /* UIViewController+SegueCoordinator.m in Sources */,
 				303520F61C88EF2800436351 /* TextView.swift in Sources */,
 				303521151C88EF6A00436351 /* UIViewTransitionAnimator.swift in Sources */,
 				303521121C88EF6A00436351 /* ViewController.swift in Sources */,
@@ -951,11 +961,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JUQE3HH2DR;
 				INFOPLIST_FILE = MHAppKitTestsHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -966,11 +979,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JUQE3HH2DR;
 				INFOPLIST_FILE = MHAppKitTestsHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHAppKitTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
