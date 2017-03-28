@@ -13,6 +13,7 @@ extension UIControl {
     
     public typealias Action = (_ sender: UIControl) -> Void
     
+    ///Adds an action handler to the receiver for the given `UIControlEvents` (default to `.touchUpInside`)
     public func addAction(forEvents events: UIControlEvents = [.touchUpInside], action: @escaping Action) {
         
         //the action should be called for every event
@@ -20,11 +21,13 @@ extension UIControl {
         self.actionHandlers.append(handler)
     }
     
+    ///Returns an array of actions added to the receiver for the given control events
     public func actions(forEvents events: UIControlEvents) -> [Action] {
         
         return self.actionHandlers.filter({ $0.events.contains(events) }).map({ $0.action })
     }
     
+    ///removes all actions from the receiver for the given control events
     public func removeActions(forEvents events: UIControlEvents) {
         
         self.actionHandlers = self.actionHandlers.filter({ !$0.events.contains(events) })

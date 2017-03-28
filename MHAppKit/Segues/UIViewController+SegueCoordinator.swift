@@ -11,6 +11,8 @@ import Foundation
 extension UIViewController {
     
     private static var segueCoordinatorKey = ""
+    
+    ///The segue coordinator associated with the receiver - default to the shared instance `SegueCoordinator.default`
     open var segueCoordinator: SegueCoordinator {
         
         get {
@@ -24,6 +26,7 @@ extension UIViewController {
         }
     }
     
+    ///Calls `self.segueCoordinator.prepare(for: segue, sender: sender)`. This method is used for objc compatibility
     open dynamic func prepare(usingCoordinatorFor segue: UIStoryboardSegue, sender: Any?) {
      
         self.segueCoordinator.prepare(for: segue, sender: sender)

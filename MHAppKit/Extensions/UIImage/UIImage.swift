@@ -10,6 +10,7 @@ import Foundation
 
 extension UIImage {
     
+    ///Creates an instance of the receiver with a given color. The image created with 1x1 in size
     public convenience init?(color: UIColor) {
         
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)

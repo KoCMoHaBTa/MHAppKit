@@ -11,10 +11,11 @@ import MessageUI
 
 extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
     
-    public typealias CompletionHandler = ( MFMailComposeViewController, MFMailComposeResult, Error?) -> Void
+    public typealias CompletionHandler = (MFMailComposeViewController, MFMailComposeResult, Error?) -> Void
     
     private static var completionHandlerKey = ""
     
+    ///Makes the MFMailComposeViewController assign itself as delegate and call the provided completionHandler upon completion
     public var completionHandler: CompletionHandler? {
         
         get {
@@ -30,6 +31,8 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
             objc_setAssociatedObject(self, &MFMailComposeViewController.completionHandlerKey, newValue as Any, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
+    
+    //MARK: - MFMailComposeViewControllerDelegate
     
     public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         

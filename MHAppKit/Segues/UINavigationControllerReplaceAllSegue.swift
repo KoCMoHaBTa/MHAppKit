@@ -8,6 +8,7 @@
 
 import UIKit
 
+///A segue that replaces the view controllers of the source's navigation controler with the destination only
 open class UINavigationControllerReplaceAllSegue: UIStoryboardSegue {
     
     open override func perform() {

@@ -9,12 +9,19 @@
 import Foundation
 import UIKit
 
+///A UILable subclass that draws itself as a badge
 open class BadgeLabel: UILabel {
 
+    ///Controls whenever to hide the badge draw when the value is 0. Default to `true`.
     open var hideAtBadgeValueZero = true
+    
+    ///Controls whenever to animate the badge value changes. Default to `true`.
     open var animateBadgeValueChange = true
+    
+    ///The padding of the content - affects intrinsicContentSize.
     open var padding: CGFloat = 6
     
+    ///The badge value
     open var badgeValue: String? {
         
         didSet {
@@ -61,6 +68,7 @@ open class BadgeLabel: UILabel {
         return CGSize(width: width, height: height)
     }
     
+    ///Loads the default badge style configuration.
     open func loadDefaultBadgeConfiguration() {
         
         self.backgroundColor = .red
@@ -71,6 +79,7 @@ open class BadgeLabel: UILabel {
         self.layer.masksToBounds = true
     }
     
+    ///Performs the animation used when the badge value is changed. You can override this method in order to provide custom animation.
     open func performBadgeValueChangeAnimation() {
         
         let animation = CABasicAnimation(keyPath: "transform.scale")

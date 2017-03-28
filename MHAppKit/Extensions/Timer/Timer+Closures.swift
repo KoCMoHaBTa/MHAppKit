@@ -12,6 +12,7 @@ extension Timer {
     
     public typealias Handler = (Timer) -> Void
     
+    ///Createas an instance of the receiver initialized with a handler closure when executed
     public convenience init(timeInterval: TimeInterval, repeats: Bool, handler: @escaping Handler) {
         
         if #available(iOS 10.0, *) {
@@ -24,6 +25,7 @@ extension Timer {
         }
     }
     
+    ///Creates and returns a new NSTimer object and schedules it on the current run loop in the default mode. The provided handler will be executed.
     public class func scheduledTimer(withTimeInterval timeInterval: TimeInterval, repeats: Bool, handler: @escaping Handler) -> Timer {
         
         if #available(iOS 10.0, *) {

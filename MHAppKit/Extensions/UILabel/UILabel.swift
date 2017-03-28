@@ -11,6 +11,7 @@ import UIKit
 
 extension UILabel {
     
+    ///Creates an instance of the receiver with a given text.
     public convenience init(text: String) {
         
         self.init()

@@ -8,16 +8,23 @@
 
 import UIKit
 
+///Animator represeting `UIViewControllerAnimatedTransitioning` that performs `UIView.transtion` for a given duration and options
 open class UIViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
    
+    ///The duration of the animation. Default to 0.25
     open private(set) var duration: TimeInterval = 0.25
+    
+    ///The options of the animation
     open private(set) var options: UIViewAnimationOptions = UIViewAnimationOptions()
+    
+    ///The completion handler
     open private(set) var completionBlock: ((_ finished: Bool) -> Void)?
     
     public override init() {
         
     }
     
+    ///Creates an instance of the receiver with a given duration, animation options and completionBlock
     public init(duration: TimeInterval, options: UIViewAnimationOptions, completionBlock: ((_ finished: Bool) -> Void)?) {
         
         self.duration = duration

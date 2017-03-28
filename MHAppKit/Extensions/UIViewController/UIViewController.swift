@@ -13,6 +13,8 @@ extension UIViewController {
     
     //MARK: - UINavigationItem Additions
     
+    ///If set to true - removes the back button title.
+    ///- note: The implementation of this method, sets a new instnace of `UIBarButtonItem`, wtih emty title to the `backBarButtonItem` of the `navigationItem` of the receiver.
     @IBInspectable open var removeBackTitle: Bool {
         
         get {
@@ -36,6 +38,7 @@ extension UIViewController {
     
     //MARK: - Dismiss @IBAction
     
+    ///An action that calls `dimiss(animated:completion:)` on the receiver and can be assigned from Interface Builder
     @IBAction open func dismissModalViewControllerAnimatedAction(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)

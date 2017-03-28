@@ -8,8 +8,10 @@
 
 import UIKit
 
+///A UITextView subclass with some useful additions
 @IBDesignable open class TextView: UITextView {
     
+    ///Controls whenever to remove the text padding of the receiver
     @IBInspectable open var removePadding: Bool = false {
         
         didSet {
@@ -27,6 +29,7 @@ import UIKit
         }
     }
     
+    ///Controls the left padding of the receiver's text
     @IBInspectable open var leftPadding: CGFloat = 0 {
         
         didSet {
@@ -37,10 +40,11 @@ import UIKit
     
     //MARK: - Auto Size
     
+    ///Constrols whenever to autoSize the receier. Default to `false`. If set to `true` - the receiver's intrinsicContentSize will be set to the content size
     @IBInspectable open var autoSize: Bool = false
     
     //MARK: - Placeholder
-//    https://github.com/soffes/SAMTextView/blob/master/SAMTextView/SAMTextView.m
+    //https://github.com/soffes/SAMTextView/blob/master/SAMTextView/SAMTextView.m
     
     @IBInspectable open var placeholder: String? {
         

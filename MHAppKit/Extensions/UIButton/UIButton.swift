@@ -11,6 +11,7 @@ import UIKit
 
 extension UIButton {
     
+    ///Creates an instance of the receiver with a given text for normal state.
     public convenience init(text: String?) {
         
         self.init()
@@ -18,6 +19,7 @@ extension UIButton {
         self.setTitle(text, for: .normal)
     }
     
+    ///Creates an instance of the receiver with a given text for normal state and text alignment
     public convenience init(text: String?, textAlignment: NSTextAlignment) {
         
         self.init(text: text)
@@ -25,6 +27,7 @@ extension UIButton {
         self.titleLabel?.textAlignment = textAlignment
     }
     
+    ///Creates an instance of the receiver with a given image for normal state.
     public convenience init(image: UIImage?) {
         
         self.init()

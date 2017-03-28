@@ -8,6 +8,7 @@
 
 import UIKit
 
+///An UIView subclass that can extends/shrink its hit area beyond/within its bounds.
 open class ExtendedHitView: UIView {
     
     @IBInspectable open var extendedHitLeft: CGFloat = 0.0

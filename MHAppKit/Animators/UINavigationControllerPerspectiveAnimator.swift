@@ -8,11 +8,16 @@
 
 import UIKit
 
+///An animator object represeting `UIViewControllerAnimatedTransitioning` that performs perspective animation based on given `UINavigationControllerOperation` and duration
 open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
+    ///The `UINavigationControllerOperation`. Based on this value - the perspective animation has reverse effect
     open let operation: UINavigationControllerOperation
+    
+    ///The duration of the animation
     open let duration: TimeInterval
     
+    ///Creates an instance of the receiver with a given `UINavigationControllerOperation` and duration. Duration defaults to 0.35
     public init(operation: UINavigationControllerOperation, duration: TimeInterval = 0.35) {
         
         self.operation = operation
@@ -167,36 +172,3 @@ open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewController
         view.layer.transform = transform
     }
 }
-
-//extension UINavigationControllerPerspectiveAnimator {
-//    
-//    private static let shadowLayerName = "UINavigationControllerPerspectiveAnimator.ShadowLayer"
-//    
-//    func createShadowLayerForView(view: UIView) -> CALayer {
-//        
-//        var frame = view.frame
-//        frame.size.width = 1
-//        
-//        let layer = CALayer()
-//        layer.frame = frame
-//        
-//        layer.shadowColor = UIColor.blackColor().CGColor
-//        layer.shadowOffset = CGSize(width: 0, height: 0)
-//        layer.shadowOpacity = 1
-//        layer.shadowPath = UIBezierPath(rect: layer.bounds).CGPath
-//        layer.shadowRadius = 1
-//        
-//        return layer
-//    }
-//    
-//    func addShadowLayerToView(layer: CALayer, view: UIView) {
-//        
-//        layer.name = self.dynamicType.shadowLayerName
-//        view.layer.addSublayer(layer)
-//    }
-//    
-//    func getShadowLayerFromView(view: UIView) -> CALayer? {
-//        
-//        return view.layer.sublayers?.filter({ $0.name == self.dynamicType.shadowLayerName }).first
-//    }
-//}

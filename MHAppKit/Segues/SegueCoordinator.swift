@@ -8,6 +8,23 @@
 
 import Foundation
 
+/**
+ SegueCoordinator is used to register depndency resolving handlers and resolve dependencies between 2 view controllers.
+ 
+ It solves the problem of the dependecy hell management between view controllers in any app.
+ 
+ - note: The automatic dependecy segue resolver works by swizzling the `prepareForSegue:sender:` method
+ - note: In order for automatic dependecy segue resolver to work - you must use segues and you must call super if you override `prepareForSegue:sender:` method
+ 
+ How to use:
+    - register your prepare handlers that resolve your dependencies between 2 view controllers
+    - automatic - when any segue is triggered - all handlers that are applying to the source and destination will be called
+    - manual - by calling any of the provided `prepare` methods on the receiver
+ 
+ Check `SegueCoordinatorTests` for more info and details.
+ 
+ */
+
 open class SegueCoordinator {
     
     public typealias Identifier = String
@@ -69,8 +86,6 @@ extension SegueCoordinator {
 //MARK: - Adding Prepare Handlers
 
 extension SegueCoordinator {
-    
-    
     
     private func _addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void) {
         
