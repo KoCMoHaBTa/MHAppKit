@@ -62,6 +62,7 @@
 		99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */; };
 		99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */; };
 		99E247CF1CE749FD006726BA /* DynamicSizeTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */; };
+		E6DC21191EFBEDDE008D182A /* ShowHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableSuplementaryView.swift; sourceTree = "<group>"; };
 		99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableHeaderView.swift; sourceTree = "<group>"; };
 		99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableFooterView.swift; sourceTree = "<group>"; };
+		E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 				303521051C88EF6A00436351 /* BlockAnimator.swift */,
 				303521071C88EF6A00436351 /* UIViewTransitionAnimator.swift */,
 				303521061C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift */,
+				E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */,
 			);
 			path = Animators;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				303521111C88EF6A00436351 /* StaticTableViewController.swift in Sources */,
 				3035210E1C88EF6A00436351 /* PageViewController.swift in Sources */,
 				99E247CF1CE749FD006726BA /* DynamicSizeTableFooterView.swift in Sources */,
+				E6DC21191EFBEDDE008D182A /* ShowHideAnimator.swift in Sources */,
 				3035212A1C88F00D00436351 /* UIViewController+UIAlertController.swift in Sources */,
 				3035212D1C88F00D00436351 /* UIWindow+Background.swift in Sources */,
 				99CDAD6A1CFC7C810090960D /* UIBarButtonItem+Action.swift in Sources */,
