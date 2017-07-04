@@ -80,18 +80,31 @@ extension PHPhotoLibrary {
     
     func save(imageFileAtURL url: URL, completion: @escaping SaveCompletionHandler) {
         
-        var placeholderAsset: PHObjectPlaceholder? = nil
-        
-        self.performChanges({ () -> Void in
+        type(of: self).requestAuthorization { (authorizationStatus) in
             
-            let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
-            placeholderAsset = assetChangeRequest?.placeholderForCreatedAsset
-            
-        }) { (success, error) -> Void in
-            
-            DispatchQueue.main.async {
+            guard authorizationStatus == .authorized else {
                 
-                completion(placeholderAsset?.localIdentifier, error)
+                DispatchQueue.main.async {
+                    
+                    let error = NSError(domain: "PHPhotoLibrary Error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Access to photos library is not authorized", comment: "")])
+                    completion(nil, error)
+                }
+                return
+            }
+            
+            var placeholderAsset: PHObjectPlaceholder? = nil
+            
+            self.performChanges({ () -> Void in
+                
+                let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
+                placeholderAsset = assetChangeRequest?.placeholderForCreatedAsset
+                
+            }) { (success, error) -> Void in
+                
+                DispatchQueue.main.async {
+                    
+                    completion(placeholderAsset?.localIdentifier, error)
+                }
             }
         }
     }
