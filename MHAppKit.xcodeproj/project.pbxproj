@@ -63,6 +63,13 @@
 		99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */; };
 		99E247CF1CE749FD006726BA /* DynamicSizeTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */; };
 		E6DC21191EFBEDDE008D182A /* ShowHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */; };
+		E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */; };
+		E6E71BF51F0A7D52000980C5 /* UIImage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */; };
+		E6E71BF81F0A7D9A000980C5 /* UIImagePickerController+MediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF71F0A7D9A000980C5 /* UIImagePickerController+MediaInfo.swift */; };
+		E6E71C031F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C021F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift */; };
+		E6E71C061F0A8EA6000980C5 /* PHAsset+Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C051F0A8EA6000980C5 /* PHAsset+Metadata.swift */; };
+		E6E71C081F0A90A0000980C5 /* UIImagePickerController+Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C071F0A90A0000980C5 /* UIImagePickerController+Media.swift */; };
+		E6E71C0B1F0A9658000980C5 /* PHPhotoLibrary+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C0A1F0A9658000980C5 /* PHPhotoLibrary+Save.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +182,13 @@
 		99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableHeaderView.swift; sourceTree = "<group>"; };
 		99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableFooterView.swift; sourceTree = "<group>"; };
 		E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideAnimator.swift; sourceTree = "<group>"; };
+		E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHAppKit.swift; sourceTree = "<group>"; };
+		E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Data.swift"; sourceTree = "<group>"; };
+		E6E71BF71F0A7D9A000980C5 /* UIImagePickerController+MediaInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+MediaInfo.swift"; sourceTree = "<group>"; };
+		E6E71C021F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocation+CGImagePropertyGPS.swift"; sourceTree = "<group>"; };
+		E6E71C051F0A8EA6000980C5 /* PHAsset+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Metadata.swift"; sourceTree = "<group>"; };
+		E6E71C071F0A90A0000980C5 /* UIImagePickerController+Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Media.swift"; sourceTree = "<group>"; };
+		E6E71C0A1F0A9658000980C5 /* PHPhotoLibrary+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Save.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,12 +254,13 @@
 		303520601C88EB3500436351 /* MHAppKit */ = {
 			isa = PBXGroup;
 			children = (
+				303520611C88EB3500436351 /* MHAppKit.h */,
+				E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */,
 				303521181C88EFEB00436351 /* Extensions */,
 				303521041C88EF6A00436351 /* Animators */,
 				303521081C88EF6A00436351 /* Segues */,
 				303520F01C88EF1700436351 /* Views */,
 				303520FB1C88EF6A00436351 /* ViewControllers */,
-				303520611C88EB3500436351 /* MHAppKit.h */,
 				303520631C88EB3500436351 /* Info.plist */,
 			);
 			path = MHAppKit;
@@ -320,6 +335,10 @@
 		303521181C88EFEB00436351 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E6E71C091F0A9564000980C5 /* PHPhotoLibrary */,
+				E6E71C041F0A8E67000980C5 /* PHAsset */,
+				E6E71C011F0A8AE8000980C5 /* CLLocation */,
+				E6E71BF61F0A7D78000980C5 /* UIImagePickerController */,
 				99B0FCFD1CFDC64C0028E56A /* MessageUI */,
 				303521191C88F00D00436351 /* UIViewController */,
 				3035211E1C88F00D00436351 /* UINavigationController */,
@@ -408,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				99402A531D09609600412ED5 /* UIImage.swift */,
+				E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -463,6 +483,39 @@
 				99CDAD671CFC7C710090960D /* UIButton.swift */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		E6E71BF61F0A7D78000980C5 /* UIImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				E6E71C071F0A90A0000980C5 /* UIImagePickerController+Media.swift */,
+				E6E71BF71F0A7D9A000980C5 /* UIImagePickerController+MediaInfo.swift */,
+			);
+			path = UIImagePickerController;
+			sourceTree = "<group>";
+		};
+		E6E71C011F0A8AE8000980C5 /* CLLocation */ = {
+			isa = PBXGroup;
+			children = (
+				E6E71C021F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift */,
+			);
+			path = CLLocation;
+			sourceTree = "<group>";
+		};
+		E6E71C041F0A8E67000980C5 /* PHAsset */ = {
+			isa = PBXGroup;
+			children = (
+				E6E71C051F0A8EA6000980C5 /* PHAsset+Metadata.swift */,
+			);
+			path = PHAsset;
+			sourceTree = "<group>";
+		};
+		E6E71C091F0A9564000980C5 /* PHPhotoLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				E6E71C0A1F0A9658000980C5 /* PHPhotoLibrary+Save.swift */,
+			);
+			path = PHPhotoLibrary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -654,6 +707,7 @@
 				99CDAD681CFC7C710090960D /* UIButton.swift in Sources */,
 				99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */,
 				99402A541D09609600412ED5 /* UIImage.swift in Sources */,
+				E6E71C031F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift in Sources */,
 				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
 				303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */,
 				303521281C88F00D00436351 /* UIViewController+Container.swift in Sources */,
@@ -663,6 +717,7 @@
 				99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
 				303521161C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift in Sources */,
 				99D76D061E8A47A70077CDDE /* UIViewController+SegueCoordinator.m in Sources */,
+				E6E71C0B1F0A9658000980C5 /* PHPhotoLibrary+Save.swift in Sources */,
 				303520F61C88EF2800436351 /* TextView.swift in Sources */,
 				303521151C88EF6A00436351 /* UIViewTransitionAnimator.swift in Sources */,
 				303521121C88EF6A00436351 /* ViewController.swift in Sources */,
@@ -670,10 +725,13 @@
 				303521141C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift in Sources */,
 				303521171C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift in Sources */,
 				99CDAC9F1CFC30750090960D /* UIControl+Action.swift in Sources */,
+				E6E71C081F0A90A0000980C5 /* UIImagePickerController+Media.swift in Sources */,
+				E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */,
 				99402A681D0AE99300412ED5 /* UIColor.swift in Sources */,
 				303521301C88F00D00436351 /* UILabel.swift in Sources */,
 				99387BD71DFAB7BB008F5FDB /* Timer+Closures.swift in Sources */,
 				3035212B1C88F00D00436351 /* UIViewController.swift in Sources */,
+				E6E71C061F0A8EA6000980C5 /* PHAsset+Metadata.swift in Sources */,
 				303521291C88F00D00436351 /* UIViewController+Lookup.swift in Sources */,
 				303521111C88EF6A00436351 /* StaticTableViewController.swift in Sources */,
 				3035210E1C88EF6A00436351 /* PageViewController.swift in Sources */,
@@ -683,8 +741,10 @@
 				3035212D1C88F00D00436351 /* UIWindow+Background.swift in Sources */,
 				99CDAD6A1CFC7C810090960D /* UIBarButtonItem+Action.swift in Sources */,
 				3035212C1C88F00D00436351 /* UINavigationController+Background.swift in Sources */,
+				E6E71BF51F0A7D52000980C5 /* UIImage+Data.swift in Sources */,
 				303520F91C88EF2800436351 /* Label.swift in Sources */,
 				303520F71C88EF2800436351 /* TableViewCell.swift in Sources */,
+				E6E71BF81F0A7D9A000980C5 /* UIImagePickerController+MediaInfo.swift in Sources */,
 				3035212E1C88F00D00436351 /* NSError+Presentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
