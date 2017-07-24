@@ -1,5 +1,5 @@
 //
-//  UIColor.swift
+//  UIColor+HEX.swift
 //  MHAppKit
 //
 //  Created by Milen Halachev on 3/3/16.

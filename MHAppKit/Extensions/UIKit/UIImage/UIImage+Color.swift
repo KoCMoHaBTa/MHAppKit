@@ -1,5 +1,5 @@
 //
-//  UIImage.swift
+//  UIImage+Color.swift
 //  MHAppKit
 //
 //  Created by Milen Halachev on 6/9/16.
