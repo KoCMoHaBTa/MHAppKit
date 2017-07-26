@@ -10,10 +10,10 @@ import Foundation
 
 extension UIImage {
     
-    ///Creates an instance of the receiver with a given color. The image created with 1x1 in size
-    public convenience init?(color: UIColor) {
+    ///Creates an instance of the receiver with a given color and size. Default size is 1x1
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         UIGraphicsBeginImageContext(rect.size)
         
         guard let context = UIGraphicsGetCurrentContext() else {
