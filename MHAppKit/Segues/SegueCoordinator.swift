@@ -196,22 +196,26 @@ extension SegueCoordinator {
 //MARK: - Context Handlers
 
 extension SegueCoordinator {
- 
-    ///Adds a context handler to the receiver. A context handler is such handler that will be applied to any combination of relationship between source and destination. 
-    ///For example if you present 5 screens - a context handler can be used to resolve dependencies between the first and the last one.
-    public func addContextHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void)
-    where Source: AnyObject {
+
+    /**
+     Adds a context handler to the receiver. A context handler is such handler that will be applied to any combination of relationship between source and destination.
+     For example if you present 5 screens - a context handler can be used to resolve dependencies between the first and the last one.
+     
+     - note: The source must be of class type.
+     */
+    
+    public func addContextHandler<Source, Destination>(_ handler: @escaping (Source, Destination) -> Void) {
                 
-        weak var weakSource: Source? = nil
+        weak var weakSource: AnyObject? = nil
         
         self.addPrepareHandler { (_, source: Source, _, _) in
          
-            weakSource = source
+            weakSource = source as AnyObject
         }
         
         self.addPrepareHandler { (_, _, destination: Destination, _) in
             
-            if let source = weakSource {
+            if let source = weakSource as? Source {
                 
                 handler(source, destination)
             }
