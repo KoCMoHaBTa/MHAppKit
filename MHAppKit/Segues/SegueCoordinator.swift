@@ -87,37 +87,54 @@ extension SegueCoordinator {
 
 extension SegueCoordinator {
     
+    private func lookupAll<T>(controller: UIViewController, ofType type: T.Type) -> [T] {
+        
+        var result = [T]()
+        
+        if let controller = controller as? T {
+            
+            result.append(controller)
+        }
+        
+        for child in controller.childViewControllers {
+            
+            let matches = lookupAll(controller: child, ofType: type)
+            result.append(contentsOf: matches)
+        }
+        
+        return result
+    }
+    
+    private func lookupFirst<T>(controller: UIViewController, ofType type: T.Type) -> T? {
+        
+        if let controller = controller as? T {
+            
+            return controller
+        }
+        
+        if let child = controller.childViewControllers.first as? T {
+            
+            return child
+        }
+        
+        return nil
+    }
+    
     private func _addPrepareHandler<Source, Destination>(_ handler: @escaping (Identifier?, Source, Destination, Sender?) -> Void) {
         
-        let seguePrepareHandler = PrepareHandler { (segue, sender) in
+        let seguePrepareHandler = PrepareHandler { [weak self] (segue, sender) in
             
-            func lookup<T>(controller: UIViewController, ofType type: T.Type) -> T? {
-                
-                if let controller = controller as? T {
-                    
-                    return controller
-                }
-                
-                if controller.childViewControllers.count == 1,
-                let child = controller.childViewControllers.first as? T {
-                
-                    return child
-                }
-                
-                return nil
-            }
-            
-            guard
-            let source = lookup(controller: segue.source, ofType: Source.self),
-            let destination = lookup(controller: segue.destination, ofType: Destination.self)
-            else {
+            guard let source = self?.lookupFirst(controller: segue.source, ofType: Source.self) else {
                 
                 return
             }
             
-            let identifier = segue.identifier
-            
-            handler(identifier, source, destination, sender)
+            let destinations = self?.lookupAll(controller: segue.destination, ofType: Destination.self) ?? []
+            for destination in destinations {
+                
+                let identifier = segue.identifier
+                handler(identifier, source, destination, sender)
+            }
         }
         
         self.prepareHandlers.append(seguePrepareHandler)

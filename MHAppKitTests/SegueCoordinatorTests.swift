@@ -95,6 +95,102 @@ class SegueCoordinatorTests: XCTestCase {
         }
     }
     
+    func testPrepareHandlerMultipleChildsLookup() {
+        
+        func makeNav(pushing: Int) -> UINavigationController {
+            
+            let nav = UINavigationController(rootViewController: ViewController())
+            
+            for _ in 0...pushing {
+                
+                nav.pushViewController(ViewController(), animated: false)
+            }
+            
+            return nav
+        }
+        
+        func makeTab(with viewControllers: [UIViewController]) -> UITabBarController {
+            
+            let tab = UITabBarController()
+            tab.viewControllers = viewControllers
+            return tab
+        }
+
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 1
+            
+            let coordinator = SegueCoordinator()
+            
+            coordinator.addPrepareHandler({ (id, source, destination: UINavigationController, sender) in
+                
+                e.fulfill()
+            })
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: makeNav(pushing: 2)), sender: nil)
+        }
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 4
+            
+            let coordinator = SegueCoordinator()
+            
+            coordinator.addPrepareHandler({ (id, source, destination: ViewController, sender) in
+                
+                e.fulfill()
+            })
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: makeNav(pushing: 2)), sender: nil)
+        }
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 4
+            
+            let coordinator = SegueCoordinator()
+            
+            coordinator.addPrepareHandler({ (id, source, destination: ViewController, sender) in
+                
+                print("gg")
+                e.fulfill()
+            })
+            
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: makeNav(pushing: 2)), sender: nil)
+        }
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 2
+            
+            let coordinator = SegueCoordinator()
+            
+            coordinator.addPrepareHandler({ (id, source, destination: ViewController, sender) in
+                
+                e.fulfill()
+            })
+            
+            let tab = makeTab(with: [ViewController(), ViewController()])
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: tab), sender: nil)
+        }
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 5
+            
+            let coordinator = SegueCoordinator()
+            
+            coordinator.addPrepareHandler({ (id, source, destination: ViewController, sender) in
+                
+                e.fulfill()
+            })
+            
+            let tab = makeTab(with: [ViewController(), ViewController(), makeNav(pushing: 1)])
+            coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: tab), sender: nil)
+        }
+    }
+    
     func testContextHandler() {
         
         self.performExpectation { (expectation) in
