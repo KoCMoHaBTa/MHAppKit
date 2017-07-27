@@ -11,6 +11,8 @@ import UIKit
 ///A segue that replaces the last view controller of the source's navigation stack with the destination
 open class UINavigationControllerReplaceLastSegue: UIStoryboardSegue {
    
+    open var animated = true
+    
     open override func perform() {
         
         let source = self.source
@@ -22,7 +24,7 @@ open class UINavigationControllerReplaceLastSegue: UIStoryboardSegue {
             controllers.removeLast()
             controllers.append(destination)
             
-            navigation.setViewControllers(controllers, animated: true)
+            navigation.setViewControllers(controllers, animated: self.animated)
         }
     }
 }
