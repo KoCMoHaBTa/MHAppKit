@@ -54,7 +54,7 @@ open class UIControlGroup: NSObject {
     }
     
     ///The state action assigned to all deselected controls
-    @IBInspectable open var deselectAllControlStateAction: StateAction = .none
+    open var deselectAllControlStateAction: StateAction = .none
     
     ///Assign to a control which action will select all controls in the group
     @IBOutlet open var selectAllControl: UIControl? {
@@ -66,7 +66,7 @@ open class UIControlGroup: NSObject {
     }
     
     ///The state action assigned to all selected controls
-    @IBInspectable open var selectAllControlStateAction: StateAction = .none
+    open var selectAllControlStateAction: StateAction = .none
     
     //MARK: - Callbacks
     
