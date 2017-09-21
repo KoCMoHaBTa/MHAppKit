@@ -27,7 +27,7 @@ extension UIViewController {
     }
     
     ///Calls `self.segueCoordinator.prepare(for: segue, sender: sender)`. This method is used for objc compatibility
-    open dynamic func prepare(usingCoordinatorFor segue: UIStoryboardSegue, sender: Any?) {
+    @objc open dynamic func prepare(usingCoordinatorFor segue: UIStoryboardSegue, sender: Any?) {
      
         self.segueCoordinator.prepare(for: segue, sender: sender)
     }

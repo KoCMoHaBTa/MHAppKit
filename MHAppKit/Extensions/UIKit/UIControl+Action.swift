@@ -75,7 +75,7 @@ extension UIControl {
             control.addTarget(self, action: #selector(handleAction(_:)), for: events)
         }
         
-        dynamic func handleAction(_ sender: UIControl) {
+        @objc dynamic func handleAction(_ sender: UIControl) {
             
             self.action(sender)
         }

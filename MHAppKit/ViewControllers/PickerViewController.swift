@@ -104,8 +104,8 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         if let color = self.titleBarButton.tintColor {
             
-            self.titleBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: color], for: .normal)
-            self.titleBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: color], for: .disabled)
+            self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .normal)
+            self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .disabled)
         }
         
         self.pickerView.selectRow(self.selectedItemIndex, inComponent: 0, animated: false)

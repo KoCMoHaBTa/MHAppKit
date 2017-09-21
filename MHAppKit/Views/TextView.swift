@@ -62,25 +62,25 @@ import UIKit
                     return
                 }
                 
-                var attributes: [String: Any] = [:]
+                var attributes: [NSAttributedStringKey: Any] = [:]
                 
                 if self.isFirstResponder {
                     
                     for (k, v) in self.typingAttributes {
                         
-                        attributes.updateValue(v, forKey: k)
+                        attributes.updateValue(v, forKey: NSAttributedStringKey(rawValue: k))
                     }
                     
                 } else {
                     
-                    attributes[NSFontAttributeName] = self.font
-                    attributes[NSForegroundColorAttributeName] = UIColor(white: 0.702, alpha: 1.0)
+                    attributes[.font] = self.font
+                    attributes[.foregroundColor] = UIColor(white: 0.702, alpha: 1.0)
                     
                     if self.textAlignment != .left {
                         
                         let paragraph = NSMutableParagraphStyle()
                         paragraph.alignment = self.textAlignment
-                        attributes[NSParagraphStyleAttributeName] = paragraph
+                        attributes[.paragraphStyle] = paragraph
                     }
                 }
                 
@@ -297,7 +297,7 @@ import UIKit
         NotificationCenter.default.addObserver(self, selector: #selector(TextView.receivedTextDidChangeNotification(_:)), name: .UITextViewTextDidChange, object: self)
     }
     
-    open func receivedTextDidChangeNotification(_ noitification: Notification) {
+    @objc open func receivedTextDidChangeNotification(_ noitification: Notification) {
         
         self.setNeedsDisplay()
     }

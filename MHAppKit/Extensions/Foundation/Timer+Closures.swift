@@ -38,7 +38,7 @@ extension Timer {
         }
     }
     
-    private dynamic class func timerHandler(_ timer: Timer) {
+    @objc private dynamic class func timerHandler(_ timer: Timer) {
         
         (timer.userInfo as? Handler)?(timer)
     }

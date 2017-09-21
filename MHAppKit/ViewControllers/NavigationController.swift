@@ -52,7 +52,7 @@ open class NavigationController: UINavigationController {
         }
     }
     
-    open func handleInteractivePopGestureRecognizer(_ recongnizer: UIGestureRecognizer) {
+    @objc open func handleInteractivePopGestureRecognizer(_ recongnizer: UIGestureRecognizer) {
         
         if self.popAnimator == nil {
             

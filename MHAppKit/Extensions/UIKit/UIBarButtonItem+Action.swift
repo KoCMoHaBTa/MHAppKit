@@ -30,7 +30,7 @@ extension UIBarButtonItem {
         }
     }
     
-    dynamic func handleAction(_ sender: UIBarButtonItem) {
+    @objc dynamic func handleAction(_ sender: UIBarButtonItem) {
         
         self.actionHandler?(sender)
     }

@@ -13,7 +13,7 @@ extension UIViewController {
     
     public typealias AddViewLayouter = (_ container: UIView, _ child: UIView, _ completion: () -> Void) -> Void
     
-    @nonobjc private static let defaultAddViewLayouter: AddViewLayouter = { (container, child, completion) -> Void in
+    @nonobjc public static let defaultAddViewLayouter: AddViewLayouter = { (container, child, completion) -> Void in
         
         container.addSubview(child)
         
@@ -27,7 +27,7 @@ extension UIViewController {
     
     public typealias RemoveViewLayouter = (_ container: UIView?, _ child: UIView, _ completion: () -> Void) -> Void
     
-    @nonobjc private static let defaultRemoveViewLayouter: RemoveViewLayouter = { (container, child, completion) -> Void in
+    @nonobjc public static let defaultRemoveViewLayouter: RemoveViewLayouter = { (container, child, completion) -> Void in
         
         child.removeFromSuperview()
         //        child.translatesAutoresizingMaskIntoConstraints = true
