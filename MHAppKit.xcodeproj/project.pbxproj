@@ -62,6 +62,9 @@
 		99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */; };
 		99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */; };
 		99E247CF1CE749FD006726BA /* DynamicSizeTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */; };
+		E65E47DA1F7BBC50007CD43A /* DynamicCodingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E47D91F7BBC50007CD43A /* DynamicCodingKey.swift */; };
+		E65E47F11F7BBE5E007CD43A /* Codable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E47F01F7BBE5E007CD43A /* Codable+JSON.swift */; };
+		E65E47F51F7BCA5E007CD43A /* AnyEncodableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E47F41F7BCA5E007CD43A /* AnyEncodableValue.swift */; };
 		E6DC21191EFBEDDE008D182A /* ShowHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */; };
 		E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */; };
 		E6E71BF51F0A7D52000980C5 /* UIImage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */; };
@@ -187,6 +190,9 @@
 		99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableSuplementaryView.swift; sourceTree = "<group>"; };
 		99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableHeaderView.swift; sourceTree = "<group>"; };
 		99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableFooterView.swift; sourceTree = "<group>"; };
+		E65E47D91F7BBC50007CD43A /* DynamicCodingKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCodingKey.swift; sourceTree = "<group>"; };
+		E65E47F01F7BBE5E007CD43A /* Codable+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+JSON.swift"; sourceTree = "<group>"; };
+		E65E47F41F7BCA5E007CD43A /* AnyEncodableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodableValue.swift; sourceTree = "<group>"; };
 		E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideAnimator.swift; sourceTree = "<group>"; };
 		E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHAppKit.swift; sourceTree = "<group>"; };
 		E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Data.swift"; sourceTree = "<group>"; };
@@ -269,6 +275,7 @@
 				303520611C88EB3500436351 /* MHAppKit.h */,
 				E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */,
 				E6FE9F7D1F274FB30094CC5B /* UIControlGroup.swift */,
+				E65E47CE1F7BBB33007CD43A /* Codable */,
 				303521181C88EFEB00436351 /* Extensions */,
 				303521041C88EF6A00436351 /* Animators */,
 				303521081C88EF6A00436351 /* Segues */,
@@ -415,6 +422,16 @@
 				99CDAD591CFC68070090960D /* Info.plist */,
 			);
 			path = MHAppKitTestsHost;
+			sourceTree = "<group>";
+		};
+		E65E47CE1F7BBB33007CD43A /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				E65E47F41F7BCA5E007CD43A /* AnyEncodableValue.swift */,
+				E65E47D91F7BBC50007CD43A /* DynamicCodingKey.swift */,
+				E65E47F01F7BBE5E007CD43A /* Codable+JSON.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 		E6E71BF61F0A7D78000980C5 /* UIImagePickerController */ = {
@@ -670,6 +687,7 @@
 				99CDAD681CFC7C710090960D /* UIButton.swift in Sources */,
 				99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */,
 				99402A541D09609600412ED5 /* UIImage+Color.swift in Sources */,
+				E65E47DA1F7BBC50007CD43A /* DynamicCodingKey.swift in Sources */,
 				E6E71C031F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift in Sources */,
 				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
 				303521131C88EF6A00436351 /* BlockAnimator.swift in Sources */,
@@ -681,10 +699,12 @@
 				99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
 				303521161C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift in Sources */,
 				99D76D061E8A47A70077CDDE /* UIViewController+SegueCoordinator.m in Sources */,
+				E65E47F11F7BBE5E007CD43A /* Codable+JSON.swift in Sources */,
 				E6FE9F3F1F26225A0094CC5B /* Date+Components.swift in Sources */,
 				E6E71C0B1F0A9658000980C5 /* PHPhotoLibrary+Save.swift in Sources */,
 				303520F61C88EF2800436351 /* TextView.swift in Sources */,
 				303521151C88EF6A00436351 /* UIViewTransitionAnimator.swift in Sources */,
+				E65E47F51F7BCA5E007CD43A /* AnyEncodableValue.swift in Sources */,
 				E6FE9F3D1F2622500094CC5B /* Date+Formatting.swift in Sources */,
 				303521121C88EF6A00436351 /* ViewController.swift in Sources */,
 				3035210C1C88EF6A00436351 /* DynamicTableViewController.swift in Sources */,
