@@ -91,7 +91,7 @@ extension UIView {
 
 extension UIView {
     
-    func subview(matching isMatching: (UIView) -> Bool) -> UIView? {
+    public func subview(matching isMatching: (UIView) -> Bool) -> UIView? {
         
         for view in self.subviews {
             
