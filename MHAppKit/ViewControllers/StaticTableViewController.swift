@@ -85,12 +85,9 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         self.animationCompletionBlock?()
         self.animationCompletionBlock = nil
     }
-}
-
-//MARK: - UIRefreshControl
-
-extension StaticTableViewController {
     
+    //MARK: - UIRefreshControl
+ 
     open func shouldRefresh() -> Bool {
         
         return true
