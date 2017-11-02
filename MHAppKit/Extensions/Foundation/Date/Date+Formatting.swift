@@ -55,7 +55,9 @@ extension String {
 
 extension Locale {
     
-    //this is computed property in order to avoid mutation
+    //- returns: An instance of a locale, that should be used when formatting dates that are transferred over the internet
+    ///- note: This is a computed property.
+    ///- note: The value is an instance of the `en_US_POSIX` locale
     public static var fixed: Locale {
         
         return Locale(identifier: "en_US_POSIX")
@@ -64,23 +66,49 @@ extension Locale {
 
 extension TimeZone {
     
-    //this is computed property in order to avoid mutation
+    ///An instance of a timezone, that should be used when formatting dates that are transferred over the internet.
+    ///- note: This is a computed property.
+    ///- note: The value is an instance of the UTC timezone
     public static var fixed: TimeZone {
         
+        return .UTC
+    }
+    
+    ///An instance of the UTC timezone.
+    ///- note: This is a computed property.
+    public static var UTC: TimeZone {
+        
         return TimeZone(identifier: "UTC")!
+    }
+    
+    ///An instance of the GMT timezone.
+    ///- note: This is a computed property.
+    public static var GMT: TimeZone {
+        
+        return TimeZone(identifier: "GMT")!
     }
 }
 
 extension Calendar {
     
-    //this is computed property in order to avoid mutation
+    ///An instance of a calendar, that should be used when formatting dates that are transferred over the internet
+    ///- note: This is a computed property.
+    ///- note: The value is an instance of the Gregorian calendar, configured with `fixed` locale and timezone
     public static var fixed: Calendar {
         
-        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        var calendar = Calendar.gregorian
         calendar.locale = .fixed
         calendar.timeZone = .fixed
         
         return calendar
+    }
+    
+    
+    ///An instance of the Gregorian calendar.
+    ///- note: This is a computed property.
+    public static var gregorian: Calendar {
+        
+        return Calendar(identifier: .gregorian)
     }
 }
 

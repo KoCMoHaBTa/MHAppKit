@@ -74,7 +74,7 @@ extension UIColor {
         var RGB: UInt32 = 0
         
         //remove hash tag from HEX string
-        if HEX.characters.first == "#" {
+        if HEX.first == "#" {
             
             HEX.remove(at: HEX.startIndex)
         }
