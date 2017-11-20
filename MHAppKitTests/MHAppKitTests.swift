@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import MHAppKit
+@testable import MHAppKitTestsHost
 import MessageUI
 
 class MHAppKitTests: XCTestCase {
@@ -89,6 +90,11 @@ class MHAppKitTests: XCTestCase {
             
             UIApplication.shared.sendAction(item.action!, to: item.target, from: item, for: nil)
         }
+    }
+    
+    func testNibLoadable() {
+        
+        XCTAssertNotNil(TestNibView.loadFromNib())
     }
 }
 
