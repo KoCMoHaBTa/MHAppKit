@@ -96,6 +96,12 @@ class MHAppKitTests: XCTestCase {
         
         XCTAssertNotNil(TestNibView.loadFromNib())
     }
+    
+    func testCollectionConvenienceMutation() {
+        
+        XCTAssertEqual(["2", "1"] + "3", ["2", "1", "3"])
+        XCTAssertEqual(Set(["2", "1"]) + "3", Set(["2", "1", "3"]))
+    }
 }
 
 
