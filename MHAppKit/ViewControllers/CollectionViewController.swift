@@ -239,7 +239,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     }
 
     //calls beginRefresh -> refreshControlActionWithCompletionBlock -> endRefresh
-    @IBAction open func refreshControlAction(_ sender: AnyObject) {
+    @IBAction open func refreshControlAction(_ sender: Any?) {
         
         self.beginRefresh()
         

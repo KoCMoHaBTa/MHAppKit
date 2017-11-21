@@ -158,12 +158,12 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     //MARK: - Actions
     
-    @IBAction open func cancelAction(_ sender: AnyObject) {
+    @IBAction open func cancelAction(_ sender: Any?) {
         
         self.didSelectItem?(self, nil, nil)
     }
     
-    @IBAction open func doneAction(_ sender: AnyObject) {
+    @IBAction open func doneAction(_ sender: Any?) {
         
         let index = self.pickerView.selectedRow(inComponent: 0)
         let item = self.items[index]

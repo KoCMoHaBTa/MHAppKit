@@ -39,22 +39,11 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     
     //MARK: - Accessory Action
     
-    @IBAction open func accessoryViewTouchAction(_ sender: AnyObject?, event: AnyObject?) {
+    @IBAction open func accessoryViewTouchAction(_ sender: Any?, event: UIEvent) {
         
-        if let event = event as? UIEvent {
+        if let indexPath = self.tableView.indexPaths(for: event).first {
             
-            if let touches = event.allTouches {
-                
-                if let touch = touches.first {
-                    
-                    let currentTouchPosition = touch.location(in: self.tableView)
-                    
-                    if let indexPath = self.tableView.indexPathForRow(at: currentTouchPosition) {
-                        
-                        self.tableView(self.tableView, accessoryButtonTappedForRowWith: indexPath)
-                    }
-                }
-            }
+            self.tableView(self.tableView, accessoryButtonTappedForRowWith: indexPath)
         }
     }
     
@@ -119,7 +108,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         }
     }
     
-    @IBAction open func refreshControlAction(_ sender: AnyObject?) {
+    @IBAction open func refreshControlAction(_ sender: Any?) {
         
         self.beginRefresh()
         
