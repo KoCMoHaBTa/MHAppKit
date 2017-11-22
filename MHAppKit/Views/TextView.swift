@@ -29,12 +29,48 @@ import UIKit
         }
     }
     
+    ///Controls the line fragment padding of the receiver's text
+    @IBInspectable open var lineFragmentPadding: CGFloat = 0 {
+        
+        didSet {
+            
+            self.textContainer.lineFragmentPadding = self.lineFragmentPadding
+        }
+    }
+    
     ///Controls the left padding of the receiver's text
     @IBInspectable open var leftPadding: CGFloat = 0 {
         
         didSet {
             
             self.textContainerInset.left = self.leftPadding
+        }
+    }
+    
+    ///Controls the right padding of the receiver's text
+    @IBInspectable open var rightPadding: CGFloat = 0 {
+        
+        didSet {
+            
+            self.textContainerInset.right = self.rightPadding
+        }
+    }
+    
+    ///Controls the top padding of the receiver's text
+    @IBInspectable open var topPadding: CGFloat = 0 {
+        
+        didSet {
+            
+            self.textContainerInset.top = self.topPadding
+        }
+    }
+    
+    ///Controls the bottom padding of the receiver's text
+    @IBInspectable open var bottomPadding: CGFloat = 0 {
+        
+        didSet {
+            
+            self.textContainerInset.bottom = self.bottomPadding
         }
     }
     
