@@ -74,6 +74,15 @@ import UIKit
         }
     }
     
+    ///Controls the maximum number of lines of the receiver's text
+    @IBInspectable open var maximumNumberOfLines: Int = 0 {
+        
+        didSet {
+            
+            self.textContainer.maximumNumberOfLines = self.maximumNumberOfLines
+        }
+    }
+    
     //MARK: - Auto Size
     
     ///Constrols whenever to autoSize the receier. Default to `false`. If set to `true` - the receiver's intrinsicContentSize will be set to the content size
