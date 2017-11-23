@@ -10,15 +10,16 @@ import Foundation
 
 protocol NibLoadable {
     
-    init?(nibName: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?)
+    init?(nibName: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?)
 }
 
 extension NibLoadable {
     
-    public init?(nibName: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?) {
+    public init?(nibName: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) {
         
         let nib = UINib(nibName: nibName, bundle: bundle)
-        guard let object = nib.instantiate(withOwner: owner, options: options).first as? Self else {
+        let contents = nib.instantiate(withOwner: owner, options: options)
+        guard let object = index == nil ? contents.first as? Self : contents[index!] as? Self else {
             
             return nil
         }
@@ -26,12 +27,12 @@ extension NibLoadable {
         self = object
     }
     
-    public static func loadFromNib(withName name: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?) -> Self? {
+    public static func loadFromNib(withName name: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) -> Self? {
         
-        return Self(nibName: name, bundle: bundle, owner: owner, options: options)
+        return Self(nibName: name, bundle: bundle, owner: owner, options: options, at: index)
     }
     
-    public static func loadFromNib(owner: Any? = nil, options: [AnyHashable: Any]? = nil) -> Self? {
+    public static func loadFromNib(owner: Any? = nil, options: [AnyHashable: Any]? = nil, at index: Int? = nil) -> Self? {
         
         guard let cls = Self.self as? AnyClass else {
             
@@ -41,7 +42,7 @@ extension NibLoadable {
         let name = String(describing: cls)
         let bundle = Bundle(for: cls)
         
-        return self.loadFromNib(withName: name, bundle: bundle, owner: owner, options: options)
+        return self.loadFromNib(withName: name, bundle: bundle, owner: owner, options: options, at: index)
     }
 }
 
