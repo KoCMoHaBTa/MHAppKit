@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol NibLoadable {
+public protocol NibLoadable {
     
     init?(nibName: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?)
 }
