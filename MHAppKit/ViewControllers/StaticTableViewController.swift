@@ -103,7 +103,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         if self.shouldRefresh() {
             
             let h = self.refreshControl?.frame.size.height ?? 0
-            self.tableView.setContentOffset(CGPoint(x: 0, y: -h * 2), animated: animated)
+            self.tableView.setContentOffset(CGPoint(x: 0, y: -h), animated: animated)
             self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
         }
     }
