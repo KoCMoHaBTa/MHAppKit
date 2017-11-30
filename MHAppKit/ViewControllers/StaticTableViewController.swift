@@ -93,7 +93,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     }
     
     //programatic refresh - shouldRefresh -> tableView content inset (animated) -> refreshControlAction
-    open func performRefresh() {
+    @IBAction open func performRefresh() {
         
         self.performRefresh(true)
     }
