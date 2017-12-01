@@ -68,7 +68,7 @@ extension CALayer {
     
     public func snapshot() -> UIImage? {
         
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.isOpaque, 0.0)
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0)
         
         if let context = UIGraphicsGetCurrentContext() {
             
