@@ -76,11 +76,6 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     }
     
     //MARK: - UIRefreshControl
- 
-    open func shouldRefresh() -> Bool {
-        
-        return true
-    }
     
     open func beginRefresh() {
         
@@ -100,12 +95,9 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     
     open func performRefresh(_ animated: Bool) {
         
-        if self.shouldRefresh() {
-            
-            let h = self.refreshControl?.frame.size.height ?? 0
-            self.tableView.setContentOffset(CGPoint(x: 0, y: -h), animated: animated)
-            self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
-        }
+        let h = self.refreshControl?.frame.size.height ?? 0
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -h), animated: animated)
+        self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
     }
     
     @IBAction open func refreshControlAction(_ sender: Any?) {
