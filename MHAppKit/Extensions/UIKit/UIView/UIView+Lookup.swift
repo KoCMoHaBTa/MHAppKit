@@ -108,6 +108,24 @@ extension UIView {
         
         return nil
     }
+    
+    public func superview(matching isMatching: (UIView) -> Bool) -> UIView? {
+        
+        if let view = self.superview {
+            
+            if isMatching(view) {
+                
+                return view
+            }
+            
+            if let superview = view.superview(matching: isMatching) {
+                
+                return superview
+            }
+        }
+        
+        return nil
+    }
 }
 
 
