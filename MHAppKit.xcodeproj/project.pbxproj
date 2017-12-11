@@ -80,6 +80,7 @@
 		E6E71C061F0A8EA6000980C5 /* PHAsset+Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C051F0A8EA6000980C5 /* PHAsset+Metadata.swift */; };
 		E6E71C081F0A90A0000980C5 /* UIImagePickerController+Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C071F0A90A0000980C5 /* UIImagePickerController+Media.swift */; };
 		E6E71C0B1F0A9658000980C5 /* PHPhotoLibrary+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C0A1F0A9658000980C5 /* PHPhotoLibrary+Save.swift */; };
+		E6F471AB1FDE73970052031A /* SFSafariViewController+URLSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F471AA1FDE73970052031A /* SFSafariViewController+URLSupport.swift */; };
 		E6FE9F3A1F2622180094CC5B /* TimeInterval+TimeConvertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE9F391F2622180094CC5B /* TimeInterval+TimeConvertion.swift */; };
 		E6FE9F3D1F2622500094CC5B /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE9F3C1F2622500094CC5B /* Date+Formatting.swift */; };
 		E6FE9F3F1F26225A0094CC5B /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE9F3E1F26225A0094CC5B /* Date+Components.swift */; };
@@ -215,6 +216,7 @@
 		E6E71C051F0A8EA6000980C5 /* PHAsset+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Metadata.swift"; sourceTree = "<group>"; };
 		E6E71C071F0A90A0000980C5 /* UIImagePickerController+Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Media.swift"; sourceTree = "<group>"; };
 		E6E71C0A1F0A9658000980C5 /* PHPhotoLibrary+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Save.swift"; sourceTree = "<group>"; };
+		E6F471AA1FDE73970052031A /* SFSafariViewController+URLSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFSafariViewController+URLSupport.swift"; sourceTree = "<group>"; };
 		E6FE9F391F2622180094CC5B /* TimeInterval+TimeConvertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+TimeConvertion.swift"; sourceTree = "<group>"; };
 		E6FE9F3C1F2622500094CC5B /* Date+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		E6FE9F3E1F26225A0094CC5B /* Date+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Components.swift"; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		303521181C88EFEB00436351 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E6F471A91FDE737E0052031A /* SafariServices */,
 				E6FE9F361F261D9A0094CC5B /* Photos */,
 				E6FE9F321F261CA30094CC5B /* Foundation */,
 				E6FE9F311F261C940094CC5B /* UIKit */,
@@ -475,6 +478,14 @@
 				E6E71C021F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift */,
 			);
 			path = CoreLocation;
+			sourceTree = "<group>";
+		};
+		E6F471A91FDE737E0052031A /* SafariServices */ = {
+			isa = PBXGroup;
+			children = (
+				E6F471AA1FDE73970052031A /* SFSafariViewController+URLSupport.swift */,
+			);
+			path = SafariServices;
 			sourceTree = "<group>";
 		};
 		E6FE9F311F261C940094CC5B /* UIKit */ = {
@@ -727,6 +738,7 @@
 				303521281C88F00D00436351 /* UIViewController+Container.swift in Sources */,
 				E6FE9F7E1F274FB30094CC5B /* UIControlGroup.swift in Sources */,
 				E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */,
+				E6F471AB1FDE73970052031A /* SFSafariViewController+URLSupport.swift in Sources */,
 				99364A2C1DB66BB400CD0864 /* SegueCoordinator.swift in Sources */,
 				303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */,
 				303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */,
