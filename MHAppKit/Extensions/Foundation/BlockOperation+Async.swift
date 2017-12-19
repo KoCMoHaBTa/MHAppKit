@@ -10,7 +10,7 @@ import Foundation
 
 extension BlockOperation {
     
-    public convenience init(async: @escaping (_ completion: () -> Void) -> Void) {
+    public convenience init(async: @escaping (_ completion: @escaping () -> Void) -> Void) {
         
         self.init {
             
