@@ -66,6 +66,7 @@
 		E60E8D731FC373BB009CE622 /* TestNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E8D721FC373BB009CE622 /* TestNibView.swift */; };
 		E60E8D751FC373E4009CE622 /* TestNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60E8D741FC373E4009CE622 /* TestNibView.xib */; };
 		E60E8D941FC42CA0009CE622 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E8D931FC42C9F009CE622 /* Button.swift */; };
+		E61083D11FE91AD600EA06F9 /* BlockOperation+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61083D01FE91AD600EA06F9 /* BlockOperation+Async.swift */; };
 		E61C31551FC444FC00C43068 /* Collection+ConvenienceMutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */; };
 		E61C31571FC4474E00C43068 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31561FC4474E00C43068 /* UITableView.swift */; };
 		E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */; };
@@ -202,6 +203,7 @@
 		E60E8D721FC373BB009CE622 /* TestNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNibView.swift; sourceTree = "<group>"; };
 		E60E8D741FC373E4009CE622 /* TestNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestNibView.xib; sourceTree = "<group>"; };
 		E60E8D931FC42C9F009CE622 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E61083D01FE91AD600EA06F9 /* BlockOperation+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockOperation+Async.swift"; sourceTree = "<group>"; };
 		E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+ConvenienceMutating.swift"; sourceTree = "<group>"; };
 		E61C31561FC4474E00C43068 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */,
 				E6FE9F391F2622180094CC5B /* TimeInterval+TimeConvertion.swift */,
 				E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */,
+				E61083D01FE91AD600EA06F9 /* BlockOperation+Async.swift */,
 				E6FE9F3B1F2622320094CC5B /* Date */,
 			);
 			path = Foundation;
@@ -775,6 +778,7 @@
 				99CDAD6A1CFC7C810090960D /* UIBarButtonItem+Action.swift in Sources */,
 				3035212C1C88F00D00436351 /* UINavigationController+Background.swift in Sources */,
 				E6E71BF51F0A7D52000980C5 /* UIImage+Data.swift in Sources */,
+				E61083D11FE91AD600EA06F9 /* BlockOperation+Async.swift in Sources */,
 				303520F91C88EF2800436351 /* Label.swift in Sources */,
 				E696BCC81F7C2E9700AF02DF /* UIView+Lookup.swift in Sources */,
 				303520F71C88EF2800436351 /* TableViewCell.swift in Sources */,
