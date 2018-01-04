@@ -93,11 +93,15 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         self.performRefresh(true)
     }
     
-    open func performRefresh(_ animated: Bool) {
+    open func performRefresh(_ animated: Bool, sendRefreshControlAction: Bool = true) {
         
         let h = self.refreshControl?.frame.size.height ?? 0
         self.tableView.setContentOffset(CGPoint(x: 0, y: -h), animated: animated)
-        self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
+        
+        if sendRefreshControlAction {
+            
+            self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
+        }
     }
     
     @IBAction open func refreshControlAction(_ sender: Any?) {
