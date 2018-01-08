@@ -74,6 +74,7 @@
 		E696BCC81F7C2E9700AF02DF /* UIView+Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */; };
 		E696BCCA1F7C2EA800AF02DF /* UIView+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */; };
 		E696BCCC1F7C2F9A00AF02DF /* UIVIew+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */; };
+		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
 		E6DC21191EFBEDDE008D182A /* ShowHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */; };
 		E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */; };
 		E6E71BF51F0A7D52000980C5 /* UIImage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */; };
@@ -212,6 +213,7 @@
 		E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Lookup.swift"; sourceTree = "<group>"; };
 		E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
 		E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Chaining.swift"; sourceTree = "<group>"; };
+		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
 		E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideAnimator.swift; sourceTree = "<group>"; };
 		E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHAppKit.swift; sourceTree = "<group>"; };
 		E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Data.swift"; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */,
 				E6FE9F401F2622C30094CC5B /* DateTests.swift */,
 				E6FE9F851F276EF40094CC5B /* UIControlGroupTests.swift */,
+				E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */,
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
@@ -808,6 +811,7 @@
 				99364A301DB670A500CD0864 /* SegueCoordinatorTests.swift in Sources */,
 				E6FE9F861F276EF40094CC5B /* UIControlGroupTests.swift in Sources */,
 				99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */,
+				E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */,
 				E6FE9F411F2622C30094CC5B /* DateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

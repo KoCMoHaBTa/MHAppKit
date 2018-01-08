@@ -8,11 +8,15 @@
 
 import Foundation
 
-///An operation that aggregates the result of multiple instances of LoadingOperation
+///An operation that aggregates the execution of multiple Operation as one
 open class CompositionOperation: Operation {
     
     open let operations: [Operation]
     open let queue: OperationQueue
+    
+    ///Whenever to cancel the composed operations when the receiver is cancelled. Default to `true`.
+    ///- note: If set to `false`, this is useful if you want ot treat the composed operations as one transaction, that once started, should not be interrupted  while running.
+    open var cancelComposedOperations = true
     
     public init(operations: [Operation], queue: OperationQueue) {
         
@@ -40,7 +44,10 @@ open class CompositionOperation: Operation {
     
     open override func cancel() {
         
-        self.queue.cancelAllOperations()
+        if self.cancelComposedOperations {
+            
+            self.queue.cancelAllOperations()
+        }
         
         super.cancel()
     }
