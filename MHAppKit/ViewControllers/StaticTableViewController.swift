@@ -87,23 +87,44 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         self.refreshControl?.endRefreshing()
     }
     
+    open func showRefreshControl(animated: Bool) {
+        
+        guard self.refreshControl?.isRefreshing == false else {
+            
+            return
+        }
+        
+        let h = self.refreshControl?.frame.size.height ?? 0
+        var offset = self.tableView.contentOffset
+        offset.y -= h
+        self.tableView.setContentOffset(offset, animated: animated)
+    }
+    
     //programatic refresh - shouldRefresh -> tableView content inset (animated) -> refreshControlAction
     @IBAction open func performRefresh() {
         
-        self.performRefresh(true)
+        self.performRefresh(animated: true)
     }
     
-    open func performRefresh(_ animated: Bool, sendRefreshControlAction: Bool = true) {
+    open func performRefresh(animated: Bool) {
         
-        let h = self.refreshControl?.frame.size.height ?? 0
-        self.tableView.setContentOffset(CGPoint(x: 0, y: -h), animated: animated)
+        self.showRefreshControl(animated: animated)
+        self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
+    }
+    
+    ///Performs a refresh with custom action
+    open func performRefresh(animated: Bool, action: @escaping (_ completion: @escaping () -> Void) -> Void) {
         
-        if sendRefreshControlAction {
+        self.showRefreshControl(animated: animated)
+        self.beginRefresh()
+        
+        action {
             
-            self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
+            self.endRefresh()
         }
     }
     
+    ///Assign this action to the refresh control. If you do so, the `refreshControlActionWithCompletionBlock` method will be called automatically
     @IBAction open func refreshControlAction(_ sender: Any?) {
         
         self.beginRefresh()
@@ -114,6 +135,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         }
     }
     
+    ///Override this in order to implement the refersh control action
     open func refreshControlActionWithCompletionBlock(_ completionBlock: @escaping () -> ()) {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in

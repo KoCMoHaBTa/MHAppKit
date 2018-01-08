@@ -75,6 +75,7 @@
 		E696BCCA1F7C2EA800AF02DF /* UIView+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */; };
 		E696BCCC1F7C2F9A00AF02DF /* UIVIew+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */; };
 		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
+		E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */; };
 		E6DC21191EFBEDDE008D182A /* ShowHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */; };
 		E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */; };
 		E6E71BF51F0A7D52000980C5 /* UIImage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */; };
@@ -214,6 +215,7 @@
 		E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
 		E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Chaining.swift"; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
+		E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStaticTableViewController.swift; sourceTree = "<group>"; };
 		E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideAnimator.swift; sourceTree = "<group>"; };
 		E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHAppKit.swift; sourceTree = "<group>"; };
 		E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Data.swift"; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			children = (
 				99CDAD4D1CFC68070090960D /* AppDelegate.swift */,
 				99CDAD4F1CFC68070090960D /* ViewController.swift */,
+				E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */,
 				E60E8D721FC373BB009CE622 /* TestNibView.swift */,
 				E60E8D741FC373E4009CE622 /* TestNibView.xib */,
 				99CDAD511CFC68070090960D /* Main.storyboard */,
@@ -830,6 +833,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60E8D731FC373BB009CE622 /* TestNibView.swift in Sources */,
+				E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */,
 				99CDAD501CFC68070090960D /* ViewController.swift in Sources */,
 				99CDAD4E1CFC68070090960D /* AppDelegate.swift in Sources */,
 			);
