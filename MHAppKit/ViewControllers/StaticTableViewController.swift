@@ -96,7 +96,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         
         let h = self.refreshControl?.frame.size.height ?? 0
         var offset = self.tableView.contentOffset
-        offset.y -= h
+        offset.y = -h - self.topLayoutGuide.length
         self.tableView.setContentOffset(offset, animated: animated)
     }
     
