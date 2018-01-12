@@ -32,6 +32,12 @@ open class SegueCoordinator {
     
     ///The underlaying storage of all prepare handlers
     fileprivate var prepareHandlers: [PrepareHandler] = []
+    
+    ///A SegueCoordinator can be composed of multiple childs
+    public var childCoordinators: [SegueCoordinator] = []
+    
+    ///A value that can be used by the client to store custom data
+    public var userInfo: Any?
 }
 
 extension SegueCoordinator {
@@ -60,6 +66,20 @@ extension SegueCoordinator {
 
 //MARK: - Preparing Segues
 
+extension Collection where Element == SegueCoordinator {
+    
+    fileprivate var prepareHandlers: [SegueCoordinator.PrepareHandler] {
+        
+        return self.reduce([]) { (prepareHandlers, coordinator) -> [SegueCoordinator.PrepareHandler] in
+            
+            var prepareHandlers = prepareHandlers
+            prepareHandlers.append(contentsOf: coordinator.prepareHandlers)
+            prepareHandlers.append(contentsOf: coordinator.childCoordinators.prepareHandlers)
+            return prepareHandlers
+        }
+    }
+}
+
 extension SegueCoordinator {
      
     ///Prepares a segue's source and destination based on all stored handlers. Also updates the destination `segueCoordinator` reference
@@ -70,6 +90,12 @@ extension SegueCoordinator {
         
         //try to find an instance of SeguePrepareHandler based on any combination of criterias, like segue identifier, source, destination, sender
         self.prepareHandlers.forEach { (handler) in
+            
+            handler.prepare(for: segue, sender: sender)
+        }
+        
+        //also iterate over the child coordnators
+        self.childCoordinators.prepareHandlers.forEach { (handler) in
             
             handler.prepare(for: segue, sender: sender)
         }

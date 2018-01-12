@@ -346,4 +346,36 @@ class SegueCoordinatorTests: XCTestCase {
             coordinator.prepare(for: UIStoryboardSegue(identifier: nil, source: ViewController(), destination: UITableViewController()), sender: nil)
         }
     }
+    
+    func testChildCoordinatosComposition() {
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 3
+            
+            let c1 = SegueCoordinator()
+            let c2 = SegueCoordinator()
+            let c3 = SegueCoordinator()
+            
+            c1.childCoordinators.append(c2)
+            c1.childCoordinators.append(c3)
+            
+            c1.addPrepareHandler { (source, destination) in
+                
+                e.fulfill()
+            }
+            
+            c2.addPrepareHandler { (source, destination) in
+                
+                e.fulfill()
+            }
+            
+            c3.addPrepareHandler { (source, destination) in
+                
+                e.fulfill()
+            }
+            
+            c1.prepare(for: UIStoryboardSegue(identifier: "test", source: UIViewController(), destination: UIViewController()))
+        }
+    }
 }
