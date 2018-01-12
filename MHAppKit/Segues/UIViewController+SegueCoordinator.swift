@@ -26,9 +26,37 @@ extension UIViewController {
         }
     }
     
+    private static var temporarySegueCoordinatorKey = ""
+    
+    ///An additional, temporary, one time usable segue coordinator. Once it is used, its reference is set to nil. Can be used to fine tune next segue. Used in condjuction with `performSegue(withIdentifier:sender:prepareHandler)`
+    open var temporarySegueCoordinator: SegueCoordinator? {
+        
+        get {
+            
+            return objc_getAssociatedObject(self, &UIViewController.temporarySegueCoordinatorKey) as? SegueCoordinator
+        }
+        
+        set {
+            
+            objc_setAssociatedObject(self, &UIViewController.temporarySegueCoordinatorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     ///Calls `self.segueCoordinator.prepare(for: segue, sender: sender)`. This method is used for objc compatibility
     @objc open dynamic func prepare(usingCoordinatorFor segue: UIStoryboardSegue, sender: Any?) {
      
         self.segueCoordinator.prepare(for: segue, sender: sender)
+        self.temporarySegueCoordinator?.prepare(for: segue, sender: sender)
+        self.temporarySegueCoordinator = nil
+    }
+    
+    ///Performs a segue by providing a prepare handler for setting up a one time usable temporray SegueCoordinator
+    public func performSegue(withIdentifier identifier: String, sender: Any?, prepareHandler: (SegueCoordinator) -> Void) {
+        
+        let temporarySegueCoordinator = SegueCoordinator()
+        prepareHandler(temporarySegueCoordinator)
+        self.temporarySegueCoordinator = temporarySegueCoordinator
+        
+        self.performSegue(withIdentifier: identifier, sender: sender)
     }
 }

@@ -378,4 +378,29 @@ class SegueCoordinatorTests: XCTestCase {
             c1.prepare(for: UIStoryboardSegue(identifier: "test", source: UIViewController(), destination: UIViewController()))
         }
     }
+    
+    func testTemporarySegueCoordinatorPrepareSegue() {
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 3
+            
+            let controller = UIViewController()
+            controller.segueCoordinator = SegueCoordinator()
+            controller.temporarySegueCoordinator = SegueCoordinator()
+            
+            controller.segueCoordinator.addPrepareHandler({ (source, destination) in
+                
+                e.fulfill()
+            })
+            
+            controller.temporarySegueCoordinator?.addPrepareHandler({ (source, destination) in
+                
+                e.fulfill()
+            })
+            
+            controller.prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test", source: controller, destination: UIViewController()), sender: nil)
+            controller.prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test", source: controller, destination: UIViewController()), sender: nil)
+        }
+    }
 }
