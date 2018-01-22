@@ -14,7 +14,7 @@ open class NavigationController: UINavigationController {
     open var pushAnimator: UIViewControllerAnimatedTransitioning?
     
     open private(set) var popInteractionController: UIPercentDrivenInteractiveTransition?
-    open private(set) var popInteractiveGestureRecognizer: UIGestureRecognizer? = { () -> UIGestureRecognizer? in
+    open private(set) lazy var popInteractiveGestureRecognizer: UIGestureRecognizer? = { () -> UIGestureRecognizer? in
        
         let popInteractiveGestureRecognizer = UIScreenEdgePanGestureRecognizer()
         popInteractiveGestureRecognizer.edges = .left
