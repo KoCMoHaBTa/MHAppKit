@@ -59,6 +59,14 @@ public class Button: UIButton {
         self.updateDynamicActionStateIfNeeded()
     }
     
+    public override func prepareForInterfaceBuilder() {
+        
+        super.prepareForInterfaceBuilder()
+        
+        self.hideIfCannotPerformActions = false
+        self.disableIfCannotPerformActions = false
+    }
+    
     public override var intrinsicContentSize: CGSize {
         
         var intrinsicContentSize = super.intrinsicContentSize
