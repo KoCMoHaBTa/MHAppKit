@@ -39,4 +39,17 @@ class MHAppKitUITests: XCTestCase {
         //NOTE: This test fails to report that last back button title is a space character, but appears correctly
 //        XCTAssertEqual(app.navigationBars.buttons.element(boundBy: 0).label, " ")
     }
+    
+    func testDisablingControlBasedOnDynamicActions() {
+        
+        
+        let app = XCUIApplication()
+        app.toolbars.buttons["actions"].tap()
+        app.buttons["controller with dynamic action"].tap()
+        XCTAssertTrue(app.buttons["this should be enabled"].isEnabled)
+        
+        app.navigationBars["MHAppKitTestsHost.VC2"].buttons["Back"].tap()
+        app.buttons["controller without dynamic action"].tap()
+        XCTAssertFalse(app.buttons["this should be disabled "].isEnabled)
+    }
 }

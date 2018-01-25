@@ -12,6 +12,62 @@ import UIKit
 @IBDesignable
 public class Button: UIButton {
     
+    ///Hides the button when dynamic actions cannot be performed by the responder chain
+    @IBInspectable var hideIfCannotPerformActions: Bool = false
+    
+    ///Disables the button when dynamic actions cannot be performed by the responder chain
+    @IBInspectable var disableIfCannotPerformActions: Bool = false
+    
+    ///Determines whenver the receiver's responder chain can perform dynamic actions, such as actions without a specific target.
+    public var canPerformDynamicActions: Bool {
+        
+        if let actions = self.actions(forTarget: nil, forControlEvent: self.allControlEvents) {
+            
+            let responderChain = self.responderChain
+            
+            for action in actions {
+                
+                //if there is single action that the chain can respond to - enable the receiver
+                if responderChain.canPerformAction(Selector(action), withSender: self) {
+                    
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
+    
+    public override func willMove(toWindow newWindow: UIWindow?) {
+        
+        super.willMove(toWindow: newWindow)
+        
+        if self.hideIfCannotPerformActions {
+            
+            self.isHidden = !self.canPerformDynamicActions
+        }
+        
+        if self.disableIfCannotPerformActions {
+            
+            self.isEnabled = self.canPerformDynamicActions
+        }
+    }
+    
+    public override func willMove(toSuperview newSuperview: UIView?) {
+        
+        super.willMove(toSuperview: newSuperview)
+        
+        if self.hideIfCannotPerformActions {
+            
+            self.isHidden = !self.canPerformDynamicActions
+        }
+        
+        if self.disableIfCannotPerformActions {
+            
+            self.isEnabled = self.canPerformDynamicActions
+        }
+    }
+    
     public override var intrinsicContentSize: CGSize {
         
         var intrinsicContentSize = super.intrinsicContentSize

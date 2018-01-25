@@ -67,3 +67,9 @@ class ViewController: UIViewController {
     }
 }
 
+class VC2: UIViewController {
+    
+    @IBAction func testDynamicAction() {
+        
+    }
+}
