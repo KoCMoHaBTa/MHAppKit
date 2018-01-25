@@ -38,9 +38,7 @@ public class Button: UIButton {
         return false
     }
     
-    public override func willMove(toWindow newWindow: UIWindow?) {
-        
-        super.willMove(toWindow: newWindow)
+    public func updateDynamicActionStateIfNeeded() {
         
         if self.hideIfCannotPerformActions {
             
@@ -51,21 +49,14 @@ public class Button: UIButton {
             
             self.isEnabled = self.canPerformDynamicActions
         }
+        
     }
     
-    public override func willMove(toSuperview newSuperview: UIView?) {
+    public override func layoutSubviews() {
         
-        super.willMove(toSuperview: newSuperview)
+        super.layoutSubviews()
         
-        if self.hideIfCannotPerformActions {
-            
-            self.isHidden = !self.canPerformDynamicActions
-        }
-        
-        if self.disableIfCannotPerformActions {
-            
-            self.isEnabled = self.canPerformDynamicActions
-        }
+        self.updateDynamicActionStateIfNeeded()
     }
     
     public override var intrinsicContentSize: CGSize {
