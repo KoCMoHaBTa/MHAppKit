@@ -13,9 +13,9 @@ extension UIResponder {
 
     var responderChain: AnySequence<UIResponder> {
         
-        return AnySequence.init { () -> AnyIterator<UIResponder> in
+        return AnySequence.init { [weak self] () -> AnyIterator<UIResponder> in
             
-            weak var current: UIResponder? = self
+            var current: UIResponder? = self
             return AnyIterator.init({ () -> UIResponder? in
 
                 defer {
