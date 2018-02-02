@@ -11,7 +11,7 @@ import UIKit
 
 extension UIResponder {
 
-    var responderChain: AnySequence<UIResponder> {
+    open var responderChain: AnySequence<UIResponder> {
         
         return AnySequence.init { [weak self] () -> AnyIterator<UIResponder> in
             
@@ -31,7 +31,7 @@ extension UIResponder {
 
 extension Sequence where Element: UIResponder {
     
-    func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    public func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         
         for responder in self {
             

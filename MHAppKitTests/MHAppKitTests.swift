@@ -204,4 +204,38 @@ class MHAppKitTests: XCTestCase {
             v3.sendAction(#selector(ResponderWithAction.testingAction), to: nil, for: nil)
         }
     }
+    
+    func testAllChildViewControllers() {
+        
+        let c0 = UIViewController()
+        let tab = UITabBarController()
+        c0.addChildViewController(tab)
+        
+        let t0 = UINavigationController()
+        let t1 = UINavigationController()
+        let t2 = UIViewController()
+        tab.viewControllers = [t0, t1, t2]
+        
+        let c1 = UIViewController()
+        let c2 = UIViewController()
+        t0.viewControllers = [c1, c2]
+        
+        let c3 = UIViewController()
+        c2.addChildViewController(c3)
+        
+        let c4 = UIViewController()
+        t1.viewControllers = [c4]
+        
+        let c5 = UIViewController()
+        let c6 = UIViewController()
+        c4.addChildViewController(c5)
+        c4.addChildViewController(c6)
+        
+        let c7 = UIViewController()
+        c5.addChildViewController(c7)
+        
+        let expected = [tab, t0, t1, t2,  c1, c2, c3, c4, c5, c6, c7]
+        let result = c0.allChildViewControllers
+        XCTAssertEqual(result, expected)
+    }
 }
