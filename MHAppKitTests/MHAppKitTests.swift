@@ -10,6 +10,7 @@ import XCTest
 @testable import MHAppKit
 @testable import MHAppKitTestsHost
 import MessageUI
+import UIKit
 
 class MHAppKitTests: XCTestCase {
     
@@ -237,5 +238,62 @@ class MHAppKitTests: XCTestCase {
         let expected = [tab, t0, t1, t2,  c1, c2, c3, c4, c5, c6, c7]
         let result = c0.allChildViewControllers
         XCTAssertEqual(result, expected)
+    }
+    
+    @available(iOS 9.0, *)
+    func testUIViewLookup() {
+        
+        /*
+         |- (0) UIStackView
+         |-------- (1) UILabel
+         |-------- (2) UIVIew
+         |---------------------- (3) UIVIew
+         |---------------------- (4) UITextView
+         |-------- (5) UIStackView
+         |---------------------- (6) UITextView
+         |---------------------- (7) UILabel
+         |--------------------------------------- (8) UILabel
+         
+         */
+        
+        let view0 = UIStackView()
+        let view1 = UILabel()
+        let view2 = UIView()
+        let view3 = UIView()
+        let view4 = UITextView()
+        let view5 = UIStackView()
+        let view6 = UITextView()
+        let view7 = UILabel()
+        let view8 = UILabel()
+        
+        view0.tag = 0
+        view1.tag = 1
+        view2.tag = 2
+        view3.tag = 3
+        view4.tag = 4
+        view5.tag = 5
+        view6.tag = 6
+        view7.tag = 7
+        view8.tag = 8
+        
+        view0.addSubview(view1)
+        view0.addSubview(view2)
+        view0.addSubview(view5)
+        
+        view2.addSubview(view3)
+        view2.addSubview(view4)
+        
+        view5.addSubview(view6)
+        view5.addSubview(view7)
+        
+        view7.addSubview(view8)
+        
+        XCTAssertEqual(view7.superviewOfType(UIStackView.self)?.tag, 5)
+        XCTAssertEqual(view7.superviewsOfType(UIStackView.self).map({ $0.tag }), [5, 0])
+        
+        XCTAssertEqual(view0.subviewOfType(UITextView.self)?.tag, 4)
+        XCTAssertEqual(view0.subviewsOfType(UITextView.self).map({ $0.tag }), [4, 6])
+        XCTAssertEqual(view0.subviewOfType(UILabel.self)?.tag, 1)
+        XCTAssertEqual(view0.subviewsOfType(UILabel.self).map({ $0.tag }), [1, 7, 8])
     }
 }
