@@ -59,4 +59,22 @@ extension UIViewController {
         
         self.performSegue(withIdentifier: identifier, sender: sender)
     }
+    
+    ///Performs a segue by providing a single one time context handler for setting up dependencies from a given source to a given destination
+    public func performSegue<Source, Destination>(withIdentifier identifier: String, sender: Any?, contextHandler: @escaping (Source, Destination) -> Void) {
+        
+        self.performSegue(withIdentifier: identifier, sender: sender) { (coordinator) in
+            
+            coordinator.addPrepareHandler({ (source, destination) in
+                
+                destination.temporarySegueCoordinator = source.temporarySegueCoordinator
+            })
+            
+            coordinator.addContextHandler({ (source: Source, destination: Destination) in
+                
+                contextHandler(source, destination)
+                (destination as? UIViewController)?.temporarySegueCoordinator = nil
+            })
+        }
+    }
 }

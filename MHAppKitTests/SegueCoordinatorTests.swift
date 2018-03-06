@@ -297,6 +297,41 @@ class SegueCoordinatorTests: XCTestCase {
                 coordinator.prepare(for: segue, sender: nil)
             })
         }
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 4
+            
+            let controller = UIViewController()
+            controller.segueCoordinator = SegueCoordinator()
+            
+            controller.segueCoordinator.addContextHandler({ (source: UIViewController, destination: UITableViewController) in
+                
+                e.fulfill()
+            })
+            
+            controller.segueCoordinator.addContextHandler({ (source: UIViewController, destination: UICollectionViewController) in
+                
+                e.fulfill()
+            })
+            
+            let destinations: [UIViewController] = [
+            
+                UIViewController(),
+                UINavigationController(rootViewController: UICollectionViewController()),
+                UIViewController(),
+                UIViewController(),
+                UITableViewController(),
+                { () -> UITabBarController in let tab = UITabBarController(); tab.viewControllers = [UINavigationController(rootViewController: UICollectionViewController()), UITableViewController()]; return tab }()
+            ]
+            
+            controller.prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test0", source: controller, destination: destinations[0]), sender: nil)
+            destinations[0].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test1", source: destinations[0], destination: destinations[1]), sender: nil)
+            destinations[1].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test2", source: destinations[1], destination: destinations[2]), sender: nil)
+            destinations[2].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test3", source: destinations[2], destination: destinations[3]), sender: nil)
+            destinations[3].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test4", source: destinations[3], destination: destinations[4]), sender: nil)
+            destinations[4].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test5", source: destinations[4], destination: destinations[5]), sender: nil)
+        }
     }
     
     let iterations = 1000
@@ -401,6 +436,50 @@ class SegueCoordinatorTests: XCTestCase {
             
             controller.prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test", source: controller, destination: UIViewController()), sender: nil)
             controller.prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test", source: controller, destination: UIViewController()), sender: nil)
+        }
+    }
+    
+    func testTemporarySegueCoordinatorWithContextHandlers() {
+        
+        self.performExpectation { (e) in
+            
+            e.expectedFulfillmentCount = 4
+            
+            let controller = UIViewController()
+            controller.segueCoordinator = SegueCoordinator()
+            controller.temporarySegueCoordinator = SegueCoordinator()
+            
+            controller.segueCoordinator.addPrepareHandler({ (source, destination) in
+
+                destination.temporarySegueCoordinator = source.temporarySegueCoordinator
+            })
+            
+            controller.temporarySegueCoordinator?.addContextHandler({ (source: UIViewController, destination: UITableViewController) in
+                
+                e.fulfill()
+            })
+            
+            controller.temporarySegueCoordinator?.addContextHandler({ (source: UIViewController, destination: UICollectionViewController) in
+                
+                e.fulfill()
+            })
+            
+            let destinations: [UIViewController] = [
+                
+                UIViewController(),
+                UINavigationController(rootViewController: UICollectionViewController()),
+                UIViewController(),
+                UIViewController(),
+                UITableViewController(),
+                { () -> UITabBarController in let tab = UITabBarController(); tab.viewControllers = [UINavigationController(rootViewController: UICollectionViewController()), UITableViewController()]; return tab }()
+            ]
+            
+            controller.prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test0", source: controller, destination: destinations[0]), sender: nil)
+            destinations[0].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test1", source: destinations[0], destination: destinations[1]), sender: nil)
+            destinations[1].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test2", source: destinations[1], destination: destinations[2]), sender: nil)
+            destinations[2].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test3", source: destinations[2], destination: destinations[3]), sender: nil)
+            destinations[3].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test4", source: destinations[3], destination: destinations[4]), sender: nil)
+            destinations[4].prepare(usingCoordinatorFor: UIStoryboardSegue(identifier: "test5", source: destinations[4], destination: destinations[5]), sender: nil)
         }
     }
 }
