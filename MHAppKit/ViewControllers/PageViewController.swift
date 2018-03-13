@@ -81,4 +81,22 @@ open class PageViewController: UIPageViewController, UIPageViewControllerDataSou
             self.setViewControllers([initialController], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
         }
     }
+    
+    //MARK: - Additional Functionalities
+    
+    open func selectPage(at index: Int, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+        
+        guard
+        let current = self.viewControllers?.first,
+        let next = self.viewControllerAtIndex(index)
+        else {
+            
+            return
+        }
+        
+        let currentIndex = self.indexOfViewController(current)
+        let direction: UIPageViewControllerNavigationDirection = currentIndex > index ? .reverse : .forward
+        
+        self.setViewControllers([next], direction: direction, animated: animated, completion: completion)
+    }
 }
