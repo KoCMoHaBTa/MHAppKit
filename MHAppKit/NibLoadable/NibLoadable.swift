@@ -8,31 +8,94 @@
 
 import Foundation
 
+///A type that can be loaded form a NIB
 public protocol NibLoadable {
     
-    init?(nibName: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?)
+    /**
+     Creates an instance of the recevier by loading it from a NIB
+    
+     - parameter nib: The NIB from which to load the receiver
+     - parameter owner: The object to use as the owner of the nib file. If the nib file has an owner, you must specify a valid object for this parameter.
+     - parameter options: A dictionary containing the options to use when opening the nib file. For a list of available keys for this dictionary, see NSBundle UIKit Additions.
+     - parameter index: The index of the object from the NIB contents. If you specify nil - the first element will be loaded
+     
+     - returns: An instance of the receiver or nil if an instance of the receiver cannot be found at the specified index.
+    */
+    init?(nib: UINib, owner: Any?, options: [AnyHashable: Any]?, at index: Int?)
 }
 
 extension NibLoadable {
     
-    public init?(nibName: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) {
+    public init?(nib: UINib, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) {
         
-        let nib = UINib(nibName: nibName, bundle: bundle)
         let contents = nib.instantiate(withOwner: owner, options: options)
-        guard let object = index == nil ? contents.first as? Self : contents[index!] as? Self else {
+        let object: Self?
+        
+        if let index = index, contents.count > index {
+            
+            object = contents[index] as? Self
+        }
+        else {
+            
+            object = contents.first as? Self
+        }
+
+        guard let result = object else {
+
+            return nil
+        }
+
+        self = result
+    }
+    
+    /**
+     Creates an instance of the recevier by loading it from a NIB
+     
+     - parameter name: The name of the nib file, without any leading path information.
+     - parameter bundle: The bundle in which to search for the nib file. If you specify nil, this method looks for the nib file in the main bundle.
+     - parameter owner: The object to use as the owner of the nib file. If the nib file has an owner, you must specify a valid object for this parameter.
+     - parameter options: A dictionary containing the options to use when opening the nib file. For a list of available keys for this dictionary, see NSBundle UIKit Additions.
+     - parameter index: The index of the object from the NIB contents. If you specify nil - the first element will be loaded
+     
+     - returns: An instance of the receiver or nil if an instance of the receiver cannot be found at the specified index.
+     
+     */
+    
+    public init?(nibName name: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) {
+        
+        let nib = UINib(nibName: name, bundle: bundle)
+        self.init(nib: nib, owner: owner, options: options, at: index)
+    }
+}
+
+extension NibLoadable {
+    
+    /**
+     Loads an instance of the recevier by loading it from a NIB with the name of the receiver's type within the bundle of the receiver's type.
+     
+     - parameter owner: The object to use as the owner of the nib file. If the nib file has an owner, you must specify a valid object for this parameter.
+     - parameter options: A dictionary containing the options to use when opening the nib file. For a list of available keys for this dictionary, see NSBundle UIKit Additions.
+     - parameter index: The index of the object from the NIB contents. If you specify nil - the first element will be loaded
+     
+     - returns: An instance of the receiver or nil if an instance of the receiver cannot be found at the specified index.
+     
+     */
+    
+    public static func loadFromNib(owner: Any? = nil, options: [AnyHashable: Any]? = nil, at index: Int? = nil) -> Self? {
+        
+        guard let nib = self.loadNib() else {
             
             return nil
         }
         
-        self = object
+        return Self(nib: nib, owner: owner, options: options, at: index)
     }
+}
+
+extension NibLoadable {
     
-    public static func loadFromNib(withName name: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) -> Self? {
-        
-        return Self(nibName: name, bundle: bundle, owner: owner, options: options, at: index)
-    }
-    
-    public static func loadFromNib(owner: Any? = nil, options: [AnyHashable: Any]? = nil, at index: Int? = nil) -> Self? {
+    ///Loads a nib with the name of the receiver's type within the bundle of the receiver's type.
+    public static func loadNib() -> UINib? {
         
         guard let cls = Self.self as? AnyClass else {
             
@@ -42,10 +105,11 @@ extension NibLoadable {
         let name = String(describing: cls)
         let bundle = Bundle(for: cls)
         
-        return self.loadFromNib(withName: name, bundle: bundle, owner: owner, options: options, at: index)
+        return UINib(nibName: name, bundle: bundle)
     }
 }
 
+//makes NSObject conform to NibLoadable
 extension NSObject: NibLoadable {
     
 }
