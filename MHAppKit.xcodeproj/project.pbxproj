@@ -75,6 +75,7 @@
 		E696BCC81F7C2E9700AF02DF /* UIView+Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */; };
 		E696BCCA1F7C2EA800AF02DF /* UIView+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */; };
 		E696BCCC1F7C2F9A00AF02DF /* UIVIew+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */; };
+		E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */; };
 		E6A094C420360A4A0066214E /* CGSize+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A094C320360A4A0066214E /* CGSize+Scale.swift */; };
 		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
 		E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */; };
@@ -218,6 +219,7 @@
 		E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Lookup.swift"; sourceTree = "<group>"; };
 		E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
 		E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Chaining.swift"; sourceTree = "<group>"; };
+		E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		E6A094C320360A4A0066214E /* CGSize+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Scale.swift"; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
 		E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStaticTableViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */,
 				99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */,
 				99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */,
+				E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */,
 				99364A2E1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift in Sources */,
 				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
+				E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */,
 				E60E8D711FC37313009CE622 /* NibLoadable.swift in Sources */,
 				99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */,
 				99CDAD681CFC7C710090960D /* UIButton.swift in Sources */,
