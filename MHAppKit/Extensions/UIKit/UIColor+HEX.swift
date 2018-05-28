@@ -221,14 +221,14 @@ extension UIColor {
      
      */
     
-    public func HEX(of colorSpace: ColorSpace = .automatic) -> (HEX: String, alpha: CGFloat)? {
+    public func HEX(of colorSpace: ColorSpace = .automatic, includeHashtag: Bool = true) -> (HEX: String, alpha: CGFloat)? {
         
         guard let (components, alpha): ([String], CGFloat) = self.components(of: colorSpace) else {
             
             return nil
         }
 
-        let HEX = components.reduce("", { (result, element) -> String in
+        let HEX = components.reduce(includeHashtag ? "#" : "", { (result, element) -> String in
             
             var result = result
             

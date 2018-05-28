@@ -30,8 +30,8 @@ class UIColorTests: XCTestCase {
         //RGB HEX String
         XCTAssertEqual(UIColor(red: 1, green: 0, blue: 0, alpha: 1), UIColor(HEX: "FF0000", alpha: 1))
         XCTAssertEqual(UIColor(red: 0, green: 1, blue: 0, alpha: 0.5), UIColor(HEX: "00FF00", alpha: 0.5))
-        XCTAssertEqual(UIColor(red: 0, green: 0, blue: 1, alpha: 0), UIColor(HEX: "0000FF", alpha: 0))
-        XCTAssertEqual(UIColor(red: 1, green: 1, blue: 1, alpha: 1), UIColor(HEX: "FFFFFF", alpha: 1))
+        XCTAssertEqual(UIColor(red: 0, green: 0, blue: 1, alpha: 0), UIColor(HEX: "#0000FF", alpha: 0))
+        XCTAssertEqual(UIColor(red: 1, green: 1, blue: 1, alpha: 1), UIColor(HEX: "#FFFFFF", alpha: 1))
         XCTAssertEqual(UIColor(red: 0, green: 0, blue: 0, alpha: 1), UIColor(HEX: "000000"))
         
         XCTAssertEqual(UIColor(red: 1, green: 1, blue: 1, alpha: 1), UIColor(RGB: 16777215))
@@ -46,16 +46,16 @@ class UIColorTests: XCTestCase {
     
     func testHEX() {
         
-        XCTAssertEqual(UIColor(red: 1, green: 1, blue: 1, alpha: 0.34).HEX, "FFFFFF")
+        XCTAssertEqual(UIColor(red: 1, green: 1, blue: 1, alpha: 0.34).HEX, "#FFFFFF")
         XCTAssertEqual(UIColor(red: 1, green: 1, blue: 1, alpha: 0.34).HEX()?.alpha, 0.34)
         
-        XCTAssertEqual(UIColor(red: 1, green: 0, blue: 0, alpha: 1).HEX, "FF0000")
+        XCTAssertEqual(UIColor(red: 1, green: 0, blue: 0, alpha: 1).HEX(includeHashtag: true)?.HEX, "#FF0000")
         XCTAssertEqual(UIColor(red: 1, green: 0, blue: 0, alpha: 1).HEX()?.alpha, 1)
         
-        XCTAssertEqual(UIColor(red: 0, green: 1, blue: 0, alpha: 0.5).HEX, "00FF00")
+        XCTAssertEqual(UIColor(red: 0, green: 1, blue: 0, alpha: 0.5).HEX(includeHashtag: false)?.HEX, "00FF00")
         XCTAssertEqual(UIColor(red: 0, green: 1, blue: 0, alpha: 0.5).HEX()?.alpha, 0.5)
         
-        XCTAssertEqual(UIColor(red: 0, green: 0, blue: 1, alpha: 0).HEX, "0000FF")
+        XCTAssertEqual(UIColor(red: 0, green: 0, blue: 1, alpha: 0).HEX, "#0000FF")
         XCTAssertEqual(UIColor(red: 0, green: 0, blue: 1, alpha: 0).HEX()?.alpha, 0)
     }
     
