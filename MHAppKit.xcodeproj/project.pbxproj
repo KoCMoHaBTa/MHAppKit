@@ -71,6 +71,7 @@
 		E658BDB91FFF92E700D52AE8 /* CompositionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658BDB81FFF92E700D52AE8 /* CompositionOperation.swift */; };
 		E658BDC71FFFD57C00D52AE8 /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */; };
 		E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */; };
+		E659206F20C7F15200774DA7 /* StringProtocol+Ranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */; };
 		E66FEC7F20595957003C8761 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66FEC7E20595957003C8761 /* UISegmentedControl.swift */; };
 		E696BCC81F7C2E9700AF02DF /* UIView+Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */; };
 		E696BCCA1F7C2EA800AF02DF /* UIView+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */; };
@@ -215,6 +216,7 @@
 		E658BDB81FFF92E700D52AE8 /* CompositionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionOperation.swift; sourceTree = "<group>"; };
 		E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
+		E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Ranges.swift"; sourceTree = "<group>"; };
 		E66FEC7E20595957003C8761 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Lookup.swift"; sourceTree = "<group>"; };
 		E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */,
 				E6FE9F391F2622180094CC5B /* TimeInterval+TimeConvertion.swift */,
 				E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */,
+				E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */,
 				E6FE9F3B1F2622320094CC5B /* Date */,
 			);
 			path = Foundation;
@@ -763,6 +766,7 @@
 			files = (
 				E658BDC71FFFD57C00D52AE8 /* AsyncBlockOperation.swift in Sources */,
 				3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */,
+				E659206F20C7F15200774DA7 /* StringProtocol+Ranges.swift in Sources */,
 				99364A2E1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift in Sources */,
 				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
 				E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */,

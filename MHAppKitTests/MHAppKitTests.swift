@@ -488,4 +488,15 @@ class MHAppKitTests: XCTestCase {
         XCTAssertEqual(CGSize(width: 100, height: 100).scaling(to: .fill, into: CGSize(width: 100, height: 100)), CGSize(width: 100, height: 100))
         XCTAssertEqual(CGSize(width: 50, height: 50).scaling(to: .fill, into: CGSize(width: 100, height: 100)), CGSize(width: 100, height: 100))
     }
+    
+    func testSubstringRangesLookup() {
+        
+        let string = "The dog is a dog"
+        let expectedRange1 = string.index(string.startIndex, offsetBy: 4)..<string.index(string.startIndex, offsetBy: 7)
+        let expectedRange2 = string.index(string.startIndex, offsetBy: 13)..<string.index(string.startIndex, offsetBy: 16)
+        
+        let result = "The dog is a dog".ranges(of: "dog")
+        XCTAssertEqual(result.count, 2)
+        XCTAssertEqual(result, [expectedRange1, expectedRange2])
+    }
 }
