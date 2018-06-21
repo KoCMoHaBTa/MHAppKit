@@ -16,11 +16,17 @@ extension Date {
         
         struct Static {
             
+            static let queue = DispatchQueue(label: MHAppKit.bundleIdentifier + ".Date.init?(from:format:locale:timeZone:calendar:).Static.queue")
             static var map: [Configuration: DateFormatter] = [:]
         }
         
         let configuration = Configuration(format: format, locale: locale, timeZone: timeZone, calendar: calendar)
-        let formatter = configuration.formatter(&Static.map)
+        var formatter: DateFormatter!
+        
+        Static.queue.sync {
+            
+            formatter = configuration.formatter(&Static.map)
+        }
         
         guard let date = formatter.date(from: string) else { return nil }
         self = date
@@ -42,11 +48,17 @@ extension String {
         
         struct Static {
             
+            static let queue = DispatchQueue(label: MHAppKit.bundleIdentifier + ".String.init(formatting:format:locale:timeZone:calendar:).Static.queue")
             static var map: [Configuration: DateFormatter] = [:]
         }
         
         let configuration = Configuration(format: format, locale: locale, timeZone: timeZone, calendar: calendar)
-        let formatter = configuration.formatter(&Static.map)
+        var formatter: DateFormatter!
+        
+        Static.queue.sync {
+            
+            formatter = configuration.formatter(&Static.map)
+        }
         
         let string = formatter.string(from: date)
         self = string

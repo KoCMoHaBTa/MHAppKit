@@ -8,7 +8,8 @@
 
 import Foundation
 
-
+private class MHAppKitBundleClass {}
+let bundleIdentifier = Bundle(for: MHAppKitBundleClass.self).bundleIdentifier!
 
 
 
