@@ -95,7 +95,7 @@ open class NavigationController: UINavigationController {
 
 extension NavigationController: UINavigationControllerDelegate {
     
-    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         if let viewController = viewController as? UINavigationControllerPreferencesProvider {
             
@@ -110,7 +110,7 @@ extension NavigationController: UINavigationControllerDelegate {
         navigationController.setToolbarHidden(toolbarItemsCount < 1, animated: true)
     }
     
-    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         let animator = { [unowned self] (operation: UINavigationControllerOperation) -> UIViewControllerAnimatedTransitioning? in
             
@@ -134,7 +134,7 @@ extension NavigationController: UINavigationControllerDelegate {
         return animator
     }
 
-    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    open func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
 
         if animationController === self.popAnimator {
             
@@ -161,7 +161,7 @@ extension NavigationController: UINavigationControllerDelegate {
 
 extension NavigationController: UIGestureRecognizerDelegate {
     
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         
         if otherGestureRecognizer !== self.interactivePopGestureRecognizer {
             
