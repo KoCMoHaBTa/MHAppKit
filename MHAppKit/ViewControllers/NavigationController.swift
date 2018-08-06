@@ -165,6 +165,11 @@ extension NavigationController: UINavigationControllerDelegate {
 
 extension NavigationController: UIGestureRecognizerDelegate {
     
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        return false
+    }
+    
     open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         
         return true
