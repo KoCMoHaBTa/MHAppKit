@@ -10,14 +10,25 @@ import UIKit
 
 open class NavigationController: UINavigationController {
 
-    open var popAnimator: UIViewControllerAnimatedTransitioning?
+    open var popAnimator: UIViewControllerAnimatedTransitioning? {
+        
+        didSet {
+            
+            self.popInteractiveGestureRecognizer?.isEnabled = self.popAnimator != nil
+        }
+    }
+    
     open var pushAnimator: UIViewControllerAnimatedTransitioning?
     
     open private(set) var popInteractionController: UIPercentDrivenInteractiveTransition?
-    open private(set) lazy var popInteractiveGestureRecognizer: UIGestureRecognizer? = { () -> UIGestureRecognizer? in
-       
+    open private(set) lazy var popInteractiveGestureRecognizer: UIGestureRecognizer? = { [unowned self] in
+        
         let popInteractiveGestureRecognizer = UIScreenEdgePanGestureRecognizer()
         popInteractiveGestureRecognizer.edges = .left
+        popInteractiveGestureRecognizer.addTarget(self, action: #selector(NavigationController.handleInteractivePopGestureRecognizer(_:)))
+        popInteractiveGestureRecognizer.delegate = self
+        
+        self.view.addGestureRecognizer(popInteractiveGestureRecognizer)
         
         return popInteractiveGestureRecognizer
     }()
@@ -43,13 +54,6 @@ open class NavigationController: UINavigationController {
         super.viewDidLoad()
         
         self.delegate = self
-        
-        if let popInteractiveGestureRecognizer = self.popInteractiveGestureRecognizer {
-        
-            popInteractiveGestureRecognizer.addTarget(self, action: #selector(NavigationController.handleInteractivePopGestureRecognizer(_:)))
-            popInteractiveGestureRecognizer.delegate = self
-            self.view.addGestureRecognizer(popInteractiveGestureRecognizer)
-        }
     }
     
     @objc open func handleInteractivePopGestureRecognizer(_ recongnizer: UIGestureRecognizer) {
@@ -161,17 +165,9 @@ extension NavigationController: UINavigationControllerDelegate {
 
 extension NavigationController: UIGestureRecognizerDelegate {
     
-    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         
-        if otherGestureRecognizer !== self.interactivePopGestureRecognizer {
-            
-            otherGestureRecognizer.isEnabled = false
-            otherGestureRecognizer.isEnabled = true
-            
-            return true
-        }
-        
-        return false
+        return true
     }
 }
 
