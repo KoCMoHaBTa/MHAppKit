@@ -99,9 +99,9 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         super.viewDidLoad()
         
-        self.cancelBarButton.title = NSLocalizedString("Cancel", comment: "Picker View Cancel Button");
+        self.cancelBarButton.title = NSLocalizedString("Cancel", comment: "");
         self.titleBarButton.title = self.title
-        self.doneBarButton.title = NSLocalizedString("Done", comment: "Picker View Done Button");
+        self.doneBarButton.title = NSLocalizedString("Done", comment: "");
         
         if let color = self.titleBarButton.tintColor {
             
