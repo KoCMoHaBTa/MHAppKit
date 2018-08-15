@@ -73,7 +73,7 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     public convenience init(items: [Item], selectedItemIndex: Int) {
 
-        self.init(nibName: "PickerViewController", bundle: Bundle(for: PickerViewController.self))
+        self.init(nibName: nil, bundle: nil)
         
         self.items = items
         self.selectedItemIndex = selectedItemIndex
