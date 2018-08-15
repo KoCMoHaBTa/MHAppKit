@@ -62,6 +62,7 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     private static let backgroundViewTag = "PickerViewController.backgroundViewTag".hashValue
     
     @IBOutlet open var pickerView: UIPickerView!
+    @IBOutlet open var toolBar: UIToolbar!
     @IBOutlet open var cancelBarButton: UIBarButtonItem!
     @IBOutlet open var titleBarButton: UIBarButtonItem!
     @IBOutlet open var doneBarButton: UIBarButtonItem!
