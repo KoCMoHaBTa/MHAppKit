@@ -68,6 +68,7 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet open var doneBarButton: UIBarButtonItem!
     
     open var didSelectItem: ((_ controller: PickerViewController, _ item: PickerViewController.Item?, _ index: Int?) -> Void)?
+    open var viewDidLoadConfiguration: ((PickerViewController) -> Void)?
     
     //MARK: - Init
     
@@ -110,6 +111,8 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         }
         
         self.pickerView.selectRow(self.selectedItemIndex, inComponent: 0, animated: false)
+        
+        self.viewDidLoadConfiguration?(self)
     }
     
     open override var preferredStatusBarStyle : UIStatusBarStyle {

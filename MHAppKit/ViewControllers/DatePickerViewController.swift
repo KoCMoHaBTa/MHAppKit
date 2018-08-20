@@ -20,6 +20,7 @@ open class DatePickerViewController: UIViewController {
     @IBOutlet open var doneBarButton: UIBarButtonItem!
     
     open var didSelectDate: ((_ controller: DatePickerViewController, _ date: Date?) -> Void)?
+    open var viewDidLoadConfiguration: ((DatePickerViewController) -> Void)?
     
     //MARK: - Init
 
@@ -52,6 +53,8 @@ open class DatePickerViewController: UIViewController {
             self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .normal)
             self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .disabled)
         }
+        
+        self.viewDidLoadConfiguration?(self)
     }
     
     open override var preferredStatusBarStyle : UIStatusBarStyle {
