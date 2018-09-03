@@ -35,3 +35,12 @@ extension UIButton {
         self.setImage(image, for: .normal)
     }
 }
+
+extension UIButton {
+    
+    @IBInspectable open var numberOfLines: Int {
+        
+        get { return self.titleLabel?.numberOfLines ?? 1 }
+        set { self.titleLabel?.numberOfLines = newValue }
+    }
+}
