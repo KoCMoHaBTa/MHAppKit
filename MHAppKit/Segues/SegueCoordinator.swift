@@ -37,7 +37,11 @@ open class SegueCoordinator {
     public var childCoordinators: [SegueCoordinator] = []
     
     ///A value that can be used by the client to store custom data
-    public var userInfo: Any?
+    public var userInfo: Any? = nil
+    
+    public init() {
+        
+    }
 }
 
 extension SegueCoordinator {
