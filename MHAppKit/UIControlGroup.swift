@@ -77,9 +77,9 @@ open class UIControlGroup: NSObject {
     
     //MARK: - Callbacks
     
-    var didSelectControlHandler: ((UIControl) -> Void)?
-    var didDeselectControlHandler: ((UIControl) -> Void)?
-    var didChangeControlState: ((UIControl, StateAction) -> Void)?
+    open var didSelectControlHandler: ((UIControl) -> Void)?
+    open var didDeselectControlHandler: ((UIControl) -> Void)?
+    open var didChangeControlState: ((UIControl, StateAction) -> Void)?
     
     //MARK: - Behaviour
     
