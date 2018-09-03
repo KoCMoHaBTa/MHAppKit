@@ -24,6 +24,11 @@ open class UIControlGroup: NSObject {
         
         didSet {
             
+            oldValue.forEach { (control) in
+                
+                control.removeTarget(self, action: #selector(type(of: self).controlAction(_:)), for: .touchUpInside)
+            }
+            
             let controls = self.controls.sorted { (c1, c2) -> Bool in
                 
                 return c1.tag > c2.tag
@@ -49,6 +54,7 @@ open class UIControlGroup: NSObject {
         
         didSet {
             
+            oldValue?.removeTarget(self, action: #selector(type(of: self).deselectAllControls), for: .touchUpInside)
             self.deselectAllControl?.addTarget(self, action: #selector(type(of: self).deselectAllControls), for: .touchUpInside)
         }
     }
@@ -61,6 +67,7 @@ open class UIControlGroup: NSObject {
         
         didSet {
             
+            oldValue?.removeTarget(self, action: #selector(type(of: self).selectAllControls), for: .touchUpInside)
             self.selectAllControl?.addTarget(self, action: #selector(type(of: self).selectAllControls), for: .touchUpInside)
         }
     }
