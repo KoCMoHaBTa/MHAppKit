@@ -68,6 +68,10 @@
 		E60E8D941FC42CA0009CE622 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E8D931FC42C9F009CE622 /* Button.swift */; };
 		E61C31551FC444FC00C43068 /* Collection+ConvenienceMutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */; };
 		E61C31571FC4474E00C43068 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31561FC4474E00C43068 /* UITableView.swift */; };
+		E630CB7E2145C16B00386CBF /* UIScrollViewPagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB7D2145C16B00386CBF /* UIScrollViewPagingController.swift */; };
+		E630CB802145C1B200386CBF /* StringProtocol+OptionalConcat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB7F2145C1B200386CBF /* StringProtocol+OptionalConcat.swift */; };
+		E630CB832145C48000386CBF /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB822145C48000386CBF /* StringTests.swift */; };
+		E630CB852145C57A00386CBF /* CGSizeScalingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */; };
 		E658BDB91FFF92E700D52AE8 /* CompositionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658BDB81FFF92E700D52AE8 /* CompositionOperation.swift */; };
 		E658BDC71FFFD57C00D52AE8 /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */; };
 		E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */; };
@@ -220,6 +224,10 @@
 		E60E8D931FC42C9F009CE622 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+ConvenienceMutating.swift"; sourceTree = "<group>"; };
 		E61C31561FC4474E00C43068 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		E630CB7D2145C16B00386CBF /* UIScrollViewPagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewPagingController.swift; sourceTree = "<group>"; };
+		E630CB7F2145C1B200386CBF /* StringProtocol+OptionalConcat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+OptionalConcat.swift"; sourceTree = "<group>"; };
+		E630CB822145C48000386CBF /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeScalingTests.swift; sourceTree = "<group>"; };
 		E658BDB81FFF92E700D52AE8 /* CompositionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionOperation.swift; sourceTree = "<group>"; };
 		E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
@@ -322,7 +330,7 @@
 			children = (
 				303520611C88EB3500436351 /* MHAppKit.h */,
 				E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */,
-				E6FE9F7D1F274FB30094CC5B /* UIControlGroup.swift */,
+				E630CB7C2145C13D00386CBF /* Decorators */,
 				E658BDBA1FFF954900D52AE8 /* Operations */,
 				E60E8D6F1FC372F1009CE622 /* NibLoadable */,
 				303521181C88EFEB00436351 /* Extensions */,
@@ -343,8 +351,10 @@
 				99402A691D0AEA5700412ED5 /* UIColorTests.swift */,
 				99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */,
 				E6FE9F401F2622C30094CC5B /* DateTests.swift */,
-				E6FE9F851F276EF40094CC5B /* UIControlGroupTests.swift */,
 				E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */,
+				E630CB822145C48000386CBF /* StringTests.swift */,
+				E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */,
+				E6FE9F851F276EF40094CC5B /* UIControlGroupTests.swift */,
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
@@ -493,6 +503,25 @@
 			path = NibLoadable;
 			sourceTree = "<group>";
 		};
+		E630CB7C2145C13D00386CBF /* Decorators */ = {
+			isa = PBXGroup;
+			children = (
+				E6FE9F7D1F274FB30094CC5B /* UIControlGroup.swift */,
+				E630CB7D2145C16B00386CBF /* UIScrollViewPagingController.swift */,
+			);
+			path = Decorators;
+			sourceTree = "<group>";
+		};
+		E630CB812145C1B600386CBF /* String */ = {
+			isa = PBXGroup;
+			children = (
+				E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */,
+				E630CB7F2145C1B200386CBF /* StringProtocol+OptionalConcat.swift */,
+				E69113B720E4FD1200749F6B /* String+UUID.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		E658BDBA1FFF954900D52AE8 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,8 +621,7 @@
 				99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */,
 				E6FE9F391F2622180094CC5B /* TimeInterval+TimeConvertion.swift */,
 				E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */,
-				E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */,
-				E69113B720E4FD1200749F6B /* String+UUID.swift */,
+				E630CB812145C1B600386CBF /* String */,
 				E6FE9F3B1F2622320094CC5B /* Date */,
 			);
 			path = Foundation;
@@ -819,6 +847,7 @@
 				99402A541D09609600412ED5 /* UIImage+Color.swift in Sources */,
 				E6E71C031F0A8B02000980C5 /* CLLocation+CGImagePropertyGPS.swift in Sources */,
 				E61C31551FC444FC00C43068 /* Collection+ConvenienceMutating.swift in Sources */,
+				E630CB7E2145C16B00386CBF /* UIScrollViewPagingController.swift in Sources */,
 				E60E8D941FC42CA0009CE622 /* Button.swift in Sources */,
 				E66FEC7F20595957003C8761 /* UISegmentedControl.swift in Sources */,
 				3035210D1C88EF6A00436351 /* NavigationController.swift in Sources */,
@@ -841,6 +870,7 @@
 				E6FE9F3D1F2622500094CC5B /* Date+Formatting.swift in Sources */,
 				303521121C88EF6A00436351 /* ViewController.swift in Sources */,
 				3035210C1C88EF6A00436351 /* DynamicTableViewController.swift in Sources */,
+				E630CB802145C1B200386CBF /* StringProtocol+OptionalConcat.swift in Sources */,
 				E61C31571FC4474E00C43068 /* UITableView.swift in Sources */,
 				303521141C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift in Sources */,
 				303521171C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift in Sources */,
@@ -887,7 +917,9 @@
 				E6FE9F861F276EF40094CC5B /* UIControlGroupTests.swift in Sources */,
 				99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */,
 				E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */,
+				E630CB832145C48000386CBF /* StringTests.swift in Sources */,
 				E6FE9F411F2622C30094CC5B /* DateTests.swift in Sources */,
+				E630CB852145C57A00386CBF /* CGSizeScalingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
