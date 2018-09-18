@@ -13,7 +13,7 @@ import UIKit
 open class UIScrollViewPagingController: NSObject, UIScrollViewDelegate {
     
     ///The target scroll view, which paging should be adjusted with custom page size
-    open let scrollView: UIScrollView
+    public let scrollView: UIScrollView
     
     ///A closure, called when the user swipes to a different page
     open var pageChangeHandler: ((Page) -> Void)?
