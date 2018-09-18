@@ -29,10 +29,10 @@ extension UIImage {
             switch self {
                 
             case .png:
-                return UIImagePNGRepresentation(image)
+                return image.pngData()
                 
             case .jpeg(let compressionQuality):
-                return UIImageJPEGRepresentation(image, compressionQuality)
+                return image.jpegData(compressionQuality: compressionQuality)
                 
             case .custom(let handler):
                 return handler(image)

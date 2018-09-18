@@ -47,11 +47,11 @@ extension UIViewController {
     
     open func addChildViewController(_ controller: UIViewController, inView view: UIView, layouter: AddViewLayouter = UIViewController.defaultAddViewLayouter) {
         
-        self.addChildViewController(controller)
+        self.addChild(controller)
         
         layouter(view, controller.view, {
             
-            controller.didMove(toParentViewController: self)
+            controller.didMove(toParent: self)
         })
     }
     
@@ -66,11 +66,11 @@ extension UIViewController {
     
     open func removeChildViewController(_ controller: UIViewController, layouter: RemoveViewLayouter = UIViewController.defaultRemoveViewLayouter) {
         
-        controller.willMove(toParentViewController: nil)
+        controller.willMove(toParent: nil)
         
         layouter(controller.view.superview, controller.view) { () -> Void in
             
-            controller.removeFromParentViewController()
+            controller.removeFromParent()
         }
     }
     

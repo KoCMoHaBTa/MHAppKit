@@ -211,7 +211,7 @@ class SegueCoordinatorTests: XCTestCase {
             
             let conditions = [
             
-                "s=\(stack[1].childViewControllers[0]);d=\(stack[9])"
+                "s=\(stack[1].children[0]);d=\(stack[9])"
             ]
             
             expectation.add(conditions: conditions)
@@ -258,8 +258,8 @@ class SegueCoordinatorTests: XCTestCase {
             
             let conditions = [
             
-                "s=\(stack[1].childViewControllers[0]);d=\(stack[2])",
-                "s=\(stack[1].childViewControllers[0]);d=\(stack[4])",
+                "s=\(stack[1].children[0]);d=\(stack[2])",
+                "s=\(stack[1].children[0]);d=\(stack[4])",
                 "s=\(stack[7]);d=\(stack[8])",
                 "s=\(stack[7]);d=\(stack[11])",
                 "s=\(stack[7]);d=\(stack[14])"
@@ -268,9 +268,9 @@ class SegueCoordinatorTests: XCTestCase {
             //make sure that the first source is not used any more when a second one is found
             let exceptions = [
                 
-                "s=\(stack[1].childViewControllers[0]);d=\(stack[8])",
-                "s=\(stack[1].childViewControllers[0]);d=\(stack[11])",
-                "s=\(stack[1].childViewControllers[0]);d=\(stack[14])"
+                "s=\(stack[1].children[0]);d=\(stack[8])",
+                "s=\(stack[1].children[0]);d=\(stack[11])",
+                "s=\(stack[1].children[0]);d=\(stack[14])"
             ]
             
             expectation.add(conditions: conditions)

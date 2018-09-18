@@ -43,18 +43,18 @@ class MHAppKitTests: XCTestCase {
         
         self.performExpectation { (expectation) in
             
-            expectation.add(conditions: [String(UIControlEvents.editingChanged.rawValue), String(UIControlEvents.touchDragExit.rawValue)])
+            expectation.add(conditions: [String(UIControl.Event.editingChanged.rawValue), String(UIControl.Event.touchDragExit.rawValue)])
             
             let control = UIControl()
             
             control.addAction(forEvents: .editingChanged, action: { (sender) in
                 
-                expectation.fulfill(condition: String(UIControlEvents.editingChanged.rawValue))
+                expectation.fulfill(condition: String(UIControl.Event.editingChanged.rawValue))
             })
             
             control.addAction(forEvents: .touchDragExit, action: { (sender) in
                 
-                expectation.fulfill(condition: String(UIControlEvents.touchDragExit.rawValue))
+                expectation.fulfill(condition: String(UIControl.Event.touchDragExit.rawValue))
             })
             
             control.addAction(forEvents: .editingDidEndOnExit, action: {_ in })
@@ -72,7 +72,7 @@ class MHAppKitTests: XCTestCase {
         
         self.performExpectation { (expectation) in
             
-            let item = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, action: { (sender) in
+            let item = UIBarButtonItem(barButtonSystemItem: .action, action: { (sender) in
                 
                 expectation.fulfill()
             })
@@ -210,7 +210,7 @@ class MHAppKitTests: XCTestCase {
         
         let c0 = UIViewController()
         let tab = UITabBarController()
-        c0.addChildViewController(tab)
+        c0.addChild(tab)
         
         let t0 = UINavigationController()
         let t1 = UINavigationController()
@@ -222,18 +222,18 @@ class MHAppKitTests: XCTestCase {
         t0.viewControllers = [c1, c2]
         
         let c3 = UIViewController()
-        c2.addChildViewController(c3)
+        c2.addChild(c3)
         
         let c4 = UIViewController()
         t1.viewControllers = [c4]
         
         let c5 = UIViewController()
         let c6 = UIViewController()
-        c4.addChildViewController(c5)
-        c4.addChildViewController(c6)
+        c4.addChild(c5)
+        c4.addChild(c6)
         
         let c7 = UIViewController()
-        c5.addChildViewController(c7)
+        c5.addChild(c7)
         
         let expected = [tab, t0, t1, t2,  c1, c2, c3, c4, c5, c6, c7]
         let result = c0.allChildViewControllers

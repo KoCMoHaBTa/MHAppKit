@@ -21,7 +21,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
             let refreshControl = UIRefreshControl()
             self.collectionView?.addSubview(refreshControl)
             self.collectionView?.alwaysBounceVertical = true
-            refreshControl.addTarget(self, action: #selector(CollectionViewController.refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+            refreshControl.addTarget(self, action: #selector(CollectionViewController.refreshControlAction(_:)), for: .valueChanged)
             self.refreshControl = refreshControl
         }
     }
@@ -136,10 +136,10 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
                 var maxLength: CGFloat = 0
                 switch layout.scrollDirection
                 {
-                    case UICollectionViewScrollDirection.horizontal:
+                    case .horizontal:
                         maxLength = containerSize.height
                         
-                    case UICollectionViewScrollDirection.vertical:
+                    case .vertical:
                         maxLength = containerSize.width
                     
 //                    default:
@@ -261,7 +261,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         if self.shouldRefresh() && self.refreshControl != nil {
             
             self.collectionView?.setContentOffset(CGPoint(x: 0, y: -self.refreshControl!.frame.size.height*2), animated: animated)
-            self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
+            self.refreshControl?.sendActions(for: UIControl.Event.valueChanged)
         }
     }
 }

@@ -35,6 +35,6 @@ extension UIViewController {
     ///Returns a sequence of the composition of all child view controllers
     open var allChildViewControllers: [UIViewController] {
         
-        return self.childViewControllers + self.childViewControllers.flatMap({ $0.allChildViewControllers })
+        return self.children + self.children.flatMap({ $0.allChildViewControllers })
     }
 }

@@ -126,7 +126,7 @@ extension SegueCoordinator {
             result.append(controller)
         }
         
-        for child in controller.childViewControllers {
+        for child in controller.children {
             
             let matches = lookupAll(controller: child, ofType: type)
             result.append(contentsOf: matches)
@@ -142,7 +142,7 @@ extension SegueCoordinator {
             return controller
         }
         
-        if let child = controller.childViewControllers.first as? T {
+        if let child = controller.children.first as? T {
             
             return child
         }

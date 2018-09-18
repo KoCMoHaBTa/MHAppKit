@@ -13,7 +13,7 @@ import UserNotifications
 extension UNMutableNotificationContent {
     
     ///Creates and instance of the receiver with a given title, optional subtitle and body and default sound
-    public convenience init(title: String, subtitle: String? = nil, body: String? = nil, sound: UNNotificationSound? = .default()) {
+    public convenience init(title: String, subtitle: String? = nil, body: String? = nil, sound: UNNotificationSound? = .default) {
         
         self.init()
         
@@ -35,6 +35,6 @@ extension UNMutableNotificationContent {
     ///Creates and instance of the receiver with a given title, body and default sound
     public convenience init(title: String, body: String) {
         
-        self.init(title: title, subtitle: nil, body: body, sound: .default())
+        self.init(title: title, subtitle: nil, body: body, sound: .default)
     }
 }

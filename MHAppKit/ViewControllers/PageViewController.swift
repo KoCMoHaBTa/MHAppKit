@@ -78,7 +78,7 @@ open class PageViewController: UIPageViewController, UIPageViewControllerDataSou
         
         if let initialController = self.viewControllerAtIndex(self.initialPageIndex) {
             
-            self.setViewControllers([initialController], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
+            self.setViewControllers([initialController], direction: .forward, animated: false, completion: nil)
         }
     }
     
@@ -95,7 +95,7 @@ open class PageViewController: UIPageViewController, UIPageViewControllerDataSou
         }
         
         let currentIndex = self.indexOfViewController(current)
-        let direction: UIPageViewControllerNavigationDirection = currentIndex > index ? .reverse : .forward
+        let direction: UIPageViewController.NavigationDirection = currentIndex > index ? .reverse : .forward
         
         self.setViewControllers([next], direction: direction, animated: animated, completion: completion)
     }

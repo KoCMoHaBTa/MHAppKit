@@ -51,7 +51,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     
     private var animationCompletionBlock: (() -> ())?
     
-    open func scrollToRowAtIndexPath(_ indexPath: IndexPath, atScrollPosition scrollPosition: UITableViewScrollPosition, animationCompletionBlock: (() -> ())?) {
+    open func scrollToRowAtIndexPath(_ indexPath: IndexPath, atScrollPosition scrollPosition: UITableView.ScrollPosition, animationCompletionBlock: (() -> ())?) {
         
         let rect = tableView.rectForRow(at: indexPath)
         if (rect.origin.y != self.tableView.contentOffset.y + self.tableView.contentInset.top) {
@@ -109,7 +109,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     open func performRefresh(animated: Bool) {
         
         self.showRefreshControl(animated: animated)
-        self.refreshControl?.sendActions(for: UIControlEvents.valueChanged)
+        self.refreshControl?.sendActions(for: .valueChanged)
     }
     
     ///Performs a refresh with custom action

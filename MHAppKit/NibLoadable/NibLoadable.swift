@@ -21,12 +21,12 @@ public protocol NibLoadable {
      
      - returns: An instance of the receiver or nil if an instance of the receiver cannot be found at the specified index.
     */
-    init?(nib: UINib, owner: Any?, options: [AnyHashable: Any]?, at index: Int?)
+    init?(nib: UINib, owner: Any?, options: [UINib.OptionsKey: Any]?, at index: Int?)
 }
 
 extension NibLoadable {
     
-    public init?(nib: UINib, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) {
+    public init?(nib: UINib, owner: Any?, options: [UINib.OptionsKey: Any]?, at index: Int?) {
         
         let contents = nib.instantiate(withOwner: owner, options: options)
         let object: Self?
@@ -61,7 +61,7 @@ extension NibLoadable {
      
      */
     
-    public init?(nibName name: String, bundle: Bundle?, owner: Any?, options: [AnyHashable: Any]?, at index: Int?) {
+    public init?(nibName name: String, bundle: Bundle?, owner: Any?, options: [UINib.OptionsKey: Any]?, at index: Int?) {
         
         let nib = UINib(nibName: name, bundle: bundle)
         self.init(nib: nib, owner: owner, options: options, at: index)
@@ -81,7 +81,7 @@ extension NibLoadable {
      
      */
     
-    public static func loadFromNib(owner: Any? = nil, options: [AnyHashable: Any]? = nil, at index: Int? = nil) -> Self? {
+    public static func loadFromNib(owner: Any? = nil, options: [UINib.OptionsKey: Any]? = nil, at index: Int? = nil) -> Self? {
         
         guard let nib = self.loadNib() else {
             

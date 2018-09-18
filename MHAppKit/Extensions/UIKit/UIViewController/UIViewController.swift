@@ -31,7 +31,7 @@ extension UIViewController {
             
             if newValue {
                 
-                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: self, action: nil)
             }
         }
     }

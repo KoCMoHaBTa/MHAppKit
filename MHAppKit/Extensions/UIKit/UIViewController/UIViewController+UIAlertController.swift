@@ -21,7 +21,7 @@ extension UIViewController {
      - parameter configurator: A closure that can be used for additional configuration before presentation.
      */
     
-    open func showAlertController(title: String?, message: String?, preferredStyle: UIAlertControllerStyle, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)?) {
+    open func showAlertController(title: String?, message: String?, preferredStyle: UIAlertController.Style, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)?) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         

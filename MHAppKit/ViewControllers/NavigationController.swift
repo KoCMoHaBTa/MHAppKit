@@ -114,9 +114,9 @@ extension NavigationController: UINavigationControllerDelegate {
         navigationController.setToolbarHidden(toolbarItemsCount < 1, animated: true)
     }
     
-    open func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        let animator = { [unowned self] (operation: UINavigationControllerOperation) -> UIViewControllerAnimatedTransitioning? in
+        let animator = { [unowned self] (operation: UINavigationController.Operation) -> UIViewControllerAnimatedTransitioning? in
             
             switch operation {
                 
@@ -179,13 +179,13 @@ extension NavigationController: UIGestureRecognizerDelegate {
 extension UIViewController {
     
     //used when presentor defines the transition to the presented controller
-    open func preferedNavigationAnimator(for operation: UINavigationControllerOperation, toController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func preferedNavigationAnimator(for operation: UINavigationController.Operation, toController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return nil
     }
     
     //used when presented controller defines its own transition
-    open func preferedNavigationAnimator(for operation: UINavigationControllerOperation, fromController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    open func preferedNavigationAnimator(for operation: UINavigationController.Operation, fromController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return nil
     }

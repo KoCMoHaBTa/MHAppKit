@@ -107,13 +107,13 @@ import UIKit
                     return
                 }
                 
-                var attributes: [NSAttributedStringKey: Any] = [:]
+                var attributes: [NSAttributedString.Key: Any] = [:]
                 
                 if self.isFirstResponder {
                     
                     for (k, v) in self.typingAttributes {
                         
-                        attributes.updateValue(v, forKey: NSAttributedStringKey(rawValue: k))
+                        attributes.updateValue(v, forKey: k)
                     }
                     
                 } else {
@@ -167,9 +167,9 @@ import UIKit
     
     open func placeholderRectForBounds(_ bounds: CGRect) -> CGRect {
         
-        var rect = UIEdgeInsetsInsetRect(bounds, self.contentInset);
+        var rect = bounds.inset(by: self.contentInset);
         
-        rect = UIEdgeInsetsInsetRect(rect, self.textContainerInset)
+        rect = rect.inset(by: self.textContainerInset)
         
         let padding = self.textContainer.lineFragmentPadding
         rect.origin.x += padding
@@ -244,7 +244,7 @@ import UIKit
     
     deinit {
         
-        NotificationCenter.default.removeObserver(self, name: .UITextViewTextDidChange, object: self)
+        NotificationCenter.default.removeObserver(self, name: UITextView.textDidChangeNotification, object: self)
     }
     
     //MARK: - UIView
@@ -339,7 +339,7 @@ import UIKit
     
     private func setupNotifications() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(TextView.receivedTextDidChangeNotification(_:)), name: .UITextViewTextDidChange, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(TextView.receivedTextDidChangeNotification(_:)), name: UITextView.textDidChangeNotification, object: self)
     }
     
     @objc open func receivedTextDidChangeNotification(_ noitification: Notification) {

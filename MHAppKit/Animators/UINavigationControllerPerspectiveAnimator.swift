@@ -12,13 +12,13 @@ import UIKit
 open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     ///The `UINavigationControllerOperation`. Based on this value - the perspective animation has reverse effect
-    open let operation: UINavigationControllerOperation
+    public let operation: UINavigationController.Operation
     
     ///The duration of the animation
-    open let duration: TimeInterval
+    public let duration: TimeInterval
     
     ///Creates an instance of the receiver with a given `UINavigationControllerOperation` and duration. Duration defaults to 0.35
-    public init(operation: UINavigationControllerOperation, duration: TimeInterval = 0.35) {
+    public init(operation: UINavigationController.Operation, duration: TimeInterval = 0.35) {
         
         self.operation = operation
         self.duration = duration

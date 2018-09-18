@@ -20,7 +20,7 @@ open class ExtendedHitView: UIView {
         
         let extendedHitInsets = self.extendedHitInsets()
         let relativeFrame = self.bounds
-        let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, extendedHitInsets)
+        let hitFrame = relativeFrame.inset(by: extendedHitInsets)
         
         return hitFrame.contains(point);
     }

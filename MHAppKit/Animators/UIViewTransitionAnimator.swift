@@ -15,7 +15,7 @@ open class UIViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
     open private(set) var duration: TimeInterval = 0.25
     
     ///The options of the animation
-    open private(set) var options: UIViewAnimationOptions = UIViewAnimationOptions()
+    open private(set) var options: UIView.AnimationOptions = []
     
     ///The completion handler
     open private(set) var completionBlock: ((_ finished: Bool) -> Void)?
@@ -25,7 +25,7 @@ open class UIViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
     }
     
     ///Creates an instance of the receiver with a given duration, animation options and completionBlock
-    public init(duration: TimeInterval, options: UIViewAnimationOptions, completionBlock: ((_ finished: Bool) -> Void)?) {
+    public init(duration: TimeInterval, options: UIView.AnimationOptions, completionBlock: ((_ finished: Bool) -> Void)?) {
         
         self.duration = duration
         self.options = options
