@@ -15,7 +15,7 @@ open class UIScrollViewPagingController: NSObject, UIScrollViewDelegate {
     ///The target scroll view, which paging should be adjusted with custom page size
     public let scrollView: UIScrollView
     
-    ///A closure, called when the user swipes to a different page
+    ///A closure, called when the user swipes to a different page. Not called when the page is changed programatically.
     open var pageChangeHandler: ((Page) -> Void)?
     
     ///The pageable scroll view, used to setup the desired paging behaviour. The technique used is swapping of the panGestureRecognizer, as per few WWDC sessions.
@@ -78,21 +78,38 @@ open class UIScrollViewPagingController: NSObject, UIScrollViewDelegate {
         }
     }
     
+    ///Current page index state.
+    private var _page: Page = Page(horizontal: 0, vertical: 0)
+    
     ///Current page index.
     open var page: Page {
         
         get {
             
-            return self.pageFor(size: self.pageableScrollView.bounds.size, contentOffset: self.pageableScrollView.contentOffset)
+            return _page
         }
         
         set {
             
-            self.pageableScrollView.contentOffset.x = CGFloat(newValue.horizontal) * self.pageableScrollView.bounds.size.width
-            self.pageableScrollView.contentOffset.y = CGFloat(newValue.vertical) * self.pageableScrollView.bounds.size.height
-            
-            self.scrollView.contentOffset = self.pageableScrollView.contentOffset
+            self.setPage(newValue, animated: false)
         }
+    }
+    
+    ///Sets the current page index.
+    open func setPage(_ page: Page, animated: Bool) {
+        
+        _page = page
+        
+        self.pageableScrollView.contentOffset.x = CGFloat(page.horizontal) * self.pageableScrollView.bounds.size.width
+        self.pageableScrollView.contentOffset.y = CGFloat(page.vertical) * self.pageableScrollView.bounds.size.height
+        
+        self.scrollView.setContentOffset(self.pageableScrollView.contentOffset, animated: animated)
+    }
+    
+    //this is kept for historcal purpose, in case we need it
+    open var pageBasedOnCurrentContentOffset: Page {
+        
+        return self.pageFor(size: self.pageableScrollView.bounds.size, contentOffset: self.pageableScrollView.contentOffset)
     }
     
     /**
@@ -138,6 +155,7 @@ open class UIScrollViewPagingController: NSObject, UIScrollViewDelegate {
         
         if targetPage != self.page {
             
+            _page = targetPage
             self.pageChangeHandler?(targetPage)
         }
     }
