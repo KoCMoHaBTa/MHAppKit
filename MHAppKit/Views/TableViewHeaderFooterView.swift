@@ -40,4 +40,18 @@ open class TableViewHeaderFooterView: UITableViewHeaderFooterView {
             _customDetailTextLabel = newValue
         }
     }
+    
+    @IBInspectable open var backgroundViewColor: UIColor? {
+        
+        get {
+            
+            return self.backgroundView?.backgroundColor
+        }
+        
+        set {
+            
+            self.backgroundView = self.backgroundView ?? UIView()
+            self.backgroundView?.backgroundColor = newValue
+        }
+    }
 }
