@@ -158,7 +158,6 @@
 		3035205E1C88EB3500436351 /* MHAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		303520611C88EB3500436351 /* MHAppKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAppKit.h; sourceTree = "<group>"; };
 		303520631C88EB3500436351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		303520A81C88ED4C00436351 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		303520A91C88ED4C00436351 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		303520B81C88EDCC00436351 /* MHAppKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHAppKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		303520BA1C88EDCC00436351 /* MHAppKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHAppKitTests.swift; sourceTree = "<group>"; };
@@ -199,7 +198,6 @@
 		99402A531D09609600412ED5 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		99402A671D0AE99300412ED5 /* UIColor+HEX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
 		99402A691D0AEA5700412ED5 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
-		994EDE391D2A5536000CD281 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		9961811A1D9ABC7400ED1072 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		99B0FCFE1CFDC6720028E56A /* MFMailComposeViewController+CompletionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MFMailComposeViewController+CompletionHandler.swift"; sourceTree = "<group>"; };
@@ -228,6 +226,7 @@
 		E630CB7F2145C1B200386CBF /* StringProtocol+OptionalConcat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+OptionalConcat.swift"; sourceTree = "<group>"; };
 		E630CB822145C48000386CBF /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeScalingTests.swift; sourceTree = "<group>"; };
+		E648E8F7217A2B1F00FC15BA /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E658BDB81FFF92E700D52AE8 /* CompositionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionOperation.swift; sourceTree = "<group>"; };
 		E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
@@ -302,9 +301,8 @@
 		303520541C88EB3500436351 = {
 			isa = PBXGroup;
 			children = (
-				994EDE391D2A5536000CD281 /* .travis.yml */,
 				303520A91C88ED4C00436351 /* README.md */,
-				303520A81C88ED4C00436351 /* LICENSE.md */,
+				E648E8F7217A2B1F00FC15BA /* LICENSE */,
 				303520601C88EB3500436351 /* MHAppKit */,
 				303520B91C88EDCC00436351 /* MHAppKitTests */,
 				99CDAD4C1CFC68070090960D /* MHAppKitTestsHost */,
