@@ -77,6 +77,7 @@
 		E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */; };
 		E659206F20C7F15200774DA7 /* StringProtocol+Ranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */; };
 		E66FEC7F20595957003C8761 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66FEC7E20595957003C8761 /* UISegmentedControl.swift */; };
+		E680314221A20A7F003D0159 /* String+NilEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E680314121A20A7F003D0159 /* String+NilEmpty.swift */; };
 		E69113B620E4FCC600749F6B /* UIApplication+BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69113B520E4FCC600749F6B /* UIApplication+BackgroundTask.swift */; };
 		E69113B820E4FD1200749F6B /* String+UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69113B720E4FD1200749F6B /* String+UUID.swift */; };
 		E69113BB20E4FD4A00749F6B /* UNMutableNotificationContent+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69113BA20E4FD4A00749F6B /* UNMutableNotificationContent+Factory.swift */; };
@@ -232,6 +233,7 @@
 		E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Ranges.swift"; sourceTree = "<group>"; };
 		E66FEC7E20595957003C8761 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
+		E680314121A20A7F003D0159 /* String+NilEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NilEmpty.swift"; sourceTree = "<group>"; };
 		E69113B520E4FCC600749F6B /* UIApplication+BackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+BackgroundTask.swift"; sourceTree = "<group>"; };
 		E69113B720E4FD1200749F6B /* String+UUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UUID.swift"; sourceTree = "<group>"; };
 		E69113BA20E4FD4A00749F6B /* UNMutableNotificationContent+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNMutableNotificationContent+Factory.swift"; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */,
 				E630CB7F2145C1B200386CBF /* StringProtocol+OptionalConcat.swift */,
 				E69113B720E4FD1200749F6B /* String+UUID.swift */,
+				E680314121A20A7F003D0159 /* String+NilEmpty.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				E6E71C081F0A90A0000980C5 /* UIImagePickerController+Media.swift in Sources */,
 				E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */,
 				99402A681D0AE99300412ED5 /* UIColor+HEX.swift in Sources */,
+				E680314221A20A7F003D0159 /* String+NilEmpty.swift in Sources */,
 				303521301C88F00D00436351 /* UILabel.swift in Sources */,
 				99387BD71DFAB7BB008F5FDB /* Timer+Closures.swift in Sources */,
 				3035212B1C88F00D00436351 /* UIViewController.swift in Sources */,

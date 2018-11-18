@@ -44,4 +44,21 @@ class StringTests: XCTestCase {
         XCTAssertEqual(b + stringNil, "b")
         XCTAssertEqual(b + substringNil, "b")
     }
+    
+    func testNilEmpty() {
+        
+        XCTAssertNil("".nonEmpty)
+        XCTAssertNotNil(" ".nonEmpty)
+        XCTAssertNotNil("a".nonEmpty)
+        
+        XCTAssertNil("".nonEmptyTrimmed)
+        XCTAssertNil(" ".nonEmptyTrimmed)
+        XCTAssertNotNil("a".nonEmptyTrimmed)
+        XCTAssertEqual(" a ".nonEmptyTrimmed, "a")
+        
+        XCTAssertEqual("".trimmingWhitespacesAndNewlines, "")
+        XCTAssertEqual(" ".trimmingWhitespacesAndNewlines, "")
+        XCTAssertEqual("a".trimmingWhitespacesAndNewlines, "a")
+        XCTAssertEqual(" a ".trimmingWhitespacesAndNewlines, "a")
+    }
 }
