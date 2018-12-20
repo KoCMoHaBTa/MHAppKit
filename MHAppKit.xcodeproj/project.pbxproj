@@ -76,6 +76,8 @@
 		E658BDC71FFFD57C00D52AE8 /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */; };
 		E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */; };
 		E659206F20C7F15200774DA7 /* StringProtocol+Ranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */; };
+		E65AA39B21CBA72900E58856 /* OperationQueue+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65AA39A21CBA72900E58856 /* OperationQueue+Completion.swift */; };
+		E65AA39D21CBA8B500E58856 /* OperationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65AA39C21CBA8B500E58856 /* OperationQueueTests.swift */; };
 		E66FEC7F20595957003C8761 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66FEC7E20595957003C8761 /* UISegmentedControl.swift */; };
 		E680314221A20A7F003D0159 /* String+NilEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E680314121A20A7F003D0159 /* String+NilEmpty.swift */; };
 		E69113B620E4FCC600749F6B /* UIApplication+BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69113B520E4FCC600749F6B /* UIApplication+BackgroundTask.swift */; };
@@ -233,6 +235,8 @@
 		E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
 		E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Ranges.swift"; sourceTree = "<group>"; };
+		E65AA39A21CBA72900E58856 /* OperationQueue+Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+Completion.swift"; sourceTree = "<group>"; };
+		E65AA39C21CBA8B500E58856 /* OperationQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueTests.swift; sourceTree = "<group>"; };
 		E66FEC7E20595957003C8761 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		E680314121A20A7F003D0159 /* String+NilEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NilEmpty.swift"; sourceTree = "<group>"; };
 		E69113B520E4FCC600749F6B /* UIApplication+BackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+BackgroundTask.swift"; sourceTree = "<group>"; };
@@ -357,6 +361,7 @@
 				E630CB822145C48000386CBF /* StringTests.swift */,
 				E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */,
 				E6FE9F851F276EF40094CC5B /* UIControlGroupTests.swift */,
+				E65AA39C21CBA8B500E58856 /* OperationQueueTests.swift */,
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
@@ -566,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				E69CE96321CB95720029D199 /* OperationQueue+ConvenienceInit.swift */,
+				E65AA39A21CBA72900E58856 /* OperationQueue+Completion.swift */,
 			);
 			path = OperationQueue;
 			sourceTree = "<group>";
@@ -881,6 +887,7 @@
 				303521151C88EF6A00436351 /* UIViewTransitionAnimator.swift in Sources */,
 				E6FE9F3D1F2622500094CC5B /* Date+Formatting.swift in Sources */,
 				303521121C88EF6A00436351 /* ViewController.swift in Sources */,
+				E65AA39B21CBA72900E58856 /* OperationQueue+Completion.swift in Sources */,
 				3035210C1C88EF6A00436351 /* DynamicTableViewController.swift in Sources */,
 				E630CB802145C1B200386CBF /* StringProtocol+OptionalConcat.swift in Sources */,
 				E61C31571FC4474E00C43068 /* UITableView.swift in Sources */,
@@ -934,6 +941,7 @@
 				E630CB832145C48000386CBF /* StringTests.swift in Sources */,
 				E6FE9F411F2622C30094CC5B /* DateTests.swift in Sources */,
 				E630CB852145C57A00386CBF /* CGSizeScalingTests.swift in Sources */,
+				E65AA39D21CBA8B500E58856 /* OperationQueueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
