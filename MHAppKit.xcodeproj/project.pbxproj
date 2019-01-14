@@ -39,9 +39,6 @@
 		9912AA8D1D81E60D00DE25FC /* MHAppKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912AA8C1D81E60D00DE25FC /* MHAppKitUITests.swift */; };
 		9912AA971D81EB0500DE25FC /* MHAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3035205E1C88EB3500436351 /* MHAppKit.framework */; };
 		9912AA981D81EB0500DE25FC /* MHAppKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3035205E1C88EB3500436351 /* MHAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		99364A2C1DB66BB400CD0864 /* SegueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */; };
-		99364A2E1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */; };
-		99364A301DB670A500CD0864 /* SegueCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */; };
 		99387BD71DFAB7BB008F5FDB /* Timer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */; };
 		99402A541D09609600412ED5 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A531D09609600412ED5 /* UIImage+Color.swift */; };
 		99402A681D0AE99300412ED5 /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99402A671D0AE99300412ED5 /* UIColor+HEX.swift */; };
@@ -57,8 +54,6 @@
 		99CDAD581CFC68070090960D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99CDAD561CFC68070090960D /* LaunchScreen.storyboard */; };
 		99CDAD681CFC7C710090960D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD671CFC7C710090960D /* UIButton.swift */; };
 		99CDAD6A1CFC7C810090960D /* UIBarButtonItem+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CDAD691CFC7C810090960D /* UIBarButtonItem+Action.swift */; };
-		99D76D051E8A47A70077CDDE /* UIViewController+SegueCoordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D76D031E8A47A70077CDDE /* UIViewController+SegueCoordinator.h */; };
-		99D76D061E8A47A70077CDDE /* UIViewController+SegueCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D76D041E8A47A70077CDDE /* UIViewController+SegueCoordinator.m */; };
 		99E247CB1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */; };
 		99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */; };
 		99E247CF1CE749FD006726BA /* DynamicSizeTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */; };
@@ -195,9 +190,6 @@
 		9912AA8A1D81E60D00DE25FC /* MHAppKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHAppKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9912AA8C1D81E60D00DE25FC /* MHAppKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHAppKitUITests.swift; sourceTree = "<group>"; };
 		9912AA8E1D81E60D00DE25FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueCoordinator.swift; sourceTree = "<group>"; };
-		99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SegueCoordinator.swift"; sourceTree = "<group>"; };
-		99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueCoordinatorTests.swift; sourceTree = "<group>"; };
 		99387BD61DFAB7BB008F5FDB /* Timer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Closures.swift"; sourceTree = "<group>"; };
 		99402A531D09609600412ED5 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		99402A671D0AE99300412ED5 /* UIColor+HEX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
@@ -215,8 +207,6 @@
 		99CDAD591CFC68070090960D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99CDAD671CFC7C710090960D /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		99CDAD691CFC7C810090960D /* UIBarButtonItem+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Action.swift"; sourceTree = "<group>"; };
-		99D76D031E8A47A70077CDDE /* UIViewController+SegueCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SegueCoordinator.h"; sourceTree = "<group>"; };
-		99D76D041E8A47A70077CDDE /* UIViewController+SegueCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SegueCoordinator.m"; sourceTree = "<group>"; };
 		99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableSuplementaryView.swift; sourceTree = "<group>"; };
 		99E247CC1CE749F2006726BA /* DynamicSizeTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableHeaderView.swift; sourceTree = "<group>"; };
 		99E247CE1CE749FD006726BA /* DynamicSizeTableFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableFooterView.swift; sourceTree = "<group>"; };
@@ -355,7 +345,6 @@
 				9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */,
 				303520BA1C88EDCC00436351 /* MHAppKitTests.swift */,
 				99402A691D0AEA5700412ED5 /* UIColorTests.swift */,
-				99364A2F1DB670A500CD0864 /* SegueCoordinatorTests.swift */,
 				E6FE9F401F2622C30094CC5B /* DateTests.swift */,
 				E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */,
 				E630CB822145C48000386CBF /* StringTests.swift */,
@@ -417,10 +406,6 @@
 			children = (
 				303521091C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift */,
 				3035210A1C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift */,
-				99364A2B1DB66BB400CD0864 /* SegueCoordinator.swift */,
-				99364A2D1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift */,
-				99D76D031E8A47A70077CDDE /* UIViewController+SegueCoordinator.h */,
-				99D76D041E8A47A70077CDDE /* UIViewController+SegueCoordinator.m */,
 			);
 			path = Segues;
 			sourceTree = "<group>";
@@ -670,7 +655,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99D76D051E8A47A70077CDDE /* UIViewController+SegueCoordinator.h in Headers */,
 				303520621C88EB3500436351 /* MHAppKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -851,7 +835,6 @@
 				E658BDC71FFFD57C00D52AE8 /* AsyncBlockOperation.swift in Sources */,
 				3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */,
 				E659206F20C7F15200774DA7 /* StringProtocol+Ranges.swift in Sources */,
-				99364A2E1DB66C1400CD0864 /* UIViewController+SegueCoordinator.swift in Sources */,
 				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
 				E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */,
 				E69113BD20E4FD7700749F6B /* UNNotificationRequest+Factory.swift in Sources */,
@@ -875,12 +858,10 @@
 				E6FE9F7E1F274FB30094CC5B /* UIControlGroup.swift in Sources */,
 				E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */,
 				E6F471AB1FDE73970052031A /* SFSafariViewController+URLSupport.swift in Sources */,
-				99364A2C1DB66BB400CD0864 /* SegueCoordinator.swift in Sources */,
 				303520F81C88EF2800436351 /* BadgeLabel.swift in Sources */,
 				303520FA1C88EF2800436351 /* ExtendedHitView.swift in Sources */,
 				99B3FAD21D9ABE9100D96199 /* MFMailComposeViewController+CompletionHandler.swift in Sources */,
 				303521161C88EF6A00436351 /* UINavigationControllerReplaceAllSegue.swift in Sources */,
-				99D76D061E8A47A70077CDDE /* UIViewController+SegueCoordinator.m in Sources */,
 				E6FE9F3F1F26225A0094CC5B /* Date+Components.swift in Sources */,
 				E6E71C0B1F0A9658000980C5 /* PHPhotoLibrary+Save.swift in Sources */,
 				303520F61C88EF2800436351 /* TextView.swift in Sources */,
@@ -934,7 +915,6 @@
 			files = (
 				9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */,
 				303520BB1C88EDCC00436351 /* MHAppKitTests.swift in Sources */,
-				99364A301DB670A500CD0864 /* SegueCoordinatorTests.swift in Sources */,
 				E6FE9F861F276EF40094CC5B /* UIControlGroupTests.swift in Sources */,
 				99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */,
 				E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */,
