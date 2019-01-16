@@ -61,6 +61,7 @@
 		E60E8D731FC373BB009CE622 /* TestNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E8D721FC373BB009CE622 /* TestNibView.swift */; };
 		E60E8D751FC373E4009CE622 /* TestNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60E8D741FC373E4009CE622 /* TestNibView.xib */; };
 		E60E8D941FC42CA0009CE622 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E8D931FC42C9F009CE622 /* Button.swift */; };
+		E614429421EF6F49009570EE /* UITextView+ExclusionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614429321EF6F49009570EE /* UITextView+ExclusionViews.swift */; };
 		E61C31551FC444FC00C43068 /* Collection+ConvenienceMutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */; };
 		E61C31571FC4474E00C43068 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31561FC4474E00C43068 /* UITableView.swift */; };
 		E630CB7E2145C16B00386CBF /* UIScrollViewPagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB7D2145C16B00386CBF /* UIScrollViewPagingController.swift */; };
@@ -214,6 +215,7 @@
 		E60E8D721FC373BB009CE622 /* TestNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNibView.swift; sourceTree = "<group>"; };
 		E60E8D741FC373E4009CE622 /* TestNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestNibView.xib; sourceTree = "<group>"; };
 		E60E8D931FC42C9F009CE622 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E614429321EF6F49009570EE /* UITextView+ExclusionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+ExclusionViews.swift"; sourceTree = "<group>"; };
 		E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+ConvenienceMutating.swift"; sourceTree = "<group>"; };
 		E61C31561FC4474E00C43068 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		E630CB7D2145C16B00386CBF /* UIScrollViewPagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewPagingController.swift; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 				E61C31561FC4474E00C43068 /* UITableView.swift */,
 				E6E382922019E15300039892 /* UIResponder.swift */,
 				E66FEC7E20595957003C8761 /* UISegmentedControl.swift */,
+				E614429321EF6F49009570EE /* UITextView+ExclusionViews.swift */,
 				E696BCC61F7C2E8300AF02DF /* UIView */,
 				E6E71BF61F0A7D78000980C5 /* UIImagePickerController */,
 				303521191C88F00D00436351 /* UIViewController */,
@@ -838,6 +841,7 @@
 				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
 				E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */,
 				E69113BD20E4FD7700749F6B /* UNNotificationRequest+Factory.swift in Sources */,
+				E614429421EF6F49009570EE /* UITextView+ExclusionViews.swift in Sources */,
 				E60E8D711FC37313009CE622 /* NibLoadable.swift in Sources */,
 				99E247CD1CE749F2006726BA /* DynamicSizeTableHeaderView.swift in Sources */,
 				E69113C020E4FDBB00749F6B /* CNMutablePostalAddress+CLPlacemark.swift in Sources */,
