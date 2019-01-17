@@ -11,7 +11,7 @@ import UIKit
 
 extension UIScrollView {
     
-    @IBOutlet var viewsAffectingTopInsets: [UIView] {
+    @IBOutlet public var viewsAffectingTopInsets: [UIView] {
         
         get { return [] }
         set {
@@ -20,7 +20,7 @@ extension UIScrollView {
         }
     }
     
-    @IBOutlet var viewsAffectingBottomInsets: [UIView] {
+    @IBOutlet public var viewsAffectingBottomInsets: [UIView] {
         
         get { return [] }
         set {
