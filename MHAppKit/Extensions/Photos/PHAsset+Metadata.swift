@@ -20,17 +20,11 @@ extension PHAsset {
             let url = input?.fullSizeImageURL
             else {
                 
-                DispatchQueue.main.async {
-                    
-                    completion([:])
-                }
+                completion([:])
                 return
             }
             
-            DispatchQueue.main.async {
-                
-                completion(CIImage(contentsOf: url)?.properties)
-            }
+            completion(CIImage(contentsOf: url)?.properties)
         }
     }
 }
