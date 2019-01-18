@@ -17,6 +17,11 @@ extension UIImagePickerController.Media {
         
         ///apple-reference-documentation://ts1658409
         public var dictionary: [UIImagePickerController.InfoKey : Any]
+        
+        public init(dictionary: [UIImagePickerController.InfoKey : Any]) {
+            
+            self.dictionary = dictionary
+        }
     }
 }
 

@@ -16,6 +16,11 @@ extension UIImagePickerController {
     public struct Media {
         
         public var info: Info
+        
+        public init(info: Info) {
+            
+            self.info = info
+        }
     }
 }
 
