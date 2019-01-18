@@ -10,7 +10,7 @@ import Foundation
 
 extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any {
     
-    public func exportImageData(as representation: UIImage.Representation, completion: @escaping (Data?) -> Void) {
+    public func exportImageData(as representation: UIImage.Representation, queue: DispatchQueue = .global(), completion: @escaping (Data?) -> Void) {
         
         guard self.isImage, let image = self.editedImage ?? self.originalImage else {
             
@@ -21,8 +21,11 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
         
         self.mediaMetadata { (mediaMetadata) in
             
-            let data = image.data(as: representation, withMetadata: mediaMetadata)
-            completion(data)
+            queue.async {
+                
+                let data = image.data(as: representation, withMetadata: mediaMetadata)
+                completion(data)
+            }
         }
     }
 }
