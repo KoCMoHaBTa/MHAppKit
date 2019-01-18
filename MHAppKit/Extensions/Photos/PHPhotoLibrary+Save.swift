@@ -11,8 +11,6 @@ import Photos
 
 extension PHPhotoLibrary {
     
-    public typealias SaveCompletionHandler = (_ assetLocalIdentifier: String?, _ error: Error?) -> Void
-    
     /**
      Saves an image to photo library.
      
@@ -23,12 +21,12 @@ extension PHPhotoLibrary {
      - parameter metadata: The image exif metadata.
      - parameter completion: The completion handler called when the image save succeeds or fails.
      */
-    func save(image: UIImage, as representation: UIImage.Representation, withMetadata metadata: [AnyHashable: Any]?, completion: @escaping SaveCompletionHandler) {
+    open func save(image: UIImage, as representation: UIImage.Representation, withMetadata metadata: [AnyHashable: Any]?, completion: ((PHAsset?, Error?) -> Void)?) {
         
         guard let data = image.data(as: representation, withMetadata: metadata) else {
             
             let error = NSError(domain: "PHPhotoLibrary Error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Unable to represent image as data", comment: "")])
-            completion(nil, error)
+            completion?(nil, error)
             return
         }
         
@@ -42,14 +40,14 @@ extension PHPhotoLibrary {
      - parameter completion: The completion handler called when the image save succeeds or fails.
      */
     
-    func save(imageData data: Data, completion: @escaping SaveCompletionHandler) {
+    open func save(imageData data: Data, completion: ((PHAsset?, Error?) -> Void)?) {
         
         guard
         let temporaryFileURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(NSUUID().uuidString)
         else {
             
             let error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedFailureReasonErrorKey: NSLocalizedString("Unable to generate temporary write file URL", comment: "")])
-            completion(nil, error)
+            completion?(nil, error)
             return
         }
         
@@ -60,14 +58,14 @@ extension PHPhotoLibrary {
         catch let error as NSError {
             
             try? FileManager.default.removeItem(at: temporaryFileURL)
-            completion(nil, error)
+            completion?(nil, error)
             return
         }
         
         self.save(imageFileAtURL: temporaryFileURL) { (id, error) in
             
             try? FileManager.default.removeItem(at: temporaryFileURL)
-            completion(id, error)
+            completion?(id, error)
         }
     }
     
@@ -78,7 +76,7 @@ extension PHPhotoLibrary {
      - parameter completion: The completion handler called when the image save succeeds or fails.
      */
     
-    func save(imageFileAtURL url: URL, completion: @escaping SaveCompletionHandler) {
+    open func save(imageFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
         
         type(of: self).requestAuthorization { (authorizationStatus) in
             
@@ -87,7 +85,7 @@ extension PHPhotoLibrary {
                 DispatchQueue.main.async {
                     
                     let error = NSError(domain: "PHPhotoLibrary Error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Access to photos library is not authorized", comment: "")])
-                    completion(nil, error)
+                    completion?(nil, error)
                 }
                 return
             }
@@ -101,9 +99,65 @@ extension PHPhotoLibrary {
                 
             }) { (success, error) -> Void in
                 
+                guard
+                success == true,
+                error == nil,
+                let assetID = placeholderAsset?.localIdentifier,
+                let asset = PHAsset.fetchAssets(withLocalIdentifiers: [assetID], options: nil).firstObject
+                else {
+                    
+                    completion?(nil, error)
+                    return
+                }
+                                
                 DispatchQueue.main.async {
                     
-                    completion(placeholderAsset?.localIdentifier, error)
+                    completion?(asset, nil)
+                }
+            }
+        }
+    }
+}
+
+extension PHPhotoLibrary {
+    
+    open func save(videoFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
+        
+        type(of: self).requestAuthorization { (authorizationStatus) in
+            
+            guard authorizationStatus == .authorized else {
+                
+                DispatchQueue.main.async {
+                    
+                    let error = NSError(domain: "PHPhotoLibrary Error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Access to photos library is not authorized", comment: "")])
+                    completion?(nil, error)
+                }
+                return
+            }
+            
+            var placeholderAsset: PHObjectPlaceholder? = nil
+            
+            self.performChanges({ () -> Void in
+                
+                let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
+                placeholderAsset = assetChangeRequest?.placeholderForCreatedAsset
+                
+            }) { (success, error) -> Void in
+                
+                guard
+                success == true,
+                error == nil,
+                let assetID = placeholderAsset?.localIdentifier,
+                let asset = PHAsset.fetchAssets(withLocalIdentifiers: [assetID], options: nil).firstObject
+                else {
+                    
+                    completion?(nil, error)
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    
+                    completion?(asset, nil)
                 }
             }
         }

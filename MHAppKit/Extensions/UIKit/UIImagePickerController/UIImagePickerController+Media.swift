@@ -36,8 +36,13 @@ extension UIImagePickerController.Media {
 
 extension UIImagePickerController.Media {
     
-    ///The asset representation of the media. Loaded using the referenceURL
+    ///The asset representation of the media. Loaded using the .phAsset key (iOS 11+) or referenceURL (prior iOS 11)
     public var asset: PHAsset? {
+        
+        if #available(iOS 11.0, *), let asset = self.info.asset {
+            
+            return asset
+        }
         
         guard let url = self.info.referenceURL else {
             
@@ -93,7 +98,7 @@ extension UIImagePickerController.Media {
      - note: This method works only if the receiver is image media
      - warning: Video and Live Photos are not tested
      */
-    public func saveImageToPhotoLibrary(as representation: UIImage.Representation = .png, completion: @escaping PHPhotoLibrary.SaveCompletionHandler) {
+    public func saveImageToPhotoLibrary(as representation: UIImage.Representation = .png, completion: ((PHAsset?, Error?) -> Void)?) {
         
         //TODO: Test and update behaviour for videos and live photos
         
@@ -103,7 +108,7 @@ extension UIImagePickerController.Media {
         else {
             
             let error = NSError(domain: "UIImagePickerController.Media Error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Media is not an image", comment: "")])
-            completion(nil, error)
+            completion?(nil, error)
             return
         }
         

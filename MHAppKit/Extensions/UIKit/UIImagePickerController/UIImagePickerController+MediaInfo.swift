@@ -70,4 +70,10 @@ extension UIImagePickerController.Media.Info {
         
         return self.dictionary[.livePhoto] as? PHLivePhoto
     }
+    
+    @available(iOS 11.0, *)
+    public var asset: PHAsset? {
+        
+        return self.dictionary[.phAsset] as? PHAsset
+    }
 }
