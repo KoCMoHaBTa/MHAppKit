@@ -245,6 +245,7 @@
 		E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Lookup.swift"; sourceTree = "<group>"; };
 		E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
 		E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Chaining.swift"; sourceTree = "<group>"; };
+		E69BD70B21FC6DF700605684 /* MHAppKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MHAppKit.podspec; sourceTree = "<group>"; };
 		E69CE96321CB95720029D199 /* OperationQueue+ConvenienceInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+ConvenienceInit.swift"; sourceTree = "<group>"; };
 		E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		E6A094C320360A4A0066214E /* CGSize+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Scale.swift"; sourceTree = "<group>"; };
@@ -307,6 +308,7 @@
 			children = (
 				303520A91C88ED4C00436351 /* README.md */,
 				E648E8F7217A2B1F00FC15BA /* LICENSE */,
+				E69BD70B21FC6DF700605684 /* MHAppKit.podspec */,
 				303520601C88EB3500436351 /* MHAppKit */,
 				303520B91C88EDCC00436351 /* MHAppKitTests */,
 				99CDAD4C1CFC68070090960D /* MHAppKitTestsHost */,
