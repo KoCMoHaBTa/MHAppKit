@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "MHMessageKit"
+  s.name         = "MHAppKit"
   s.version      = "1.0.0"
   s.source       = { :git => "https://github.com/KoCMoHaBTa/#{s.name}.git", :tag => "#{s.version}" }
   s.license      = { :type => "MIT", :file => "LICENSE" }
