@@ -85,6 +85,7 @@
 		E69113BB20E4FD4A00749F6B /* UNMutableNotificationContent+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69113BA20E4FD4A00749F6B /* UNMutableNotificationContent+Factory.swift */; };
 		E69113BD20E4FD7700749F6B /* UNNotificationRequest+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69113BC20E4FD7700749F6B /* UNNotificationRequest+Factory.swift */; };
 		E69113C020E4FDBB00749F6B /* CNMutablePostalAddress+CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69113BF20E4FDBB00749F6B /* CNMutablePostalAddress+CLPlacemark.swift */; };
+		E694634A22143A470045DA5D /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694634922143A470045DA5D /* CollectionTests.swift */; };
 		E696BCC81F7C2E9700AF02DF /* UIView+Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */; };
 		E696BCCA1F7C2EA800AF02DF /* UIView+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */; };
 		E696BCCC1F7C2F9A00AF02DF /* UIVIew+Chaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */; };
@@ -242,6 +243,7 @@
 		E69113BA20E4FD4A00749F6B /* UNMutableNotificationContent+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNMutableNotificationContent+Factory.swift"; sourceTree = "<group>"; };
 		E69113BC20E4FD7700749F6B /* UNNotificationRequest+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationRequest+Factory.swift"; sourceTree = "<group>"; };
 		E69113BF20E4FDBB00749F6B /* CNMutablePostalAddress+CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CNMutablePostalAddress+CLPlacemark.swift"; sourceTree = "<group>"; };
+		E694634922143A470045DA5D /* CollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTests.swift; sourceTree = "<group>"; };
 		E696BCC71F7C2E9700AF02DF /* UIView+Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Lookup.swift"; sourceTree = "<group>"; };
 		E696BCC91F7C2EA800AF02DF /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
 		E696BCCB1F7C2F9A00AF02DF /* UIVIew+Chaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Chaining.swift"; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */,
 				E6FE9F851F276EF40094CC5B /* UIControlGroupTests.swift */,
 				E65AA39C21CBA8B500E58856 /* OperationQueueTests.swift */,
+				E694634922143A470045DA5D /* CollectionTests.swift */,
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
@@ -928,6 +931,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9989F82B1CF71F7300B4EDC5 /* XCTestExtensions.swift in Sources */,
+				E694634A22143A470045DA5D /* CollectionTests.swift in Sources */,
 				303520BB1C88EDCC00436351 /* MHAppKitTests.swift in Sources */,
 				E6FE9F861F276EF40094CC5B /* UIControlGroupTests.swift in Sources */,
 				99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */,
