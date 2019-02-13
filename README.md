@@ -29,18 +29,3 @@ Add `pod 'MHAppKit'` to your  `Podfile`
 
 [Download](https://github.com/KoCMoHaBTa/MHAppKit/releases), then [Embed] the framework directly into your project
 
-## SegueCoordinator (removed) 
-
-**SegueCoordinator** has been evolved into [MHDependencyKit](https://github.com/KoCMoHaBTa/MHDependencyKit)
-
-## SegueCoordinator -> MHDependencyKit migration Guide
-
-Chart with commonly used SegueCoordinator symbols and their MHDepencyKit representation
-
-| SegueCoordinator 							| MHDepencyKit |
-|:-------------------------------------:|:-------------------------------------:|
-| SegueCoordinator      					| DependencyCoordinator |
-| UIViewController.segueCoordinator		| UIViewController.dependencyCoordinator |
-| SegueCoordinator.addContextHandler(:) 	| DependencyCoordinator.register(dependencyResolver:) + UIViewControllerContextDependencyResolver|
-| SegueCoordinator.addContextHandler(:) | DependencyCoordinator.register(dependencyResolver:) + UIViewControllerDependencyResolver |
-| SegueCoordinator.prepare(source:destination)| DependencyCoordinator.resolveDependencies(from:to:)|
