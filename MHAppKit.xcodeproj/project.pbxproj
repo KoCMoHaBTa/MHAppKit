@@ -103,6 +103,7 @@
 		E6E71C0B1F0A9658000980C5 /* PHPhotoLibrary+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71C0A1F0A9658000980C5 /* PHPhotoLibrary+Save.swift */; };
 		E6E83BBD212441B00062CB99 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E83BBC212441B00062CB99 /* DatePickerViewController.swift */; };
 		E6E83BBF212441BC0062CB99 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6E83BBE212441BC0062CB99 /* DatePickerViewController.xib */; };
+		E6E87610221A9AE00016F53D /* UserDefaults+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8760F221A9AE00016F53D /* UserDefaults+Date.swift */; };
 		E6F471AB1FDE73970052031A /* SFSafariViewController+URLSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F471AA1FDE73970052031A /* SFSafariViewController+URLSupport.swift */; };
 		E6FE9F3A1F2622180094CC5B /* TimeInterval+TimeConvertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE9F391F2622180094CC5B /* TimeInterval+TimeConvertion.swift */; };
 		E6FE9F3D1F2622500094CC5B /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FE9F3C1F2622500094CC5B /* Date+Formatting.swift */; };
@@ -262,6 +263,7 @@
 		E6E71C0A1F0A9658000980C5 /* PHPhotoLibrary+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Save.swift"; sourceTree = "<group>"; };
 		E6E83BBC212441B00062CB99 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		E6E83BBE212441BC0062CB99 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		E6E8760F221A9AE00016F53D /* UserDefaults+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Date.swift"; sourceTree = "<group>"; };
 		E6F471AA1FDE73970052031A /* SFSafariViewController+URLSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SFSafariViewController+URLSupport.swift"; sourceTree = "<group>"; };
 		E6FE9F391F2622180094CC5B /* TimeInterval+TimeConvertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+TimeConvertion.swift"; sourceTree = "<group>"; };
 		E6FE9F3C1F2622500094CC5B /* Date+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
@@ -597,6 +599,14 @@
 			path = CoreLocation;
 			sourceTree = "<group>";
 		};
+		E6E8760E221A9AD10016F53D /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				E6E8760F221A9AE00016F53D /* UserDefaults+Date.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		E6F471A91FDE737E0052031A /* SafariServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +650,7 @@
 				E630CB812145C1B600386CBF /* String */,
 				E6FE9F3B1F2622320094CC5B /* Date */,
 				E69CE96221CB95560029D199 /* OperationQueue */,
+				E6E8760E221A9AD10016F53D /* UserDefaults */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -894,6 +905,7 @@
 				303521171C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift in Sources */,
 				E6A094C420360A4A0066214E /* CGSize+Scale.swift in Sources */,
 				99CDAC9F1CFC30750090960D /* UIControl+Action.swift in Sources */,
+				E6E87610221A9AE00016F53D /* UserDefaults+Date.swift in Sources */,
 				E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */,
 				99402A681D0AE99300412ED5 /* UIColor+HEX.swift in Sources */,
 				E69CE96421CB95720029D199 /* OperationQueue+ConvenienceInit.swift in Sources */,
