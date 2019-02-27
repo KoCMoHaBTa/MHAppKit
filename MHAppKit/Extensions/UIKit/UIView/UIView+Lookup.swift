@@ -11,6 +11,16 @@ import UIKit
 
 extension UIView {
     
+    ///Returns a sequence of the composition of all subviews
+    open var allSubviews: [UIView] {
+        
+        return self.subviews + self.subviews.flatMap({ $0.allSubviews })
+    }
+}
+
+
+extension UIView {
+    
     /**
      
      Lookup the receiver's view hierarchy in order to find first superviews matching the provided criteria via closure.
