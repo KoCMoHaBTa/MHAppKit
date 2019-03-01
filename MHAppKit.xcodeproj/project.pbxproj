@@ -94,6 +94,7 @@
 		E6A094C420360A4A0066214E /* CGSize+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A094C320360A4A0066214E /* CGSize+Scale.swift */; };
 		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
 		E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */; };
+		E6DA2063222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DA2062222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift */; };
 		E6DC21191EFBEDDE008D182A /* ShowHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */; };
 		E6E382932019E15300039892 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E382922019E15300039892 /* UIResponder.swift */; };
 		E6E71BF31F0A7CDA000980C5 /* MHAppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */; };
@@ -254,6 +255,7 @@
 		E6A094C320360A4A0066214E /* CGSize+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Scale.swift"; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
 		E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStaticTableViewController.swift; sourceTree = "<group>"; };
+		E6DA2062222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+SeparatorHiding.swift"; sourceTree = "<group>"; };
 		E6DC21181EFBEDDE008D182A /* ShowHideAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideAnimator.swift; sourceTree = "<group>"; };
 		E6E382922019E15300039892 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		E6E71BF21F0A7CDA000980C5 /* MHAppKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHAppKit.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				E66FEC7E20595957003C8761 /* UISegmentedControl.swift */,
 				E614429321EF6F49009570EE /* UITextView+ExclusionViews.swift */,
 				E61442F121F08D54009570EE /* UIScrollView+ViewsAffectingInsets.swift */,
+				E6DA2062222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift */,
 				E696BCC61F7C2E8300AF02DF /* UIView */,
 				E6E71BF61F0A7D78000980C5 /* UIImagePickerController */,
 				303521191C88F00D00436351 /* UIViewController */,
@@ -861,6 +864,7 @@
 				3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */,
 				E659206F20C7F15200774DA7 /* StringProtocol+Ranges.swift in Sources */,
 				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
+				E6DA2063222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift in Sources */,
 				E60A581E21F2667B005E0032 /* UIImagePickerControllerMediaInfo+Properties.swift in Sources */,
 				E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */,
 				E69113BD20E4FD7700749F6B /* UNNotificationRequest+Factory.swift in Sources */,
