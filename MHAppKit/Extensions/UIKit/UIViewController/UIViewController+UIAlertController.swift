@@ -48,7 +48,7 @@ extension UIViewController {
     
     open func showAlertView(title: String?, message: String?, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)? = nil) {
         
-        self.showAlertController(title: title, message: message, preferredStyle: .alert, actions: actions, configurator: nil)
+        self.showAlertController(title: title, message: message, preferredStyle: .alert, actions: actions, configurator: configurator)
     }
     
     /**
