@@ -43,8 +43,7 @@ open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewController
                 self.animatePopTransition(using: transitionContext)
                 return
             
-            default:
-                self.animateDefaultTransition(using: transitionContext)
+            case .none:
                 return
         }
     }
@@ -135,15 +134,6 @@ open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewController
             
             transitionContext.completeTransition(completed)
         }
-    }
-    
-    open func animateDefaultTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
-        //find out when this is called and implement it according to the needs
-        
-        #if DEBUG
-        NSException(name: "Unhandled Animation", reason: nil, userInfo: nil).raise()
-        #endif
     }
     
     //MARK: - Trasnforms
