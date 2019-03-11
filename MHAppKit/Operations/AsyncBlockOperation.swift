@@ -34,6 +34,7 @@ open class AsyncBlockOperation: Operation {
             return
         }
         
+        let semaphore = self.semaphore
         self.block { [weak self] in
             
             //if the operation has been cancelled, then the semaphore has been signalled
@@ -42,10 +43,9 @@ open class AsyncBlockOperation: Operation {
                 return
             }
             
-            self?.semaphore.signal()
+            semaphore.signal()
         }
-        
-        self.semaphore.wait()
+        semaphore.wait()
     }
     
     open override func cancel() {
