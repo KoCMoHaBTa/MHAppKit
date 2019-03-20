@@ -14,9 +14,8 @@ open class DatePickerViewController: UIViewController {
     private static let backgroundViewTag = "DatePickerViewController.backgroundViewTag".hashValue
     
     @IBOutlet open var datePickerView: UIDatePicker!
-    @IBOutlet open var toolBar: UIToolbar!
+    @IBOutlet open var navigationBar: UINavigationBar!
     @IBOutlet open var cancelBarButton: UIBarButtonItem!
-    @IBOutlet open var titleBarButton: UIBarButtonItem!
     @IBOutlet open var doneBarButton: UIBarButtonItem!
     
     open var didSelectDate: ((_ controller: DatePickerViewController, _ date: Date?) -> Void)?
@@ -38,6 +37,11 @@ open class DatePickerViewController: UIViewController {
         self.modalPresentationStyle = .overCurrentContext
     }
     
+    convenience init() {
+        
+        self.init(nibName: "DatePickerViewController", bundle: Bundle(for: type(of: self)))
+    }
+    
     //MARK: UIViewController
     
     open override func viewDidLoad() {
@@ -45,16 +49,12 @@ open class DatePickerViewController: UIViewController {
         super.viewDidLoad()
         
         self.cancelBarButton.title = NSLocalizedString("Cancel", comment: "");
-        self.titleBarButton.title = self.title
+        self.navigationBar.items?.first?.title = self.title
         self.doneBarButton.title = NSLocalizedString("Done", comment: "");
         
-        if let color = self.titleBarButton.tintColor {
-            
-            self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .normal)
-            self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .disabled)
-        }
-        
         self.viewDidLoadConfiguration?(self)
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(type(of: self).cancelAction(_:))))
     }
     
     open override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -106,11 +106,11 @@ open class DatePickerViewController: UIViewController {
     
     @IBAction open func cancelAction(_ sender: Any?) {
         
-        self.didSelectDate?(self, nil)
+        self.didSelectDate?(self, nil) ?? self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction open func doneAction(_ sender: Any?) {
         
-        self.didSelectDate?(self, self.datePickerView.date)
+        self.didSelectDate?(self, self.datePickerView.date) ?? self.dismiss(animated: true, completion: nil)
     }
 }

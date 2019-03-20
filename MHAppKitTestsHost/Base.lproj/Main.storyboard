@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TxR-5S-8oV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TxR-5S-8oV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -282,7 +282,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="EFn-IP-6Dn">
             <objects>
                 <viewController id="d7e-aj-RYG" sceneMemberID="viewController">
@@ -293,7 +293,29 @@
                     <view key="view" contentMode="scaleToFill" id="unX-ep-Y4B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4U-Gw-skD">
+                                <rect key="frame" x="127" y="318.5" width="121" height="30"/>
+                                <state key="normal" title="Show Date Picker"/>
+                                <connections>
+                                    <action selector="showDatePicker" destination="d7e-aj-RYG" eventType="touchUpInside" id="PAE-v3-P5q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgQ-fg-7jm">
+                                <rect key="frame" x="145.5" y="263" width="84" height="30"/>
+                                <state key="normal" title="Show Picker"/>
+                                <connections>
+                                    <action selector="showPicker" destination="d7e-aj-RYG" eventType="touchUpInside" id="9Gw-52-66F"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z4U-Gw-skD" firstAttribute="centerX" secondItem="unX-ep-Y4B" secondAttribute="centerX" id="B27-9n-wdv"/>
+                            <constraint firstItem="z4U-Gw-skD" firstAttribute="top" secondItem="mgQ-fg-7jm" secondAttribute="bottom" constant="25.5" id="FDD-Fu-nOK"/>
+                            <constraint firstItem="z4U-Gw-skD" firstAttribute="centerY" secondItem="unX-ep-Y4B" secondAttribute="centerY" id="NUX-vD-aaK"/>
+                            <constraint firstItem="mgQ-fg-7jm" firstAttribute="centerX" secondItem="unX-ep-Y4B" secondAttribute="centerX" id="ykW-aw-2mX"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Item" id="dQe-Ov-TVv">
@@ -302,6 +324,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="RyC-Tw-iby"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="removeBackTitle" value="YES"/>

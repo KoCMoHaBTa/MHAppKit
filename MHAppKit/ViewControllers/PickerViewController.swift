@@ -62,9 +62,8 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     private static let backgroundViewTag = "PickerViewController.backgroundViewTag".hashValue
     
     @IBOutlet open var pickerView: UIPickerView!
-    @IBOutlet open var toolBar: UIToolbar!
+    @IBOutlet open var navigationBar: UINavigationBar!
     @IBOutlet open var cancelBarButton: UIBarButtonItem!
-    @IBOutlet open var titleBarButton: UIBarButtonItem!
     @IBOutlet open var doneBarButton: UIBarButtonItem!
     
     open var didSelectItem: ((_ controller: PickerViewController, _ item: PickerViewController.Item?, _ index: Int?) -> Void)?
@@ -72,9 +71,14 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     //MARK: - Init
     
+    convenience init() {
+        
+        self.init(nibName: "PickerViewController", bundle: Bundle(for: type(of: self)))
+    }
+    
     public convenience init(items: [Item], selectedItemIndex: Int) {
 
-        self.init(nibName: nil, bundle: nil)
+        self.init()
         
         self.items = items
         self.selectedItemIndex = selectedItemIndex
@@ -101,18 +105,13 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         super.viewDidLoad()
         
         self.cancelBarButton.title = NSLocalizedString("Cancel", comment: "");
-        self.titleBarButton.title = self.title
-        self.doneBarButton.title = NSLocalizedString("Done", comment: "");
-        
-        if let color = self.titleBarButton.tintColor {
-            
-            self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .normal)
-            self.titleBarButton.setTitleTextAttributes([.foregroundColor: color], for: .disabled)
-        }
-        
+        self.navigationBar.items?.first?.title = self.title
+        self.doneBarButton.title = NSLocalizedString("Done", comment: "");        
         self.pickerView.selectRow(self.selectedItemIndex, inComponent: 0, animated: false)
         
         self.viewDidLoadConfiguration?(self)
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(type(of: self).cancelAction(_:))))
     }
     
     open override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -164,14 +163,14 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     @IBAction open func cancelAction(_ sender: Any?) {
         
-        self.didSelectItem?(self, nil, nil)
+        self.didSelectItem?(self, nil, nil) ?? self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction open func doneAction(_ sender: Any?) {
         
         let index = self.pickerView.selectedRow(inComponent: 0)
         let item = self.items[index]
-        self.didSelectItem?(self, item, index)
+        self.didSelectItem?(self, item, index) ?? self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: - UIPickerViewDataSource and UIPickerViewDelegate

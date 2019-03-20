@@ -73,3 +73,21 @@ class VC2: UIViewController {
         
     }
 }
+
+extension UIViewController {
+    
+    
+    @IBAction func showDatePicker() {
+        
+        let datePicker = DatePickerViewController()
+        datePicker.title = "test date picker"
+        self.present(datePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func showPicker() {
+        
+        let picker = PickerViewController(items: ["asd", "omg", "gg", "sdf"], selectedItemIndex: 1)
+        picker.title = "test picker"
+        self.present(picker, animated: true, completion: nil)
+    }
+}

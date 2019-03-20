@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,9 +13,8 @@
             <connections>
                 <outlet property="cancelBarButton" destination="W0d-CZ-Su6" id="wpe-ep-Zqb"/>
                 <outlet property="doneBarButton" destination="D9n-PA-B9s" id="8AM-Ud-f6Z"/>
+                <outlet property="navigationBar" destination="kN0-Ub-6wf" id="VAZ-V5-Cxg"/>
                 <outlet property="pickerView" destination="qay-ZF-wvc" id="GMX-zY-1cp"/>
-                <outlet property="titleBarButton" destination="bvf-Ue-xI2" id="DTf-uW-f6z"/>
-                <outlet property="toolBar" destination="qI8-Ae-rhJ" id="L4G-XQ-OzR"/>
                 <outlet property="view" destination="4Ss-LQ-upn" id="cTE-w0-Wyq"/>
             </connections>
         </placeholder>
@@ -38,32 +37,23 @@
                         <outlet property="delegate" destination="-1" id="CiT-jS-WPN"/>
                     </connections>
                 </pickerView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qI8-Ae-rhJ">
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kN0-Ub-6wf">
                     <rect key="frame" x="0.0" y="606" width="375" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Z0X-qa-BAj"/>
-                    </constraints>
                     <items>
-                        <barButtonItem title="Cancel" id="W0d-CZ-Su6">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="cancelAction:" destination="-1" id="o3K-Q3-8UB"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xZV-dW-JnH"/>
-                        <barButtonItem enabled="NO" title="Title" style="plain" id="bvf-Ue-xI2">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="p6c-QF-vxb"/>
-                        <barButtonItem title="Done" id="D9n-PA-B9s">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="doneAction:" destination="-1" id="bGx-sX-MxT"/>
-                            </connections>
-                        </barButtonItem>
+                        <navigationItem title="Title" id="vO9-yr-C5k">
+                            <barButtonItem key="leftBarButtonItem" title="Cancel" id="W0d-CZ-Su6">
+                                <connections>
+                                    <action selector="cancelAction:" destination="-1" id="o3K-Q3-8UB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Done" id="D9n-PA-B9s">
+                                <connections>
+                                    <action selector="doneAction:" destination="-1" id="bGx-sX-MxT"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
                     </items>
-                    <color key="barTintColor" red="0.2156862766" green="0.68627452850000004" blue="0.84313726430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </toolbar>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -71,11 +61,11 @@
                 <constraint firstItem="dM1-2Z-Ix6" firstAttribute="top" secondItem="qay-ZF-wvc" secondAttribute="top" id="5i3-u0-SJZ"/>
                 <constraint firstItem="qay-ZF-wvc" firstAttribute="leading" secondItem="4Ss-LQ-upn" secondAttribute="leading" id="9YG-dH-CGG"/>
                 <constraint firstItem="dM1-2Z-Ix6" firstAttribute="leading" secondItem="qay-ZF-wvc" secondAttribute="leading" id="Axk-81-TOw"/>
-                <constraint firstItem="qay-ZF-wvc" firstAttribute="top" secondItem="qI8-Ae-rhJ" secondAttribute="bottom" id="HVs-tg-x3I"/>
+                <constraint firstItem="kN0-Ub-6wf" firstAttribute="leading" secondItem="4Ss-LQ-upn" secondAttribute="leading" id="CdP-i8-tt7"/>
                 <constraint firstItem="dM1-2Z-Ix6" firstAttribute="bottom" secondItem="qay-ZF-wvc" secondAttribute="bottom" id="PEm-nw-Nuz"/>
-                <constraint firstItem="qI8-Ae-rhJ" firstAttribute="leading" secondItem="4Ss-LQ-upn" secondAttribute="leading" id="hmi-OS-KiN"/>
                 <constraint firstItem="dM1-2Z-Ix6" firstAttribute="trailing" secondItem="qay-ZF-wvc" secondAttribute="trailing" id="lys-bf-EXp"/>
-                <constraint firstAttribute="trailing" secondItem="qI8-Ae-rhJ" secondAttribute="trailing" id="nEb-Cg-zbG"/>
+                <constraint firstAttribute="trailing" secondItem="kN0-Ub-6wf" secondAttribute="trailing" id="nBM-mF-emo"/>
+                <constraint firstItem="dM1-2Z-Ix6" firstAttribute="top" secondItem="kN0-Ub-6wf" secondAttribute="bottom" id="smy-Vz-zNT"/>
                 <constraint firstAttribute="bottom" secondItem="qay-ZF-wvc" secondAttribute="bottom" id="uFw-mq-QEz"/>
             </constraints>
             <point key="canvasLocation" x="288" y="165"/>
