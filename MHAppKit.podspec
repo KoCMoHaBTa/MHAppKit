@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
 
   s.source_files  = "#{s.name}/**/*.swift", "#{s.name}/**/*.{h,m}"
   s.public_header_files = "#{s.name}/**/*.h"
+  s.resources = "#{s.name}/**/*.xib"
 
 end
