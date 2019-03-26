@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/KoCMoHaBTa/#{s.name}"
 
   s.swift_version = "5.0"
-  s.ios.deployment_target = "8.0"
+  s.ios.deployment_target = "8.1"
 
   s.source_files  = "#{s.name}/**/*.swift", "#{s.name}/**/*.{h,m}"
   s.public_header_files = "#{s.name}/**/*.h"
