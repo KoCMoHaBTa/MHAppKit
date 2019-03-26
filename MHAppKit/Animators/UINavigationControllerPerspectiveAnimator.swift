@@ -44,6 +44,9 @@ open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewController
                 return
             
             case .none:
+                return;
+            
+            @unknown default:
                 return
         }
     }

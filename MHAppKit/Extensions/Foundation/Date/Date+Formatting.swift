@@ -153,14 +153,6 @@ private struct Configuration: Hashable {
     let timeZone: TimeZone?
     let calendar: Calendar?
     
-    var hashValue: Int {
-        
-        return self.format.hashValue
-            &+ (self.locale?.identifier.hashValue ?? 0)
-            &+ (self.timeZone?.identifier.hashValue ?? 0)
-            &+ (self.calendar?.identifier.hashValue ?? 0)
-    }
-    
     func buildFormatter() -> DateFormatter {
         
         let formatter = DateFormatter()
@@ -187,12 +179,3 @@ private struct Configuration: Hashable {
         return formatter
     }
 }
-
-private func ==(lhs: Configuration, rhs: Configuration) -> Bool {
-    
-    return lhs.format == rhs.format
-        && lhs.locale?.identifier == rhs.locale?.identifier
-        && lhs.timeZone?.identifier == rhs.timeZone?.identifier
-        && lhs.calendar?.identifier == rhs.calendar?.identifier
-}
-

@@ -11,7 +11,7 @@ import ImageIO
 import CoreLocation
 
 //https://stackoverflow.com/questions/9006759/how-to-write-exif-metadata-to-an-image-not-the-camera-roll-just-a-uiimage-or-j
-public extension CLLocation {
+extension CLLocation {
     
     private static let formatter: DateFormatter = { () -> DateFormatter in
         

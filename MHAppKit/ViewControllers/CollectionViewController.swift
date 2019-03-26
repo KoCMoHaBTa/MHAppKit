@@ -142,8 +142,8 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
                     case .vertical:
                         maxLength = containerSize.width
                     
-//                    default:
-//                        maxLength = 0
+                    @unknown default:
+                        maxLength = 0
                 }
                 
                 if (maxLength > 0)

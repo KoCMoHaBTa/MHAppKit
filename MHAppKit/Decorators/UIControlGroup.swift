@@ -127,7 +127,7 @@ open class UIControlGroup: NSObject {
     ///The indexes of the selected controls from the group
     open var selectedControlIndexes: [Int] {
         
-        return self.selectedControls.map({ self.controls.index(of: $0)! })
+        return self.selectedControls.map({ self.controls.firstIndex(of: $0)! })
     }
     
     ///The deselected controls from the group
@@ -142,7 +142,7 @@ open class UIControlGroup: NSObject {
     ///The indexes of the deselected controls from the group
     open var deselectedControlIndexes: [Int] {
         
-        return self.deselectedControls.map({ self.controls.index(of: $0)! })
+        return self.deselectedControls.map({ self.controls.firstIndex(of: $0)! })
     }
     
     //MARK: - Private
