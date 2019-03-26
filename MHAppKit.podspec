@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.summary      = "A collection of useful tools that makes developer's life easier."
   s.homepage     = "https://github.com/KoCMoHaBTa/#{s.name}"
 
-  s.swift_version = "4.2"
+  s.swift_version = "5.0"
   s.ios.deployment_target = "8.0"
 
   s.source_files  = "#{s.name}/**/*.swift", "#{s.name}/**/*.{h,m}"
