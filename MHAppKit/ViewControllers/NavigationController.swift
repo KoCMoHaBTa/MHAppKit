@@ -49,9 +49,35 @@ open class NavigationController: UINavigationController {
 
     */
     
-    open override func viewDidLoad() {
+    public override init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?) {
         
-        super.viewDidLoad()
+        super.init(navigationBarClass: navigationBarClass, toolbarClass: toolbarClass)
+        
+        self.setup()
+    }
+    
+    public override init(rootViewController: UIViewController) {
+        
+        super.init(rootViewController: rootViewController)
+        
+        self.setup()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        
+        self.setup()
+    }
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.setup()
+    }
+    
+    private func setup() {
         
         self.delegate = self
     }
