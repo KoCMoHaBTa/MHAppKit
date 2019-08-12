@@ -93,6 +93,7 @@
 		E69CE96421CB95720029D199 /* OperationQueue+ConvenienceInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69CE96321CB95720029D199 /* OperationQueue+ConvenienceInit.swift */; };
 		E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */; };
 		E6A094C420360A4A0066214E /* CGSize+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A094C320360A4A0066214E /* CGSize+Scale.swift */; };
+		E6B83B1223014E5400D8C14F /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */; };
 		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
 		E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */; };
 		E6DA2063222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DA2062222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift */; };
@@ -255,6 +256,7 @@
 		E69CE96321CB95720029D199 /* OperationQueue+ConvenienceInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+ConvenienceInit.swift"; sourceTree = "<group>"; };
 		E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		E6A094C320360A4A0066214E /* CGSize+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Scale.swift"; sourceTree = "<group>"; };
+		E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
 		E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStaticTableViewController.swift; sourceTree = "<group>"; };
 		E6DA2062222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+SeparatorHiding.swift"; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 			children = (
 				99402A531D09609600412ED5 /* UIImage+Color.swift */,
 				E6E71BF41F0A7D52000980C5 /* UIImage+Data.swift */,
+				E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E658BDC71FFFD57C00D52AE8 /* AsyncBlockOperation.swift in Sources */,
+				E6B83B1223014E5400D8C14F /* UIImage+Tint.swift in Sources */,
 				3035210F1C88EF6A00436351 /* PickerViewController.swift in Sources */,
 				E659206F20C7F15200774DA7 /* StringProtocol+Ranges.swift in Sources */,
 				3035210B1C88EF6A00436351 /* CollectionViewController.swift in Sources */,
