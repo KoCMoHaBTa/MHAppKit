@@ -44,3 +44,31 @@ extension UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+@available(iOS 11.0, *)
+extension UIViewController {
+    
+    @IBInspectable public var additionalTopSafeAreaInsets: CGFloat {
+        
+        get { return self.additionalSafeAreaInsets.top }
+        set { self.additionalSafeAreaInsets.top = newValue }
+    }
+    
+    @IBInspectable public var additionalBottomSafeAreaInsets: CGFloat {
+        
+        get { return self.additionalSafeAreaInsets.bottom }
+        set { self.additionalSafeAreaInsets.bottom = newValue }
+    }
+    
+    @IBInspectable public var additionalLeftSafeAreaInsets: CGFloat {
+        
+        get { return self.additionalSafeAreaInsets.left }
+        set { self.additionalSafeAreaInsets.left = newValue }
+    }
+    
+    @IBInspectable public var additionalRightSafeAreaInsets: CGFloat {
+        
+        get { return self.additionalSafeAreaInsets.right }
+        set { self.additionalSafeAreaInsets.right = newValue }
+    }
+}
