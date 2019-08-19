@@ -93,6 +93,14 @@ extension UIViewController {
         self.addChild(child, in: self.view)
     }
     
+    ///Creates an instance of the receiver by adding a single child view controller into receive'r view.
+    public convenience init(child: UIViewController, layouter: AddChildViewControllerLayouter) {
+        
+        self.init()
+        
+        self.addChild(child, in: self.view, using: layouter)
+    }
+    
     /**
      Adds a child view controller to the receiver and puts it inside the view provided with a given layouter handler
      
