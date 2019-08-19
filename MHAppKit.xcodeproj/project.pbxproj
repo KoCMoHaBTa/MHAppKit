@@ -72,6 +72,7 @@
 		E630CB802145C1B200386CBF /* StringProtocol+OptionalConcat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB7F2145C1B200386CBF /* StringProtocol+OptionalConcat.swift */; };
 		E630CB832145C48000386CBF /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB822145C48000386CBF /* StringTests.swift */; };
 		E630CB852145C57A00386CBF /* CGSizeScalingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */; };
+		E64C2C38230AC9FF007E3FBF /* UIScrollView+IBContentInsetAdjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64C2C37230AC9FF007E3FBF /* UIScrollView+IBContentInsetAdjustment.swift */; };
 		E658BDB91FFF92E700D52AE8 /* CompositionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658BDB81FFF92E700D52AE8 /* CompositionOperation.swift */; };
 		E658BDC71FFFD57C00D52AE8 /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */; };
 		E658FF001FCC262E007A8107 /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */; };
@@ -235,6 +236,7 @@
 		E630CB822145C48000386CBF /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		E630CB842145C57A00386CBF /* CGSizeScalingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeScalingTests.swift; sourceTree = "<group>"; };
 		E648E8F7217A2B1F00FC15BA /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E64C2C37230AC9FF007E3FBF /* UIScrollView+IBContentInsetAdjustment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+IBContentInsetAdjustment.swift"; sourceTree = "<group>"; };
 		E658BDB81FFF92E700D52AE8 /* CompositionOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionOperation.swift; sourceTree = "<group>"; };
 		E658BDC61FFFD57C00D52AE8 /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		E658FEFF1FCC262E007A8107 /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 				E66FEC7E20595957003C8761 /* UISegmentedControl.swift */,
 				E614429321EF6F49009570EE /* UITextView+ExclusionViews.swift */,
 				E61442F121F08D54009570EE /* UIScrollView+ViewsAffectingInsets.swift */,
+				E64C2C37230AC9FF007E3FBF /* UIScrollView+IBContentInsetAdjustment.swift */,
 				E6DA2062222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift */,
 				E696BCC61F7C2E8300AF02DF /* UIView */,
 				E6E71BF61F0A7D78000980C5 /* UIImagePickerController */,
@@ -943,6 +946,7 @@
 				3035212D1C88F00D00436351 /* UIWindow+Background.swift in Sources */,
 				99CDAD6A1CFC7C810090960D /* UIBarButtonItem+Action.swift in Sources */,
 				E69113B620E4FCC600749F6B /* UIApplication+BackgroundTask.swift in Sources */,
+				E64C2C38230AC9FF007E3FBF /* UIScrollView+IBContentInsetAdjustment.swift in Sources */,
 				3035212C1C88F00D00436351 /* UINavigationController+Background.swift in Sources */,
 				E6E71BF51F0A7D52000980C5 /* UIImage+Data.swift in Sources */,
 				E69113BB20E4FD4A00749F6B /* UNMutableNotificationContent+Factory.swift in Sources */,
