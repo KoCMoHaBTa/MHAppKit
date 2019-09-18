@@ -49,7 +49,7 @@ extension UIViewController {
     - parameter retryHandler: An optional retry handler. If `nil`, no retry option is presented.
     */
     
-    func showError(_ error: Error?, title: String, closeTitle: String = NSLocalizedString("Close", comment: ""), retryTitle: String = NSLocalizedString("Retry", comment: ""), closeHandler: (() -> Void)? = nil, backgroundHandler: ((String, String?) -> Void)? = UIViewController.showErrorDefaultBackgroundHandler, retryHandler: (() -> Void)?) {
+    public func showError(_ error: Error?, title: String, closeTitle: String = NSLocalizedString("Close", comment: ""), retryTitle: String = NSLocalizedString("Retry", comment: ""), closeHandler: (() -> Void)? = nil, backgroundHandler: ((String, String?) -> Void)? = UIViewController.showErrorDefaultBackgroundHandler, retryHandler: (() -> Void)?) {
         
         guard let error = error else {
             
