@@ -12,6 +12,7 @@ import UIKit
 extension NSError {
     
     ///Shows an alert, representing the receiver, from a given view controller
+    @available(*, deprecated, message: "Use UIViewController.showError(_:title:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
     open func showAlert(from controller: UIViewController?) {
         
         self.showAlert(from: controller, retry: nil)
@@ -21,15 +22,16 @@ extension NSError {
      Shows an alert, representing the receiver, from a given view controller with retry handler.
      
      The alert shown has the following characteristics:
-     - title: `NSLocalizedString(self.domain, comment: "")`
+     - title: `self.domain`
      - message: `self.localizedDescription`
      - cancel action: NSLocalizedString("Close", comment: "")
      - retry action: NSLocalizedString("Retry", comment: "")
      */
     
+    @available(*, deprecated, message: "Use UIViewController.showError(_:title:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
     open func showAlert(from controller: UIViewController?, retry: (() -> Void)?) {
         
-        let title = NSLocalizedString(self.domain, comment: "")
+        let title = self.domain
         let message = self.localizedDescription
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
