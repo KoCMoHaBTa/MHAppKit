@@ -111,7 +111,7 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         self.viewDidLoadConfiguration?(self)
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(type(of: self).cancelAction(_:))))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelAction(_:))))
     }
     
     open override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -130,7 +130,7 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
             let backgroundView = UIView(frame: container.bounds)
             backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-            backgroundView.tag = type(of: self).backgroundViewTag
+            backgroundView.tag = Self.backgroundViewTag
             container.insertSubview(backgroundView, at: 0)
             
             backgroundView.alpha = 0
@@ -148,13 +148,13 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.transitionCoordinator?.animate(alongsideTransition: { (ctx) -> Void in
             
             let container = ctx.containerView
-            let backgroundView = container.viewWithTag(type(of: self).backgroundViewTag)
+            let backgroundView = container.viewWithTag(Self.backgroundViewTag)
             backgroundView?.alpha = 0
             
         }, completion: { (ctx) -> Void in
             
             let container = ctx.containerView
-            let backgroundView = container.viewWithTag(type(of: self).backgroundViewTag)
+            let backgroundView = container.viewWithTag(Self.backgroundViewTag)
             backgroundView?.removeFromSuperview()
         })
     }

@@ -54,7 +54,7 @@ open class DatePickerViewController: UIViewController {
         
         self.viewDidLoadConfiguration?(self)
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(type(of: self).cancelAction(_:))))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelAction(_:))))
     }
     
     open override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -91,13 +91,13 @@ open class DatePickerViewController: UIViewController {
         self.transitionCoordinator?.animate(alongsideTransition: { (ctx) -> Void in
             
             let container = ctx.containerView
-            let backgroundView = container.viewWithTag(type(of: self).backgroundViewTag)
+            let backgroundView = container.viewWithTag(Self.backgroundViewTag)
             backgroundView?.alpha = 0
             
         }, completion: { (ctx) -> Void in
             
             let container = ctx.containerView
-            let backgroundView = container.viewWithTag(type(of: self).backgroundViewTag)
+            let backgroundView = container.viewWithTag(Self.backgroundViewTag)
             backgroundView?.removeFromSuperview()
         })
     }

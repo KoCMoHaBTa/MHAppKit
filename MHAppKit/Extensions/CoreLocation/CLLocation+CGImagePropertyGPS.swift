@@ -33,7 +33,7 @@ extension CLLocation {
             kCGImagePropertyGPSLatitudeRef as String: ((self.coordinate.latitude >= 0) ? "N" : "S"),
             kCGImagePropertyGPSLongitude as String: fabs(self.coordinate.longitude),
             kCGImagePropertyGPSLongitudeRef as String: ((self.coordinate.longitude >= 0) ? "E" : "W"),
-            kCGImagePropertyGPSTimeStamp as String: type(of: self).formatter.string(from: self.timestamp),
+            kCGImagePropertyGPSTimeStamp as String: Self.formatter.string(from: self.timestamp),
             kCGImagePropertyGPSAltitude as String: fabs(self.altitude)
         ]
     }

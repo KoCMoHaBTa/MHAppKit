@@ -16,13 +16,13 @@ extension UIWindow {
     
     open var backgroundView: UIView {
         
-        if let backgroundView = self.viewWithTag(type(of: self).backgroundViewTag) {
+        if let backgroundView = self.viewWithTag(Self.backgroundViewTag) {
             
             return backgroundView
         }
         
         let backgroundView = UIView()
-        backgroundView.tag = type(of: self).backgroundViewTag
+        backgroundView.tag = Self.backgroundViewTag
         backgroundView.clipsToBounds = true
         backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundView.frame = self.bounds
@@ -34,13 +34,13 @@ extension UIWindow {
     
     open var backgroundImageView: UIImageView {
         
-        if let backgroundImageView = self.backgroundView.viewWithTag(type(of: self).backgroundImageViewTag) as? UIImageView {
+        if let backgroundImageView = self.backgroundView.viewWithTag(Self.backgroundImageViewTag) as? UIImageView {
             
             return backgroundImageView
         }
         
         let backgroundImageView = UIImageView()
-        backgroundImageView.tag = type(of: self).backgroundImageViewTag
+        backgroundImageView.tag = Self.backgroundImageViewTag
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundImageView.frame = self.backgroundView.bounds

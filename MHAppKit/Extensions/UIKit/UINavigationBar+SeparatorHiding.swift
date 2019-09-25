@@ -15,7 +15,7 @@ extension UINavigationBar {
     
     @IBInspectable open var isSeparatorHidden: Bool {
         
-        get { return self.shadowImage === type(of: self).hiddenSeparatorImage && self.backIndicatorImage === type(of: self).hiddenSeparatorImage }
+        get { return self.shadowImage === Self.hiddenSeparatorImage && self.backIndicatorImage === Self.hiddenSeparatorImage }
         set { newValue ? self.hideSeparator() : self.showSeparator() }
     }
     
@@ -29,8 +29,8 @@ extension UINavigationBar {
     open func hideSeparator() {
         
         //remove the navigation bar separator
-        self.shadowImage = type(of: self).hiddenSeparatorImage
-        self.backIndicatorImage = type(of: self).hiddenSeparatorImage
+        self.shadowImage = Self.hiddenSeparatorImage
+        self.backIndicatorImage = Self.hiddenSeparatorImage
     }
 }
 

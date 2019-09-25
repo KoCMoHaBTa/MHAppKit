@@ -26,7 +26,7 @@ open class UIControlGroup: NSObject {
             
             oldValue.forEach { (control) in
                 
-                control.removeTarget(self, action: #selector(type(of: self).controlAction(_:)), for: .touchUpInside)
+                control.removeTarget(self, action: #selector(controlAction(_:)), for: .touchUpInside)
             }
             
             let controls = self.controls.sorted { (c1, c2) -> Bool in
@@ -36,7 +36,7 @@ open class UIControlGroup: NSObject {
             
             for control in controls {
                 
-                control.addTarget(self, action: #selector(type(of: self).controlAction(_:)), for: .touchUpInside)
+                control.addTarget(self, action: #selector(controlAction(_:)), for: .touchUpInside)
             }
             
             self.controls = controls
@@ -54,8 +54,8 @@ open class UIControlGroup: NSObject {
         
         didSet {
             
-            oldValue?.removeTarget(self, action: #selector(type(of: self).deselectAllControls), for: .touchUpInside)
-            self.deselectAllControl?.addTarget(self, action: #selector(type(of: self).deselectAllControls), for: .touchUpInside)
+            oldValue?.removeTarget(self, action: #selector(deselectAllControls), for: .touchUpInside)
+            self.deselectAllControl?.addTarget(self, action: #selector(deselectAllControls), for: .touchUpInside)
         }
     }
     
@@ -67,8 +67,8 @@ open class UIControlGroup: NSObject {
         
         didSet {
             
-            oldValue?.removeTarget(self, action: #selector(type(of: self).selectAllControls), for: .touchUpInside)
-            self.selectAllControl?.addTarget(self, action: #selector(type(of: self).selectAllControls), for: .touchUpInside)
+            oldValue?.removeTarget(self, action: #selector(selectAllControls), for: .touchUpInside)
+            self.selectAllControl?.addTarget(self, action: #selector(selectAllControls), for: .touchUpInside)
         }
     }
     

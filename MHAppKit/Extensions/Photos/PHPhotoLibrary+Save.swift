@@ -78,7 +78,7 @@ extension PHPhotoLibrary {
     
     open func save(imageFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
         
-        type(of: self).requestAuthorization { (authorizationStatus) in
+        Self.requestAuthorization { (authorizationStatus) in
             
             guard authorizationStatus == .authorized else {
                 
@@ -123,7 +123,7 @@ extension PHPhotoLibrary {
     
     open func save(videoFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
         
-        type(of: self).requestAuthorization { (authorizationStatus) in
+        Self.requestAuthorization { (authorizationStatus) in
             
             guard authorizationStatus == .authorized else {
                 
