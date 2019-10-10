@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 @IBDesignable
-public class Button: UIButton {
+open class Button: UIButton {
     
     ///Hides the button when dynamic actions cannot be performed by the responder chain
-    @IBInspectable var hideIfCannotPerformActions: Bool = false
+    @IBInspectable open var hideIfCannotPerformActions: Bool = false
     
     ///Disables the button when dynamic actions cannot be performed by the responder chain
-    @IBInspectable var disableIfCannotPerformActions: Bool = false
+    @IBInspectable open var disableIfCannotPerformActions: Bool = false
     
     ///Determines whenver the receiver's responder chain can perform dynamic actions, such as actions without a specific target.
-    public var canPerformDynamicActions: Bool {
+    open var canPerformDynamicActions: Bool {
         
         if let actions = self.actions(forTarget: nil, forControlEvent: self.allControlEvents) {
             
@@ -38,7 +38,7 @@ public class Button: UIButton {
         return false
     }
     
-    public func updateDynamicActionStateIfNeeded() {
+    open func updateDynamicActionStateIfNeeded() {
         
         if self.hideIfCannotPerformActions {
             
@@ -52,14 +52,14 @@ public class Button: UIButton {
         
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         
         super.layoutSubviews()
         
         self.updateDynamicActionStateIfNeeded()
     }
     
-    public override func prepareForInterfaceBuilder() {
+    open override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
         
@@ -67,7 +67,7 @@ public class Button: UIButton {
         self.disableIfCannotPerformActions = false
     }
     
-    public override var intrinsicContentSize: CGSize {
+    open override var intrinsicContentSize: CGSize {
         
         var intrinsicContentSize = super.intrinsicContentSize
         
@@ -87,5 +87,81 @@ public class Button: UIButton {
         intrinsicContentSize.width += self.contentEdgeInsets.right
         
         return intrinsicContentSize
+    }
+    
+    @IBInspectable open var titleLeftAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    @IBInspectable open var titleRightAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    @IBInspectable open var titleTopAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    @IBInspectable open var titleBottomAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    
+    @IBInspectable open var imageLeftAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    @IBInspectable open var imageRightAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    @IBInspectable open var imageTopAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    @IBInspectable open var imageBottomAlignment: Bool = false { didSet { self.setNeedsLayout(); self.layoutIfNeeded() } }
+    
+    open override func titleRect(forContentRect contentRect: CGRect) -> CGRect {
+        
+        var rect = super.titleRect(forContentRect: contentRect)
+        
+        if self.titleLeftAlignment {
+            
+            rect.origin.x = 0
+            rect.origin.x += self.contentEdgeInsets.left
+            rect.origin.x += self.titleEdgeInsets.left
+        }
+        else if self.titleRightAlignment {
+            
+            rect.origin.x = contentRect.maxX - rect.width
+            rect.origin.x -= self.contentEdgeInsets.right
+            rect.origin.x -= self.titleEdgeInsets.right
+        }
+        
+        if self.titleTopAlignment {
+            
+            rect.origin.y = 0
+            rect.origin.y += self.contentEdgeInsets.top
+            rect.origin.y += self.titleEdgeInsets.top
+        }
+        else if self.titleBottomAlignment {
+            
+            rect.origin.y = contentRect.maxY - rect.height
+            rect.origin.y -= self.contentEdgeInsets.bottom
+            rect.origin.y -= self.titleEdgeInsets.bottom
+        }
+        
+        return rect
+    }
+    
+    open override func imageRect(forContentRect contentRect: CGRect) -> CGRect {
+        
+        var rect = super.imageRect(forContentRect: contentRect)
+
+        if self.imageLeftAlignment {
+            
+            rect.origin.x = 0
+            rect.origin.x += self.contentEdgeInsets.left
+            rect.origin.x += self.imageEdgeInsets.left
+        }
+        else if self.imageRightAlignment {
+            
+            rect.origin.x = contentRect.maxX - rect.width
+            rect.origin.x -= self.contentEdgeInsets.right
+            rect.origin.x -= self.imageEdgeInsets.right
+        }
+        
+        if self.imageTopAlignment {
+            
+            rect.origin.y = 0
+            rect.origin.y += self.contentEdgeInsets.top
+            rect.origin.y += self.imageEdgeInsets.top
+        }
+        else if self.imageBottomAlignment {
+            
+            rect.origin.y = contentRect.maxY - rect.height
+            rect.origin.y -= self.contentEdgeInsets.bottom
+            rect.origin.y -= self.imageEdgeInsets.bottom
+        }
+        
+        return rect
     }
 }
