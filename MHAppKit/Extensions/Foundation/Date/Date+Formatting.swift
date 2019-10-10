@@ -31,6 +31,13 @@ extension Date {
         guard let date = formatter.date(from: string) else { return nil }
         self = date
     }
+    
+    ///Creates an isntance of the receiver from a given string and date formatter
+    public init?(from string: String, using formatter: DateFormatter) {
+        
+        guard let date = formatter.date(from: string) else { return nil }
+        self = date
+    }
 }
 
 extension String {
@@ -59,6 +66,13 @@ extension String {
             
             formatter = configuration.formatter(&Static.map)
         }
+        
+        let string = formatter.string(from: date)
+        self = string
+    }
+    
+    ///Creates an instance of the receiver by formatting a date using a given formatter.
+    public init(formatting date: Date, using formatter: DateFormatter) {
         
         let string = formatter.string(from: date)
         self = string
