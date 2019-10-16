@@ -22,15 +22,33 @@ extension UINavigationBar {
     open func showSeparator() {
         
         //restore the navigation bar separator
-        self.shadowImage = nil
-        self.backIndicatorImage = nil
+        if #available(iOS 13.0, *) {
+            
+            self.standardAppearance.shadowColor = UINavigationBarAppearance().shadowColor
+            self.compactAppearance?.shadowColor = UINavigationBarAppearance().shadowColor
+            self.scrollEdgeAppearance?.shadowColor = UINavigationBarAppearance().shadowColor
+        }
+        else {
+            
+            self.shadowImage = nil
+            self.backIndicatorImage = nil
+        }
     }
     
     open func hideSeparator() {
         
         //remove the navigation bar separator
-        self.shadowImage = Self.hiddenSeparatorImage
-        self.backIndicatorImage = Self.hiddenSeparatorImage
+        if #available(iOS 13.0, *) {
+            
+            self.standardAppearance.shadowColor = .clear
+            self.compactAppearance?.shadowColor = .clear
+            self.scrollEdgeAppearance?.shadowColor = .clear
+        }
+        else {
+            
+            self.shadowImage = Self.hiddenSeparatorImage
+            self.backIndicatorImage = Self.hiddenSeparatorImage
+        }
     }
 }
 
