@@ -95,6 +95,7 @@
 		E69CE96421CB95720029D199 /* OperationQueue+ConvenienceInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69CE96321CB95720029D199 /* OperationQueue+ConvenienceInit.swift */; };
 		E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */; };
 		E6A094C420360A4A0066214E /* CGSize+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A094C320360A4A0066214E /* CGSize+Scale.swift */; };
+		E6A88ADF235889D7001550CE /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A88ADE235889D7001550CE /* TableView.swift */; };
 		E6B83B1223014E5400D8C14F /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */; };
 		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
 		E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */; };
@@ -261,6 +262,7 @@
 		E69CE96321CB95720029D199 /* OperationQueue+ConvenienceInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+ConvenienceInit.swift"; sourceTree = "<group>"; };
 		E69DCDFF20AC62E7003DDD91 /* TableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		E6A094C320360A4A0066214E /* CGSize+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Scale.swift"; sourceTree = "<group>"; };
+		E6A88ADE235889D7001550CE /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
 		E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStaticTableViewController.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				303520F31C88EF2800436351 /* BadgeLabel.swift */,
 				E60E8D931FC42C9F009CE622 /* Button.swift */,
 				303520F11C88EF2800436351 /* TextView.swift */,
+				E6A88ADE235889D7001550CE /* TableView.swift */,
 				303520F21C88EF2800436351 /* TableViewCell.swift */,
 				303520F51C88EF2800436351 /* ExtendedHitView.swift */,
 				99E247CA1CE749E5006726BA /* DynamicSizeTableSuplementaryView.swift */,
@@ -921,6 +924,7 @@
 				E65AA39B21CBA72900E58856 /* OperationQueue+Completion.swift in Sources */,
 				3035210C1C88EF6A00436351 /* DynamicTableViewController.swift in Sources */,
 				E630CB802145C1B200386CBF /* StringProtocol+OptionalConcat.swift in Sources */,
+				E6A88ADF235889D7001550CE /* TableView.swift in Sources */,
 				E61C31571FC4474E00C43068 /* UITableView.swift in Sources */,
 				303521141C88EF6A00436351 /* UINavigationControllerPerspectiveAnimator.swift in Sources */,
 				303521171C88EF6A00436351 /* UINavigationControllerReplaceLastSegue.swift in Sources */,
