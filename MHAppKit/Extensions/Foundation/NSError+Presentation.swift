@@ -12,7 +12,7 @@ import UIKit
 extension NSError {
     
     ///Shows an alert, representing the receiver, from a given view controller
-    @available(*, deprecated, message: "Use UIViewController.showError(_:title:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
+    @available(*, deprecated, message: "Use showAsAlert(withTitle:from:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
     open func showAlert(from controller: UIViewController?) {
         
         self.showAlert(from: controller, retry: nil)
@@ -28,7 +28,7 @@ extension NSError {
      - retry action: NSLocalizedString("Retry", comment: "")
      */
     
-    @available(*, deprecated, message: "Use UIViewController.showError(_:title:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
+    @available(*, deprecated, message: "Use showAsAlert(withTitle:from:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
     open func showAlert(from controller: UIViewController?, retry: (() -> Void)?) {
         
         let title = self.domain
@@ -46,5 +46,110 @@ extension NSError {
         }
         
         controller?.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension Error {
+    
+    ///Show the receiver as a local notification.
+    ///- parameter title: The title of the notification
+    ///- parameter configurationHandler: A closure used for addition  configuration of the UNMutableNotificationContent
+    ///- note: The message of the notification is the receiver's `localizedDescription`.
+    @available(iOS 10, *)
+    public func showAsLocalNotification(withTitle title: String, configurationHandler: ((UNMutableNotificationContent) -> Void)) {
+        
+        let message = self.localizedDescription
+        
+        let content = UNMutableNotificationContent(title: title, body: message)
+        configurationHandler(content)
+        
+        let request = UNNotificationRequest(content: content)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
+    ///Show the receiver as a local notification.
+    ///- parameter title: The title of the notification
+    ///- parameter configurationHandler: A closure used for addition  configuration of the UILocalNotification
+    ///- note: The message of the notification is the receiver's `localizedDescription`.
+    public func showAsLocalNotification(withTitle title: String, configurationHandler: ((UILocalNotification) -> Void)) {
+        
+        let message = self.localizedDescription
+        
+        let notification = UILocalNotification()
+        notification.fireDate = nil
+        notification.alertBody = message
+        
+        if #available(iOS 8.2, *) {
+            
+            notification.alertTitle = title
+        }
+        
+        configurationHandler(notification)
+        
+        UIApplication.shared.scheduleLocalNotification(notification)
+    }
+    
+    ///Show the receiver as a local notification.
+    ///- parameter title: The title of the notification
+    ///- note: The message of the notification is the receiver's `localizedDescription`.
+    public func showAsLocalNotification(withTitle title: String) {
+        
+        if #available(iOS 10, *) {
+            
+            self.showAsLocalNotification(withTitle: title) { (notificationContent: UNMutableNotificationContent) in
+                
+                //default empty configuration
+            }
+        }
+        else {
+            
+            self.showAsLocalNotification(withTitle: title) { (notificationContent: UILocalNotification) in
+                
+                //default empty configuration
+            }
+        }
+    }
+    
+    public static var _defaultBackgroundHandler: (Error, String) -> Void {
+        
+        return { $0.showAsLocalNotification(withTitle: $1) }
+    }
+    
+    ///Show the receiver as an alert view.
+    ///- parameter title: The title of the notification
+    ///- parameter viewController: The view controller from which to show the alert.
+    ///- parameter closeTitle: The title of the close button of the alert. Default to `NSLocalizedString("Close", comment: "")`.
+    ///- parameter retryTitle: The title of the retry button of the alert. Default to `NSLocalizedString("Retry", comment: "")`.
+    ///- parameter backgroundHandler: An optional handler, executed if the alert is gong to be shown, when the app is in the background. Default to showing the receiver as a local notification.
+    ///- parameter closeHandler: An optional close handler. Default to `nil`.
+    ///- parameter retryHandler: An optional retry handler. If `nil`, no retry option is presented.
+    ///- note: If the view controller is nil, the backgroundHandler is executed.
+    public func showAsAlert(withTitle title: String, from viewController: UIViewController?, closeTitle: String = NSLocalizedString("Close", comment: ""), retryTitle: String = NSLocalizedString("Retry", comment: ""), closeHandler: (() -> Void)? = nil, backgroundHandler: ((Error, String) -> Void)? = Self._defaultBackgroundHandler, retryHandler: (() -> Void)?) {
+        
+        let message = self.localizedDescription
+        
+        //if the app is in background or the view controller is nil - show local notification
+        if UIApplication.shared.applicationState != .active || viewController == nil {
+            
+            backgroundHandler?(self, title)
+        }
+        
+        var actions: [UIAlertAction] = [
+            
+            UIAlertAction(title: closeTitle, style: .cancel, handler: { (_) in
+                
+                closeHandler?()
+            })
+        ]
+        
+        if let retryHandler = retryHandler {
+            
+            actions.append(UIAlertAction(title: retryTitle, style: .default, handler: { (_) in
+                
+                retryHandler()
+            }))
+        }
+        
+        viewController?.showAlertView(title: title, message: message, actions: actions)
     }
 }
