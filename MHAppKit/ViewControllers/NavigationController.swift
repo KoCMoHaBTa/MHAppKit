@@ -77,7 +77,7 @@ open class NavigationController: UINavigationController {
         self.setup()
     }
     
-    private func setup() {
+    open func setup() {
         
         self.delegate = self
     }
