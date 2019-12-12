@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -18,3 +19,4 @@ open class PassthroughView: UIView {
         return view == self ? nil : view
     }
 }
+#endif

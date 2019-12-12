@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -63,3 +64,4 @@ open class DynamicSizeTableSuplementaryView: UIView {
         self.didLayoutContentViewHandler?()
     }
 }
+#endif

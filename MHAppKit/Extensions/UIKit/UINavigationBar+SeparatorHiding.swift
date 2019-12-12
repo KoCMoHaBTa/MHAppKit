@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -15,14 +16,23 @@ extension UINavigationBar {
     
     @IBInspectable open var isSeparatorHidden: Bool {
         
-        get { return self.shadowImage === Self.hiddenSeparatorImage && self.backIndicatorImage === Self.hiddenSeparatorImage }
+        get {
+            
+            var isSeparatorHidden = self.shadowImage === Self.hiddenSeparatorImage
+            
+            #if !os(tvOS)
+                isSeparatorHidden = isSeparatorHidden && self.backIndicatorImage === Self.hiddenSeparatorImage
+            #endif
+            
+            return isSeparatorHidden
+        }
         set { newValue ? self.hideSeparator() : self.showSeparator() }
     }
     
     open func showSeparator() {
         
         //restore the navigation bar separator
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, *), #available(tvOS 13.0, *) {
             
             self.standardAppearance.shadowColor = UINavigationBarAppearance().shadowColor
             self.compactAppearance?.shadowColor = UINavigationBarAppearance().shadowColor
@@ -31,14 +41,17 @@ extension UINavigationBar {
         else {
             
             self.shadowImage = nil
-            self.backIndicatorImage = nil
+            
+            #if !os(tvOS)
+                self.backIndicatorImage = nil
+            #endif
         }
     }
     
     open func hideSeparator() {
         
         //remove the navigation bar separator
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, *), #available(tvOS 13.0, *) {
             
             self.standardAppearance.shadowColor = .clear
             self.compactAppearance?.shadowColor = .clear
@@ -47,8 +60,11 @@ extension UINavigationBar {
         else {
             
             self.shadowImage = Self.hiddenSeparatorImage
-            self.backIndicatorImage = Self.hiddenSeparatorImage
+            
+            #if !os(tvOS)
+                self.backIndicatorImage = Self.hiddenSeparatorImage
+            #endif
         }
     }
 }
-
+#endif

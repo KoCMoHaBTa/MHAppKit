@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -19,3 +20,4 @@ open class TableView: UITableView {
         return self.autosize ? self.contentSize : super.intrinsicContentSize
     }
 }
+#endif

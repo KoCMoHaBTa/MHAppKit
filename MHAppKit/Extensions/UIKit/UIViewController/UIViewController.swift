@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -15,6 +16,7 @@ extension UIViewController {
     
     ///If set to true - removes the back button title.
     ///- note: The implementation of this method, sets a new instnace of `UIBarButtonItem`, wtih emty title to the `backBarButtonItem` of the `navigationItem` of the receiver.
+    @available(tvOS, unavailable)
     @IBInspectable open var removeBackTitle: Bool {
         
         get {
@@ -45,6 +47,7 @@ extension UIViewController {
     }
 }
 
+@available(tvOS 11.0, *)
 @available(iOS 11.0, *)
 extension UIViewController {
     
@@ -72,3 +75,4 @@ extension UIViewController {
         set { self.additionalSafeAreaInsets.right = newValue }
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///An animator object represeting `UIViewControllerAnimatedTransitioning` that performs perspective animation based on given `UINavigationControllerOperation` and duration
@@ -165,3 +166,4 @@ open class UINavigationControllerPerspectiveAnimator: NSObject, UIViewController
         view.layer.transform = transform
     }
 }
+#endif

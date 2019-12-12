@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///A UITextView subclass with some useful additions
@@ -356,3 +357,4 @@ import UIKit
         self.setNeedsDisplay()
     }
 }
+#endif

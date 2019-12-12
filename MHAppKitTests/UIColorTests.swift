@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import XCTest
 @testable import MHAppKit
 
@@ -98,3 +99,4 @@ class UIColorTests: XCTestCase {
         XCTAssertNil(UIColor(RGB: 16777216))
     }
 }
+#endif

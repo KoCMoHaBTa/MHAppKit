@@ -6,9 +6,11 @@
 //  Copyright © 2018 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
+@available(tvOS, unavailable)
 open class DatePickerViewController: UIViewController {
     
     private static let backgroundViewTag = "DatePickerViewController.backgroundViewTag".hashValue
@@ -57,10 +59,12 @@ open class DatePickerViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelAction(_:))))
     }
     
+    #if !os(tvOS)
     open override var preferredStatusBarStyle : UIStatusBarStyle {
         
         return .lightContent
     }
+    #endif
     
     open override func viewWillAppear(_ animated: Bool) {
         
@@ -114,3 +118,4 @@ open class DatePickerViewController: UIViewController {
         self.didSelectDate?(self, self.datePickerView.date) ?? self.dismiss(animated: true, completion: nil)
     }
 }
+#endif

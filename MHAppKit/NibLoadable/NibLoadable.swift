@@ -6,7 +6,9 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
+import UIKit
 
 ///A type that can be loaded form a NIB
 public protocol NibLoadable {
@@ -113,3 +115,4 @@ extension NibLoadable {
 extension NSObject: NibLoadable {
     
 }
+#endif

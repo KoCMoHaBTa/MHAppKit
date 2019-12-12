@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///Animator represeting `UIViewControllerAnimatedTransitioning` that performs `UIView.transtion` for a given duration and options
@@ -56,3 +57,4 @@ open class UIViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitio
         self.completionBlock?(transitionCompleted)
     }
 }
+#endif

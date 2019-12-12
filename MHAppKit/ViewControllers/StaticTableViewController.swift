@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 open class StaticTableViewController: UITableViewController, UINavigationControllerPreferencesProvider {
@@ -17,10 +18,12 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         super.viewDidLoad()
     }
     
+    #if !os(tvOS)
     open override var prefersStatusBarHidden : Bool {
         
         return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden
     }
+    #endif
     
     //MARK: - UINavigationControllerPreferencesProvider
     
@@ -77,16 +80,19 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     
     //MARK: - UIRefreshControl
     
+    @available(tvOS, unavailable)
     open func beginRefresh() {
         
         self.refreshControl?.beginRefreshing()
     }
     
+    @available(tvOS, unavailable)
     open func endRefresh() {
         
         self.refreshControl?.endRefreshing()
     }
     
+    @available(tvOS, unavailable)
     open func showRefreshControl(animated: Bool) {
         
         guard self.refreshControl?.isRefreshing == false else {
@@ -101,11 +107,13 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     }
     
     //programatic refresh - shouldRefresh -> tableView content inset (animated) -> refreshControlAction
+    @available(tvOS, unavailable)
     @IBAction open func performRefresh() {
         
         self.performRefresh(animated: true)
     }
     
+    @available(tvOS, unavailable)
     open func performRefresh(animated: Bool) {
         
         self.showRefreshControl(animated: animated)
@@ -113,6 +121,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     }
     
     ///Performs a refresh with custom action
+    @available(tvOS, unavailable)
     open func performRefresh(animated: Bool, action: @escaping (_ completion: @escaping () -> Void) -> Void) {
         
         self.showRefreshControl(animated: animated)
@@ -125,6 +134,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     }
     
     ///Assign this action to the refresh control. If you do so, the `refreshControlActionWithCompletionBlock` method will be called automatically
+    @available(tvOS, unavailable)
     @IBAction open func refreshControlAction(_ sender: Any?) {
         
         self.beginRefresh()
@@ -136,6 +146,7 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
     }
     
     ///Override this in order to implement the refersh control action
+    @available(tvOS, unavailable)
     open func refreshControlActionWithCompletionBlock(_ completionBlock: @escaping () -> ()) {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
@@ -144,3 +155,4 @@ open class StaticTableViewController: UITableViewController, UINavigationControl
         }
     }
 }
+#endif

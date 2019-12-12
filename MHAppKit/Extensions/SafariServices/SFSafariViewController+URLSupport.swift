@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && canImport(SafariServices)
 import Foundation
 import SafariServices
 
@@ -18,3 +19,4 @@ extension SFSafariViewController {
             || url?.scheme?.lowercased() == "https"
     }
 }
+#endif

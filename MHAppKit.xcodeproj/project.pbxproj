@@ -66,6 +66,7 @@
 		E60E8D941FC42CA0009CE622 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E8D931FC42C9F009CE622 /* Button.swift */; };
 		E614429421EF6F49009570EE /* UITextView+ExclusionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E614429321EF6F49009570EE /* UITextView+ExclusionViews.swift */; };
 		E61442F221F08D54009570EE /* UIScrollView+ViewsAffectingInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61442F121F08D54009570EE /* UIScrollView+ViewsAffectingInsets.swift */; };
+		E616A2A223A138D300C83ED7 /* HostDependantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616A2A123A138D300C83ED7 /* HostDependantTests.swift */; };
 		E61C31551FC444FC00C43068 /* Collection+ConvenienceMutating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */; };
 		E61C31571FC4474E00C43068 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C31561FC4474E00C43068 /* UITableView.swift */; };
 		E630CB7E2145C16B00386CBF /* UIScrollViewPagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CB7D2145C16B00386CBF /* UIScrollViewPagingController.swift */; };
@@ -231,6 +232,7 @@
 		E60E8D931FC42C9F009CE622 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E614429321EF6F49009570EE /* UITextView+ExclusionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+ExclusionViews.swift"; sourceTree = "<group>"; };
 		E61442F121F08D54009570EE /* UIScrollView+ViewsAffectingInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ViewsAffectingInsets.swift"; sourceTree = "<group>"; };
+		E616A2A123A138D300C83ED7 /* HostDependantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostDependantTests.swift; sourceTree = "<group>"; };
 		E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+ConvenienceMutating.swift"; sourceTree = "<group>"; };
 		E61C31561FC4474E00C43068 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		E630CB7D2145C16B00386CBF /* UIScrollViewPagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewPagingController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		E659206E20C7F15200774DA7 /* StringProtocol+Ranges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Ranges.swift"; sourceTree = "<group>"; };
 		E65AA39A21CBA72900E58856 /* OperationQueue+Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+Completion.swift"; sourceTree = "<group>"; };
 		E65AA39C21CBA8B500E58856 /* OperationQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueTests.swift; sourceTree = "<group>"; };
+		E65CF54023A0E3B6003DB0AB /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E66FEC7E20595957003C8761 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		E677AA2C23312D47004B2CFA /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
 		E680314121A20A7F003D0159 /* String+NilEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NilEmpty.swift"; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 		E6A094C320360A4A0066214E /* CGSize+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Scale.swift"; sourceTree = "<group>"; };
 		E6A88ADE235889D7001550CE /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
+		E6CF2D5B23A2737000CB0FB6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
 		E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStaticTableViewController.swift; sourceTree = "<group>"; };
 		E6DA2062222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+SeparatorHiding.swift"; sourceTree = "<group>"; };
@@ -324,9 +328,11 @@
 		303520541C88EB3500436351 = {
 			isa = PBXGroup;
 			children = (
+				E6CF2D5B23A2737000CB0FB6 /* .gitignore */,
 				303520A91C88ED4C00436351 /* README.md */,
 				E648E8F7217A2B1F00FC15BA /* LICENSE */,
 				E69BD70B21FC6DF700605684 /* MHAppKit.podspec */,
+				E65CF54023A0E3B6003DB0AB /* Package.swift */,
 				303520601C88EB3500436351 /* MHAppKit */,
 				303520B91C88EDCC00436351 /* MHAppKitTests */,
 				99CDAD4C1CFC68070090960D /* MHAppKitTestsHost */,
@@ -370,6 +376,7 @@
 			children = (
 				9989F82A1CF71F7300B4EDC5 /* XCTestExtensions.swift */,
 				303520BA1C88EDCC00436351 /* MHAppKitTests.swift */,
+				E616A2A123A138D300C83ED7 /* HostDependantTests.swift */,
 				99402A691D0AEA5700412ED5 /* UIColorTests.swift */,
 				E6FE9F401F2622C30094CC5B /* DateTests.swift */,
 				E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */,
@@ -974,6 +981,7 @@
 				E694634A22143A470045DA5D /* CollectionTests.swift in Sources */,
 				303520BB1C88EDCC00436351 /* MHAppKitTests.swift in Sources */,
 				E6FE9F861F276EF40094CC5B /* UIControlGroupTests.swift in Sources */,
+				E616A2A223A138D300C83ED7 /* HostDependantTests.swift in Sources */,
 				99402A6A1D0AEA5700412ED5 /* UIColorTests.swift in Sources */,
 				E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */,
 				E630CB832145C48000386CBF /* StringTests.swift in Sources */,

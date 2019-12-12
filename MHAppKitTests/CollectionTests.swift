@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHAppKit
@@ -40,3 +41,4 @@ class CollectionTests: XCTestCase {
         XCTAssertEqual(["1", "C", "omg"].inserting(contentsOf: ["gg", "pp"], at: 1), ["1", "gg", "pp", "C", "omg"])
     }
 }
+#endif

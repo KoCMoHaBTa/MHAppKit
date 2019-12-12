@@ -6,10 +6,13 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && canImport(Photos)
 import Foundation
+import UIKit
 import MobileCoreServices
 import Photos
 
+@available(tvOS, unavailable)
 extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any {
     
     ///The media type selected by the user. The value of this property is a type code such as kUTTypeImage or kUTTypeMovie.
@@ -56,12 +59,14 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
     }
     
     ///The Live Photo representation of the selected or captured photo. Include the kUTTypeImage and kUTTypeLivePhoto identifiers in the allowed media types when configuring an image picker controller.
+    @available(tvOS 10, *)
     @available(iOS 9.1, *)
     public var livePhoto: PHLivePhoto? {
         
         return self[.livePhoto] as? PHLivePhoto
     }
     
+    @available(tvOS 10, *)
     @available(iOS 11.0, *)
     ///The key to use when retrieving a Photos asset for the image.
     public var asset: PHAsset? {
@@ -70,6 +75,7 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
     }
 }
 
+@available(tvOS, unavailable)
 extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any {
     
     ///True if the media type is image, otherwise false.
@@ -85,9 +91,11 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
     }
 }
 
+@available(tvOS, unavailable)
 extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any {
     
     ///The asset representation of the media. Loaded using the .phAsset key (iOS 11+) or referenceURL (prior iOS 11)
+    @available(tvOS 10, *)
     public func fetchAsset() -> PHAsset? {
         
         if #available(iOS 11.0, *), let asset = self.asset {
@@ -104,6 +112,7 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
     }
 }
 
+@available(tvOS, unavailable)
 extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any {
     
     /**
@@ -116,6 +125,7 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
      
      - warning: Video and Live Photos are not tested
      */
+    @available(tvOS 10, *)
     public func mediaMetadata(_ completion: @escaping ([AnyHashable: Any]?) -> Void) {
         
         //TODO: Test and update behaviour for videos and live photos
@@ -135,3 +145,4 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
         asset.mediaMetadata(completion: completion)
     }
 }
+#endif

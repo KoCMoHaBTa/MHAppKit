@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 open class ViewController: UIViewController, UINavigationControllerPreferencesProvider {
@@ -17,10 +18,12 @@ open class ViewController: UIViewController, UINavigationControllerPreferencesPr
         super.viewDidLoad()
     }
     
+    #if !os(tvOS)
     open override var prefersStatusBarHidden : Bool {
         
         return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden
     }
+    #endif
     
     //MARK: - UINavigationControllerPreferencesProvider
     
@@ -37,4 +40,4 @@ open class ViewController: UIViewController, UINavigationControllerPreferencesPr
         return self.prefersNavigationBarHiddenIB
     }
 }
-
+#endif

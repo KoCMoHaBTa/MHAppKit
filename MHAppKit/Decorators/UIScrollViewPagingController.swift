@@ -6,10 +6,12 @@
 //  Copyright © 2018 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
 ///A type that can adjust the paging behaviour of a given scroll view by allowing to set custom page size.
+@available(tvOS, unavailable)
 open class UIScrollViewPagingController: NSObject, UIScrollViewDelegate {
     
     ///The target scroll view, which paging should be adjusted with custom page size
@@ -161,6 +163,7 @@ open class UIScrollViewPagingController: NSObject, UIScrollViewDelegate {
     }
 }
 
+@available(tvOS, unavailable)
 extension UIScrollViewPagingController {
     
     ///A type that represents a horizontal and vertical page index
@@ -176,4 +179,4 @@ extension UIScrollViewPagingController {
         }
     }
 }
-
+#endif

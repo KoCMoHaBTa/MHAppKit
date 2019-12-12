@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -35,3 +36,4 @@ extension UIView {
         set { self.layer.borderColor = newValue?.cgColor }
     }
 }
+#endif

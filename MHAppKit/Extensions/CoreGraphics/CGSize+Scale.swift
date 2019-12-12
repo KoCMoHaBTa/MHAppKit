@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 //based on https://gist.github.com/tomasbasham/10533743
 extension CGSize {

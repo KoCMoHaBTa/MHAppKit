@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///A UILabel subclass with some useful additions
@@ -62,3 +63,4 @@ import UIKit
         super.drawText(in: rect.inset(by: self.insets))
     }
 }
+#endif

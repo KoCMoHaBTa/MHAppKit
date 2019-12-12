@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -39,7 +40,7 @@ extension UIView {
 
             case .graphicsImageRenderer:
                 
-                if #available(iOS 10.0, *) {
+                if #available(iOS 10.0, *), #available(tvOS 10.0, *) {
                     
                     let rendererFormat = UIGraphicsImageRendererFormat.default()
                     rendererFormat.opaque = self.isOpaque
@@ -81,4 +82,4 @@ extension CALayer {
         return nil
     }
 }
-
+#endif

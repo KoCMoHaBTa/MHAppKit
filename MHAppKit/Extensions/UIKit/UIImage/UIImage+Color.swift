@@ -6,7 +6,9 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit)
 import Foundation
+import UIKit
 
 extension UIImage {
     
@@ -35,3 +37,4 @@ extension UIImage {
         self.init(cgImage: cgImage)
     }
 }
+#endif

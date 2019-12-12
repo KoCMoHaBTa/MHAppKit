@@ -6,11 +6,13 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
 extension UIScrollView {
 
+    @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     @IBInspectable public var automaticallyAdjustsContentInset: Bool {
         
@@ -24,4 +26,4 @@ extension UIScrollView {
         }
     }
 }
-
+#endif

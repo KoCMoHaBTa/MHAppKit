@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHAppKit
@@ -216,3 +217,4 @@ class UIControlGroupTests: XCTestCase {
         XCTAssertEqual(group.deselectedControlIndexes, [0, 1, 2, 3, 4])
     }
 }
+#endif

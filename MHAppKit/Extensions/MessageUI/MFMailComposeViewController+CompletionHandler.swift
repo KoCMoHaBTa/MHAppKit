@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(MessageUI)
 import Foundation
 import MessageUI
 
@@ -39,3 +40,4 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
         self.completionHandler?(controller, result, error)
     }
 }
+#endif

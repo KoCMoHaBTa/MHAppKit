@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///A segue that replaces the view controllers of the source's navigation controler with the destination only
@@ -25,3 +26,4 @@ open class UINavigationControllerReplaceAllSegue: UIStoryboardSegue {
         }
     }
 }
+#endif

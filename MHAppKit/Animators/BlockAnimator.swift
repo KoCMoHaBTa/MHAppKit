@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///A block animator represeting `UIViewControllerAnimatedTransitioning` with block handles
@@ -49,3 +50,5 @@ open class BlockAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         self.completionBlock?(transitionCompleted)
     }
 }
+
+#endif

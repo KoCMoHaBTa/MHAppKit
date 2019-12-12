@@ -6,6 +6,7 @@
 //  Copyright © 2018 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -21,3 +22,4 @@ extension UIApplication {
         }
     }
 }
+#endif

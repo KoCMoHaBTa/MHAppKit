@@ -6,10 +6,12 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 import UserNotifications
 
+@available(tvOS 10.0, *)
 extension UIViewController {
         
     /**
@@ -24,8 +26,10 @@ extension UIViewController {
     - parameter retryHandler: An optional retry handler. If `nil`, no retry option is presented.
     */
     
+    @available(tvOS, unavailable)
     public func showError(_ error: Error?, title: String, closeTitle: String = NSLocalizedString("Close", comment: ""), retryTitle: String = NSLocalizedString("Retry", comment: ""), closeHandler: (() -> Void)? = nil, backgroundHandler: ((Error, String) -> Void)? = NSError._defaultBackgroundHandler, retryHandler: (() -> Void)?) {
         
         error?.showAsAlert(withTitle: title, from: self, closeTitle: closeTitle, retryTitle: retryTitle, closeHandler: closeHandler, backgroundHandler: backgroundHandler, retryHandler: retryHandler)
     }
 }
+#endif

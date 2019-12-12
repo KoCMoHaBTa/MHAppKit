@@ -6,11 +6,18 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(Photos)
 import Foundation
+#if canImport(UIKit)
+import UIKit
+#endif
 import Photos
 
+@available(tvOS 10, *)
+@available(OSX 10.13, *)
 extension PHPhotoLibrary {
     
+    #if canImport(UIKit)
     /**
      Saves an image to photo library.
      
@@ -32,6 +39,7 @@ extension PHPhotoLibrary {
         
         self.save(imageData: data, completion: completion)
     }
+    #endif
 
     /**
      Saves an image to photo library.
@@ -40,6 +48,7 @@ extension PHPhotoLibrary {
      - parameter completion: The completion handler called when the image save succeeds or fails.
      */
     
+    @available(OSX 10.15, *)
     open func save(imageData data: Data, completion: ((PHAsset?, Error?) -> Void)?) {
         
         guard
@@ -76,6 +85,7 @@ extension PHPhotoLibrary {
      - parameter completion: The completion handler called when the image save succeeds or fails.
      */
     
+    @available(OSX 10.15, *)
     open func save(imageFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
         
         Self.requestAuthorization { (authorizationStatus) in
@@ -119,8 +129,11 @@ extension PHPhotoLibrary {
     }
 }
 
+@available(tvOS 10, *)
+@available(OSX 10.13, *)
 extension PHPhotoLibrary {
     
+    @available(OSX 10.15, *)
     open func save(videoFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
         
         Self.requestAuthorization { (authorizationStatus) in
@@ -163,3 +176,4 @@ extension PHPhotoLibrary {
         }
     }
 }
+#endif

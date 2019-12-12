@@ -9,6 +9,9 @@
 import Foundation
 import UserNotifications
 
+@available(watchOS 3.0, *)
+@available(tvOS 10.0, *)
+@available(OSX 10.14, *)
 @available(iOS 10.0, *)
 extension UNNotificationRequest {
     

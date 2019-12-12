@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 open class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -100,3 +101,4 @@ open class PageViewController: UIPageViewController, UIPageViewControllerDataSou
         self.setViewControllers([next], direction: direction, animated: animated, completion: completion)
     }
 }
+#endif

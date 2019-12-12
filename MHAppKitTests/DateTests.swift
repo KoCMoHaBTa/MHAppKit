@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHAppKit
@@ -325,4 +326,4 @@ class DateTests : XCTestCase {
         XCTAssertEqual(result, "10/11/1911")
     }
 }
-
+#endif

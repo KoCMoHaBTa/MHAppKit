@@ -6,10 +6,12 @@
 //  Copyright © 2018 Milen Halachev. All rights reserved.
 //
 
+#if canImport(Contacts)
 import Foundation
-import ContactsUI
+import Contacts
 import CoreLocation
 
+@available(OSX 10.11, *)
 @available(iOS 9.0, *)
 extension CNMutablePostalAddress {
     
@@ -48,7 +50,7 @@ extension CNMutablePostalAddress {
             self.isoCountryCode = isoCountryCode
         }
         
-        if #available(iOS 10.3, *) {
+        if #available(iOS 10.3, *), #available(OSX 10.12.4, *), #available(watchOS 3.3, *) {
             
             if let subAdministrativeArea = placemark.subAdministrativeArea {
                 
@@ -62,3 +64,4 @@ extension CNMutablePostalAddress {
         }
     }
 }
+#endif

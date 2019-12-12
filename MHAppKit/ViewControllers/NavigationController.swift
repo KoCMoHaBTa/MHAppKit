@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 open class NavigationController: UINavigationController {
@@ -23,14 +24,18 @@ open class NavigationController: UINavigationController {
     open private(set) var popInteractionController: UIPercentDrivenInteractiveTransition?
     open private(set) lazy var popInteractiveGestureRecognizer: UIGestureRecognizer? = { [unowned self] in
         
-        let popInteractiveGestureRecognizer = UIScreenEdgePanGestureRecognizer()
-        popInteractiveGestureRecognizer.edges = .left
-        popInteractiveGestureRecognizer.addTarget(self, action: #selector(NavigationController.handleInteractivePopGestureRecognizer(_:)))
-        popInteractiveGestureRecognizer.delegate = self
-        
-        self.view.addGestureRecognizer(popInteractiveGestureRecognizer)
-        
-        return popInteractiveGestureRecognizer
+        #if os(tvOS)
+            return nil
+        #else
+            let popInteractiveGestureRecognizer = UIScreenEdgePanGestureRecognizer()
+            popInteractiveGestureRecognizer.edges = .left
+            popInteractiveGestureRecognizer.addTarget(self, action: #selector(NavigationController.handleInteractivePopGestureRecognizer(_:)))
+            popInteractiveGestureRecognizer.delegate = self
+            
+            self.view.addGestureRecognizer(popInteractiveGestureRecognizer)
+            
+            return popInteractiveGestureRecognizer
+        #endif
     }()
     
     /*
@@ -136,8 +141,10 @@ extension NavigationController: UINavigationControllerDelegate {
             }
         }
         
-        let toolbarItemsCount = viewController.toolbarItems?.count ?? 0
-        navigationController.setToolbarHidden(toolbarItemsCount < 1, animated: true)
+        #if !os(tvOS)
+            let toolbarItemsCount = viewController.toolbarItems?.count ?? 0
+            navigationController.setToolbarHidden(toolbarItemsCount < 1, animated: true)
+        #endif
     }
     
     open func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -234,7 +241,4 @@ public protocol UINavigationControllerPreferencesProvider {
     func prefersNavigationBarHidden() -> Bool
     //    func prefersToolBarHidden() -> Bool
 }
-
-
-
-
+#endif

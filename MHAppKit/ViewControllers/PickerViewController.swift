@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
 import UIKit
 
 public protocol PickerViewControllerItem {
@@ -191,3 +192,4 @@ open class PickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         return item.title
     }
 }
+#endif

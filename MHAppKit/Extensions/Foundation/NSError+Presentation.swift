@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -49,12 +50,15 @@ extension NSError {
     }
 }
 
+@available(tvOS 10.0, *)
 extension Error {
     
     ///Show the receiver as a local notification.
     ///- parameter title: The title of the notification
     ///- parameter configurationHandler: A closure used for addition  configuration of the UNMutableNotificationContent
     ///- note: The message of the notification is the receiver's `localizedDescription`.
+    
+    @available(tvOS, unavailable)
     @available(iOS 10, *)
     public func showAsLocalNotification(withTitle title: String, configurationHandler: ((UNMutableNotificationContent) -> Void)) {
         
@@ -71,6 +75,7 @@ extension Error {
     ///- parameter title: The title of the notification
     ///- parameter configurationHandler: A closure used for addition  configuration of the UILocalNotification
     ///- note: The message of the notification is the receiver's `localizedDescription`.
+    @available(tvOS, unavailable)
     public func showAsLocalNotification(withTitle title: String, configurationHandler: ((UILocalNotification) -> Void)) {
         
         let message = self.localizedDescription
@@ -92,6 +97,7 @@ extension Error {
     ///Show the receiver as a local notification.
     ///- parameter title: The title of the notification
     ///- note: The message of the notification is the receiver's `localizedDescription`.
+    @available(tvOS, unavailable)
     public func showAsLocalNotification(withTitle title: String) {
         
         if #available(iOS 10, *) {
@@ -110,6 +116,7 @@ extension Error {
         }
     }
     
+    @available(tvOS, unavailable)
     public static var _defaultBackgroundHandler: (Error, String) -> Void {
         
         return { $0.showAsLocalNotification(withTitle: $1) }
@@ -124,6 +131,7 @@ extension Error {
     ///- parameter closeHandler: An optional close handler. Default to `nil`.
     ///- parameter retryHandler: An optional retry handler. If `nil`, no retry option is presented.
     ///- note: If the view controller is nil, the backgroundHandler is executed.
+    @available(tvOS, unavailable)
     public func showAsAlert(withTitle title: String, from viewController: UIViewController?, closeTitle: String = NSLocalizedString("Close", comment: ""), retryTitle: String = NSLocalizedString("Retry", comment: ""), closeHandler: (() -> Void)? = nil, backgroundHandler: ((Error, String) -> Void)? = Self._defaultBackgroundHandler, retryHandler: (() -> Void)?) {
         
         let message = self.localizedDescription
@@ -153,3 +161,4 @@ extension Error {
         viewController?.showAlertView(title: title, message: message, actions: actions)
     }
 }
+#endif

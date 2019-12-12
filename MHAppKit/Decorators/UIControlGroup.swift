@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -236,3 +237,4 @@ open class UIControlGroup: NSObject {
         self.didChangeControlState?(control, stateAction)
     }
 }
+#endif

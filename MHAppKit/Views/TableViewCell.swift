@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -164,3 +165,4 @@ open class TableViewCell: UITableViewCell {
     ///if you need a reference to your custom separator view :)
     @IBOutlet open weak var separatorView: UIView?
 }
+#endif

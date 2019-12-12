@@ -8,15 +8,17 @@
 
 import Foundation
 
+@available(watchOS 3.0, *)
+@available(tvOS 10.0, *)
+@available(OSX 10.12, *)
+@available(iOS 10.0, *)
 extension Data {
     
-    @available(iOS 10.0, *)
     public func writeToTemporaryURL(withExtension ext: String? = nil) throws -> URL {
         
         return try self.writeToTemporaryURL(withExtension: ext, options: [])
     }
     
-    @available(iOS 10.0, *)
     public func writeToTemporaryURL(withExtension ext: String? = nil, options: Data.WritingOptions) throws -> URL {
         
         var url = FileManager.default.temporaryDirectory.appendingPathComponent(.uuid)

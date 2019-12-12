@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///A segue that replaces the last view controller of the source's navigation stack with the destination
@@ -28,3 +29,4 @@ open class UINavigationControllerReplaceLastSegue: UIStoryboardSegue {
         }
     }
 }
+#endif

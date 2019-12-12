@@ -6,6 +6,7 @@
 //  Copyright © 2018 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHAppKit
@@ -50,3 +51,4 @@ class OperationQueueTests: XCTestCase {
         }
     }
 }
+#endif

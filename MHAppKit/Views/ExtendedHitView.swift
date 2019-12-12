@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 ///An UIView subclass that can extends/shrink its hit area beyond/within its bounds.
@@ -35,3 +36,4 @@ open class ExtendedHitView: UIView {
         return UIEdgeInsets(top: extendedHitTop, left: extendedHitLeft, bottom: extendedHitBottom, right: extendedHitRight)
     }
 }
+#endif

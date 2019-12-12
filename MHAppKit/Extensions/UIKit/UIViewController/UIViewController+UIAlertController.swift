@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -132,6 +133,7 @@ extension UIViewController {
      - parameter popoverPresentationControllerDelegate: An instance of `UIPopoverPresentationControllerDelegate` that is assigned before presentation.
      */
     
+    @available(tvOS, unavailable)
     open func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
      
         self.showActionSheet(title: title, message: message, actions: actions) { (alertController) -> Void in
@@ -173,6 +175,7 @@ extension UIViewController {
      - parameter popoverPresentationControllerDelegate: An instance of `UIPopoverPresentationControllerDelegate` that is assigned before presentation.
      */
     
+    @available(tvOS, unavailable)
     open func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], sourceRect: CGRect, sourceView: UIView?, popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
         
         self.showActionSheet(title: title, message: message, actions: actions, sourceRect: sourceRect, sourceView: sourceView) { (alertController) -> Void in
@@ -198,3 +201,4 @@ extension UIViewController {
         }
     }
 }
+#endif

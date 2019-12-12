@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 open class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -16,14 +17,16 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         
         super.viewDidLoad()
         
-        if self.enableRefreshing() {
-            
-            let refreshControl = UIRefreshControl()
-            self.collectionView?.addSubview(refreshControl)
-            self.collectionView?.alwaysBounceVertical = true
-            refreshControl.addTarget(self, action: #selector(CollectionViewController.refreshControlAction(_:)), for: .valueChanged)
-            self.refreshControl = refreshControl
-        }
+        #if !os(tvOS)
+            if self.enableRefreshing() {
+                
+                let refreshControl = UIRefreshControl()
+                self.collectionView?.addSubview(refreshControl)
+                self.collectionView?.alwaysBounceVertical = true
+                refreshControl.addTarget(self, action: #selector(CollectionViewController.refreshControlAction(_:)), for: .valueChanged)
+                self.refreshControl = refreshControl
+            }
+        #endif
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -47,10 +50,12 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         }
     }
     
+    #if !os(tvOS)
     open override var prefersStatusBarHidden : Bool {
         
         return self.prefersStatusBarHiddenValue ?? super.prefersStatusBarHidden
     }
+    #endif
     
     open var collectionViewFlowLayout: UICollectionViewFlowLayout? {
         
@@ -212,26 +217,31 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 
     //MARK: - UIRefreshControl
     
+    @available(tvOS, unavailable)
     @IBOutlet open var refreshControl: UIRefreshControl?
     
     //false by default
+    @available(tvOS, unavailable)
     open func enableRefreshing() -> Bool {
         
         return false
     }
     
     //used by performRefresh
+    @available(tvOS, unavailable)
     open func shouldRefresh() -> Bool {
         
         return false
     }
     
+    @available(tvOS, unavailable)
     open func beginRefresh() {
         
         self.refreshControl?.beginRefreshing()
 //        self.searchDisplayController?.searchBar.userInteractionEnabled = false
     }
     
+    @available(tvOS, unavailable)
     open func endRefresh() {
         
         self.refreshControl?.endRefreshing()
@@ -239,6 +249,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     }
 
     //calls beginRefresh -> refreshControlActionWithCompletionBlock -> endRefresh
+    @available(tvOS, unavailable)
     @IBAction open func refreshControlAction(_ sender: Any?) {
         
         self.beginRefresh()
@@ -250,12 +261,14 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     //its bets to override this method and perform refresh process in it. Call completion block when done.
+    @available(tvOS, unavailable)
     open func refreshControlActionWithCompletionBlock(_ completionBlock: @escaping () -> Void) {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(1 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: completionBlock)
     }
     
     //programatic refresh - shouldRefresh -> content inset (animated) -> refreshControlAction
+    @available(tvOS, unavailable)
     open func performRefresh(_ animated: Bool = true) {
         
         if self.shouldRefresh() && self.refreshControl != nil {
@@ -265,6 +278,4 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         }
     }
 }
-
-
-
+#endif

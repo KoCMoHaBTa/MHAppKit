@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -56,3 +57,4 @@ extension UIWindow {
         return backgroundImageView
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit)
 import Foundation
 import UIKit
 
@@ -29,4 +30,4 @@ extension UIImage {
         return tintedImage
     }
 }
-
+#endif

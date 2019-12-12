@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -186,5 +187,4 @@ extension UIView {
         return self.subviews(matching: { $0 is T }) as! [T]
     }
 }
-
-
+#endif

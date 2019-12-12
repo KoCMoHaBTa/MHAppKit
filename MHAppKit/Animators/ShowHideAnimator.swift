@@ -6,6 +6,7 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
 import UIKit
 
@@ -58,3 +59,4 @@ open class ShowHideAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         self.completionBlock?(transitionCompleted)
     }
 }
+#endif

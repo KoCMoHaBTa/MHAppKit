@@ -6,7 +6,9 @@
 //  Copyright © 2017 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit)
 import Foundation
+import UIKit
 import ImageIO
 
 extension UIImage {
@@ -78,6 +80,4 @@ extension UIImage {
         return resultData as Data
     }
 }
-
-
-
+#endif

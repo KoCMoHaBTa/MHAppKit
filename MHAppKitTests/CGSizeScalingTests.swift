@@ -6,6 +6,7 @@
 //  Copyright © 2018 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHAppKit
@@ -204,3 +205,4 @@ class CGSizeScalingTests: XCTestCase {
         XCTAssertEqual(CGSize(width: 50, height: 50).scaling(to: .fill, into: CGSize(width: 100, height: 100)), CGSize(width: 100, height: 100))
     }
 }
+#endif

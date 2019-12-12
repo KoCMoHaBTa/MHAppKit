@@ -16,6 +16,9 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+## Swift Package Manager
+.swiftpm
+
 ## Other
 *.moved-aside
 *.xcuserstate
