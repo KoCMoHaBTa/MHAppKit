@@ -43,9 +43,9 @@ extension Date {
 extension String {
     
     ///Formats a date for a given template in user visible representation
-    public init?(formatting date: Date, template: String) {
+    public init?(formatting date: Date, template: String, locale: Locale? = .current) {
         
-        guard let format = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: nil) else { return nil }
+        guard let format = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: locale) else { return nil }
         self.init(formatting: date, format: format, locale: nil, timeZone: nil, calendar: nil)
     }
     
