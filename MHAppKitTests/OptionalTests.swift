@@ -6,6 +6,7 @@
 //  Copyright © 2020 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHAppKit
@@ -69,3 +70,4 @@ class OptionalTests: XCTestCase {
         XCTAssertNil(typeCast(notOptional))
     }
 }
+#endif

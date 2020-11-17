@@ -326,7 +326,7 @@ class DateTests : XCTestCase {
         XCTAssertEqual(result, "10/11/1911")
     }
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     func testAdjustingDaylightSavingTimeWhenTransitioningFromDaylightSaving() {
         
         let timeZone = TimeZone(identifier: "Europe/Sofia")!
@@ -338,7 +338,7 @@ class DateTests : XCTestCase {
         XCTAssertEqual(String(formatting: targetDateBeyondTheSameDaylightSavingTime, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "26.10.2020 03:00")
     }
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     func testAdjustingDaylightSavingTimeWhenTransitioningToDaylightSaving() {
         
         let timeZone = TimeZone(identifier: "Europe/Sofia")!
@@ -350,7 +350,7 @@ class DateTests : XCTestCase {
         XCTAssertEqual(String(formatting: targetDateBeyondTheSameDaylightSavingTime, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "30.03.2020 02:00")
     }
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     func testAdjustingDaylightSavingTimeWhenNotTransitioningButIsDaylightSaving() {
         
         let timeZone = TimeZone(identifier: "Europe/Sofia")!
@@ -362,7 +362,7 @@ class DateTests : XCTestCase {
         XCTAssertEqual(String(formatting: targetDate2, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "24.10.2020 03:00")
     }
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     func testAdjustingDaylightSavingTimeWhenNotTransitioningButIsNOTDaylightSaving() {
         
         let timeZone = TimeZone(identifier: "Europe/Sofia")!

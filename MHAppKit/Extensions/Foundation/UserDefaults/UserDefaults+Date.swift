@@ -51,7 +51,7 @@ extension UserDefaults {
      - returns: The date associated with the specified key, or nil if the key was not found or the value cannot be formatted.
      */
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     public func date(forKey defaultName: String, using formatter: ISO8601DateFormatter) -> Date? {
         
         guard let string = self.string(forKey: defaultName) else {
@@ -69,7 +69,7 @@ extension UserDefaults {
      - parameter defaultName: The key with which to associate the value.
      - parameter formatter: The formatter used to parse the stored date value.
      */
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     public func set(_ value: Date?, forKey defaultName: String, using formatter: ISO8601DateFormatter) {
         
         var string: String? = nil

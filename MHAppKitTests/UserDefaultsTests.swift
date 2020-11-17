@@ -6,6 +6,7 @@
 //  Copyright © 2020 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHAppKit
@@ -25,7 +26,7 @@ class UserDefaultsTests: XCTestCase {
         try XCTAssertEqual(XCTUnwrap(UserDefaults.standard.date(forKey: key, using: formatter)), date)
     }
     
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     func testStoringISO8601Date() {
         
         let formatter = ISO8601DateFormatter()
@@ -222,3 +223,4 @@ class UserDefaultsTests: XCTestCase {
         o3 = nil
     }
 }
+#endif

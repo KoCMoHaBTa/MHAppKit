@@ -6,7 +6,9 @@
 //  Copyright © 2020 Milen Halachev. All rights reserved.
 //
 
+#if canImport(UIKit) && !os(watchOS)
 import Foundation
+import UIKit
 import SwiftUI
 
 @available(iOS 13.0, tvOS 13.0, *)
@@ -55,3 +57,4 @@ extension AnyUIViewRepresentable where Coordinator == Void {
         )
     }
 }
+#endif
