@@ -185,5 +185,26 @@ class MHAppKitTests: XCTestCase {
         
         XCTAssertEqual([nil, "1", nil, "2", nil].compactMap(), ["1", "2"])
     }
+    
+    func testArraySplitByCount() {
+        
+        XCTAssertEqual([Int]().splitBy(0), [[]])
+        XCTAssertEqual([Int]().splitBy(1), [[]])
+        XCTAssertEqual([Int]().splitBy(2), [[]])
+        
+        XCTAssertEqual([0].splitBy(0), [[0]])
+        XCTAssertEqual([0].splitBy(1), [[0]])
+        XCTAssertEqual([0].splitBy(2), [[0]])
+        
+        XCTAssertEqual([0, 1].splitBy(0), [[0, 1]])
+        XCTAssertEqual([0, 1].splitBy(1), [[0], [1]])
+        XCTAssertEqual([0, 1].splitBy(2), [[0, 1]])
+        
+        XCTAssertEqual([0, 1, 2, 3, 4, 5].splitBy(0), [[0, 1, 2, 3, 4, 5]])
+        XCTAssertEqual([0, 1, 2, 3, 4, 5].splitBy(1), [[0], [1], [2], [3], [4], [5]])
+        XCTAssertEqual([0, 1, 2, 3, 4, 5].splitBy(2), [[0, 1], [2, 3], [4, 5]])
+        XCTAssertEqual([0, 1, 2, 3, 4, 5].splitBy(3), [[0, 1, 2], [3, 4, 5]])
+        XCTAssertEqual([0, 1, 2, 3, 4, 5].splitBy(4), [[0, 1, 2, 3], [4, 5]])
+    }
 }
 #endif
