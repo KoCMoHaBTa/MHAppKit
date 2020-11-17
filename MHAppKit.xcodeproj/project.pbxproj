@@ -100,6 +100,8 @@
 		E6AE7EEC2563DCC000FAD912 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7EEB2563DCC000FAD912 /* OptionalType.swift */; };
 		E6AE7EF42563DCDC00FAD912 /* OptionalTypeVerifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7EF32563DCDC00FAD912 /* OptionalTypeVerifiable.swift */; };
 		E6AE7EF92563DD1200FAD912 /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7EF82563DD1200FAD912 /* OptionalTests.swift */; };
+		E6AE7F0D2563E30F00FAD912 /* UserDefaults+Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7F0C2563E30F00FAD912 /* UserDefaults+Observer.swift */; };
+		E6AE7F122563E65500FAD912 /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7F112563E65500FAD912 /* UserDefaultsTests.swift */; };
 		E6B83B1223014E5400D8C14F /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */; };
 		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
 		E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */; };
@@ -272,6 +274,8 @@
 		E6AE7EEB2563DCC000FAD912 /* OptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
 		E6AE7EF32563DCDC00FAD912 /* OptionalTypeVerifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTypeVerifiable.swift; sourceTree = "<group>"; };
 		E6AE7EF82563DD1200FAD912 /* OptionalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
+		E6AE7F0C2563E30F00FAD912 /* UserDefaults+Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Observer.swift"; sourceTree = "<group>"; };
+		E6AE7F112563E65500FAD912 /* UserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTests.swift; sourceTree = "<group>"; };
 		E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		E6CF2D5B23A2737000CB0FB6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 				E65AA39C21CBA8B500E58856 /* OperationQueueTests.swift */,
 				E694634922143A470045DA5D /* CollectionTests.swift */,
 				E6AE7EF82563DD1200FAD912 /* OptionalTests.swift */,
+				E6AE7F112563E65500FAD912 /* UserDefaultsTests.swift */,
 				303520BC1C88EDCC00436351 /* Info.plist */,
 			);
 			path = MHAppKitTests;
@@ -654,6 +659,7 @@
 			isa = PBXGroup;
 			children = (
 				E6E8760F221A9AE00016F53D /* UserDefaults+Date.swift */,
+				E6AE7F0C2563E30F00FAD912 /* UserDefaults+Observer.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -918,6 +924,7 @@
 				E6DA2063222922CE00DB24FA /* UINavigationBar+SeparatorHiding.swift in Sources */,
 				E60A581E21F2667B005E0032 /* UIImagePickerControllerMediaInfo+Properties.swift in Sources */,
 				E69DCE0020AC62E7003DDD91 /* TableViewHeaderFooterView.swift in Sources */,
+				E6AE7F0D2563E30F00FAD912 /* UserDefaults+Observer.swift in Sources */,
 				E69113BD20E4FD7700749F6B /* UNNotificationRequest+Factory.swift in Sources */,
 				E614429421EF6F49009570EE /* UITextView+ExclusionViews.swift in Sources */,
 				E60E8D711FC37313009CE622 /* NibLoadable.swift in Sources */,
@@ -1014,6 +1021,7 @@
 				E630CB832145C48000386CBF /* StringTests.swift in Sources */,
 				E6FE9F411F2622C30094CC5B /* DateTests.swift in Sources */,
 				E630CB852145C57A00386CBF /* CGSizeScalingTests.swift in Sources */,
+				E6AE7F122563E65500FAD912 /* UserDefaultsTests.swift in Sources */,
 				E65AA39D21CBA8B500E58856 /* OperationQueueTests.swift in Sources */,
 				E6AE7EF92563DD1200FAD912 /* OptionalTests.swift in Sources */,
 			);
