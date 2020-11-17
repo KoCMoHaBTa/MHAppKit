@@ -180,5 +180,10 @@ class MHAppKitTests: XCTestCase {
         XCTAssertEqual(["1": "edno", "a": "x", "b": "y"][["a", "1", "c", "b"]], ["x", "edno", nil, "y"])
         XCTAssertEqual(["1": "edno", "a": "x", "b": "y"][Optional<[String]>.none], [])
     }
+    
+    func testArrayCompactMap() {
+        
+        XCTAssertEqual([nil, "1", nil, "2", nil].compactMap(), ["1", "2"])
+    }
 }
 #endif
