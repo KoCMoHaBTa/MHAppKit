@@ -13,7 +13,7 @@ import SwiftUI
 extension View {
     
     @ViewBuilder
-    func map<T: View>(@ViewBuilder _ transform: (Self) -> T) -> some View  {
+    public func map<T: View>(@ViewBuilder _ transform: (Self) -> T) -> some View  {
     
         transform(self)
     }

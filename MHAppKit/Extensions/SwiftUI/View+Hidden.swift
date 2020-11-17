@@ -12,7 +12,8 @@ import SwiftUI
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension View {
     
-    @ViewBuilder func hidden(_ isHidden: Bool) -> some View {
+    @ViewBuilder
+    public func hidden(_ isHidden: Bool) -> some View {
             
         if isHidden {
             
@@ -24,7 +25,8 @@ extension View {
         }
     }
     
-    @ViewBuilder func visible(_ isVisible: Bool) -> some View {
+    @ViewBuilder
+    public func visible(_ isVisible: Bool) -> some View {
             
         hidden(!isVisible)
     }
