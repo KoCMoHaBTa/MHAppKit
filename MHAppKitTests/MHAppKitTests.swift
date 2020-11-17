@@ -173,5 +173,12 @@ class MHAppKitTests: XCTestCase {
         XCTAssertNil(Result<Int, Error>.success(5).error)
         XCTAssertNotNil(Result<Int, Error>.success(5).success)
     }
+    
+    func testDictionaryKeysSubscript() {
+        
+        XCTAssertEqual(["1": "edno", "a": "x", "b": "y"][["a", "1", "b"]], ["x", "edno", "y"])
+        XCTAssertEqual(["1": "edno", "a": "x", "b": "y"][["a", "1", "c", "b"]], ["x", "edno", nil, "y"])
+        XCTAssertEqual(["1": "edno", "a": "x", "b": "y"][Optional<[String]>.none], [])
+    }
 }
 #endif

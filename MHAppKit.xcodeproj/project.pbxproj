@@ -106,6 +106,7 @@
 		E6AE7F2425640E8300FAD912 /* Referenced.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7F2325640E8300FAD912 /* Referenced.swift */; };
 		E6AE7F292564111B00FAD912 /* Result+Getters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7F282564111B00FAD912 /* Result+Getters.swift */; };
 		E6AE7F302564129E00FAD912 /* UIApplication+OpenSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7F2F2564129E00FAD912 /* UIApplication+OpenSettings.swift */; };
+		E6AE7F382564138900FAD912 /* Dictionary+KeysSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7F372564138900FAD912 /* Dictionary+KeysSubscript.swift */; };
 		E6B83B1223014E5400D8C14F /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */; };
 		E6D1EE4420035C3E00B9B300 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */; };
 		E6D1EE462003F55400B9B300 /* RefreshStaticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1EE452003F55400B9B300 /* RefreshStaticTableViewController.swift */; };
@@ -284,6 +285,7 @@
 		E6AE7F2325640E8300FAD912 /* Referenced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Referenced.swift; sourceTree = "<group>"; };
 		E6AE7F282564111B00FAD912 /* Result+Getters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Getters.swift"; sourceTree = "<group>"; };
 		E6AE7F2F2564129E00FAD912 /* UIApplication+OpenSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+OpenSettings.swift"; sourceTree = "<group>"; };
+		E6AE7F372564138900FAD912 /* Dictionary+KeysSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+KeysSubscript.swift"; sourceTree = "<group>"; };
 		E6B83B1123014E5400D8C14F /* UIImage+Tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		E6CF2D5B23A2737000CB0FB6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E6D1EE4320035C3E00B9B300 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 				E61C31541FC444FC00C43068 /* Collection+ConvenienceMutating.swift */,
 				E60A581B21F262A1005E0032 /* Data+TemporaryFile.swift */,
 				E6AE7F282564111B00FAD912 /* Result+Getters.swift */,
+				E6AE7F372564138900FAD912 /* Dictionary+KeysSubscript.swift */,
 				E630CB812145C1B600386CBF /* String */,
 				E6FE9F3B1F2622320094CC5B /* Date */,
 				E69CE96221CB95560029D199 /* OperationQueue */,
@@ -1003,6 +1006,7 @@
 				303521301C88F00D00436351 /* UILabel.swift in Sources */,
 				99387BD71DFAB7BB008F5FDB /* Timer+Closures.swift in Sources */,
 				3035212B1C88F00D00436351 /* UIViewController.swift in Sources */,
+				E6AE7F382564138900FAD912 /* Dictionary+KeysSubscript.swift in Sources */,
 				E6E71C061F0A8EA6000980C5 /* PHAsset+Metadata.swift in Sources */,
 				E60A582021F26699005E0032 /* UIImagePickerControllerMediaInfo+DataExport.swift in Sources */,
 				E6FE9F3A1F2622180094CC5B /* TimeInterval+TimeConvertion.swift in Sources */,
