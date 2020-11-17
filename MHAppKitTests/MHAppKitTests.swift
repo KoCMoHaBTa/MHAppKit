@@ -148,5 +148,21 @@ class MHAppKitTests: XCTestCase {
         XCTAssertEqual(view0.subviewsOfType(UILabel.self).map({ $0.tag }), [1, 7, 8])
     }
     #endif
+    
+    //@Referenced allow us to mutate an immutable value type
+    func testReferences() {
+        
+        struct Mock {
+            
+            @Referenced var value: Int = 5
+        }
+        
+        
+        let mock = Mock()
+        
+        XCTAssertEqual(mock.value, 5)
+        mock.value = 10
+        XCTAssertEqual(mock.value, 10)
+    }
 }
 #endif
