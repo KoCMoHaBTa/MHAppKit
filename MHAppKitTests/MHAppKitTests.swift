@@ -164,5 +164,14 @@ class MHAppKitTests: XCTestCase {
         mock.value = 10
         XCTAssertEqual(mock.value, 10)
     }
+    
+    func testResultGetters() {
+        
+        XCTAssertNotNil(Result<Int, Error>.failure(NSError(domain: .uuid, code: 0, userInfo: nil)).error)
+        XCTAssertNil(Result<Int, Error>.failure(NSError(domain: .uuid, code: 0, userInfo: nil)).success)
+        
+        XCTAssertNil(Result<Int, Error>.success(5).error)
+        XCTAssertNotNil(Result<Int, Error>.success(5).success)
+    }
 }
 #endif
