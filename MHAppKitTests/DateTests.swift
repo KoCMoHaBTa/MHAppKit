@@ -325,5 +325,53 @@ class DateTests : XCTestCase {
         // verify
         XCTAssertEqual(result, "10/11/1911")
     }
+    
+    @available(iOS 10.0, *)
+    func testAdjustingDaylightSavingTimeWhenTransitioningFromDaylightSaving() {
+        
+        let timeZone = TimeZone(identifier: "Europe/Sofia")!
+        let now = ISO8601DateFormatter().date(from: "2020-10-22T00:00:00Z")!
+        let targetDateWithinTheSameDaylightSavingTime = ISO8601DateFormatter().date(from: "2020-10-24T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        let targetDateBeyondTheSameDaylightSavingTime = ISO8601DateFormatter().date(from: "2020-10-26T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        
+        XCTAssertEqual(String(formatting: targetDateWithinTheSameDaylightSavingTime, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "24.10.2020 03:00")
+        XCTAssertEqual(String(formatting: targetDateBeyondTheSameDaylightSavingTime, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "26.10.2020 03:00")
+    }
+    
+    @available(iOS 10.0, *)
+    func testAdjustingDaylightSavingTimeWhenTransitioningToDaylightSaving() {
+        
+        let timeZone = TimeZone(identifier: "Europe/Sofia")!
+        let now = ISO8601DateFormatter().date(from: "2020-03-25T00:00:00Z")!
+        let targetDateWithinTheSameDaylightSavingTime = ISO8601DateFormatter().date(from: "2020-03-27T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        let targetDateBeyondTheSameDaylightSavingTime = ISO8601DateFormatter().date(from: "2020-03-30T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        
+        XCTAssertEqual(String(formatting: targetDateWithinTheSameDaylightSavingTime, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "27.03.2020 02:00")
+        XCTAssertEqual(String(formatting: targetDateBeyondTheSameDaylightSavingTime, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "30.03.2020 02:00")
+    }
+    
+    @available(iOS 10.0, *)
+    func testAdjustingDaylightSavingTimeWhenNotTransitioningButIsDaylightSaving() {
+        
+        let timeZone = TimeZone(identifier: "Europe/Sofia")!
+        let now = ISO8601DateFormatter().date(from: "2020-10-22T00:00:00Z")!
+        let targetDate1 = ISO8601DateFormatter().date(from: "2020-10-23T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        let targetDate2 = ISO8601DateFormatter().date(from: "2020-10-24T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        
+        XCTAssertEqual(String(formatting: targetDate1, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "23.10.2020 03:00")
+        XCTAssertEqual(String(formatting: targetDate2, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "24.10.2020 03:00")
+    }
+    
+    @available(iOS 10.0, *)
+    func testAdjustingDaylightSavingTimeWhenNotTransitioningButIsNOTDaylightSaving() {
+        
+        let timeZone = TimeZone(identifier: "Europe/Sofia")!
+        let now = ISO8601DateFormatter().date(from: "2020-03-25T00:00:00Z")!
+        let targetDate1 = ISO8601DateFormatter().date(from: "2020-03-27T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        let targetDate2 = ISO8601DateFormatter().date(from: "2020-03-28T00:00:00Z")!.adjustingDaylightSavingTime(for: timeZone, inRegardsTo: now)
+        
+        XCTAssertEqual(String(formatting: targetDate1, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "27.03.2020 02:00")
+        XCTAssertEqual(String(formatting: targetDate2, format: "dd.MM.yyyy HH:mm", timeZone: timeZone), "28.03.2020 02:00")
+    }
 }
 #endif
