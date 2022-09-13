@@ -13,7 +13,7 @@ extension OperationQueue {
     /**
      Adds the operations to the receiver using `addOperations:waitUntilFinished` function and adds an additional operation that depends on the supplied opeations, used for completion handler. The completion block is set to the completion operation's completionBlock property.
      */
-    open func addOperations(_ ops: [Operation], waitUntilFinished wait: Bool, completion: @escaping () -> Void) {
+    public func addOperations(_ ops: [Operation], waitUntilFinished wait: Bool, completion: @escaping () -> Void) {
         
         let completionOperation = Operation()
         completionOperation.completionBlock = completion

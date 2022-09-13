@@ -13,7 +13,7 @@ import UIKit
 extension UIViewController {
     
     ///Lookup the visible view controller, starting form the receiver. This is useful if you want to find the currently visivle view controller from your root view controller.
-    open func lookupVisibleViewController() -> UIViewController {
+    public func lookupVisibleViewController() -> UIViewController {
         
         if let presentedViewController = self.presentedViewController {
             
@@ -37,7 +37,7 @@ extension UIViewController {
 extension UIViewController {
     
     ///Returns a sequence of the composition of all child view controllers
-    open var allChildViewControllers: [UIViewController] {
+    public var allChildViewControllers: [UIViewController] {
         
         return self.children + self.children.flatMap({ $0.allChildViewControllers })
     }

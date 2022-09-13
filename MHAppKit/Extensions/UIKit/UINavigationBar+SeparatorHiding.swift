@@ -29,7 +29,7 @@ extension UINavigationBar {
         set { newValue ? self.hideSeparator() : self.showSeparator() }
     }
     
-    open func showSeparator() {
+    public func showSeparator() {
         
         //restore the navigation bar separator
         if #available(iOS 13.0, *), #available(tvOS 13.0, *) {
@@ -48,7 +48,7 @@ extension UINavigationBar {
         }
     }
     
-    open func hideSeparator() {
+    public func hideSeparator() {
         
         //remove the navigation bar separator
         if #available(iOS 13.0, *), #available(tvOS 13.0, *) {

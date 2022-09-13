@@ -15,7 +15,7 @@ extension UINavigationController {
     private static let backgroundViewTag = "UINavigationController.backgroundViewTag".hashValue
     private static let backgroundImageViewTag = "UINavigationController.backgroundImageViewTag".hashValue
     
-    open var backgroundView: UIView {
+    public var backgroundView: UIView {
 
         if let backgroundView = self.view.viewWithTag(Self.backgroundViewTag) {
             
@@ -33,7 +33,7 @@ extension UINavigationController {
         return backgroundView
     }
     
-    open var backgroundImageView: UIImageView {
+    public var backgroundImageView: UIImageView {
         
         if let backgroundImageView = self.backgroundView.viewWithTag(Self.backgroundImageViewTag) as? UIImageView {
             

@@ -15,7 +15,7 @@ extension UIWindow {
     private static let backgroundViewTag = "UIWindowr.backgroundViewTag".hashValue
     private static let backgroundImageViewTag = "UIWindow.backgroundImageViewTag".hashValue
     
-    open var backgroundView: UIView {
+    public var backgroundView: UIView {
         
         if let backgroundView = self.viewWithTag(Self.backgroundViewTag) {
             
@@ -33,7 +33,7 @@ extension UIWindow {
         return backgroundView
     }
     
-    open var backgroundImageView: UIImageView {
+    public var backgroundImageView: UIImageView {
         
         if let backgroundImageView = self.backgroundView.viewWithTag(Self.backgroundImageViewTag) as? UIImageView {
             

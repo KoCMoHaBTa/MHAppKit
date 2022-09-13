@@ -28,7 +28,7 @@ extension PHPhotoLibrary {
      - parameter metadata: The image exif metadata.
      - parameter completion: The completion handler called when the image save succeeds or fails.
      */
-    open func save(image: UIImage, as representation: UIImage.Representation, withMetadata metadata: [AnyHashable: Any]?, completion: ((PHAsset?, Error?) -> Void)?) {
+    public func save(image: UIImage, as representation: UIImage.Representation, withMetadata metadata: [AnyHashable: Any]?, completion: ((PHAsset?, Error?) -> Void)?) {
         
         guard let data = image.data(as: representation, withMetadata: metadata) else {
             
@@ -49,7 +49,7 @@ extension PHPhotoLibrary {
      */
     
     @available(OSX 10.15, *)
-    open func save(imageData data: Data, completion: ((PHAsset?, Error?) -> Void)?) {
+    public func save(imageData data: Data, completion: ((PHAsset?, Error?) -> Void)?) {
         
         guard
         let temporaryFileURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(NSUUID().uuidString)
@@ -86,7 +86,7 @@ extension PHPhotoLibrary {
      */
     
     @available(OSX 10.15, *)
-    open func save(imageFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
+    public func save(imageFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
         
         Self.requestAuthorization { (authorizationStatus) in
             
@@ -134,7 +134,7 @@ extension PHPhotoLibrary {
 extension PHPhotoLibrary {
     
     @available(OSX 10.15, *)
-    open func save(videoFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
+    public func save(videoFileAtURL url: URL, completion: ((PHAsset?, Error?) -> Void)?) {
         
         Self.requestAuthorization { (authorizationStatus) in
             

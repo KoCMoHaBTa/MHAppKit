@@ -16,7 +16,7 @@ extension PHAsset {
     
     ///Loads any available media metadata from the recevier 
     @available(OSX 10.15, *)
-    open func mediaMetadata(completion: @escaping ([AnyHashable: Any]?) -> Void) {
+    public func mediaMetadata(completion: @escaping ([AnyHashable: Any]?) -> Void) {
         
         self.requestContentEditingInput(with: nil) { (input, info) -> Void in
             

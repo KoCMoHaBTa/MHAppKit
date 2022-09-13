@@ -14,7 +14,7 @@ extension NSError {
     
     ///Shows an alert, representing the receiver, from a given view controller
     @available(*, deprecated, message: "Use showAsAlert(withTitle:from:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
-    open func showAlert(from controller: UIViewController?) {
+    public func showAlert(from controller: UIViewController?) {
         
         self.showAlert(from: controller, retry: nil)
     }
@@ -30,7 +30,7 @@ extension NSError {
      */
     
     @available(*, deprecated, message: "Use showAsAlert(withTitle:from:closeTitle:retryTitle:closeHandler:backgroundHandler:retryHandler:) instead.")
-    open func showAlert(from controller: UIViewController?, retry: (() -> Void)?) {
+    public func showAlert(from controller: UIViewController?, retry: (() -> Void)?) {
         
         let title = self.domain
         let message = self.localizedDescription

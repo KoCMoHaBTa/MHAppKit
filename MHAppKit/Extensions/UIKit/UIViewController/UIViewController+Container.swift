@@ -44,7 +44,7 @@ extension UIViewController {
      */
     
     @available(*, deprecated, message: "Use addChild(_:in:using:)")
-    open func addChildViewController(_ controller: UIViewController, inView view: UIView, layouter: AddViewLayouter = UIViewController.defaultAddViewLayouter) {
+    public func addChildViewController(_ controller: UIViewController, inView view: UIView, layouter: AddViewLayouter = UIViewController.defaultAddViewLayouter) {
         
         self.addChild(controller)
         
@@ -64,7 +64,7 @@ extension UIViewController {
      */
     
     @available(*, deprecated, message: "Use removeChild(_:using:)")
-    open func removeChildViewController(_ controller: UIViewController, layouter: RemoveViewLayouter = UIViewController.defaultRemoveViewLayouter) {
+    public func removeChildViewController(_ controller: UIViewController, layouter: RemoveViewLayouter = UIViewController.defaultRemoveViewLayouter) {
         
         controller.willMove(toParent: nil)
         

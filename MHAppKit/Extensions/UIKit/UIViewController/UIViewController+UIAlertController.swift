@@ -22,7 +22,7 @@ extension UIViewController {
      - parameter configurator: A closure that can be used for additional configuration before presentation.
      */
     
-    open func showAlertController(title: String?, message: String?, preferredStyle: UIAlertController.Style, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)?) {
+    public func showAlertController(title: String?, message: String?, preferredStyle: UIAlertController.Style, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)?) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         
@@ -47,7 +47,7 @@ extension UIViewController {
      - parameter configurator: A closure that can be used for additional configuration before presentation.
      */
     
-    open func showAlertView(title: String?, message: String?, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)? = nil) {
+    public func showAlertView(title: String?, message: String?, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)? = nil) {
         
         self.showAlertController(title: title, message: message, preferredStyle: .alert, actions: actions) { (alertController) in
             
@@ -63,7 +63,7 @@ extension UIViewController {
      - parameter action: See `UIAlertController` and `UIAlertAction` for more information.
      */
     
-    open func showAlertView(title: String?, message: String?, action: UIAlertAction) {
+    public func showAlertView(title: String?, message: String?, action: UIAlertAction) {
         
         self.showAlertView(title: title, message: message, actions: [action])
     }
@@ -77,7 +77,7 @@ extension UIViewController {
      - parameter handler: The handler of the action.
      */
     
-    open func showAlertView(title: String?, message: String?, actionTitle: String? = NSLocalizedString("Close", comment: ""), handler: ((_ action: UIAlertAction) -> Void)?) {
+    public func showAlertView(title: String?, message: String?, actionTitle: String? = NSLocalizedString("Close", comment: ""), handler: ((_ action: UIAlertAction) -> Void)?) {
 
         self.showAlertView(title: title, message: message, action: UIAlertAction(title: actionTitle, style: .default, handler: handler))
     }
@@ -92,7 +92,7 @@ extension UIViewController {
      - parameter handler: The handler of the action.
      */
     
-    open func showAlertView(title: String?, message: String?, positiveActionTitle: String = NSLocalizedString("OK", comment: ""), negativeActionTitle: String = NSLocalizedString("Cancel", comment: ""), handler: @escaping (_ action: UIAlertAction, _ positive: Bool) -> Void) {
+    public func showAlertView(title: String?, message: String?, positiveActionTitle: String = NSLocalizedString("OK", comment: ""), negativeActionTitle: String = NSLocalizedString("Cancel", comment: ""), handler: @escaping (_ action: UIAlertAction, _ positive: Bool) -> Void) {
         
         self.showAlertView(title: title, message: message, actions: [
             
@@ -119,7 +119,7 @@ extension UIViewController {
      - parameter configurator: A closure that can be used for additional configuration before presentation.
      */
     
-    open func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)? = nil) {
+    public func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], configurator: ((_ alertController: UIAlertController) -> Void)? = nil) {
         
         self.showAlertController(title: title, message: message, preferredStyle: .actionSheet, actions: actions, configurator: configurator)
     }
@@ -134,7 +134,7 @@ extension UIViewController {
      */
     
     @available(tvOS, unavailable)
-    open func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
+    public func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
      
         self.showActionSheet(title: title, message: message, actions: actions) { (alertController) -> Void in
             
@@ -153,7 +153,7 @@ extension UIViewController {
      - parameter configurator: A closure that can be used for additional configuration before presentation.
      */
     
-    open func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], sourceRect: CGRect, sourceView: UIView?, configurator: ((_ alertController: UIAlertController) -> Void)? = nil) {
+    public func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], sourceRect: CGRect, sourceView: UIView?, configurator: ((_ alertController: UIAlertController) -> Void)? = nil) {
         
         self.showActionSheet(title: title, message: message, actions: actions) { (alertController) -> Void in
             
@@ -176,7 +176,7 @@ extension UIViewController {
      */
     
     @available(tvOS, unavailable)
-    open func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], sourceRect: CGRect, sourceView: UIView?, popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
+    public func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], sourceRect: CGRect, sourceView: UIView?, popoverPresentationControllerDelegate: UIPopoverPresentationControllerDelegate) {
         
         self.showActionSheet(title: title, message: message, actions: actions, sourceRect: sourceRect, sourceView: sourceView) { (alertController) -> Void in
             
@@ -193,7 +193,7 @@ extension UIViewController {
      - parameter barButtonItem: See `UIPopoverPresentationController` for more information.
      */
 
-    open func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], barButtonItem: UIBarButtonItem) {
+    public func showActionSheet(title: String?, message: String?, actions: [UIAlertAction], barButtonItem: UIBarButtonItem) {
         
         self.showActionSheet(title: title, message: message, actions: actions) { (alertController) -> Void in
             

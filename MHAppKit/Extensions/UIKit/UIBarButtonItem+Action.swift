@@ -15,7 +15,7 @@ extension UIBarButtonItem {
     private static var actionHandlerKey = ""
     
     ///Sets an action handler closure that can be used instead of the standart target-action mechanism. The handler is called when the button is tapped.
-    open var actionHandler: Action? {
+    public var actionHandler: Action? {
         
         get {
             

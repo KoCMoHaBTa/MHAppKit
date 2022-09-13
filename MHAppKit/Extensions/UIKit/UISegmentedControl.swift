@@ -12,7 +12,7 @@ import UIKit
 
 extension UISegmentedControl {
     
-    open func framesForAllSegments() -> [CGRect] {
+    public func framesForAllSegments() -> [CGRect] {
         
         let height = self.frame.size.height
         let y: CGFloat = 0
@@ -49,7 +49,7 @@ extension UISegmentedControl {
         return result
     }
     
-    open func frameForSegment(at index: Int) -> CGRect {
+    public func frameForSegment(at index: Int) -> CGRect {
         
         return self.framesForAllSegments()[index]
     }

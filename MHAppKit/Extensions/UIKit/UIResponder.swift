@@ -12,7 +12,7 @@ import UIKit
 
 extension UIResponder {
 
-    open var responderChain: AnySequence<UIResponder> {
+    public var responderChain: AnySequence<UIResponder> {
         
         return AnySequence.init { [weak self] () -> AnyIterator<UIResponder> in
             

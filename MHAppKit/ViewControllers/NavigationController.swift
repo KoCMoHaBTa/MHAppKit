@@ -212,13 +212,13 @@ extension NavigationController: UIGestureRecognizerDelegate {
 extension UIViewController {
     
     //used when presentor defines the transition to the presented controller
-    open func preferedNavigationAnimator(for operation: UINavigationController.Operation, toController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func preferedNavigationAnimator(for operation: UINavigationController.Operation, toController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return nil
     }
     
     //used when presented controller defines its own transition
-    open func preferedNavigationAnimator(for operation: UINavigationController.Operation, fromController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func preferedNavigationAnimator(for operation: UINavigationController.Operation, fromController controller: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return nil
     }

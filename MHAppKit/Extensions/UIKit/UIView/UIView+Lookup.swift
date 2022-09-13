@@ -13,7 +13,7 @@ import UIKit
 extension UIView {
     
     ///Returns a sequence of the composition of all subviews
-    open var allSubviews: [UIView] {
+    public var allSubviews: [UIView] {
         
         return self.subviews + self.subviews.flatMap({ $0.allSubviews })
     }
