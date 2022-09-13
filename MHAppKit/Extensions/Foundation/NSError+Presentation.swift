@@ -73,46 +73,13 @@ extension Error {
     
     ///Show the receiver as a local notification.
     ///- parameter title: The title of the notification
-    ///- parameter configurationHandler: A closure used for addition  configuration of the UILocalNotification
-    ///- note: The message of the notification is the receiver's `localizedDescription`.
-    @available(tvOS, unavailable)
-    public func showAsLocalNotification(withTitle title: String, configurationHandler: ((UILocalNotification) -> Void)) {
-        
-        let message = self.localizedDescription
-        
-        let notification = UILocalNotification()
-        notification.fireDate = nil
-        notification.alertBody = message
-        
-        if #available(iOS 8.2, *) {
-            
-            notification.alertTitle = title
-        }
-        
-        configurationHandler(notification)
-        
-        UIApplication.shared.scheduleLocalNotification(notification)
-    }
-    
-    ///Show the receiver as a local notification.
-    ///- parameter title: The title of the notification
     ///- note: The message of the notification is the receiver's `localizedDescription`.
     @available(tvOS, unavailable)
     public func showAsLocalNotification(withTitle title: String) {
         
-        if #available(iOS 10, *) {
-            
-            self.showAsLocalNotification(withTitle: title) { (notificationContent: UNMutableNotificationContent) in
-                
-                //default empty configuration
-            }
-        }
-        else {
-            
-            self.showAsLocalNotification(withTitle: title) { (notificationContent: UILocalNotification) in
-                
-                //default empty configuration
-            }
+        self.showAsLocalNotification(withTitle: title) { (notificationContent: UNMutableNotificationContent) in
+
+            //default empty configuration
         }
     }
     

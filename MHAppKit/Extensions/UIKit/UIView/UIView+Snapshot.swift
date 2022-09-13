@@ -42,7 +42,7 @@ extension UIView {
                 
                 if #available(iOS 10.0, *), #available(tvOS 10.0, *) {
                     
-                    let rendererFormat = UIGraphicsImageRendererFormat.default()
+                    let rendererFormat = UIGraphicsImageRendererFormat.preferred()
                     rendererFormat.opaque = self.isOpaque
                     let renderer = UIGraphicsImageRenderer(size: self.bounds.size, format: rendererFormat)
                     

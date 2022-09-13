@@ -98,17 +98,7 @@ extension Dictionary where Key == UIImagePickerController.InfoKey, Value == Any 
     @available(tvOS 10, *)
     public func fetchAsset() -> PHAsset? {
         
-        if #available(iOS 11.0, *), let asset = self.asset {
-            
-            return asset
-        }
-        
-        guard let url = self.referenceURL else {
-            
-            return nil
-        }
-        
-        return PHAsset.fetchAssets(withALAssetURLs: [url], options: nil).firstObject
+        return self.asset
     }
 }
 
