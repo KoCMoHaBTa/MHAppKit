@@ -37,7 +37,7 @@ extension UIControl {
 
 extension UIControl {
     
-    private static var actionHandlersKey = ""
+    private static var actionHandlersKey: Void?
     fileprivate var actionHandlers: [ActionHandler] {
         
         get {

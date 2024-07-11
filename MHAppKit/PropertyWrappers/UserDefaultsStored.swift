@@ -77,12 +77,12 @@ public struct UserDefaultsStored<T> {
         }
     }
     
-    private func isOptional<T>(_ value: T) -> Bool {
-        
+    private func isOptional<U>(_ value: U) -> Bool {
+
         return value is OptionalTypeVerifiable
     }
     
-    private func isNil<T>(_ value: T) -> Bool {
+    private func isNil<U>(_ value: U) -> Bool {
         
         return (value as? OptionalTypeVerifiable)?.isNil == true
     }

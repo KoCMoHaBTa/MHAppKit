@@ -14,7 +14,7 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
     
     public typealias CompletionHandler = (MFMailComposeViewController, MFMailComposeResult, Error?) -> Void
     
-    private static var completionHandlerKey = ""
+    private static var completionHandlerKey: Void?
     
     ///Makes the MFMailComposeViewController assign itself as delegate and call the provided completionHandler upon completion
     public var completionHandler: CompletionHandler? {
